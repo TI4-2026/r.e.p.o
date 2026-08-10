@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
     private bool jumpRequested;
-    private float groundCheckDistance = 0.2f;
+    private float groundCheckDistance = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             verticalVelocity.y = -2f;
         }
 
-        if (jumpRequested)
+        if (isGrounded && jumpRequested)
         {
             verticalVelocity.y = jumpForce;
             jumpRequested = false;
