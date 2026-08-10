@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private bool jumpRequested;
     private float groundCheckDistance = 0.1f;
+    private float maxFallSpeed = -20f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,12 +63,17 @@ public class PlayerMovement : MonoBehaviour
             verticalVelocity.y = -2f;
         }
 
+        if (verticalVelocity.y < maxFallSpeed)
+        {
+            verticalVelocity.y = maxFallSpeed;
+        }
+
         if (isGrounded && jumpRequested)
         {
             verticalVelocity.y = jumpForce;
-            jumpRequested = false;
         }
 
+        jumpRequested = false;
         verticalVelocity.y += gravity * Time.deltaTime;
         characterController.Move(verticalVelocity * Time.deltaTime);
     }
