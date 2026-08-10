@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
     private bool jumpRequested;
+    private float groundCheckDistance = 0.2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,17 +53,16 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(movementDirection * speed * Time.deltaTime);
     }
 
-    /*
     private void VerticalMovement()
     {
-        bool isGrounded = characterController.isGrounded;
+        bool isGrounded = IsGrounded();
 
-        if (verticalVelocity.y < 0f)
+        if (isGrounded && verticalVelocity.y < 0f)
         {
             verticalVelocity.y = -2f;
         }
 
-        if (isGrounded && jumpRequested)
+        if (jumpRequested)
         {
             verticalVelocity.y = jumpForce;
             jumpRequested = false;
@@ -71,5 +71,14 @@ public class PlayerMovement : MonoBehaviour
         verticalVelocity.y += gravity * Time.deltaTime;
         characterController.Move(verticalVelocity * Time.deltaTime);
     }
-    */
+
+    private bool IsGrounded()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        if (Physics.Raycast(ray, out RaycastHit hit, groundCheckDistance))
+        {
+            return true;
+        }
+        return false;
+    }
 }
