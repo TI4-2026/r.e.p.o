@@ -179,6 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1526c319c5d8943adf42e58e305b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  gameSceneName: game
+  startButton: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!4 &233916524
 Transform:
   m_ObjectHideFlags: 0
@@ -688,7 +691,7 @@ GameObject:
   - component: {fileID: 834515802}
   - component: {fileID: 834515801}
   m_Layer: 5
-  m_Name: EXIT
+  m_Name: button-exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 168, y: 62.5}
+  m_AnchoredPosition: {x: 167, y: 82}
   m_SizeDelta: {x: 250, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834515801
@@ -757,7 +760,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 834515802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233916523}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &834515802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,7 +825,7 @@ GameObject:
   - component: {fileID: 1296448252}
   - component: {fileID: 1296448256}
   m_Layer: 5
-  m_Name: menu
+  m_Name: canvas-menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,6 +926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1526c319c5d8943adf42e58e305b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  gameSceneName: 
+  startButton: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!1 &1356767179
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +943,7 @@ GameObject:
   - component: {fileID: 1356767181}
   - component: {fileID: 1356767184}
   m_Layer: 5
-  m_Name: PLAY
+  m_Name: button-play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -82, y: 62.5}
+  m_AnchoredPosition: {x: -83, y: 82}
   m_SizeDelta: {x: 250, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356767181
@@ -994,7 +1012,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1356767182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233916523}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1356767182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,15 +1136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 72536a462071d6c48b131ddfb4c775f1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1342,7 +1372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108426235}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1356,8 +1386,8 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 2108426238}
   - {fileID: 739147334}
   - {fileID: 233916524}
   - {fileID: 81577302}
   - {fileID: 1296448255}
-  - {fileID: 2108426238}

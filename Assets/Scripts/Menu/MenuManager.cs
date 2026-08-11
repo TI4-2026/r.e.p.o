@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Settings")]
+    [SerializeField] private string gameSceneName;
+
+    [Header("References")]
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button exitButton;
+
+    public void StartGame()
     {
-        
+        Debug.Log("Loading game scene");
+        SceneManager.LoadScene(gameSceneName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitGame()
     {
-        
+        Debug.Log("Quitting game");
+        Application.Quit();
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
