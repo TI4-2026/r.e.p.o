@@ -7,10 +7,6 @@ public class MenuManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private string gameSceneName;
 
-    [Header("References")]
-    [SerializeField] private Button startButton;
-    [SerializeField] private Button exitButton;
-
     public void StartGame()
     {
         Debug.Log("Loading game scene");
