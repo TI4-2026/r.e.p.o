@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
@@ -15,18 +16,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
     private bool jumpRequested;
+    private bool isSprinting;
     private float groundCheckDistance = 0.1f;
     private bool isMovementEnabled = true;
     
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isMovementEnabled)
@@ -59,6 +58,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isSprinting = true;
+        }
+        else if (context.canceled)
+        {
+            isSprinting = false;
+        }
+    }
+
     // --------------- Movement ---------------
 
     private void HorizontalMovement()
@@ -73,7 +84,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
-        characterController.Move(movementDirection * speed * Time.deltaTime);
+        float currentSpeed = isSprinting ? sprintSpeed : speed;
+        currentSpeed = !IsGrounded() ? speed : currentSpeed;
+        
+        characterController.Move(movementDirection * currentSpeed * Time.deltaTime);
     }
 
     private void FollowCameraRotation()

@@ -16,6 +16,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "sprint",
+                    "type": "Button",
+                    "id": "166cf0f1-24eb-49e4-b230-7c8d3affaf19",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "jump",
                     "type": "Button",
                     "id": "c35c890c-ffb4-4e3b-b9f4-12ca63c37e82",
@@ -109,6 +118,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "unlock-cursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfbc6063-61cd-4789-8988-a275e249a465",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -135,6 +135,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 09e4f8c1-38ae-41af-bd7a-f6ac11c9fe76
     m_ActionName: 'basic/unlock-cursor[/Keyboard/leftAlt]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8684086751821290450}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnSprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 166cf0f1-24eb-49e4-b230-7c8d3affaf19
+    m_ActionName: 'basic/sprint[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -153,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
+  sprintSpeed: 8
   jumpForce: 8
   gravity: -9.81
   maxFallSpeed: -20
@@ -168,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ab2ea0063794b4484672c77f828513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCursor
+  cameraInputAxisController: {fileID: 0}
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0

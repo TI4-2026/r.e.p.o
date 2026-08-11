@@ -15,6 +15,8 @@ public class PlayerCursor : MonoBehaviour
         LockCursor();
     }
 
+    // ----------------- Input Actions -----------------
+
     public void AlternateCursor(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -35,6 +37,8 @@ public class PlayerCursor : MonoBehaviour
             }
         }
     }
+
+    // ----------------- Private Methods -----------------
 
     private void SetCameraInputEnabled(bool enabled)
     {
