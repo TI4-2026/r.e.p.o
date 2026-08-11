@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 111d1ca38d1aa014182f34c7adf26f43, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: fb17c4559e890c543964448b10cf6eed, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -165,13 +165,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2646676395974069671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c29133c1f2b5a4a90cbd10cf5801a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac10ef5d03bf044cb9f98cb80a8277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
   sprintSpeed: 8
-  jumpForce: 9
-  gravity: -18
+  jumpForce: 8
+  gravity: -9.81
   maxFallSpeed: -20
 --- !u!114 &4904076733031521049
 MonoBehaviour:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2646676395974069671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ab2ea0063794b4484672c77f828513, type: 3}
+  m_Script: {fileID: 11500000, guid: 39f165f9f39679f4288d87c94251a261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCursor
   cameraInputAxisController: {fileID: 0}
