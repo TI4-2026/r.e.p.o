@@ -329,8 +329,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 376.96777, y: 96.69858}
-  m_SizeDelta: {x: 733.5703, y: 173.0319}
+  m_AnchoredPosition: {x: 414.87085, y: 123.037964}
+  m_SizeDelta: {x: 809.3765, y: 225.7107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996698392
 MonoBehaviour:
@@ -386,8 +386,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 8.72
+  m_characterSpacing: 5
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1446,6 +1446,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4904076733031521049, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: cameraInputAxisController
+      value: 
+      objectReference: {fileID: 2076868698}
     - target: {fileID: 4904076733031521049, guid: e620b80f6bdabd348bbb2235248a1852, type: 3}
       propertyPath: cameraInputAxisController
       value: 
