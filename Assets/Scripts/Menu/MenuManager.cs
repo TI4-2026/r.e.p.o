@@ -46,6 +46,8 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
+        yield return new WaitForSeconds(0.5f);
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         MenuUi.ShowLoadingScreen();
         operation.allowSceneActivation = false;
