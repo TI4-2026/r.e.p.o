@@ -4,11 +4,13 @@ public class MenuUi : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private GameObject optionsScreen;
 
     private void Start()
     {
         MenuManager.Instance.MenuUi = this;
         loadingScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     // ------------------- Public Methods -------------------
@@ -18,9 +20,19 @@ public class MenuUi : MonoBehaviour
         loadingScreen.SetActive(true);
     }
 
+    public void ShowOptionsScreen()
+    {
+        optionsScreen.SetActive(true);
+    }
+
     public void HideLoadingScreen()
     {
         loadingScreen.SetActive(false);
+    }
+
+    public void HideOptionsScreen()
+    {
+        optionsScreen.SetActive(false);
     }
 
     // ------------------- Animations -------------------

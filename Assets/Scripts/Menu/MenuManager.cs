@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     [Header("Auto-Filled")]
     public MenuUi MenuUi;
 
+    private bool isOptionsOpen = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,6 +31,20 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Loading game scene");
         LoadScene(gameSceneName);
+    }
+
+    public void Options()
+    {
+        if (isOptionsOpen)
+        {
+            MenuUi.HideOptionsScreen();
+            isOptionsOpen = false;
+        }
+        else
+        {
+            MenuUi.ShowOptionsScreen();
+            isOptionsOpen = true;
+        }
     }
 
     public void ExitGame()
