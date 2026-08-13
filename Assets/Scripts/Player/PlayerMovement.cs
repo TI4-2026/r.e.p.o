@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
     [SerializeField] private float jumpBufferTime = 0.2f;
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float isGroundedGraceTime = 0.2f;
     private CharacterController characterController;
     private Camera mainCamera;
     
@@ -24,10 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed;
     private bool jumpRequested;
     private bool isSprinting;
+    private bool isJumping;
     private bool isMovementEnabled = true;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
-    
+    private float lastGroundedTime=0f;
+    private float lastJumpTime=0f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -109,29 +114,52 @@ public class PlayerMovement : MonoBehaviour
 
     private void VerticalMovement()
     {
+        // Stand Gravity
         if (isGrounded && verticalVelocity.y < 0f)
         {
             verticalVelocity.y = -2f;
         }
 
+        // Fall Gravity
         if (verticalVelocity.y < maxFallSpeed)
         {
             verticalVelocity.y = maxFallSpeed;
         }
 
         // Jump
-        if (isGrounded && jumpRequested)
+        if (jumpRequested)
         {
-            if (Time.time - jumpRequestTimer < jumpBufferTime)
+            // Coyote Time
+            if (!isGrounded && Time.time - lastGroundedTime < coyoteTime && !isJumping)
             {
-                verticalVelocity.y = jumpForce;
+                Jump();
             }
-            jumpRequestTimer = 0f;
-            jumpRequested = false;
+            
+            // Jump and Jump Buffer
+            if (isGrounded)
+            {
+                if (Time.time - jumpRequestTimer < jumpBufferTime) // Jump Buffer
+                {
+                    Jump();
+                }else
+                {
+                    jumpRequestTimer = 0f;
+                    jumpRequested = false;
+                }
+            }
         }
 
         verticalVelocity.y += gravity * Time.deltaTime;
         characterController.Move(verticalVelocity * Time.deltaTime);
+    }
+
+    private void Jump()
+    {
+        verticalVelocity.y = jumpForce;
+        jumpRequestTimer = 0f;
+        jumpRequested = false;
+        isJumping = true;
+        lastJumpTime = Time.time;
     }
 
     private void CheckGrounded()
@@ -139,7 +167,11 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit hit, groundCheckDistance))
         {
+            if (Time.time - lastJumpTime < isGroundedGraceTime) return;
+            
+            isJumping = false;
             isGrounded = true;
+            lastGroundedTime = Time.time;
         }
         else
         {
