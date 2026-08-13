@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
     private Camera mainCamera;
+    private float groundCheckDistance = 0.1f;
+
+    // ---------- Control Variables ----------
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
+    private float currentSpeed;
     private bool jumpRequested;
     private bool isSprinting;
-    private float groundCheckDistance = 0.1f;
     private bool isMovementEnabled = true;
+    private bool isGrounded;
     
     void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        CheckGrounded();
         if (isMovementEnabled)
         {
             FollowCameraRotation();
@@ -84,9 +89,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
-        float currentSpeed = isSprinting ? sprintSpeed : speed;
-        currentSpeed = !IsGrounded() ? speed : currentSpeed;
-        
+        if (isGrounded)
+        {
+            currentSpeed = isSprinting ? sprintSpeed : speed;
+        }
         characterController.Move(movementDirection * currentSpeed * Time.deltaTime);
     }
 
@@ -98,8 +104,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void VerticalMovement()
     {
-        bool isGrounded = IsGrounded();
-
         if (isGrounded && verticalVelocity.y < 0f)
         {
             verticalVelocity.y = -2f;
@@ -110,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
             verticalVelocity.y = maxFallSpeed;
         }
 
+        // Jump
         if (isGrounded && jumpRequested)
         {
             verticalVelocity.y = jumpForce;
@@ -120,13 +125,16 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(verticalVelocity * Time.deltaTime);
     }
 
-    private bool IsGrounded()
+    private void CheckGrounded()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit hit, groundCheckDistance))
         {
-            return true;
+            isGrounded = true;
         }
-        return false;
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
