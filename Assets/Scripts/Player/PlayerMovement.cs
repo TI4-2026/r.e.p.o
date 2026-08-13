@@ -5,16 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Attributes")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
 
+    [Header("Settings")]
+    [SerializeField] private float groundCheckDistance = 0.15f;
+    [SerializeField] private float jumpBufferTime = 0.2f;
     private CharacterController characterController;
     private Camera mainCamera;
-    private float groundCheckDistance = 0.1f;
-
+    
     // ---------- Control Variables ----------
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting;
     private bool isMovementEnabled = true;
     private bool isGrounded;
+    private float jumpRequestTimer=0f;
     
     void Start()
     {
@@ -60,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             jumpRequested = true;
+            jumpRequestTimer = Time.time;
         }
     }
 
@@ -117,10 +122,14 @@ public class PlayerMovement : MonoBehaviour
         // Jump
         if (isGrounded && jumpRequested)
         {
-            verticalVelocity.y = jumpForce;
+            if (Time.time - jumpRequestTimer < jumpBufferTime)
+            {
+                verticalVelocity.y = jumpForce;
+            }
+            jumpRequestTimer = 0f;
+            jumpRequested = false;
         }
 
-        jumpRequested = false;
         verticalVelocity.y += gravity * Time.deltaTime;
         characterController.Move(verticalVelocity * Time.deltaTime);
     }
