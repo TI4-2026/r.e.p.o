@@ -5,21 +5,34 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Attributes")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
 
+    [Header("Settings")]
+    [SerializeField] private float groundCheckDistance = 0.15f;
+    [SerializeField] private float jumpBufferTime = 0.2f;
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float isGroundedGraceTime = 0.2f;
     private CharacterController characterController;
     private Camera mainCamera;
+    
+    // ---------- Control Variables ----------
     private Vector3 verticalVelocity;
     private Vector2 moveInput;
+    private float currentSpeed;
     private bool jumpRequested;
     private bool isSprinting;
-    private float groundCheckDistance = 0.1f;
+    private bool isJumping;
     private bool isMovementEnabled = true;
-    
+    private bool isGrounded;
+    private float jumpRequestTimer=0f;
+    private float lastGroundedTime=0f;
+    private float lastJumpTime=0f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -28,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        CheckGrounded();
         if (isMovementEnabled)
         {
             FollowCameraRotation();
@@ -55,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             jumpRequested = true;
+            jumpRequestTimer = Time.time;
         }
     }
 
@@ -84,9 +99,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
-        float currentSpeed = isSprinting ? sprintSpeed : speed;
-        currentSpeed = !IsGrounded() ? speed : currentSpeed;
-        
+        if (isGrounded)
+        {
+            currentSpeed = isSprinting ? sprintSpeed : speed;
+        }
         characterController.Move(movementDirection * currentSpeed * Time.deltaTime);
     }
 
@@ -98,35 +114,68 @@ public class PlayerMovement : MonoBehaviour
 
     private void VerticalMovement()
     {
-        bool isGrounded = IsGrounded();
-
+        // Stand Gravity
         if (isGrounded && verticalVelocity.y < 0f)
         {
             verticalVelocity.y = -2f;
         }
 
+        // Fall Gravity
         if (verticalVelocity.y < maxFallSpeed)
         {
             verticalVelocity.y = maxFallSpeed;
         }
 
-        if (isGrounded && jumpRequested)
+        // Jump
+        if (jumpRequested)
         {
-            verticalVelocity.y = jumpForce;
+            // Coyote Time
+            if (!isGrounded && Time.time - lastGroundedTime < coyoteTime && !isJumping)
+            {
+                Jump();
+            }
+            
+            // Jump and Jump Buffer
+            if (isGrounded)
+            {
+                if (Time.time - jumpRequestTimer < jumpBufferTime) // Jump Buffer
+                {
+                    Jump();
+                }else
+                {
+                    jumpRequestTimer = 0f;
+                    jumpRequested = false;
+                }
+            }
         }
 
-        jumpRequested = false;
         verticalVelocity.y += gravity * Time.deltaTime;
         characterController.Move(verticalVelocity * Time.deltaTime);
     }
 
-    private bool IsGrounded()
+    private void Jump()
+    {
+        verticalVelocity.y = jumpForce;
+        jumpRequestTimer = 0f;
+        jumpRequested = false;
+        isJumping = true;
+        lastJumpTime = Time.time;
+    }
+
+    private void CheckGrounded()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit hit, groundCheckDistance))
         {
-            return true;
+            if (Time.time - lastJumpTime < isGroundedGraceTime) return;
+            
+            isJumping = false;
+            isGrounded = true;
+            lastGroundedTime = Time.time;
         }
-        return false;
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
