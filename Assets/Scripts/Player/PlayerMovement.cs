@@ -57,6 +57,25 @@ public class PlayerMovement : MonoBehaviour
         isMovementEnabled = enabled;
     }
 
+    public void Teleport(Transform destination)
+    {
+        characterController.enabled = false;
+
+        verticalVelocity = Vector3.zero;
+        isSprinting = false;
+        isJumping = false;
+        lastGroundedTime = 0f;
+        lastJumpTime = 0f;
+        jumpRequestTimer = 0f;
+        jumpRequested = false;
+
+        transform.forward = destination.forward;
+        transform.position = destination.position;
+
+
+        characterController.enabled = true;
+    }
+
     // --------------- Input Actions ---------------
 
     public void OnMove(InputAction.CallbackContext context)
@@ -178,4 +197,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
