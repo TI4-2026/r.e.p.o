@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting;
     private bool isJumping;
     private bool isMovementEnabled = true;
+    private bool isFreeze = false;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
@@ -42,12 +43,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGrounded();
-        if (isMovementEnabled)
+
+        if (!isFreeze) 
         {
-            FollowCameraRotation();
-            HorizontalMovement();
+            if (isMovementEnabled)
+            {
+                FollowCameraRotation();
+                HorizontalMovement();
+            }
+            VerticalMovement();
         }
-        VerticalMovement();
+        
     }
 
     // --------------- Public Methods ---------------
@@ -57,10 +63,21 @@ public class PlayerMovement : MonoBehaviour
         isMovementEnabled = enabled;
     }
 
-    public void Teleport(Transform destination)
+    public void Freeze()
     {
-        characterController.enabled = false;
+        isFreeze = true;
+    }
 
+    public void Unfreeze()
+    {
+        isFreeze = false;
+    }
+
+    public void ExecuteTeleport(Transform destination)
+    {
+        isFreeze = true;
+        characterController.enabled = false;
+        
         verticalVelocity = Vector3.zero;
         isSprinting = false;
         isJumping = false;
@@ -72,8 +89,8 @@ public class PlayerMovement : MonoBehaviour
         transform.forward = destination.forward;
         transform.position = destination.position;
 
-
         characterController.enabled = true;
+        isFreeze = false;
     }
 
     // --------------- Input Actions ---------------

@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
 {
-    // Singleton instance
+    // --------------- Singleton ---------------
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
@@ -17,25 +18,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ============= Variables =============
+    // --------------- Variables ---------------
 
     [Header("Attributes")]
-    [SerializeField] private Transform spawnpoint;
+    [SerializeField] private Transform spawn;
+
+    [Header("Autofilled")]
+    public Hud Hud;
 
     private Transform checkpoint = null;
     private int currentCheckpointPriority = 0;
 
-    // ============= Private Methods =============
-
-
-
-    // ============= Public Methods =============
+    // --------------- Public Methods ---------------
 
     public void SpawnPlayer(GameObject player)
     {
-        Transform teleportPoint = checkpoint != null ? checkpoint : spawnpoint;
+        Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
 
-        player.GetComponent<PlayerMovement>().Teleport(teleportPoint);
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+
+        Hud.BlackFade(
+            onMiddle: () => 
+            {
+                playerMovement.Freeze();
+                playerMovement.ExecuteTeleport(teleportPoint);
+            },
+            onComplete: () => playerMovement.Unfreeze()
+        );
     }
 
     public void KillPlayer(GameObject player)
