@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
@@ -25,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private float currentSpeed;
     private bool jumpRequested;
-    private bool isSprinting;
     private bool isJumping;
     private bool isMovementEnabled = true;
     private bool isFreeze = false;
@@ -79,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         characterController.enabled = false;
         
         verticalVelocity = Vector3.zero;
-        isSprinting = false;
         isJumping = false;
         lastGroundedTime = 0f;
         lastJumpTime = 0f;
@@ -109,18 +106,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            isSprinting = true;
-        }
-        else if (context.canceled)
-        {
-            isSprinting = false;
-        }
-    }
-
     // --------------- Movement ---------------
 
     private void HorizontalMovement()
@@ -135,11 +120,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
-        if (isGrounded)
-        {
-            currentSpeed = isSprinting ? sprintSpeed : speed;
-        }
-        characterController.Move(movementDirection * currentSpeed * Time.deltaTime);
+        characterController.Move(movementDirection * speed * Time.deltaTime);
     }
 
     private void FollowCameraRotation()
