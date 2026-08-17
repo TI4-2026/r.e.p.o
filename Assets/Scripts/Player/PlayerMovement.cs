@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isFreeze);
         CheckGrounded();
 
         if (!isFreeze) 
@@ -73,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void ExecuteTeleport(Transform destination)
     {
-        isFreeze = true;
         characterController.enabled = false;
         
         verticalVelocity = Vector3.zero;
@@ -87,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
         transform.position = destination.position;
 
         characterController.enabled = true;
-        isFreeze = false;
     }
 
     // --------------- Input Actions ---------------
@@ -110,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HorizontalMovement()
     {
+        if (!characterController.enabled) return;
+
         Vector3 cameraRight = mainCamera.transform.right;
         Vector3 cameraForward = mainCamera.transform.forward;
         cameraRight.y = 0f;
@@ -131,6 +132,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void VerticalMovement()
     {
+        if (!characterController.enabled) return;
+        
         // Stand Gravity
         if (isGrounded && verticalVelocity.y < 0f)
         {

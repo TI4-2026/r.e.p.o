@@ -32,10 +32,10 @@ public class Hud : MonoBehaviour
             StopCoroutine(fadeCoroutine);
         }
         
-        fadeCoroutine = StartCoroutine(FadeRoutine(onMiddle, onComplete));
+        fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete));
     }
 
-    private IEnumerator FadeRoutine(Action onMiddle, Action onComplete)
+    private IEnumerator I_BlackFade(Action onMiddle, Action onComplete)
     {
         LeanTween.cancel(panelFade.gameObject);
 

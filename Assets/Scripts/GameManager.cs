@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Autofilled")]
     public Hud Hud;
-
-    private Transform checkpoint = null;
+    public Transform checkpoint = null;
+    
     private int currentCheckpointPriority = 0;
 
     // --------------- Public Methods ---------------
@@ -40,10 +40,10 @@ public class GameManager : MonoBehaviour
         Hud.BlackFade(
             onMiddle: () => 
             {
-                playerMovement.Freeze();
+                playerMovement.SetMovementEnabled(false);
                 playerMovement.ExecuteTeleport(teleportPoint);
             },
-            onComplete: () => playerMovement.Unfreeze()
+            onComplete: () => playerMovement.SetMovementEnabled(true)
         );
     }
 
