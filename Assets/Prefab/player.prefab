@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6861167194528145986}
   - component: {fileID: 7649918742527063091}
   - component: {fileID: 8684086751821290450}
+  - component: {fileID: 714465639065153002}
   - component: {fileID: 4904076733031521049}
   m_Layer: 0
   m_Name: player
@@ -137,9 +138,9 @@ MonoBehaviour:
     m_ActionName: 'basic/unlock-cursor[/Keyboard/leftAlt]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8684086751821290450}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnSprint
+      - m_Target: {fileID: 714465639065153002}
+        m_TargetAssemblyTypeName: PlayerDash, Assembly-CSharp
+        m_MethodName: OnDash
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -168,8 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac10ef5d03bf044cb9f98cb80a8277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
-  sprintSpeed: 7.5
+  speed: 7.5
   jumpForce: 8
   gravity: -18
   maxFallSpeed: -20
@@ -177,6 +177,21 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   coyoteTime: 0.2
   isGroundedGraceTime: 0.2
+--- !u!114 &714465639065153002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211aa28ca043af346aedcc41ee5d402e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
+  dashDistance: 5
+  dashSpeed: 10
+  dashCooldown: 1
 --- !u!114 &4904076733031521049
 MonoBehaviour:
   m_ObjectHideFlags: 0
