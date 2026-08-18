@@ -18,9 +18,9 @@ public class PlayerCollisionObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            OnPlayerTriggerEnter(other);
+            OnPlayerTriggerEnter(other.gameObject);
         }
     }
 
-    protected virtual void OnPlayerTriggerEnter(Collider other) {}
+    protected virtual void OnPlayerTriggerEnter(GameObject go) {}
 }
