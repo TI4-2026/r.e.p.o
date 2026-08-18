@@ -52,7 +52,6 @@ public class PlayerDash : MonoBehaviour
 
     private void StartDash()
     {
-        Debug.Log("Starting dash");
         isDashing = true;
         lastDashTime = Time.time;
         playerMovement.SetMovementEnabled(false);

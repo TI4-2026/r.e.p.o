@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4420632344708239137}
   - component: {fileID: 6861167194528145986}
   - component: {fileID: 7649918742527063091}
+  - component: {fileID: 5116510944022171384}
   - component: {fileID: 8684086751821290450}
   - component: {fileID: 714465639065153002}
   - component: {fileID: 4904076733031521049}
@@ -157,6 +158,18 @@ MonoBehaviour:
   m_DefaultActionMap: basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5116510944022171384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55b41045e6ce4441b5e82450d02c567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionSelf
 --- !u!114 &8684086751821290450
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class PlatformBehavior : MonoBehaviour
 {
-    [SerializeField] private bool rightDirection = true;
-    [SerializeField] private float distance = 5f;
-    [SerializeField] private float speed = 2f;
+    [Header("Attributes")]
+    [SerializeField] protected bool rightDirection = true;
+    [SerializeField] protected float distance = 5f;
+    [SerializeField] protected float speed = 2f;
 
-    private Rigidbody rb;
-    private Vector3 startPosition;
-    private Vector3 endPosition;
-    private Vector3 targetPosition;
+    protected Rigidbody rb;
+    protected Vector3 startPosition;
+    protected Vector3 endPosition;
+    protected Vector3 targetPosition;
 
-    void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         startPosition = transform.position;
 
@@ -26,7 +27,12 @@ public class PlatformBehavior : MonoBehaviour
         targetPosition = endPosition;
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
+    {
+        Movement();
+    }
+
+    protected virtual void Movement()
     {
         Vector3 nextPosition = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
 

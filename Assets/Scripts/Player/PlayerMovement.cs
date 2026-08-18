@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isFreeze);
         CheckGrounded();
 
         if (!isFreeze) 
