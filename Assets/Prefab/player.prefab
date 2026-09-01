@@ -169,10 +169,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
-  sprintSpeed: 7.5
+  sprintSpeed: 10
   jumpForce: 8
   gravity: -18
   maxFallSpeed: -20
+  groundCheckDistance: 0.15
+  jumpBufferTime: 0.2
+  coyoteTime: 0.2
+  isGroundedGraceTime: 0.2
 --- !u!114 &4904076733031521049
 MonoBehaviour:
   m_ObjectHideFlags: 0
