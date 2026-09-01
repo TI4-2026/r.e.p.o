@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 7649918742527063091}
   - component: {fileID: 8684086751821290450}
   - component: {fileID: 4904076733031521049}
+  - component: {fileID: 1693969227258872783}
+  - component: {fileID: 1190388858981423134}
+  - component: {fileID: 2320327148494455099}
+  - component: {fileID: 3276357429332917510}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -170,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
   sprintSpeed: 10
-  jumpForce: 8
+  jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
   groundCheckDistance: 0.15
@@ -190,6 +194,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCursor
   cameraInputAxisController: {fileID: 0}
+--- !u!114 &1693969227258872783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
+  past: {fileID: 0}
+  future: {fileID: 0}
+  cooldownSlider: {fileID: 0}
+--- !u!114 &1190388858981423134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1de7b40f5fd854bb79b12a69fef0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PairsTimeTravel
+  future: []
+  past: []
+--- !u!54 &2320327148494455099
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &3276357429332917510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b00bc46d2d6264dbb10ab7eb0e037a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPush
+  pushForce: 5
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0
