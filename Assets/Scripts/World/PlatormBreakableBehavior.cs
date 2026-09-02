@@ -27,7 +27,7 @@ public class PlatormBreakableBehavior : PlatformBehavior
 
     // -------------------- Public Methods --------------------
 
-    public void OnPlayerCollision(GameObject go)
+    public void OnPlayerCollision()
     {
         StartCoroutine(I_BreakPlatform());
     }

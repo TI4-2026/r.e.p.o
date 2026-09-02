@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerCollisionSelf : MonoBehaviour
@@ -13,14 +12,9 @@ public class PlayerCollisionSelf : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        try
+        if (hit.gameObject.TryGetComponent<PlayerCollisionObject>(out PlayerCollisionObject playerCollisionObject))
         {
-            hit.gameObject.GetComponent<PlayerCollisionObject>().OnPlayerCollisionEnter(hit.gameObject);
+            playerCollisionObject.OnPlayerCollisionEnter(gameObject);
         }
-        catch
-        {
-            
-        }
-
     }
 }

@@ -9,8 +9,10 @@ public class PC_PlatformBreakable : PlayerCollisionObject
         platformBreakableBehavior = GetComponent<PlatormBreakableBehavior>();
     }
 
-    public override void OnPlayerCollisionEnter(GameObject go)
+    public override void OnPlayerCollisionEnter(GameObject player)
     {
-        platformBreakableBehavior.OnPlayerCollision(go);
+        platformBreakableBehavior.OnPlayerCollision();
+
     }
 }
+

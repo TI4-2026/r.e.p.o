@@ -10,7 +10,7 @@ public class PlayerCollisionObject : MonoBehaviour
 
 
     // OnPlayerCollisionEnter is called from PlayerCollisionSelf.cs
-    public virtual void OnPlayerCollisionEnter(GameObject go) {}
+    public virtual void OnPlayerCollisionEnter(GameObject player) {}
 
     // ------------------------------------------------------------
 
@@ -22,5 +22,5 @@ public class PlayerCollisionObject : MonoBehaviour
         }
     }
 
-    protected virtual void OnPlayerTriggerEnter(GameObject go) {}
+    protected virtual void OnPlayerTriggerEnter(GameObject player) {}
 }
