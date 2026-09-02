@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 7.5
-  sprintSpeed: 10
   jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
@@ -250,8 +249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1de7b40f5fd854bb79b12a69fef0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PairsTimeTravel
-  future: []
-  past: []
+  future:
+  - {fileID: 0}
+  past:
+  - {fileID: 0}
 --- !u!54 &2320327148494455099
 Rigidbody:
   m_ObjectHideFlags: 0
