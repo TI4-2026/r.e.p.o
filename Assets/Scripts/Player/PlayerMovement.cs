@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
@@ -25,9 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private float currentSpeed;
     private bool jumpRequested;
-    private bool isSprinting;
     private bool isJumping;
     private bool isMovementEnabled = true;
+    private bool isFreeze = false;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
@@ -42,12 +41,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGrounded();
-        if (isMovementEnabled)
+
+        if (!isFreeze) 
         {
-            FollowCameraRotation();
-            HorizontalMovement();
+            if (isMovementEnabled)
+            {
+                FollowCameraRotation();
+                HorizontalMovement();
+            }
+            VerticalMovement();
         }
-        VerticalMovement();
+        
     }
 
     // --------------- Public Methods ---------------
@@ -55,6 +59,33 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovementEnabled(bool enabled)
     {
         isMovementEnabled = enabled;
+    }
+
+    public void Freeze()
+    {
+        isFreeze = true;
+    }
+
+    public void Unfreeze()
+    {
+        isFreeze = false;
+    }
+
+    public void ExecuteTeleport(Transform destination)
+    {
+        characterController.enabled = false;
+        
+        verticalVelocity = Vector3.zero;
+        isJumping = false;
+        lastGroundedTime = 0f;
+        lastJumpTime = 0f;
+        jumpRequestTimer = 0f;
+        jumpRequested = false;
+
+        transform.forward = destination.forward;
+        transform.position = destination.position;
+
+        characterController.enabled = true;
     }
 
     // --------------- Input Actions ---------------
@@ -73,22 +104,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            isSprinting = true;
-        }
-        else if (context.canceled)
-        {
-            isSprinting = false;
-        }
-    }
-
     // --------------- Movement ---------------
 
     private void HorizontalMovement()
     {
+        if (!characterController.enabled) return;
+
         Vector3 cameraRight = mainCamera.transform.right;
         Vector3 cameraForward = mainCamera.transform.forward;
         cameraRight.y = 0f;
@@ -99,11 +120,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
-        if (isGrounded)
-        {
-            currentSpeed = isSprinting ? sprintSpeed : speed;
-        }
-        characterController.Move(movementDirection * currentSpeed * Time.deltaTime);
+        characterController.Move(movementDirection * speed * Time.deltaTime);
     }
 
     private void FollowCameraRotation()
@@ -114,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void VerticalMovement()
     {
+        if (!characterController.enabled) return;
+        
         // Stand Gravity
         if (isGrounded && verticalVelocity.y < 0f)
         {
@@ -178,4 +197,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
