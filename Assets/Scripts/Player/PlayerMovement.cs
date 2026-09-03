@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
+    [SerializeField] private float rotationSpeed = 10f;
 
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
@@ -46,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isMovementEnabled)
             {
-                FollowCameraRotation();
                 HorizontalMovement();
             }
             VerticalMovement();
@@ -120,13 +120,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
+        if (movementDirection.sqrMagnitude > 0.0001f)
+        {
+            RotateTowardsMovement(movementDirection);
+        }
+
         characterController.Move(movementDirection * speed * Time.deltaTime);
     }
 
-    private void FollowCameraRotation()
+    private void RotateTowardsMovement(Vector3 movementDirection)
     {
-        float cameraYaw = mainCamera.transform.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0f, cameraYaw, 0f);
+        Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void VerticalMovement()

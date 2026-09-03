@@ -9,15 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4420632344708239137}
+  - component: {fileID: 5116510944022171384}
   - component: {fileID: 6861167194528145986}
   - component: {fileID: 7649918742527063091}
-  - component: {fileID: 5116510944022171384}
+  - component: {fileID: 7938991980053644193}
   - component: {fileID: 8684086751821290450}
   - component: {fileID: 714465639065153002}
-  - component: {fileID: 4904076733031521049}
   - component: {fileID: 1693969227258872783}
   - component: {fileID: 1190388858981423134}
-  - component: {fileID: 2320327148494455099}
   - component: {fileID: 3276357429332917510}
   m_Layer: 0
   m_Name: player
@@ -43,6 +42,18 @@ Transform:
   - {fileID: 6989872992186338338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5116510944022171384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55b41045e6ce4441b5e82450d02c567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionSelf
 --- !u!143 &6861167194528145986
 CharacterController:
   m_ObjectHideFlags: 0
@@ -127,8 +138,8 @@ MonoBehaviour:
     m_ActionName: 'basic/jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4904076733031521049}
-        m_TargetAssemblyTypeName: PlayerCursor, Assembly-CSharp
+      - m_Target: {fileID: 7938991980053644193}
+        m_TargetAssemblyTypeName: PlayerCamera, Assembly-CSharp
         m_MethodName: AlternateCursor
         m_Mode: 0
         m_Arguments:
@@ -162,7 +173,7 @@ MonoBehaviour:
   m_DefaultActionMap: basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5116510944022171384
+--- !u!114 &7938991980053644193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +182,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2646676395974069671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55b41045e6ce4441b5e82450d02c567, type: 3}
+  m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionSelf
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
+  cameraInputAxisController: {fileID: 0}
+  cameraHandle: {fileID: 0}
 --- !u!114 &8684086751821290450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +203,7 @@ MonoBehaviour:
   jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
+  rotationSpeed: 10
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
   coyoteTime: 0.2
@@ -209,19 +223,6 @@ MonoBehaviour:
   dashDistance: 5
   dashSpeed: 10
   dashCooldown: 1
---- !u!114 &4904076733031521049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f165f9f39679f4288d87c94251a261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCursor
-  cameraInputAxisController: {fileID: 0}
 --- !u!114 &1693969227258872783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,33 +254,6 @@ MonoBehaviour:
   - {fileID: 0}
   past:
   - {fileID: 0}
---- !u!54 &2320327148494455099
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &3276357429332917510
 MonoBehaviour:
   m_ObjectHideFlags: 0
