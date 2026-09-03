@@ -56,7 +56,11 @@ public class PlayerDash : MonoBehaviour
         lastDashTime = Time.time;
         playerMovement.SetMovementEnabled(false);
 
-        Vector3 direction = transform.forward;
+        Vector3 lookDirection = GetDashDirection();
+        lookDirection.y = 0f;
+        transform.LookAt(transform.position + lookDirection);
+
+        Vector3 direction = GetDashDirection();
         float duration = dashDistance / dashSpeed;
         float previousValue = 0f;
 
@@ -75,6 +79,20 @@ public class PlayerDash : MonoBehaviour
     {
         isDashing = false;
         playerMovement.SetMovementEnabled(true);
+    }
+
+    private Vector3 GetDashDirection()
+    {
+        Vector3 inputDirection = playerMovement.GetMovementDirection();
+        inputDirection.y = 0f;
+
+        if (inputDirection.sqrMagnitude <= 0.0001f)
+        {
+            inputDirection = Camera.main.transform.forward;
+            inputDirection.y = 0f;
+        }
+
+        return inputDirection;
     }
 
 }

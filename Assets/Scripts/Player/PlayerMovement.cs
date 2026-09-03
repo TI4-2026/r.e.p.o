@@ -61,6 +61,18 @@ public class PlayerMovement : MonoBehaviour
         isMovementEnabled = enabled;
     }
 
+    public Vector3 GetMovementDirection()
+    {
+        Vector3 cameraRight = mainCamera.transform.right;
+        Vector3 cameraForward = mainCamera.transform.forward;
+        cameraRight.y = 0f;
+        cameraForward.y = 0f;
+        cameraRight.Normalize();
+        cameraForward.Normalize();
+
+        return (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+    }
+
     public void Freeze()
     {
         isFreeze = true;
@@ -110,14 +122,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!characterController.enabled) return;
 
-        Vector3 cameraRight = mainCamera.transform.right;
-        Vector3 cameraForward = mainCamera.transform.forward;
-        cameraRight.y = 0f;
-        cameraForward.y = 0f;
-        cameraRight.Normalize();
-        cameraForward.Normalize();
-
-        Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+        Vector3 movementDirection = GetMovementDirection();
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
 
         if (movementDirection.sqrMagnitude > 0.0001f)
