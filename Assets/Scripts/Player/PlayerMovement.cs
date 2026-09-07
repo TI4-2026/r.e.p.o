@@ -12,17 +12,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
-    [SerializeField] private float rotationSpeed = 10f;
 
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
     [SerializeField] private float jumpBufferTime = 0.2f;
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField] private float isGroundedGraceTime = 0.2f;
+    [SerializeField] private float rotationSpeed = 10f;
     private CharacterController characterController;
     private Camera mainCamera;
     
     // ---------- Control Variables ----------
+
     private Vector3 verticalVelocity;
     private Vector3 currentVelocity;
     private Vector3 velocityRef;
@@ -73,7 +74,8 @@ public class PlayerMovement : MonoBehaviour
         cameraRight.Normalize();
         cameraForward.Normalize();
 
-        return (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+        Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+        return movementDirection.normalized;
     }
 
     public void Freeze()
@@ -128,14 +130,9 @@ public class PlayerMovement : MonoBehaviour
         if (!characterController.enabled) return;
 
         Vector3 movementDirection = GetMovementDirection();
-        movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
+        if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
 
-        if (movementDirection.sqrMagnitude > 0.0001f)
-        {
-            RotateTowardsMovement(movementDirection);
-        }
-
-        Vector3 targetVelocity = movementDirection * speed;
+        Vector3 targetVelocity = transform.forward * speed * movementDirection.magnitude;
         float smoothTime = targetVelocity.sqrMagnitude > currentVelocity.sqrMagnitude ? acceleration : deceleration;
         currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref velocityRef, smoothTime);
 
