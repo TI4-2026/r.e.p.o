@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEngine.InputSystem;
 public class TimeTravel : MonoBehaviour
 {
     public GameObject past;
@@ -9,7 +10,7 @@ public class TimeTravel : MonoBehaviour
     public Slider cooldownSlider;
     float cooldown;
     public static bool isFuture = true;//se outro script for mudar o tempo, coloquem TimeTravel.isFuture = true/false
-    public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudança de tempo
+    public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudanï¿½a de tempo
     void Start()
     {
         cooldownSlider.maxValue = 2f;
@@ -25,9 +26,13 @@ public class TimeTravel : MonoBehaviour
         {
             cooldown += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.E) && cooldown >= 2f)
+    }
+
+    public void ChangeTimeButton(InputAction.CallbackContext context)
+    {
+        if (context.performed && cooldown >= 2f)
         {
-            StartCoroutine(ChangeTime(0.5f)); 
+            StartCoroutine(ChangeTime(0.5f));
             cooldown = 0f;
         }
     }
@@ -47,7 +52,7 @@ public class TimeTravel : MonoBehaviour
         TimeChange(isFuture);
     }
 
-    public static void TimeChange(bool isFuture)//fiz uma função estática para caso algum outro script queira chamar(Ex:Ecilia)
+    public static void TimeChange(bool isFuture)//fiz uma funï¿½ï¿½o estï¿½tica para caso algum outro script queira chamar(Ex:Ecilia)
     {
         OnTimeChange?.Invoke(isFuture);
     }

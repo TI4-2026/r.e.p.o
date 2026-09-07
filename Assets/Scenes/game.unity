@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c039dbb42ace5104e896ceaa0eff8770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveSpawn
+  isMoving: 0
 --- !u!54 &210757883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3289,6 +3290,46 @@ PrefabInstance:
       propertyPath: cameraInputAxisController
       value: 
       objectReference: {fileID: 2076868698}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 3ba14941-32e9-4fe9-8bab-521f10bb3279
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: 'basic/ChangeTimeButton[/Keyboard/r]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2142758216}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeTimeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TimeTravel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3299,6 +3340,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
   m_PrefabInstance: {fileID: 2142758211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2142758216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1693969227258872783, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

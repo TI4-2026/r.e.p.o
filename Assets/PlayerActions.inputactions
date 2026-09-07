@@ -16,6 +16,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ChangeTimeButton",
+                    "type": "Button",
+                    "id": "3ba14941-32e9-4fe9-8bab-521f10bb3279",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "dash",
                     "type": "Button",
                     "id": "166cf0f1-24eb-49e4-b230-7c8d3affaf19",
@@ -98,6 +107,17 @@
                     "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2a5e2776-2dc3-4f8b-9c28-d84718eefc05",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ChangeTimeButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
