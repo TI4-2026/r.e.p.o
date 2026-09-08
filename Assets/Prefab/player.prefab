@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1693969227258872783}
   - component: {fileID: 1190388858981423134}
   - component: {fileID: 3276357429332917510}
+  - component: {fileID: 1170631604572709553}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -168,6 +169,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 166cf0f1-24eb-49e4-b230-7c8d3affaf19
     m_ActionName: 'basic/sprint[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ba14941-32e9-4fe9-8bab-521f10bb3279
+    m_ActionName: 'basic/ChangeTimeButton[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -180,7 +185,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
   m_Name: 
@@ -200,14 +205,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 9
+  acceleration: 0.15
+  deceleration: 0.1
   jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
-  rotationSpeed: 10
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
   coyoteTime: 0.2
   isGroundedGraceTime: 0.2
+  rotationSpeed: 10
 --- !u!114 &714465639065153002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +274,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPush
   pushForce: 1
+--- !u!54 &1170631604572709553
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0
