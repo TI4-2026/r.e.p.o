@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float acceleration = 0.15f;
+    [SerializeField] private float deceleration = 0.1f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
@@ -16,13 +18,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBufferTime = 0.2f;
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField] private float isGroundedGraceTime = 0.2f;
+    [SerializeField] private float rotationSpeed = 10f;
     private CharacterController characterController;
     private Camera mainCamera;
     
     // ---------- Control Variables ----------
+
     private Vector3 verticalVelocity;
+    private Vector3 currentVelocity;
+    private Vector3 velocityRef;
     private Vector2 moveInput;
-    private float currentSpeed;
     private bool jumpRequested;
     private bool isJumping;
     private bool isMovementEnabled = true;
@@ -46,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isMovementEnabled)
             {
-                FollowCameraRotation();
                 HorizontalMovement();
             }
             VerticalMovement();
@@ -59,6 +63,19 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovementEnabled(bool enabled)
     {
         isMovementEnabled = enabled;
+    }
+
+    public Vector3 GetMovementDirection()
+    {
+        Vector3 cameraRight = mainCamera.transform.right;
+        Vector3 cameraForward = mainCamera.transform.forward;
+        cameraRight.y = 0f;
+        cameraForward.y = 0f;
+        cameraRight.Normalize();
+        cameraForward.Normalize();
+
+        Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+        return movementDirection.normalized;
     }
 
     public void Freeze()
@@ -76,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
         characterController.enabled = false;
         
         verticalVelocity = Vector3.zero;
+        currentVelocity = Vector3.zero;
+        velocityRef = Vector3.zero;
         isJumping = false;
         lastGroundedTime = 0f;
         lastJumpTime = 0f;
@@ -110,23 +129,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!characterController.enabled) return;
 
-        Vector3 cameraRight = mainCamera.transform.right;
-        Vector3 cameraForward = mainCamera.transform.forward;
-        cameraRight.y = 0f;
-        cameraForward.y = 0f;
-        cameraRight.Normalize();
-        cameraForward.Normalize();
+        Vector3 movementDirection = GetMovementDirection();
+        if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
 
-        Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
-        movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
+        Vector3 targetVelocity = transform.forward * speed * movementDirection.magnitude;
+        float smoothTime = targetVelocity.sqrMagnitude > currentVelocity.sqrMagnitude ? acceleration : deceleration;
+        currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref velocityRef, smoothTime);
 
-        characterController.Move(movementDirection * speed * Time.deltaTime);
+        characterController.Move(currentVelocity * Time.deltaTime);
     }
 
-    private void FollowCameraRotation()
+    private void RotateTowardsMovement(Vector3 movementDirection)
     {
-        float cameraYaw = mainCamera.transform.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0f, cameraYaw, 0f);
+        Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void VerticalMovement()

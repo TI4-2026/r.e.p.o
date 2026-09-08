@@ -2,9 +2,10 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCursor : MonoBehaviour
+public class PlayerCamera: MonoBehaviour
 {
     [SerializeField] private CinemachineInputAxisController cameraInputAxisController;
+    [SerializeField] private GameObject cameraHandle;
 
     private PlayerMovement playerMovement;
     private bool isCursorLocked = true;
@@ -13,6 +14,10 @@ public class PlayerCursor : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         LockCursor();
+    }
+
+    private void Update() {
+        cameraHandle.transform.position = transform.position;
     }
 
     // ----------------- Input Actions -----------------
