@@ -10,7 +10,7 @@ public class TimeTravel : MonoBehaviour
     public Slider cooldownSlider;
     float cooldown;
     public static bool isFuture = true;//se outro script for mudar o tempo, coloquem TimeTravel.isFuture = true/false
-    public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudan�a de tempo
+    public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudanca de tempo
     void Start()
     {
         cooldownSlider.maxValue = 2f;
@@ -52,7 +52,7 @@ public class TimeTravel : MonoBehaviour
         TimeChange(isFuture);
     }
 
-    public static void TimeChange(bool isFuture)//fiz uma fun��o est�tica para caso algum outro script queira chamar(Ex:Ecilia)
+    public static void TimeChange(bool isFuture)//fiz uma funcao estatica para caso algum outro script queira chamar(Ex:Ecilia)
     {
         OnTimeChange?.Invoke(isFuture);
     }
