@@ -2045,7 +2045,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2394,6 +2394,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialCutscene
   tip: {fileID: 977856128}
   maxSize: {x: 2, y: 2}
+  globalVolume: {fileID: 525693}
+  vignetteColor: {r: 0, g: 0, b: 1, a: 1}
+  minIntensity: 0
+  maxIntensity: 0.45
+  pulseDuration: 1.5
 --- !u!114 &1593654392
 MonoBehaviour:
   m_ObjectHideFlags: 0

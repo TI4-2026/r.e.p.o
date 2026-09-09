@@ -16,6 +16,5 @@ public class ParentPairs : MonoBehaviour
         spawnPos.position += offset;
         futurePos.localPosition = Vector3.zero;
         pastPos.localPosition = Vector3.zero;
-        Debug.Log("tchau");
     }
 }
