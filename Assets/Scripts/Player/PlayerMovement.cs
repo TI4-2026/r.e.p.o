@@ -1,8 +1,8 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
-
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
@@ -21,17 +21,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     private CharacterController characterController;
     private Camera mainCamera;
+    private PlayerCollisionSelf playerCollisionSelf = null;
     
     // ---------- Control Variables ----------
 
-    private Vector3 verticalVelocity;
-    private Vector3 currentVelocity;
-    private Vector3 velocityRef;
+    private Vector3 verticalVel;
+    private Vector3 horizontalVel;
+    private Vector3 horizontalVelRef;
+    public Vector3 velocity;
     private Vector2 moveInput;
     private bool jumpRequested;
     private bool isJumping;
     private bool isMovementEnabled = true;
-    private bool isFreeze = false;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
@@ -47,18 +48,22 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckGrounded();
 
-        if (!isFreeze) 
-        {
-            if (isMovementEnabled)
-            {
-                HorizontalMovement();
-            }
-            VerticalMovement();
-        }
-        
+        HorizontalMovement();
+        VerticalMovement();
+
+        velocity = horizontalVel + verticalVel;
+        characterController.Move(velocity * Time.deltaTime);
+        playerCollisionSelf.ccMoved.Invoke();
     }
 
     // --------------- Public Methods ---------------
+
+    public void SetPlayerCollisionSelf(PlayerCollisionSelf script)
+    {
+        if (playerCollisionSelf != null) return;
+
+        playerCollisionSelf = script;
+    }
 
     public void SetMovementEnabled(bool enabled)
     {
@@ -78,23 +83,13 @@ public class PlayerMovement : MonoBehaviour
         return movementDirection.normalized;
     }
 
-    public void Freeze()
-    {
-        isFreeze = true;
-    }
-
-    public void Unfreeze()
-    {
-        isFreeze = false;
-    }
-
     public void ExecuteTeleport(Transform destination)
     {
         characterController.enabled = false;
         
-        verticalVelocity = Vector3.zero;
-        currentVelocity = Vector3.zero;
-        velocityRef = Vector3.zero;
+        verticalVel = Vector3.zero;
+        horizontalVel = Vector3.zero;
+        horizontalVelRef = Vector3.zero;
         isJumping = false;
         lastGroundedTime = 0f;
         lastJumpTime = 0f;
@@ -111,11 +106,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!isMovementEnabled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!isMovementEnabled) return;
+
         if (context.performed)
         {
             jumpRequested = true;
@@ -133,10 +136,10 @@ public class PlayerMovement : MonoBehaviour
         if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
 
         Vector3 targetVelocity = transform.forward * speed * movementDirection.magnitude;
-        float smoothTime = targetVelocity.sqrMagnitude > currentVelocity.sqrMagnitude ? acceleration : deceleration;
-        currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref velocityRef, smoothTime);
+        float smoothTime = targetVelocity.sqrMagnitude > horizontalVel.sqrMagnitude ? acceleration : deceleration;
+        horizontalVel = Vector3.SmoothDamp(horizontalVel, targetVelocity, ref horizontalVelRef, smoothTime);
 
-        characterController.Move(currentVelocity * Time.deltaTime);
+        //characterController.Move(horizontalVel * Time.deltaTime);
     }
 
     private void RotateTowardsMovement(Vector3 movementDirection)
@@ -150,15 +153,15 @@ public class PlayerMovement : MonoBehaviour
         if (!characterController.enabled) return;
         
         // Stand Gravity
-        if (isGrounded && verticalVelocity.y < 0f)
+        if (isGrounded && verticalVel.y < 0f)
         {
-            verticalVelocity.y = -2f;
+            verticalVel.y = -2f;
         }
 
         // Fall Gravity
-        if (verticalVelocity.y < maxFallSpeed)
+        if (verticalVel.y < maxFallSpeed)
         {
-            verticalVelocity.y = maxFallSpeed;
+            verticalVel.y = maxFallSpeed;
         }
 
         // Jump
@@ -184,13 +187,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        verticalVelocity.y += gravity * Time.deltaTime;
-        characterController.Move(verticalVelocity * Time.deltaTime);
+        verticalVel.y += gravity * Time.deltaTime;
+        //characterController.Move(verticalVel * Time.deltaTime);
     }
 
     private void Jump()
     {
-        verticalVelocity.y = jumpForce;
+        verticalVel.y = jumpForce;
         jumpRequestTimer = 0f;
         jumpRequested = false;
         isJumping = true;

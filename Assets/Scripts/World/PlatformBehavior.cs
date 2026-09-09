@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlatformBehavior : MonoBehaviour
+public class PlatformBehavior : PlayerCollisionObject
 {
     [Header("Attributes")]
     [SerializeField] protected bool rightDirection = true;
@@ -11,6 +11,11 @@ public class PlatformBehavior : MonoBehaviour
     protected Vector3 startPosition;
     protected Vector3 endPosition;
     protected Vector3 targetPosition;
+    protected Vector3 previousPosition;
+    protected Vector3 nextPosition;
+
+    protected bool isPlayerAbove;
+    protected PlayerMovement playerMovement;
 
     protected virtual void Awake()
     {
@@ -20,21 +25,27 @@ public class PlatformBehavior : MonoBehaviour
     protected virtual void Start()
     {
         startPosition = transform.position;
+        previousPosition = transform.position;
+        nextPosition = transform.position;
 
         float direction = rightDirection ? 1f : -1f;
         endPosition = startPosition + transform.right * direction * distance;
 
         targetPosition = endPosition;
+
+        isPlayerAbove = false;
+        playerMovement = null;
     }
 
-    protected virtual void FixedUpdate()
+    protected virtual void Update()
     {
         Movement();
     }
 
     protected virtual void Movement()
     {
-        Vector3 nextPosition = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
+        previousPosition = transform.position;
+        nextPosition = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
 
         rb.MovePosition(nextPosition);
 
@@ -42,5 +53,17 @@ public class PlatformBehavior : MonoBehaviour
         {
             targetPosition = targetPosition == endPosition ? startPosition : endPosition;
         }
+    }
+
+    // ================ Override Methods ================
+
+    public override void OnPlayerCollisionEnter(GameObject player)
+    {
+        Debug.Log("CollisionEnter");
+    }
+
+    public override void OnPlayerCollisionExit(GameObject player)
+    {
+        Debug.Log("CollisionExit");
     }
 }
