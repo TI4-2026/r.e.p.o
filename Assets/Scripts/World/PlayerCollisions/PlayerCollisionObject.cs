@@ -11,10 +11,12 @@ public class PlayerCollisionObject : MonoBehaviour
 
     // OnPlayerCollisionEnter is called from PlayerCollisionSelf.cs
     public virtual void OnPlayerCollisionEnter(GameObject player) {}
+    public virtual void OnPlayerCollisionStay(GameObject player) {}
+    public virtual void OnPlayerCollisionExit(GameObject player) {}
 
     // ------------------------------------------------------------
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
