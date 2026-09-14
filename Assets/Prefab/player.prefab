@@ -55,6 +55,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b41045e6ce4441b5e82450d02c567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionSelf
+  ccMoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &6861167194528145986
 CharacterController:
   m_ObjectHideFlags: 0
@@ -185,7 +188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
   m_Name: 
@@ -215,6 +218,7 @@ MonoBehaviour:
   coyoteTime: 0.2
   isGroundedGraceTime: 0.2
   rotationSpeed: 10
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &714465639065153002
 MonoBehaviour:
   m_ObjectHideFlags: 0
