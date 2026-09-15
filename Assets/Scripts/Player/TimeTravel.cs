@@ -38,9 +38,8 @@ public class TimeTravel : MonoBehaviour
     }
     private IEnumerator ChangeTime(float delay)
     {
-        PlayerMovement movement = GetComponent<PlayerMovement>();
-        movement.enabled = false;
-        yield return new WaitForSeconds(delay);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(delay);
         future.SetActive(!future.activeSelf);
         past.SetActive(!past.activeSelf);
         if (isFuture)
@@ -52,7 +51,7 @@ public class TimeTravel : MonoBehaviour
             isFuture = true;
         }
         TimeChange(isFuture);
-        movement.enabled = true;
+        Time.timeScale = 1f;
     }
 
     public static void TimeChange(bool isFuture)//fiz uma funcao estatica para caso algum outro script queira chamar(Ex:Ecilia)

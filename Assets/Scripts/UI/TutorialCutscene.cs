@@ -64,7 +64,6 @@ public abstract class TutorialTrigger : MonoBehaviour
         LeanTween.cancel(gameObject);
         LeanTween.cancel(tip);
         vignette.intensity.value = 0.2f;
-        Time.timeScale = 1f;
 
         OnTutorialCompleted();
 

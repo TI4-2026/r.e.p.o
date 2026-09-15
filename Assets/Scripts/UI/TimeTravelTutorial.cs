@@ -15,7 +15,7 @@ public class TimeTravelTutorial : TutorialTrigger
     private IEnumerator PushPlayer()
     {
         tip.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         Vector3 pushDirection = player.transform.forward;
         player.Move(pushDirection * pushForce);
         Destroy(tip.gameObject);
