@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         CheckGrounded();
         if (activePlatform != null)
@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("seguindo a plataforma");
         Vector3 platformMovement = platBehave.GetPlatformMovement();
 
-        characterController.Move(platformMovement/5.8f);
+        characterController.Move(platformMovement);
     }
 }
     public void StartFollowing(GameObject platform)
