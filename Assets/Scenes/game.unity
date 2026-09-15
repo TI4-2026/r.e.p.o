@@ -2157,8 +2157,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233227962}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037243955, y: 0.051016912, z: -0.001903877, w: 0.9980013}
-  m_LocalPosition: {x: 0, y: 3, z: -4}
+  m_LocalRotation: {x: 0.036725085, y: 0.08645575, z: -0.0031892115, w: 0.99557346}
+  m_LocalPosition: {x: -0.13014, y: 2, z: -5.66496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2622,8 +2622,8 @@ GameObject:
   - component: {fileID: 1593654390}
   - component: {fileID: 1593654389}
   - component: {fileID: 1593654388}
-  - component: {fileID: 1593654391}
   - component: {fileID: 1593654392}
+  - component: {fileID: 1593654393}
   m_Layer: 0
   m_Name: TimeTravelTutorialTrigger
   m_TagString: Untagged
@@ -2675,25 +2675,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2111038442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1593654391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593654387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5fa189c2722c741babc00caf98b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TutorialCutscene
-  tip: {fileID: 977856128}
-  maxSize: {x: 2, y: 2}
-  globalVolume: {fileID: 525693}
-  vignetteColor: {r: 0, g: 0, b: 1, a: 1}
-  minIntensity: 0
-  maxIntensity: 0.45
-  pulseDuration: 1.5
 --- !u!114 &1593654392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,8 +2706,8 @@ MonoBehaviour:
     m_ActionName: 'basic/movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1593654391}
-        m_TargetAssemblyTypeName: TutorialCutscene, Assembly-CSharp
+      - m_Target: {fileID: 1593654393}
+        m_TargetAssemblyTypeName: TimeTravelTutorial, Assembly-CSharp
         m_MethodName: TutorialComplete
         m_Mode: 0
         m_Arguments:
@@ -2756,6 +2737,28 @@ MonoBehaviour:
   m_DefaultActionMap: basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1233227964}
+--- !u!114 &1593654393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593654387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd4bc189a144a3489df69ee6b1120a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeTravelTutorial
+  tutorialId: 0
+  tip: {fileID: 977856128}
+  maxSize: {x: 2, y: 2}
+  globalVolume: {fileID: 525693}
+  vignetteColor: {r: 0, g: 0, b: 1, a: 1}
+  minIntensity: 0.1
+  maxIntensity: 0.45
+  pulseDuration: 0.5
+  pushForce: 2
+  player: {fileID: 2142758224}
 --- !u!1 &1600393354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,6 +3978,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
+--- !u!143 &2142758224 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 6861167194528145986, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

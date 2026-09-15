@@ -3,14 +3,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class TutorialCutscene : MonoBehaviour
+public abstract class TutorialTrigger : MonoBehaviour
 {
+    [Header("Persistência")]
+    [SerializeField] private int tutorialId;
+
+    [Header("Vinheta")]
     public RectTransform tip;
     public Vector2 maxSize = new Vector2(10, 10);
 
     [SerializeField] private Volume globalVolume;
-
-    [Header("Vinheta")]
     [SerializeField] private Color vignetteColor = Color.blue;
     [SerializeField] private float minIntensity = 0f;
     [SerializeField] private float maxIntensity = 0.45f;
@@ -18,8 +20,16 @@ public class TutorialCutscene : MonoBehaviour
 
     private Vignette vignette;
 
-    void Awake()
+    private const string PrefsPrefix = "TutorialDone_";
+
+    protected virtual void Awake()
     {
+        /*if (PlayerPrefs.GetInt(PrefsPrefix + tutorialId, 0) == 1)
+        {
+            gameObject.SetActive(false);
+            return;
+        }*/
+
         globalVolume.profile = Instantiate(globalVolume.sharedProfile);
 
         if (!globalVolume.profile.TryGet(out vignette))
@@ -31,33 +41,36 @@ public class TutorialCutscene : MonoBehaviour
         vignette.color.value = vignetteColor;
         vignette.intensity.value = minIntensity;
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            tip.gameObject.SetActive(true);
-            Time.timeScale = 0.05f;
-            LeanTween.scale(tip, maxSize, 1f).setLoopPingPong().setIgnoreTimeScale(true).setEaseInOutCirc();
-            LeanTween.value(gameObject, minIntensity, maxIntensity, pulseDuration).setEaseInOutSine().setLoopPingPong()
-            .setIgnoreTimeScale(true)
-            .setOnUpdate(value =>
-            {
-                vignette.intensity.value = value;
-            });
 
-        }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        tip.gameObject.SetActive(true);
+        Time.timeScale = 0.05f;
+
+        LeanTween.scale(tip, maxSize, 1f)
+            .setLoopPingPong().setIgnoreTimeScale(true).setEaseInOutCirc();
+
+        LeanTween.value(gameObject, minIntensity, maxIntensity, pulseDuration)
+            .setEaseInOutSine().setLoopPingPong().setIgnoreTimeScale(true)
+            .setOnUpdate(value => vignette.intensity.value = value);
     }
 
     public void TutorialComplete(InputAction.CallbackContext context)
     {
-        if (LeanTween.isTweening(tip))
-        {
-            LeanTween.cancel(gameObject);
-            vignette.intensity.value = 0.2f;
-            Time.timeScale = 1f;
-            LeanTween.cancel(tip);
-            Destroy(tip.gameObject);
-            Destroy(gameObject);
-        }
+        if (!LeanTween.isTweening(tip)) return;
+
+        LeanTween.cancel(gameObject);
+        LeanTween.cancel(tip);
+        vignette.intensity.value = 0.2f;
+        Time.timeScale = 1f;
+
+        OnTutorialCompleted();
+
+        /*PlayerPrefs.SetInt(PrefsPrefix + tutorialId, 1);
+        PlayerPrefs.Save();*/
     }
+
+    protected virtual void OnTutorialCompleted() { }
 }
