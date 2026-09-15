@@ -66,4 +66,8 @@ public class PlatformBehavior : PlayerCollisionObject
     {
         Debug.Log("CollisionExit");
     }
+    public Vector3 GetPlatformMovement()
+{
+    return nextPosition - previousPosition;
+}
 }

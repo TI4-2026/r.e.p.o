@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
     private float lastJumpTime=0f;
+    GameObject activePlatform;
+    PlatformBehavior platBehave;
 
     void Start()
     {
@@ -47,12 +49,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGrounded();
-
+        if (activePlatform != null)
+        {
+            FollowPlatform();
+        }
         HorizontalMovement();
         VerticalMovement();
 
         velocity = horizontalVel + verticalVel;
+            
         characterController.Move(velocity * Time.deltaTime);
+        
         playerCollisionSelf.ccMoved.Invoke();
     }
 
@@ -216,6 +223,24 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    private void FollowPlatform()
+{
+    if (platBehave != null)
+    {
+        Debug.Log("seguindo a plataforma");
+        Vector3 platformMovement = platBehave.GetPlatformMovement();
 
-
+        characterController.Move(platformMovement/5.8f);
+    }
+}
+    public void StartFollowing(GameObject platform)
+    {
+        activePlatform = platform;
+        platBehave = platform.GetComponent<PlatformBehavior>();
+    }
+    public void StopFollowing()
+    {
+        activePlatform = null;
+        platBehave = null;
+    }
 }

@@ -23,6 +23,22 @@ public class PlayerCollisionObject : MonoBehaviour
             OnPlayerTriggerEnter(other.gameObject);
         }
     }
+    protected virtual void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            OnPlayerTriggerStay(other.gameObject);
+        }
+    }
+    protected virtual void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            OnPlayerTriggerExit(other.gameObject);
+        }
+    }
 
     protected virtual void OnPlayerTriggerEnter(GameObject player) {}
+    protected virtual void OnPlayerTriggerStay(GameObject player) {}
+    protected virtual void OnPlayerTriggerExit(GameObject player) {}
 }
