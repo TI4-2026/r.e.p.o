@@ -10,19 +10,19 @@ public class MoveSpawn : MonoBehaviour
         parentPair = GetComponentInParent<ParentPairs>();
         lastPos = transform.position;
     }
-    
 
-    void Update()
+    private void OnEnable()
     {
-        if(Vector3.Distance(transform.position, lastPos) >= 0.001f)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        if (isMoving)
-            parentPair.ChangePos(transform);
+        TimeTravel.OnTimeChange += UpdatePair;
+    }
+
+    private void OnDisable()
+    {
+        TimeTravel.OnTimeChange -= UpdatePair;
+    }
+
+    void UpdatePair(bool time)
+    {
+        parentPair.ChangePos(transform);
     }
 }

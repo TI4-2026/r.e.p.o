@@ -49,7 +49,9 @@ public abstract class ChasePlayer : MonoBehaviour
     protected Vector3 GetDirectionToPlayer()
     {
         Vector3 direction = player.position - transform.position;
-        direction.y = 0f;
+        
+        if(!canFly)
+            direction.y = 0f;
 
         return direction.normalized;
     }
@@ -77,7 +79,7 @@ public abstract class ChasePlayer : MonoBehaviour
             }
             direction.y = 0f;
         }
-        rb.linearVelocity = new Vector3(velocity.x,rb.linearVelocity.y,velocity.z);
+        rb.linearVelocity = new Vector3(velocity.x,velocity.y,velocity.z);
     }
 
     protected virtual void StopMovement()

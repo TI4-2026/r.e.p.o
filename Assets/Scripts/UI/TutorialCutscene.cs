@@ -47,7 +47,7 @@ public abstract class TutorialTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         tip.gameObject.SetActive(true);
-        Time.timeScale = 0.05f;
+        Time.timeScale = 0f;
 
         LeanTween.scale(tip, maxSize, 1f)
             .setLoopPingPong().setIgnoreTimeScale(true).setEaseInOutCirc();

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1190388858981423134}
   - component: {fileID: 3276357429332917510}
   - component: {fileID: 1170631604572709553}
+  - component: {fileID: 7650872300187395025}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -305,6 +306,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &7650872300187395025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c36d23e6ce03f64dbddcaa782223f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
+  healthBar: {fileID: 0}
+  maxLife: 100
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0
