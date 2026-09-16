@@ -19,6 +19,7 @@ public abstract class TutorialTrigger : MonoBehaviour
     [SerializeField] private float pulseDuration = 0.5f;
 
     private Vignette vignette;
+    private ColorAdjustments colorAdjustments;
 
     private const string PrefsPrefix = "TutorialDone_";
 
@@ -35,6 +36,12 @@ public abstract class TutorialTrigger : MonoBehaviour
         if (!globalVolume.profile.TryGet(out vignette))
         {
             Debug.LogError("Cade a vinheta?");
+            return;
+        }
+
+        if (!globalVolume.profile.TryGet(out colorAdjustments))
+        {
+            Debug.LogError("Sem preto e branco");
             return;
         }
 
@@ -55,6 +62,10 @@ public abstract class TutorialTrigger : MonoBehaviour
         LeanTween.value(gameObject, minIntensity, maxIntensity, pulseDuration)
             .setEaseInOutSine().setLoopPingPong().setIgnoreTimeScale(true)
             .setOnUpdate(value => vignette.intensity.value = value);
+
+        LeanTween.value(gameObject, 0f, -100f, 0.5f).setEaseInOutSine().setIgnoreTimeScale(true)
+        .setOnUpdate(value => colorAdjustments.saturation.value = value);
+
     }
 
     public void TutorialComplete(InputAction.CallbackContext context)
@@ -63,7 +74,11 @@ public abstract class TutorialTrigger : MonoBehaviour
 
         LeanTween.cancel(gameObject);
         LeanTween.cancel(tip);
-        vignette.intensity.value = 0.2f;
+        vignette.intensity.value = 0f;
+
+        LeanTween.value(gameObject, colorAdjustments.saturation.value, 0f, 0.5f).setEaseInOutSine().setIgnoreTimeScale(true)
+        .setOnUpdate(value => colorAdjustments.saturation.value = value);
+
 
         OnTutorialCompleted();
 

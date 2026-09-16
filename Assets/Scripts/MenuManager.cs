@@ -23,12 +23,14 @@ public class MenuManager : MonoBehaviour
         }
 
         Instance = this;
+        MusicManager.instance.PlayMusic(0);
     }
 
     // ------------------- Public Methods -------------------
 
     public void StartGame()
     {
+        MusicManager.instance.ChangeMusic(1);
         Debug.Log("Loading game scene");
         LoadScene(gameSceneName);
     }

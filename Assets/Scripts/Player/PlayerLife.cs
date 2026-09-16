@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerLife : MonoBehaviour
     private float inviciEnd = -1f;
     private bool isKnockedBack;
     private CharacterController characterController;
+    private int healthProgression = 0;
 
     private void Start()
     {
@@ -29,7 +31,15 @@ public class PlayerLife : MonoBehaviour
         healthBar.fillAmount = life/maxLife;
         inviciEnd = Time.time + inviciTime;
 
-        if (life <= 0)
+        if (life <= maxLife / 2 && life > maxLife / 4&&healthProgression==0)
+        {
+            healthProgression = 1;
+            ChangeHealthBar(Color.yellow);
+        } else if (life <= maxLife / 4 && life > 0&&healthProgression==1)
+        {
+            healthProgression = 2;
+            ChangeHealthBar(Color.red);
+        } else if (life <= 0)
         {
             Die();
         }
@@ -55,6 +65,12 @@ public class PlayerLife : MonoBehaviour
             yield return null;
         }
         isKnockedBack = false;
+    }
+
+    void ChangeHealthBar(Color color)
+    {
+        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
+        .setOnUpdate(value => healthBar.color = value);
     }
 
     void Die()
