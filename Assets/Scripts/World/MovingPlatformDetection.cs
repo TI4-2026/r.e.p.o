@@ -9,7 +9,6 @@ public class MovingPlatformDetection : PlayerCollisionObject
     }
     protected override void OnPlayerTriggerEnter(GameObject player)
     {
-        Debug.Log("ta na plataforma");
         playerMovement = player.GetComponent<PlayerMovement>();
         playerMovement.StartFollowing(platform);
     }

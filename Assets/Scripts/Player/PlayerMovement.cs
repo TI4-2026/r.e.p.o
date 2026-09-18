@@ -227,7 +227,6 @@ public class PlayerMovement : MonoBehaviour
 {
     if (platBehave != null)
     {
-        Debug.Log("seguindo a plataforma");
         Vector3 platformMovement = platBehave.GetPlatformMovement();
 
         characterController.Move(platformMovement);

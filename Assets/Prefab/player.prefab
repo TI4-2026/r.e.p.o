@@ -174,7 +174,19 @@ MonoBehaviour:
     m_ActionId: 166cf0f1-24eb-49e4-b230-7c8d3affaf19
     m_ActionName: 'basic/sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1693969227258872783}
+        m_TargetAssemblyTypeName: TimeTravel, Assembly-CSharp
+        m_MethodName: ChangeTimeButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3ba14941-32e9-4fe9-8bab-521f10bb3279
     m_ActionName: 'basic/ChangeTimeButton[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
