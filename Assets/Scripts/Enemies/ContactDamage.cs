@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ContactDamage : PlayerCollisionObject
 {
-    [SerializeField] float damage = 10f;
-    [SerializeField] float knockbackPower = 10f;
+    public float damage = 10f;
+    public float knockbackPower = 10f;
 
     private void OnCollisionEnter(Collision collision)
     {

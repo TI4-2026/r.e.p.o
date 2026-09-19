@@ -22,6 +22,18 @@ public class PlayerLife : MonoBehaviour
         life = maxLife;
         characterController = GetComponent<CharacterController>();
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (collision.gameObject.TryGetComponent(out ContactDamage contactDamage))
+            {
+                TakeDamage(contactDamage.damage);
+                ApplyKnockback(collision.transform.position, contactDamage.knockbackPower);
+            }
+        }
+    }
     public void TakeDamage(float damage)
     {
         if (Time.time <= inviciEnd)
@@ -47,23 +59,29 @@ public class PlayerLife : MonoBehaviour
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
     {
+        if (isKnockedBack)
+            return;
         Vector3 direction = (transform.position - sourcePosition);
-        direction.y = 0f;
         direction.Normalize();
 
-        StartCoroutine(KnockbackRoutine(direction * force, inviciTime));
+        StartCoroutine(KnockbackRoutine(direction, force, inviciTime));
     }
 
-    private IEnumerator KnockbackRoutine(Vector3 velocity, float duration)
+    private IEnumerator KnockbackRoutine(Vector3 direction, float force, float duration)
     {
         isKnockedBack = true;
         float elapsed = 0f;
+
         while (elapsed < duration)
         {
-            characterController.Move(velocity * Time.deltaTime);
+            float t = elapsed / duration;
+            float currentForce = Mathf.Lerp(force, 0f, t);
+            characterController.Move(direction * currentForce * Time.deltaTime);
             elapsed += Time.deltaTime;
+
             yield return null;
         }
+
         isKnockedBack = false;
     }
 
