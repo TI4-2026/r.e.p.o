@@ -11,6 +11,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private float inviciTime = 0.5f;
     private float inviciEnd = -1f;
     private bool isKnockedBack;
+    private Hud hud;
     private CharacterController characterController;
     private PlayerCamera playerCamera;
 
@@ -21,6 +22,7 @@ public class PlayerLife : MonoBehaviour
         life = maxLife;
         characterController = GetComponent<CharacterController>();
         playerCamera = GetComponent<PlayerCamera>();
+        hud = GameManager.Instance.Hud;
 
         UpdateHudHealth();
     }
@@ -99,7 +101,7 @@ public class PlayerLife : MonoBehaviour
 
     private void UpdateHudHealth()
     {
-        GameManager.Instance.Hud.UpdateHealthSlider(life, maxLife);
+        hud.UpdateHealthSlider(life, maxLife);
     }
 
     private void Die()
