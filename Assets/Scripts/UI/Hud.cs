@@ -33,11 +33,6 @@ public class Hud : MonoBehaviour
 
     // ----------- Public Methods -----------
 
-    public void UpdateHealthSlider(float currentHealth, float maxHealth)
-    {
-        healthSlider.value = currentHealth/maxHealth;
-    }
-
     public void BlackFade(Action onMiddle = null, Action onComplete = null)
     {
         if (panelFade == null)
