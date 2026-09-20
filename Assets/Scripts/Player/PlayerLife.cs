@@ -12,6 +12,7 @@ public class PlayerLife : MonoBehaviour
     private float inviciEnd = -1f;
     private bool isKnockedBack;
     private CharacterController characterController;
+    private PlayerCamera playerCamera;
 
     // ----------- Unity Methods -----------
 
@@ -19,6 +20,7 @@ public class PlayerLife : MonoBehaviour
     {
         life = maxLife;
         characterController = GetComponent<CharacterController>();
+        playerCamera = GetComponent<PlayerCamera>();
 
         UpdateHudHealth();
     }
@@ -102,6 +104,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        playerCamera.UnlockCursor();
         SceneManager.LoadScene("menu"); // provisório
     }
 }

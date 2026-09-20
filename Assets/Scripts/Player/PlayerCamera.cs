@@ -43,22 +43,24 @@ public class PlayerCamera: MonoBehaviour
         }
     }
 
-    // ----------------- Private Methods -----------------
+    // ----------------- Public Methods -----------------
 
-    private void SetCameraInputEnabled(bool enabled)
-    {
-        cameraInputAxisController.enabled = enabled;
-    }
-
-    private void UnlockCursor()
+    public void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    private void LockCursor()
+    public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    
+    // ----------------- Private Methods -----------------
+
+    private void SetCameraInputEnabled(bool enabled)
+    {
+        cameraInputAxisController.enabled = enabled;
     }
 }
