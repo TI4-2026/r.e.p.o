@@ -43,6 +43,8 @@ public class PlayerLife : MonoBehaviour
         healthBar.fillAmount = life/maxLife;
         inviciEnd = Time.time + inviciTime;
 
+        FlashHealthBar(healthBar.color);
+
         if (life <= maxLife / 2 && life > maxLife / 4&&healthProgression==0)
         {
             healthProgression = 1;
@@ -83,6 +85,29 @@ public class PlayerLife : MonoBehaviour
         }
 
         isKnockedBack = false;
+    }
+
+    void FlashHealthBar(Color color)
+    {
+        LeanTween.value(healthBar.gameObject, color, Color.white, 0.1f)
+        .setIgnoreTimeScale(true).setEaseInOutSine()
+        .setOnUpdate(value => healthBar.color = value)
+        .setOnComplete(() =>
+        {
+            LeanTween.value(healthBar.gameObject, Color.white, color, 0.1f)
+            .setIgnoreTimeScale(true).setEaseInOutSine()
+            .setOnUpdate(value => healthBar.color = value);
+        });
+
+        RectTransform rect = healthBar.rectTransform;
+        Vector3 originalPosition = rect.anchoredPosition;
+
+        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
+            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
+            .setOnComplete(() =>
+            {
+                rect.anchoredPosition = originalPosition;
+            });
     }
 
     void ChangeHealthBar(Color color)
