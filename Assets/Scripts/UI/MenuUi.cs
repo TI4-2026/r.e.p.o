@@ -5,12 +5,14 @@ public class MenuUi : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject startButton;
 
     private void Start()
     {
         MenuManager.Instance.MenuUi = this;
         loadingScreen.SetActive(false);
         optionsScreen.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(startButton);
     }
 
     // ------------------- Public Methods -------------------

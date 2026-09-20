@@ -40,7 +40,7 @@ public class MusicManager : MonoBehaviour//singleton
     {
         if (currentMusic == music)
         {
-            musics[music].volume = 1;
+            musics[music].Play();
             return;
         }
         for (int i = 0; i < musics.Length; i++)
@@ -51,7 +51,8 @@ public class MusicManager : MonoBehaviour//singleton
             }
             else
             {
-                musics[i].volume = 1;
+                musics[i].Play();
+                musics[i].volume = 1f;
                 currentMusic = i;
             }
         }

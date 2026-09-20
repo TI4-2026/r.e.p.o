@@ -23,6 +23,10 @@ public class MenuManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
         MusicManager.instance.PlayMusic(0);
     }
 
@@ -30,7 +34,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        MusicManager.instance.ChangeMusic(1);
+        MusicManager.instance.PlayMusic(1);
         Debug.Log("Loading game scene");
         LoadScene(gameSceneName);
     }
