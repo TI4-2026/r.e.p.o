@@ -1,26 +1,26 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField] private Image healthBar;
     [SerializeField] private float maxLife = 100f;
     private float life;
 
-    //OnDamage
-    private float inviciTime = 0.5f;
+    // OnDamage
+    [SerializeField] private float inviciTime = 0.5f;
     private float inviciEnd = -1f;
     private bool isKnockedBack;
     private CharacterController characterController;
-    private int healthProgression = 0;
+
+    // ----------- Unity Methods -----------
 
     private void Start()
     {
         life = maxLife;
         characterController = GetComponent<CharacterController>();
+
+        UpdateHudHealth();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
@@ -34,29 +34,35 @@ public class PlayerLife : MonoBehaviour
             }
         }
     }
+
+    // ----------- Public Methods -----------
+
     public void TakeDamage(float damage)
     {
         if (Time.time <= inviciEnd)
             return;
 
-        life -= damage;
-        healthBar.fillAmount = life/maxLife;
+        life = Mathf.Max(life - damage, 0f);
         inviciEnd = Time.time + inviciTime;
 
-        FlashHealthBar(healthBar.color);
+        UpdateHudHealth();
 
-        if (life <= maxLife / 2 && life > maxLife / 4&&healthProgression==0)
-        {
-            healthProgression = 1;
-            ChangeHealthBar(Color.yellow);
-        } else if (life <= maxLife / 4 && life > 0&&healthProgression==1)
-        {
-            healthProgression = 2;
-            ChangeHealthBar(Color.red);
-        } else if (life <= 0)
+        if (life <= 0)
         {
             Die();
         }
+    }
+
+    public void Heal(float amount)
+    {
+        life = Mathf.Min(life + amount, maxLife);
+        UpdateHudHealth();
+    }
+
+    public void ResetHealth()
+    {
+        life = maxLife;
+        UpdateHudHealth();
     }
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
@@ -68,6 +74,8 @@ public class PlayerLife : MonoBehaviour
 
         StartCoroutine(KnockbackRoutine(direction, force, inviciTime));
     }
+
+    // ----------- Private Methods -----------
 
     private IEnumerator KnockbackRoutine(Vector3 direction, float force, float duration)
     {
@@ -87,37 +95,13 @@ public class PlayerLife : MonoBehaviour
         isKnockedBack = false;
     }
 
-    void FlashHealthBar(Color color)
+    private void UpdateHudHealth()
     {
-        LeanTween.value(healthBar.gameObject, color, Color.white, 0.1f)
-        .setIgnoreTimeScale(true).setEaseInOutSine()
-        .setOnUpdate(value => healthBar.color = value)
-        .setOnComplete(() =>
-        {
-            LeanTween.value(healthBar.gameObject, Color.white, color, 0.1f)
-            .setIgnoreTimeScale(true).setEaseInOutSine()
-            .setOnUpdate(value => healthBar.color = value);
-        });
-
-        RectTransform rect = healthBar.rectTransform;
-        Vector3 originalPosition = rect.anchoredPosition;
-
-        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
-            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
-            .setOnComplete(() =>
-            {
-                rect.anchoredPosition = originalPosition;
-            });
+        GameManager.Instance.Hud.UpdateHealthSlider(life, maxLife);
     }
 
-    void ChangeHealthBar(Color color)
+    private void Die()
     {
-        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
-        .setOnUpdate(value => healthBar.color = value);
-    }
-
-    void Die()
-    {
-        SceneManager.LoadScene("menu");//provisório
+        SceneManager.LoadScene("menu"); // provisÃ³rio
     }
 }

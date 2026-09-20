@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -15,6 +16,12 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        if (Hud == null)
+        {
+            Hud = FindFirstObjectByType<Hud>();
         }
     }
 
@@ -37,14 +44,21 @@ public class GameManager : MonoBehaviour
 
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        Hud.BlackFade(
-            onMiddle: () => 
-            {
-                playerMovement.SetMovementEnabled(false);
-                playerMovement.ExecuteTeleport(teleportPoint);
-            },
-            onComplete: () => playerMovement.SetMovementEnabled(true)
-        );
+        if (Hud != null)
+        {
+            Hud.BlackFade(
+                onMiddle: () => 
+                {
+                    playerMovement.SetMovementEnabled(false);
+                    playerMovement.ExecuteTeleport(teleportPoint);
+                },
+                onComplete: () => playerMovement.SetMovementEnabled(true)
+            );
+        }
+        else
+        {
+            playerMovement.ExecuteTeleport(teleportPoint);
+        }
     }
 
     public void KillPlayer(GameObject player)

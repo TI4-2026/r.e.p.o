@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Hud : MonoBehaviour
 {
@@ -11,11 +12,18 @@ public class Hud : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Image panelFade;
+    [SerializeField] private Slider healthSlider;
 
     private Coroutine fadeCoroutine;
+
+    // ----------- Unity Methods -----------
     
-    private void Awake() {
-        if (GameManager.Instance != null) GameManager.Instance.Hud = this;
+    private void Awake()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.Hud = this;
+        }
     }
 
     private void Start()
@@ -25,8 +33,20 @@ public class Hud : MonoBehaviour
 
     // ----------- Public Methods -----------
 
+    public void UpdateHealthSlider(float currentHealth, float maxHealth)
+    {
+        healthSlider.value = currentHealth/maxHealth;
+    }
+
     public void BlackFade(Action onMiddle = null, Action onComplete = null)
     {
+        if (panelFade == null)
+        {
+            onMiddle?.Invoke();
+            onComplete?.Invoke();
+            return;
+        }
+
         if (fadeCoroutine != null)
         {
             StopCoroutine(fadeCoroutine);
@@ -34,6 +54,8 @@ public class Hud : MonoBehaviour
         
         fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete));
     }
+
+    // ----------- Private Methods -----------
 
     private IEnumerator I_BlackFade(Action onMiddle, Action onComplete)
     {
@@ -58,4 +80,92 @@ public class Hud : MonoBehaviour
         onComplete?.Invoke();
         fadeCoroutine = null;
     }
+
+    /*
+    // ----------- Visual Feedback Methods -----------
+
+    private Image GetFillImage()
+    {
+        if (healthFillImage != null)
+            return healthFillImage;
+
+        if (healthSlider != null && healthSlider.fillRect != null)
+        {
+            healthFillImage = healthSlider.fillRect.GetComponent<Image>();
+            return healthFillImage;
+        }
+
+        return null;
+    }
+
+    private void FlashHealthBar()
+    {
+        Image fill = GetFillImage();
+        if (fill == null) return;
+
+        Color originalColor = fill.color;
+        LeanTween.cancel(fill.gameObject);
+        LeanTween.value(fill.gameObject, originalColor, Color.white, 0.1f)
+            .setIgnoreTimeScale(true).setEaseInOutSine()
+            .setOnUpdate(val => fill.color = val)
+            .setOnComplete(() =>
+            {
+                LeanTween.value(fill.gameObject, Color.white, originalColor, 0.1f)
+                    .setIgnoreTimeScale(true).setEaseInOutSine()
+                    .setOnUpdate(val => fill.color = val);
+            });
+    }
+
+    private void ShakeHealthBar()
+    {
+        if (healthSlider == null) return;
+
+        RectTransform rect = healthSlider.GetComponent<RectTransform>();
+        if (rect == null) return;
+
+        Vector3 originalPosition = rect.anchoredPosition;
+        LeanTween.cancel(rect.gameObject);
+        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
+            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
+            .setOnComplete(() =>
+            {
+                rect.anchoredPosition = originalPosition;
+            });
+    }
+
+    private void UpdateHealthVisuals(float currentHealth, float maxHealth)
+    {
+        if (!useColorProgression || maxHealth <= 0f) return;
+
+        Image fill = GetFillImage();
+        if (fill == null) return;
+
+        if (currentHealth <= maxHealth / 2f && currentHealth > maxHealth / 4f && healthProgression == 0)
+        {
+            healthProgression = 1;
+            ChangeHealthBarColor(mediumHealthColor);
+        }
+        else if (currentHealth <= maxHealth / 4f && currentHealth > 0f && healthProgression <= 1)
+        {
+            healthProgression = 2;
+            ChangeHealthBarColor(lowHealthColor);
+        }
+        else if (currentHealth > maxHealth / 2f && healthProgression != 0)
+        {
+            healthProgression = 0;
+            ChangeHealthBarColor(fullHealthColor);
+        }
+    }
+
+    private void ChangeHealthBarColor(Color targetColor)
+    {
+        Image fill = GetFillImage();
+        if (fill == null) return;
+
+        LeanTween.cancel(fill.gameObject);
+        LeanTween.value(fill.gameObject, fill.color, targetColor, 0.5f)
+            .setEaseInOutSine().setIgnoreTimeScale(true)
+            .setOnUpdate(val => fill.color = val);
+    }
+    */
 }
