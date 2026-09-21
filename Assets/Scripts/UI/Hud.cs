@@ -12,7 +12,7 @@ public class Hud : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Image panelFade;
-    [SerializeField] private Slider healthSlider;
+    [SerializeField] private Image healthBar;
 
     private Coroutine fadeCoroutine;
 
@@ -48,6 +48,36 @@ public class Hud : MonoBehaviour
         }
         
         fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete));
+    }
+
+    public void FlashHealthBar(Color color, float life, float maxLife)
+    {
+        LeanTween.value(healthBar.gameObject, color, Color.white, 0.1f)
+        .setIgnoreTimeScale(true).setEaseInOutSine()
+        .setOnUpdate(value => healthBar.color = value)
+        .setOnComplete(() =>
+        {
+            LeanTween.value(healthBar.gameObject, Color.white, color, 0.1f)
+            .setIgnoreTimeScale(true).setEaseInOutSine()
+            .setOnUpdate(value => healthBar.color = value);
+        });
+
+        RectTransform rect = healthBar.rectTransform;
+        Vector3 originalPosition = rect.anchoredPosition;
+
+        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
+            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
+            .setOnComplete(() =>
+            {
+                healthBar.fillAmount = life / maxLife;
+                rect.anchoredPosition = originalPosition;
+            });
+    }
+
+    public void ChangeHealthBar(Color color)
+    {
+        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
+        .setOnUpdate(value => healthBar.color = value);
     }
 
     // ----------- Private Methods -----------

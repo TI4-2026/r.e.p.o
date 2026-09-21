@@ -27,7 +27,7 @@ public class PlayerLife : MonoBehaviour
         playerCamera = GetComponent<PlayerCamera>();
         hud = GameManager.Instance.Hud;
 
-        FlashHealthBar(healthBar.color);
+        hud.FlashHealthBar(healthBar.color, life, maxLife);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
@@ -52,17 +52,17 @@ public class PlayerLife : MonoBehaviour
         life = Mathf.Max(life - damage, 0f);
         inviciEnd = Time.time + inviciTime;
 
-        FlashHealthBar(healthBar.color);
+        hud.FlashHealthBar(healthBar.color, life, maxLife);
 
         if (life <= maxLife / 2 && life > maxLife / 4 && healthProgression == 0)
         {
             healthProgression = 1;
-            ChangeHealthBar(Color.yellow);
+            hud.ChangeHealthBar(Color.yellow);
         }
         else if (life <= maxLife / 4 && life > 0 && healthProgression == 1)
         {
             healthProgression = 2;
-            ChangeHealthBar(Color.red);
+            hud.ChangeHealthBar(Color.yellow);
         }
         else if (life <= 0)
         {
@@ -73,13 +73,13 @@ public class PlayerLife : MonoBehaviour
     public void Heal(float amount)
     {
         life = Mathf.Min(life + amount, maxLife);
-        FlashHealthBar(healthBar.color);
+        hud.FlashHealthBar(healthBar.color, life, maxLife);
     }
 
     public void ResetHealth()
     {
         life = maxLife;
-        FlashHealthBar(healthBar.color);
+        hud.FlashHealthBar(healthBar.color, life, maxLife);
     }
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
@@ -110,36 +110,6 @@ public class PlayerLife : MonoBehaviour
         }
 
         isKnockedBack = false;
-    }
-
-    void FlashHealthBar(Color color)
-    {
-        LeanTween.value(healthBar.gameObject, color, Color.white, 0.1f)
-        .setIgnoreTimeScale(true).setEaseInOutSine()
-        .setOnUpdate(value => healthBar.color = value)
-        .setOnComplete(() =>
-        {
-            LeanTween.value(healthBar.gameObject, Color.white, color, 0.1f)
-            .setIgnoreTimeScale(true).setEaseInOutSine()
-            .setOnUpdate(value => healthBar.color = value);
-        });
-
-        RectTransform rect = healthBar.rectTransform;
-        Vector3 originalPosition = rect.anchoredPosition;
-
-        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
-            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
-            .setOnComplete(() =>
-            {
-                healthBar.fillAmount = life / maxLife;
-                rect.anchoredPosition = originalPosition;
-            });
-    }
-
-    void ChangeHealthBar(Color color)
-    {
-        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
-        .setOnUpdate(value => healthBar.color = value);
     }
 
     private void Die()
