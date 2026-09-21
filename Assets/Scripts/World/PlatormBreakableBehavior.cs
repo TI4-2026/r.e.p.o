@@ -25,6 +25,12 @@ public class PlatormBreakableBehavior : PlatformBehavior
         base.Movement();
     }
 
+    protected void OnEnable()
+    {
+        boxCollider.enabled = true;
+        meshRenderer.enabled = true;
+    }
+
     // -------------------- Public Methods --------------------
 
     public void OnPlayerCollision()
