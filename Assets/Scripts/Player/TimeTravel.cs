@@ -24,7 +24,7 @@ public class TimeTravel : MonoBehaviour
         cooldownSlider.value = cooldown;
         if (cooldown < 2f)
         {
-            cooldown += Time.deltaTime;
+            cooldown += Time.unscaledDeltaTime;
         }
     }
 
