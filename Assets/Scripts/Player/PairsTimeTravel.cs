@@ -10,6 +10,11 @@ public class PairsTimeTravel : MonoBehaviour
         TimeTravel.OnTimeChange += ChangeTime;
     }
 
+    private void OnDestroy()
+    {
+        TimeTravel.OnTimeChange -= ChangeTime;
+    }
+
     void ChangeTime(bool isFuture)
     {
         if (isFuture)
