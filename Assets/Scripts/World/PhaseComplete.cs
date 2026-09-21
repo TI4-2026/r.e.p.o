@@ -7,6 +7,7 @@ public class PhaseComplete : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            MusicManager.instance.PlayMusic(0);
             SceneManager.LoadScene("museu");
         }
     }
