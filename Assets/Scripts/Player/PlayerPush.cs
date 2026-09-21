@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public float pushForce = 5f;
+    public float pushForce = 1f;
+    public float maxPushSpeed = 3f;
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -11,8 +12,11 @@ public class PlayerPush : MonoBehaviour
         if (rb == null || rb.isKinematic)
             return;
 
-        Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0f,hit.moveDirection.z).normalized;
+        Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0f, hit.moveDirection.z).normalized;
 
-        rb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
+        if (Vector3.Dot(rb.linearVelocity, pushDirection) < maxPushSpeed)
+        {
+            rb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
+        }
     }
 }
