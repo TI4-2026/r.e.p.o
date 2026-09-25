@@ -7,10 +7,11 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private float maxLife = 100f;
     private float life;
+    [SerializeField] private float chances = 3;
     public Image healthBar;
 
     // OnDamage
-    [SerializeField] private float inviciTime = 0.5f;
+    private float inviciTime = 1f;
     private float inviciEnd = -1f;
     private bool isKnockedBack;
     private Hud hud;
@@ -62,7 +63,7 @@ public class PlayerLife : MonoBehaviour
         else if (life <= maxLife / 4 && life > 0 && healthProgression == 1)
         {
             healthProgression = 2;
-            hud.ChangeHealthBar(Color.yellow);
+            hud.ChangeHealthBar(Color.red);
         }
         else if (life <= 0)
         {
@@ -114,7 +115,11 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        GameManager.Instance.KillPlayer(gameObject);
+        Time.timeScale = 0f;
+        life = maxLife;
+        chances -= 1;
         playerCamera.UnlockCursor();
-        SceneManager.LoadScene("menu"); // provisório
+        hud.LostChance(chances+1, chances);
     }
 }
