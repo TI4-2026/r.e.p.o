@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class MoveSpawn : MonoBehaviour
 {
-    private ParentPairs parentPair;
+    //private ParentPairs parentPair;
     private Vector3 lastPos;
     public bool isMoving;
     void Start()
     {
-        parentPair = GetComponentInParent<ParentPairs>();
+        // parentPair = GetComponentInParent<ParentPairs>();
         lastPos = transform.position;
     }
+    /*
 
     private void OnEnable()
     {
@@ -21,8 +22,9 @@ public class MoveSpawn : MonoBehaviour
         TimeTravel.OnTimeChange -= UpdatePair;
     }
 
-    void UpdatePair(bool time)
+    void UpdatePair(bool timeTravel)
     {
-        parentPair.ChangePos(transform);
+        parentPair.AlternateBehavior(timeTravel);
     }
+    */
 }

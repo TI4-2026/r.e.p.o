@@ -1,0 +1,66 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class PlayerCollisionSelf : MonoBehaviour
+{
+    private PlayerMovement playerMovement;
+
+    private HashSet<PlayerCollisionObject> currentColliders = new HashSet<PlayerCollisionObject>();
+    private HashSet<PlayerCollisionObject> previousColliders = new HashSet<PlayerCollisionObject>();
+
+    public UnityEvent ccMoved;
+
+    void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement.SetPlayerCollisionSelf(this);
+
+        ccMoved.AddListener(RenewColliders);
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider == null) return;
+
+        if (hit.gameObject.TryGetComponent(out PlayerCollisionObject pc) || 
+            (pc = hit.collider.GetComponentInParent<PlayerCollisionObject>()) != null)
+        {
+            currentColliders.Add(pc);
+        }
+    }
+
+    void RenewColliders()
+    {
+        // Collisions Enter e Stay
+        foreach (var obj in currentColliders)
+        {
+            if (obj == null) continue;
+
+            if (!previousColliders.Contains(obj))
+            {
+                obj.OnPlayerCollisionEnter(gameObject);
+            }
+            else
+            {
+                obj.OnPlayerCollisionStay(gameObject);
+            }
+        }
+
+        // Collisions Exit
+        foreach (var prevObj in previousColliders)
+        {
+            if (prevObj == null) continue;
+
+            if (!currentColliders.Contains(prevObj))
+            {
+                prevObj.OnPlayerCollisionExit(gameObject);
+            }
+        }
+
+        HashSet<PlayerCollisionObject> temp = previousColliders;
+        previousColliders = currentColliders;
+        currentColliders = temp; // Swap sem ficar alocando memoria demais e deixando lixo para tras
+        currentColliders.Clear();
+    }
+}

@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
         velocity = horizontalVel + verticalVel;
             
         characterController.Move(velocity * Time.deltaTime);
-        
         playerCollisionSelf.ccMoved.Invoke();
     }
 
