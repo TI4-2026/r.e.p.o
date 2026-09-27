@@ -115,6 +115,7 @@ public class PlayerInteraction: MonoBehaviour
             if (moveObject != null)
             {
                 isMoveObjectMode = false;
+                moveObject = null;
                 playerMovement.SetMoveObjectMode(false);
                 playerMovement.SetDefaultSpeed();
                 moveObjectDisable?.Invoke();
