@@ -75,8 +75,9 @@ public class PlayerMovement : MonoBehaviour
         VerticalMovement();
 
         velocity = horizontalVel + verticalVel;
-
         Vector3 moveStep = velocity * Time.deltaTime;
+
+        // "Pos-processamento" do movimento do player quando ele estiver movendo um objeto
         if (isMoveObjectMode)
         {
             Vector3 horizStep = new Vector3(moveStep.x, 0f, moveStep.z);
@@ -210,8 +211,20 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
+    
     private Vector3 AdjustMovementForBox(Vector3 horizStep)
-    {
+    {        
+        /*
+    
+        O metodo abaixo e tipo um "pos" processamento do movimento do player. Ele vai ser chamado no FixedUpdate quando o player estiver movendo um objeto.
+
+        Ele basicamente vai verificar se a caixa que o player esta empurrando esta batendo em alguma coisa. Se ela estiver, ele vai modificar o movimento do player naquele frame "horizStep"
+        para anular a parte do movimento que vai fazer a caixa entrar em outro objeto.
+
+        Logo, SE VOCE NAO SABE O QUE ESTA FAZENDO, NAO MEXA NISSO
+
+        */
+
         if (currentMoveCollider == null || horizStep.sqrMagnitude < 0.000001f)
             return horizStep;
 
