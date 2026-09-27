@@ -27,8 +27,7 @@ public class BoxBehaviour : PlayerCollisionObject // !!! ESTA HERDANDO DE "Playe
 
         if (rb.linearVelocity.y < -0.5f)
         {
-            if (isMoveObjectMode || isPlayerClose) return;
-            playerInteraction.TryMoveObject();
+            playerInteraction?.TryMoveObject();
         }
     }
 

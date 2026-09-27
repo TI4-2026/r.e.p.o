@@ -91,7 +91,7 @@ public class PlayerInteraction: MonoBehaviour
     public void RemovePossibilityToMoveObject(GameObject go)
     {
         if (isMoveObjectMode) return;
-        if (moveObject.Equals(go)) 
+        if (moveObject != null && moveObject.Equals(go)) 
         {
             moveObject = null;
             moveObjectEnable = null;
@@ -115,10 +115,10 @@ public class PlayerInteraction: MonoBehaviour
             if (moveObject != null)
             {
                 isMoveObjectMode = false;
-                moveObject = null;
-                playerMovement.SetMoveObjectMode(false);
+                playerMovement.SetMoveObjectMode(false, null);
                 playerMovement.SetDefaultSpeed();
                 moveObjectDisable?.Invoke();
+                moveObject = null;
                 return true;
             }
         }else
@@ -126,7 +126,7 @@ public class PlayerInteraction: MonoBehaviour
             if (moveObject != null)
             {
                 isMoveObjectMode = true;
-                playerMovement.SetMoveObjectMode(true);
+                playerMovement.SetMoveObjectMode(true, moveObject);
                 playerMovement.SetSpeed(playerMovement.GetSpeed()/2);
                 moveObjectEnable?.Invoke();
                 return true;

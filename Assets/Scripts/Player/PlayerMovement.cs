@@ -27,6 +27,14 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCollisionSelf playerCollisionSelf = null;
     private PlayerInteraction playerInteraction;
     
+    [Header("Move Object Collision Check")]
+    [SerializeField] private LayerMask moveObjectObstacleLayers = ~0;
+    [SerializeField] private float boxSkinWidth = 0.02f;
+    private GameObject currentMoveObject;
+    private Collider currentMoveCollider;
+    private BoxCollider currentBoxCollider;
+    private readonly RaycastHit[] boxCastHits = new RaycastHit[8];
+
     // ---------- Control Variables ----------
 
     private Vector3 verticalVel;
@@ -44,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastJumpTime=0f;
     GameObject activePlatform;
     PlatformBehavior platBehave;
+
     
 
     void Start()
@@ -66,8 +75,17 @@ public class PlayerMovement : MonoBehaviour
         VerticalMovement();
 
         velocity = horizontalVel + verticalVel;
+
+        Vector3 moveStep = velocity * Time.deltaTime;
+        if (isMoveObjectMode)
+        {
+            Vector3 horizStep = new Vector3(moveStep.x, 0f, moveStep.z);
+            horizStep = AdjustMovementForBox(horizStep);
+            horizontalVel = horizStep / Time.deltaTime;
+            moveStep = new Vector3(horizStep.x, moveStep.y, horizStep.z);
+        }
             
-        characterController.Move(velocity * Time.deltaTime);
+        characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
     }
 
@@ -124,9 +142,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void SetMoveObjectMode(bool enabled)
+    public void SetMoveObjectMode(bool enabled, GameObject targetObject = null)
     {
         isMoveObjectMode = enabled;
+        currentMoveObject = enabled ? targetObject : null;
+        currentMoveCollider = enabled && targetObject != null ? targetObject.GetComponent<Collider>() : null;
+        currentBoxCollider = currentMoveCollider as BoxCollider;
     }
 
     public float GetSpeed() {return speed;}
@@ -187,6 +208,121 @@ public class PlayerMovement : MonoBehaviour
     {
         Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    private Vector3 AdjustMovementForBox(Vector3 horizStep)
+    {
+        if (currentMoveCollider == null || horizStep.sqrMagnitude < 0.000001f)
+            return horizStep;
+
+        float distance = horizStep.magnitude;
+        Vector3 direction = horizStep / distance;
+
+        Vector3 center;
+        Vector3 halfExtents;
+        Quaternion orientation = currentMoveObject.transform.rotation;
+
+        if (currentBoxCollider != null)
+        {
+            center = currentMoveObject.transform.TransformPoint(currentBoxCollider.center);
+            Vector3 lossy = currentMoveObject.transform.lossyScale;
+            halfExtents = Vector3.Scale(currentBoxCollider.size * 0.5f, new Vector3(Mathf.Abs(lossy.x), Mathf.Abs(lossy.y), Mathf.Abs(lossy.z)));
+        }
+        else
+        {
+            Bounds bounds = currentMoveCollider.bounds;
+            center = bounds.center;
+            halfExtents = bounds.extents;
+        }
+
+        // Reduz ligeiramente os extents para nao raspar no piso ou acusar falso contato inicial
+        halfExtents -= new Vector3(boxSkinWidth, boxSkinWidth, boxSkinWidth);
+        if (halfExtents.x <= 0f || halfExtents.y <= 0f || halfExtents.z <= 0f)
+            halfExtents = currentMoveCollider.bounds.extents * 0.9f;
+
+        center.y += boxSkinWidth * 1.5f;
+
+        int hitCount = Physics.BoxCastNonAlloc(
+            center,
+            halfExtents,
+            direction,
+            boxCastHits,
+            orientation,
+            distance + boxSkinWidth * 2f,
+            moveObjectObstacleLayers,
+            QueryTriggerInteraction.Ignore
+        );
+
+        RaycastHit closestHit = default;
+        float minDistance = float.MaxValue;
+        bool hasHit = false;
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            Collider col = boxCastHits[i].collider;
+            if (col == null) continue;
+            if (col == currentMoveCollider || col.transform.root == transform.root) continue;
+
+            if (boxCastHits[i].distance < minDistance)
+            {
+                minDistance = boxCastHits[i].distance;
+                closestHit = boxCastHits[i];
+                hasHit = true;
+            }
+        }
+
+        if (hasHit)
+        {
+            float allowedDist = Mathf.Max(0f, closestHit.distance - boxSkinWidth);
+            Vector3 allowedMove = direction * Mathf.Min(allowedDist, distance);
+
+            Vector3 remainingMove = horizStep - allowedMove;
+            Vector3 slideMove = Vector3.ProjectOnPlane(remainingMove, closestHit.normal);
+            slideMove.y = 0f;
+
+            if (slideMove.sqrMagnitude > 0.000001f)
+            {
+                float slideDist = slideMove.magnitude;
+                Vector3 slideDir = slideMove / slideDist;
+
+                int slideHitCount = Physics.BoxCastNonAlloc(
+                    center + allowedMove,
+                    halfExtents,
+                    slideDir,
+                    boxCastHits,
+                    orientation,
+                    slideDist + boxSkinWidth * 2f,
+                    moveObjectObstacleLayers,
+                    QueryTriggerInteraction.Ignore
+                );
+
+                float minSlideDist = float.MaxValue;
+                bool slideHasHit = false;
+
+                for (int i = 0; i < slideHitCount; i++)
+                {
+                    Collider col = boxCastHits[i].collider;
+                    if (col == null) continue;
+                    if (col == currentMoveCollider || col.transform.root == transform.root) continue;
+
+                    if (boxCastHits[i].distance < minSlideDist)
+                    {
+                        minSlideDist = boxCastHits[i].distance;
+                        slideHasHit = true;
+                    }
+                }
+
+                if (slideHasHit)
+                {
+                    float allowedSlideDist = Mathf.Max(0f, minSlideDist - boxSkinWidth);
+                    slideMove = slideDir * Mathf.Min(allowedSlideDist, slideDist);
+                }
+            }
+
+            return allowedMove + slideMove;
+        }
+
+        return horizStep;
     }
 
     private void VerticalMovement()
