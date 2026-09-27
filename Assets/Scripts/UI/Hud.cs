@@ -13,6 +13,9 @@ public class Hud : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image panelFade;
     [SerializeField] private Image healthBar;
+    [SerializeField] private GameObject InteractionPanel;
+    [SerializeField] private TextMeshProUGUI InteractionLetter;
+    [SerializeField] private TextMeshProUGUI InteractionDesc;
 
     private Coroutine fadeCoroutine;
 
@@ -29,6 +32,8 @@ public class Hud : MonoBehaviour
     private void Start()
     {
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
+        panelFade.gameObject.SetActive(false);
+        InteractionPanel.SetActive(false);
     }
 
     // ----------- Public Methods -----------
@@ -80,10 +85,25 @@ public class Hud : MonoBehaviour
         .setOnUpdate(value => healthBar.color = value);
     }
 
+    public void EnableInteraction(string letter, string desc)
+    {
+        InteractionPanel.SetActive(true);
+        InteractionLetter.text = letter;
+        InteractionDesc.text = "- " + desc;
+    }
+
+    public void DisableInteraction()
+    {
+        InteractionPanel.SetActive(false);
+        InteractionLetter.text = "";
+        InteractionDesc.text = "";
+    }
+
     // ----------- Private Methods -----------
 
     private IEnumerator I_BlackFade(Action onMiddle, Action onComplete)
     {
+        panelFade.gameObject.SetActive(true);
         LeanTween.cancel(panelFade.gameObject);
 
         float fadeDurationIn = fadeDuration / 4f;
@@ -104,6 +124,7 @@ public class Hud : MonoBehaviour
 
         onComplete?.Invoke();
         fadeCoroutine = null;
+        panelFade.gameObject.SetActive(false);
     }
 
     /*

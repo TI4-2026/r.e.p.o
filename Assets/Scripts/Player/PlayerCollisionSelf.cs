@@ -9,7 +9,7 @@ public class PlayerCollisionSelf : MonoBehaviour
     /*
     **********************************************************************************************************************************
     *                                                                                                                                *
-    *  Este script lida com a detecção de colisões do player (OnPlayerCollisionEnter, OnPlayerCollisionStay, OnPlayerCollisionExit) *
+    *  Este script lida com a detecção de colisões do player (OnPlayerCollisionEnter, OnPlayerCollisionStay, OnPlayerCollisionExit)  *
     *                                                                                                                                *
     *  NAO MEXA NESSE SCRIPT ANAO SER QUE SAIBA O QUE ESTA FAZENDO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!            *
     *                                                                                                                                *
@@ -18,6 +18,7 @@ public class PlayerCollisionSelf : MonoBehaviour
 
     private CharacterController characterController;
     private PlayerMovement playerMovement;
+    private PlayerInteraction playerInteraction;
 
     private HashSet<PlayerCollisionObject> currentColliders = new HashSet<PlayerCollisionObject>();
     private HashSet<PlayerCollisionObject> previousColliders = new HashSet<PlayerCollisionObject>();
@@ -32,6 +33,7 @@ public class PlayerCollisionSelf : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         playerMovement.SetPlayerCollisionSelf(this);
 
         ccMoved.AddListener(RenewColliders);

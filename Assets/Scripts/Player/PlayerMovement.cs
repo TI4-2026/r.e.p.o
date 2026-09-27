@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -7,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
+    private float defaultSpeed;
     [SerializeField] private float acceleration = 0.15f;
     [SerializeField] private float deceleration = 0.1f;
     [SerializeField] private float jumpForce = 8f;
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
+    private PlayerInteraction playerInteraction;
     
     // ---------- Control Variables ----------
 
@@ -33,21 +37,26 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpRequested;
     private bool isJumping;
     private bool isMovementEnabled = true;
+    private bool isMoveObjectMode = false;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
     private float lastJumpTime=0f;
     GameObject activePlatform;
     PlatformBehavior platBehave;
+    
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         mainCamera = Camera.main;
+        defaultSpeed = speed;   
     }
 
     void FixedUpdate()
     {
+
         CheckGrounded();
         if (activePlatform != null)
         {
@@ -89,6 +98,12 @@ public class PlayerMovement : MonoBehaviour
         return movementDirection.normalized;
     }
 
+    public Vector3 GetMovementDirectionMoveObjectMode()
+    {
+        Vector3 movementDirection = (transform.right * moveInput.x) + (transform.forward * moveInput.y);
+        return movementDirection.normalized;
+    }
+
     public void ExecuteTeleport(Transform destination)
     {
         characterController.enabled = false;
@@ -107,6 +122,16 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.enabled = true;
     }
+
+
+    public void SetMoveObjectMode(bool enabled)
+    {
+        isMoveObjectMode = enabled;
+    }
+
+    public float GetSpeed() {return speed;}
+    public void SetSpeed(float speed) {this.speed = speed;}
+    public void SetDefaultSpeed() {speed = defaultSpeed;}
 
     // --------------- Input Actions ---------------
 
@@ -138,10 +163,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!characterController.enabled) return;
 
-        Vector3 movementDirection = GetMovementDirection();
-        if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
+        Vector3 movementDirection = Vector3.zero;
+        Vector3 targetVelocity = Vector3.zero;
 
-        Vector3 targetVelocity = transform.forward * speed * movementDirection.magnitude;
+        if (isMoveObjectMode)
+        {
+            movementDirection = GetMovementDirectionMoveObjectMode();
+            targetVelocity = speed * movementDirection;
+        }else
+        {
+            movementDirection = GetMovementDirection();
+            if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
+            targetVelocity = transform.forward * speed * movementDirection.magnitude;
+        }
+
         float smoothTime = targetVelocity.sqrMagnitude > horizontalVel.sqrMagnitude ? acceleration : deceleration;
         horizontalVel = Vector3.SmoothDamp(horizontalVel, targetVelocity, ref horizontalVelRef, smoothTime);
 
@@ -164,14 +199,13 @@ public class PlayerMovement : MonoBehaviour
             verticalVel.y = -2f;
         }
 
-        // Fall Gravity
-        if (verticalVel.y < maxFallSpeed)
-        {
-            verticalVel.y = maxFallSpeed;
-        }
+        // Fall Gravity (vel negativa)
+        if (verticalVel.y < maxFallSpeed) verticalVel.y = maxFallSpeed;
+
+        if (isMoveObjectMode && Math.Abs(verticalVel.y) > 3f) playerInteraction.TryMoveObject();
 
         // Jump
-        if (jumpRequested)
+        if (jumpRequested && !isMoveObjectMode)
         {
             // Coyote Time
             if (!isGrounded && Time.time - lastGroundedTime < coyoteTime && !isJumping)
@@ -194,7 +228,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         verticalVel.y += gravity * Time.deltaTime;
-        //characterController.Move(verticalVel * Time.deltaTime);
     }
 
     private void Jump()
