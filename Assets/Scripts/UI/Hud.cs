@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using Unity.InferenceEngine;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class Hud : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image panelFade;
     [SerializeField] private Image healthBar;
+    [SerializeField] private Image deathPanel;
+    [SerializeField] private TextMeshProUGUI chancesText;
 
     private Coroutine fadeCoroutine;
 
@@ -80,6 +84,41 @@ public class Hud : MonoBehaviour
         .setOnUpdate(value => healthBar.color = value);
     }
 
+    public void LostChance(float oldValue, float newValue)
+    {
+        deathPanel.gameObject.SetActive(true);
+        RectTransform currentRect = chancesText.rectTransform;
+        Vector2 centerPosition = currentRect.anchoredPosition;
+        GameObject incomingObject = Instantiate(chancesText.gameObject, chancesText.transform.parent);
+        TextMeshProUGUI incomingText = incomingObject.GetComponent<TextMeshProUGUI>();
+        RectTransform incomingRect = incomingObject.GetComponent<RectTransform>();
+        incomingText.text = newValue.ToString();
+        incomingRect.anchorMin = currentRect.anchorMin;
+        incomingRect.anchorMax = currentRect.anchorMax;
+        incomingRect.pivot = currentRect.pivot;
+        incomingRect.sizeDelta = currentRect.sizeDelta;
+        incomingRect.anchoredPosition = centerPosition + Vector2.up * 60f;
+        currentRect.anchoredPosition = centerPosition;
+
+        LeanTween.cancel(currentRect.gameObject);
+        LeanTween.cancel(incomingRect.gameObject);
+        LeanTween.move(currentRect, centerPosition + Vector2.down * 60f, 3f).setEaseInCubic().setIgnoreTimeScale(true);
+        LeanTween.move(incomingRect, centerPosition, 3f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
+        {
+            Time.timeScale = 1f;
+            chancesText.text = newValue.ToString();
+            currentRect.anchoredPosition = centerPosition;
+            Destroy(incomingObject);
+            if (newValue <= 0)
+            {
+                Scene currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
+            }
+            deathPanel.gameObject.SetActive(false);
+        });
+    }
+
+
     // ----------- Private Methods -----------
 
     private IEnumerator I_BlackFade(Action onMiddle, Action onComplete)
@@ -92,105 +131,22 @@ public class Hud : MonoBehaviour
 
         bool tweenFinished = false;
 
-        LeanTween.alpha(panelFade.rectTransform, 1f, fadeDurationIn).setOnComplete(() => tweenFinished = true);
+        LeanTween.alpha(panelFade.rectTransform, 1f, fadeDurationIn).setIgnoreTimeScale(true).setOnComplete(() => tweenFinished = true);
         yield return new WaitUntil(() => tweenFinished);
 
         onMiddle?.Invoke();
-        yield return new WaitForSeconds(idleDuration);
+        yield return new WaitForSecondsRealtime(idleDuration);
 
         tweenFinished = false;
-        LeanTween.alpha(panelFade.rectTransform, 0f, fadeDurationOut).setOnComplete(() => tweenFinished = true);
+        LeanTween.alpha(panelFade.rectTransform, 0f, fadeDurationOut).setIgnoreTimeScale(true).setOnComplete(() => tweenFinished = true);
         yield return new WaitUntil(() => tweenFinished);
 
         onComplete?.Invoke();
         fadeCoroutine = null;
     }
 
-    /*
+    
     // ----------- Visual Feedback Methods -----------
 
-    private Image GetFillImage()
-    {
-        if (healthFillImage != null)
-            return healthFillImage;
 
-        if (healthSlider != null && healthSlider.fillRect != null)
-        {
-            healthFillImage = healthSlider.fillRect.GetComponent<Image>();
-            return healthFillImage;
-        }
-
-        return null;
-    }
-
-    private void FlashHealthBar()
-    {
-        Image fill = GetFillImage();
-        if (fill == null) return;
-
-        Color originalColor = fill.color;
-        LeanTween.cancel(fill.gameObject);
-        LeanTween.value(fill.gameObject, originalColor, Color.white, 0.1f)
-            .setIgnoreTimeScale(true).setEaseInOutSine()
-            .setOnUpdate(val => fill.color = val)
-            .setOnComplete(() =>
-            {
-                LeanTween.value(fill.gameObject, Color.white, originalColor, 0.1f)
-                    .setIgnoreTimeScale(true).setEaseInOutSine()
-                    .setOnUpdate(val => fill.color = val);
-            });
-    }
-
-    private void ShakeHealthBar()
-    {
-        if (healthSlider == null) return;
-
-        RectTransform rect = healthSlider.GetComponent<RectTransform>();
-        if (rect == null) return;
-
-        Vector3 originalPosition = rect.anchoredPosition;
-        LeanTween.cancel(rect.gameObject);
-        LeanTween.move(rect, originalPosition + new Vector3(10f, 5f, 0f), 0.05f)
-            .setIgnoreTimeScale(true).setLoopPingPong(5).setEaseInOutSine()
-            .setOnComplete(() =>
-            {
-                rect.anchoredPosition = originalPosition;
-            });
-    }
-
-    private void UpdateHealthVisuals(float currentHealth, float maxHealth)
-    {
-        if (!useColorProgression || maxHealth <= 0f) return;
-
-        Image fill = GetFillImage();
-        if (fill == null) return;
-
-        if (currentHealth <= maxHealth / 2f && currentHealth > maxHealth / 4f && healthProgression == 0)
-        {
-            healthProgression = 1;
-            ChangeHealthBarColor(mediumHealthColor);
-        }
-        else if (currentHealth <= maxHealth / 4f && currentHealth > 0f && healthProgression <= 1)
-        {
-            healthProgression = 2;
-            ChangeHealthBarColor(lowHealthColor);
-        }
-        else if (currentHealth > maxHealth / 2f && healthProgression != 0)
-        {
-            healthProgression = 0;
-            ChangeHealthBarColor(fullHealthColor);
-        }
-    }
-
-    private void ChangeHealthBarColor(Color targetColor)
-    {
-        Image fill = GetFillImage();
-        if (fill == null) return;
-
-        LeanTween.cancel(fill.gameObject);
-        LeanTween.value(fill.gameObject, fill.color, targetColor, 0.5f)
-            .setEaseInOutSine().setIgnoreTimeScale(true)
-            .setOnUpdate(val => fill.color = val);
-    }
-    */
 }
