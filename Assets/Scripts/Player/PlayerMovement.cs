@@ -1,4 +1,7 @@
+using System;
 using NUnit.Framework;
+using Unity.Mathematics;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
+     [SerializeField]private float slideFriction = 20f;
+     [SerializeField]private float slideSpeed = 3f;
 
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
@@ -19,10 +24,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField] private float isGroundedGraceTime = 0.2f;
     [SerializeField] private float rotationSpeed = 10f;
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
-    
+
     // ---------- Control Variables ----------
 
     private Vector3 verticalVel;
@@ -34,9 +40,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isMovementEnabled = true;
     private bool isGrounded;
-    private float jumpRequestTimer=0f;
-    private float lastGroundedTime=0f;
-    private float lastJumpTime=0f;
+    private float jumpRequestTimer = 0f;
+    private float lastGroundedTime = 0f;
+    private float lastJumpTime = 0f;
+    private bool isSliding = false;
     GameObject activePlatform;
     PlatformBehavior platBehave;
 
@@ -57,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
         VerticalMovement();
 
         velocity = horizontalVel + verticalVel;
-            
+
         characterController.Move(velocity * Time.deltaTime);
-        
+
         playerCollisionSelf.ccMoved.Invoke();
     }
 
@@ -93,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     public void ExecuteTeleport(Transform destination)
     {
         characterController.enabled = false;
-        
+
         verticalVel = Vector3.zero;
         horizontalVel = Vector3.zero;
         horizontalVelRef = Vector3.zero;
@@ -107,6 +114,12 @@ public class PlayerMovement : MonoBehaviour
         transform.position = destination.position;
 
         characterController.enabled = true;
+    }
+
+    public bool IsSliding => isSliding;
+    public bool CanSlide()
+    {
+        return !isSliding;
     }
 
     // --------------- Input Actions ---------------
@@ -130,6 +143,17 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpRequested = true;
             jumpRequestTimer = Time.time;
+        }
+    }
+    public void OnSlide(InputAction.CallbackContext context)
+    {
+        if (context.started && CanSlide())
+        {
+            StartSlide();
+        }
+        if (context.canceled && isSliding)
+        {
+            EndSlide();
         }
     }
 
@@ -158,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
     private void VerticalMovement()
     {
         if (!characterController.enabled) return;
-        
+
         // Stand Gravity
         if (isGrounded && verticalVel.y < 0f)
         {
@@ -179,14 +203,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
-            
+
             // Jump and Jump Buffer
             if (isGrounded)
             {
                 if (Time.time - jumpRequestTimer < jumpBufferTime) // Jump Buffer
                 {
                     Jump();
-                }else
+                }
+                else
                 {
                     jumpRequestTimer = 0f;
                     jumpRequested = false;
@@ -206,6 +231,26 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         lastJumpTime = Time.time;
     }
+    private float slideTol = 0.001f;
+    private void StartSlide()
+    {
+        isSliding = true;
+        SetMovementEnabled(false);
+
+        deceleration *= slideFriction;
+        speed += slideSpeed;
+        //a operação desse if não ta funcionando, e eu não sei como fazer ele funcionar
+        if (MathF.Abs(velocity.x) < slideTol && MathF.Abs(velocity.z) < slideTol)
+            EndSlide();
+
+    }
+    private void EndSlide()
+    {
+        isSliding = false;
+        deceleration /=slideFriction;
+        speed -= slideSpeed;
+        SetMovementEnabled(true);
+    }
 
     private void CheckGrounded()
     {
@@ -213,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, groundCheckDistance))
         {
             if (Time.time - lastJumpTime < isGroundedGraceTime) return;
-            
+
             isJumping = false;
             isGrounded = true;
             lastGroundedTime = Time.time;
@@ -224,14 +269,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private void FollowPlatform()
-{
-    if (platBehave != null)
     {
-        Vector3 platformMovement = platBehave.GetPlatformMovement();
+        if (platBehave != null)
+        {
+            Vector3 platformMovement = platBehave.GetPlatformMovement();
 
-        characterController.Move(platformMovement);
+            characterController.Move(platformMovement);
+        }
     }
-}
     public void StartFollowing(GameObject platform)
     {
         activePlatform = platform;
