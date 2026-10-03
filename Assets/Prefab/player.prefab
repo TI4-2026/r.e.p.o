@@ -332,6 +332,7 @@ MonoBehaviour:
   jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
+  slideSpeed: 3
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
   coyoteTime: 0.2
@@ -397,8 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   maxLife: 100
+  chances: 3
   healthBar: {fileID: 0}
-  inviciTime: 0.5
 --- !u!114 &2566955079252876387
 MonoBehaviour:
   m_ObjectHideFlags: 0
