@@ -15,7 +15,7 @@ public class PlayerLife : MonoBehaviour
     private bool isKnockedBack;
     private Hud hud;
     private CharacterController characterController;
-    private PlayerCamera playerCamera;
+    private PlayerInteraction playerInteraction;
     private int healthProgression = 0;
 
     // ----------- Unity Methods -----------
@@ -24,7 +24,7 @@ public class PlayerLife : MonoBehaviour
     {
         life = maxLife;
         characterController = GetComponent<CharacterController>();
-        playerCamera = GetComponent<PlayerCamera>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         hud = GameManager.Instance.Hud;
 
         hud.FlashHealthBar(healthBar.color, life, maxLife);
@@ -114,7 +114,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
-        playerCamera.UnlockCursor();
+        playerInteraction.UnlockCursor();
         SceneManager.LoadScene("menu"); // provisório
     }
 }

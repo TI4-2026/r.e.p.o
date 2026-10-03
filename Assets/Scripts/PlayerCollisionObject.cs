@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerCollisionObject : MonoBehaviour
 {
     /*
-        This script is used to manage collisions between the player and objects.
-        The Character Controller does not naturally trigger OnCollisionEnter.
-        Although it does trigger OnTriggerEnter, it will also be managed by this script.
+        Este script é usado para gerenciar colisões entre o jogador e objetos.
+        O Character Controller não aciona naturalmente o OnCollisionEnter.
+        Embora acione o OnTriggerEnter, esse também será gerenciado por este script.
     */
 
 
-    // OnPlayerCollisionEnter is called from PlayerCollisionSelf.cs
+    // OnPlayerCollisionEnter é chamado a partir de PlayerCollisionSelf.cs
     public virtual void OnPlayerCollisionEnter(GameObject player) {}
     public virtual void OnPlayerCollisionStay(GameObject player) {}
     public virtual void OnPlayerCollisionExit(GameObject player) {}

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7160938026242830661}
   - component: {fileID: 3691413822646431865}
   - component: {fileID: 3806254420842354620}
-  - component: {fileID: 5802597880823793430}
   m_Layer: 0
   m_Name: Hair
   m_TagString: Untagged
@@ -91,27 +90,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5802597880823793430
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278125854328459751}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2646676395974069671
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +277,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3ba14941-32e9-4fe9-8bab-521f10bb3279
     m_ActionName: 'basic/ChangeTimeButton[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7938991980053644193}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aaf51941-31cd-448d-a9a3-b6fdb97223b1
+    m_ActionName: 'basic/Interact[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -316,6 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
+  moveObjectLetter: F
+  moveObjectDesc: Move Object
   cameraInputAxisController: {fileID: 0}
   cameraHandle: {fileID: 0}
 --- !u!114 &8684086751821290450

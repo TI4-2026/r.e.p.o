@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -7,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
+    private float defaultSpeed;
     [SerializeField] private float acceleration = 0.15f;
     [SerializeField] private float deceleration = 0.1f;
     [SerializeField] private float jumpForce = 8f;
@@ -22,7 +25,16 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
+    private PlayerInteraction playerInteraction;
     
+    [Header("Move Object Collision Check")]
+    [SerializeField] private LayerMask moveObjectObstacleLayers = ~0;
+    [SerializeField] private float boxSkinWidth = 0.02f;
+    private GameObject currentMoveObject;
+    private Collider currentMoveCollider;
+    private BoxCollider currentBoxCollider;
+    private readonly RaycastHit[] boxCastHits = new RaycastHit[8];
+
     // ---------- Control Variables ----------
 
     private Vector3 verticalVel;
@@ -33,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpRequested;
     private bool isJumping;
     private bool isMovementEnabled = true;
+    private bool isMoveObjectMode = false;
     private bool isGrounded;
     private float jumpRequestTimer=0f;
     private float lastGroundedTime=0f;
@@ -40,14 +53,19 @@ public class PlayerMovement : MonoBehaviour
     GameObject activePlatform;
     PlatformBehavior platBehave;
 
+    
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         mainCamera = Camera.main;
+        defaultSpeed = speed;   
     }
 
     void FixedUpdate()
     {
+
         CheckGrounded();
         if (activePlatform != null)
         {
@@ -57,9 +75,18 @@ public class PlayerMovement : MonoBehaviour
         VerticalMovement();
 
         velocity = horizontalVel + verticalVel;
+        Vector3 moveStep = velocity * Time.deltaTime;
+
+        // "Pos-processamento" do movimento do player quando ele estiver movendo um objeto
+        if (isMoveObjectMode)
+        {
+            Vector3 horizStep = new Vector3(moveStep.x, 0f, moveStep.z);
+            horizStep = AdjustMovementForBox(horizStep);
+            horizontalVel = horizStep / Time.deltaTime;
+            moveStep = new Vector3(horizStep.x, moveStep.y, horizStep.z);
+        }
             
-        characterController.Move(velocity * Time.deltaTime);
-        
+        characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
     }
 
@@ -90,6 +117,12 @@ public class PlayerMovement : MonoBehaviour
         return movementDirection.normalized;
     }
 
+    public Vector3 GetMovementDirectionMoveObjectMode()
+    {
+        Vector3 movementDirection = (transform.right * moveInput.x) + (transform.forward * moveInput.y);
+        return movementDirection.normalized;
+    }
+
     public void ExecuteTeleport(Transform destination)
     {
         characterController.enabled = false;
@@ -108,6 +141,19 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.enabled = true;
     }
+
+
+    public void SetMoveObjectMode(bool enabled, GameObject targetObject = null)
+    {
+        isMoveObjectMode = enabled;
+        currentMoveObject = enabled ? targetObject : null;
+        currentMoveCollider = enabled && targetObject != null ? targetObject.GetComponent<Collider>() : null;
+        currentBoxCollider = currentMoveCollider as BoxCollider;
+    }
+
+    public float GetSpeed() {return speed;}
+    public void SetSpeed(float speed) {this.speed = speed;}
+    public void SetDefaultSpeed() {speed = defaultSpeed;}
 
     // --------------- Input Actions ---------------
 
@@ -139,10 +185,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!characterController.enabled) return;
 
-        Vector3 movementDirection = GetMovementDirection();
-        if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
+        Vector3 movementDirection = Vector3.zero;
+        Vector3 targetVelocity = Vector3.zero;
 
-        Vector3 targetVelocity = transform.forward * speed * movementDirection.magnitude;
+        if (isMoveObjectMode)
+        {
+            movementDirection = GetMovementDirectionMoveObjectMode();
+            targetVelocity = speed * movementDirection;
+        }else
+        {
+            movementDirection = GetMovementDirection();
+            if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
+            targetVelocity = transform.forward * speed * movementDirection.magnitude;
+        }
+
         float smoothTime = targetVelocity.sqrMagnitude > horizontalVel.sqrMagnitude ? acceleration : deceleration;
         horizontalVel = Vector3.SmoothDamp(horizontalVel, targetVelocity, ref horizontalVelRef, smoothTime);
 
@@ -155,6 +211,133 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
+    
+    private Vector3 AdjustMovementForBox(Vector3 horizStep)
+    {        
+        /*
+    
+        O metodo abaixo e tipo um "pos" processamento do movimento do player. Ele vai ser chamado no FixedUpdate quando o player estiver movendo um objeto.
+
+        Ele basicamente vai verificar se a caixa que o player esta empurrando esta batendo em alguma coisa. Se ela estiver, ele vai modificar o movimento do player naquele frame "horizStep"
+        para anular a parte do movimento que vai fazer a caixa entrar em outro objeto.
+
+        Logo, SE VOCE NAO SABE O QUE ESTA FAZENDO, NAO MEXA NISSO
+
+        */
+
+        if (currentMoveCollider == null || horizStep.sqrMagnitude < 0.000001f)
+            return horizStep;
+
+        float distance = horizStep.magnitude;
+        Vector3 direction = horizStep / distance;
+
+        Vector3 center;
+        Vector3 halfExtents;
+        Quaternion orientation = currentMoveObject.transform.rotation;
+
+        if (currentBoxCollider != null)
+        {
+            center = currentMoveObject.transform.TransformPoint(currentBoxCollider.center);
+            Vector3 lossy = currentMoveObject.transform.lossyScale;
+            halfExtents = Vector3.Scale(currentBoxCollider.size * 0.5f, new Vector3(Mathf.Abs(lossy.x), Mathf.Abs(lossy.y), Mathf.Abs(lossy.z)));
+        }
+        else
+        {
+            Bounds bounds = currentMoveCollider.bounds;
+            center = bounds.center;
+            halfExtents = bounds.extents;
+        }
+
+        // Reduz ligeiramente os extents para nao raspar no piso ou acusar falso contato inicial
+        halfExtents -= new Vector3(boxSkinWidth, boxSkinWidth, boxSkinWidth);
+        if (halfExtents.x <= 0f || halfExtents.y <= 0f || halfExtents.z <= 0f)
+            halfExtents = currentMoveCollider.bounds.extents * 0.9f;
+
+        center.y += boxSkinWidth * 1.5f;
+
+        int hitCount = Physics.BoxCastNonAlloc(
+            center,
+            halfExtents,
+            direction,
+            boxCastHits,
+            orientation,
+            distance + boxSkinWidth * 2f,
+            moveObjectObstacleLayers,
+            QueryTriggerInteraction.Ignore
+        );
+
+        RaycastHit closestHit = default;
+        float minDistance = float.MaxValue;
+        bool hasHit = false;
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            Collider col = boxCastHits[i].collider;
+            if (col == null) continue;
+            if (col == currentMoveCollider || col.transform.root == transform.root) continue;
+
+            if (boxCastHits[i].distance < minDistance)
+            {
+                minDistance = boxCastHits[i].distance;
+                closestHit = boxCastHits[i];
+                hasHit = true;
+            }
+        }
+
+        if (hasHit)
+        {
+            float allowedDist = Mathf.Max(0f, closestHit.distance - boxSkinWidth);
+            Vector3 allowedMove = direction * Mathf.Min(allowedDist, distance);
+
+            Vector3 remainingMove = horizStep - allowedMove;
+            Vector3 slideMove = Vector3.ProjectOnPlane(remainingMove, closestHit.normal);
+            slideMove.y = 0f;
+
+            if (slideMove.sqrMagnitude > 0.000001f)
+            {
+                float slideDist = slideMove.magnitude;
+                Vector3 slideDir = slideMove / slideDist;
+
+                int slideHitCount = Physics.BoxCastNonAlloc(
+                    center + allowedMove,
+                    halfExtents,
+                    slideDir,
+                    boxCastHits,
+                    orientation,
+                    slideDist + boxSkinWidth * 2f,
+                    moveObjectObstacleLayers,
+                    QueryTriggerInteraction.Ignore
+                );
+
+                float minSlideDist = float.MaxValue;
+                bool slideHasHit = false;
+
+                for (int i = 0; i < slideHitCount; i++)
+                {
+                    Collider col = boxCastHits[i].collider;
+                    if (col == null) continue;
+                    if (col == currentMoveCollider || col.transform.root == transform.root) continue;
+
+                    if (boxCastHits[i].distance < minSlideDist)
+                    {
+                        minSlideDist = boxCastHits[i].distance;
+                        slideHasHit = true;
+                    }
+                }
+
+                if (slideHasHit)
+                {
+                    float allowedSlideDist = Mathf.Max(0f, minSlideDist - boxSkinWidth);
+                    slideMove = slideDir * Mathf.Min(allowedSlideDist, slideDist);
+                }
+            }
+
+            return allowedMove + slideMove;
+        }
+
+        return horizStep;
+    }
+
     private void VerticalMovement()
     {
         if (!characterController.enabled) return;
@@ -165,14 +348,13 @@ public class PlayerMovement : MonoBehaviour
             verticalVel.y = -2f;
         }
 
-        // Fall Gravity
-        if (verticalVel.y < maxFallSpeed)
-        {
-            verticalVel.y = maxFallSpeed;
-        }
+        // Fall Gravity (vel negativa)
+        if (verticalVel.y < maxFallSpeed) verticalVel.y = maxFallSpeed;
+
+        if (isMoveObjectMode && Math.Abs(verticalVel.y) > 3f) playerInteraction.TryMoveObject();
 
         // Jump
-        if (jumpRequested)
+        if (jumpRequested && !isMoveObjectMode)
         {
             // Coyote Time
             if (!isGrounded && Time.time - lastGroundedTime < coyoteTime && !isJumping)
@@ -195,7 +377,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         verticalVel.y += gravity * Time.deltaTime;
-        //characterController.Move(verticalVel * Time.deltaTime);
     }
 
     private void Jump()
