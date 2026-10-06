@@ -74,7 +74,8 @@ public class DialogManager : MonoBehaviour
     {
         if (dialogoAberto == false)
             return;
-
+        if (context.performed)
+        {        
         if (animandoTexto)
         {
             MostrarTextoInstantaneo();
@@ -82,6 +83,7 @@ public class DialogManager : MonoBehaviour
         }
         dialog = dialog.nextDialog[1];
         MostrarTextoAnimado(dialog.text);
+        }
     }
      void MostrarTextoAnimado(string novoTexto)
     {
