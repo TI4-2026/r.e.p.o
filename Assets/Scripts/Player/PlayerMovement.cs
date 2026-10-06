@@ -30,6 +30,16 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
+     private PlayerInteraction playerInteraction;
+    
+    [Header("Move Object Collision Check")]
+    [SerializeField] private LayerMask moveObjectObstacleLayers = ~0;
+    [SerializeField] private float boxSkinWidth = 0.02f;
+    private GameObject currentMoveObject;
+    private Collider currentMoveCollider;
+    private BoxCollider currentBoxCollider;
+    private readonly RaycastHit[] boxCastHits = new RaycastHit[8];
+
 
     // ---------- Control Variables ----------
 

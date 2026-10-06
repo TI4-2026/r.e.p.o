@@ -119,7 +119,7 @@ public class PlayerLife : MonoBehaviour
         Time.timeScale = 0f;
         life = maxLife;
         chances -= 1;
-        playerCamera.UnlockCursor();
+        playerInteraction.UnlockCursor();
         hud.LostChance(chances+1, chances);
     }
 }

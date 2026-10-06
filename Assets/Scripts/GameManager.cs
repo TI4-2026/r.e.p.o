@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
 
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         if (Hud != null)
         {

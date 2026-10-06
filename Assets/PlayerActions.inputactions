@@ -191,7 +191,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "d813de79-54ea-441d-bec9-100122f653fc",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -200,7 +200,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "80cadfd6-e7fa-4497-911b-f3a7b06c49a4",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -272,6 +272,24 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "7bb9f456-31c4-4f01-9f19-b2963e57d95d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextDialog",
+                    "type": "Button",
+                    "id": "c3c44fa2-9f2d-4141-abc3-e21f563e0ce9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BackDialog",
+                    "type": "Button",
+                    "id": "0a754c3b-899f-4a46-9777-b604ff71dff1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -705,6 +723,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e2efe58-7870-4bed-b319-3cc481ec8bc9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3a229b2-09d4-474e-bae4-5ed63e1e8743",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BackDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
