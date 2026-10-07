@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField] private float isGroundedGraceTime = 0.2f;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float jumpHeldGravityMultiplier = 3f;
 
     private CharacterController characterController;
     private Camera mainCamera;
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocity;
     private Vector2 moveInput;
     private bool jumpRequested;
+    private bool jumpButtonHeld;
     private bool isJumping;
     private bool isMovementEnabled = true;
     private bool isMoveObjectMode = false;
@@ -142,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
         lastJumpTime = 0f;
         jumpRequestTimer = 0f;
         jumpRequested = false;
+        jumpButtonHeld = false;
 
         transform.forward = destination.forward;
         transform.position = destination.position;
@@ -185,11 +188,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMovementEnabled) return;
 
-        if (context.performed)
+        if (context.started)
         {
+            jumpButtonHeld = true;
             jumpRequested = true;
             jumpRequestTimer = Time.time;
         }
+
+        if (context.canceled)
+            jumpButtonHeld = false;
     }
     public void OnSlide(InputAction.CallbackContext context)
     {
@@ -401,7 +408,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        verticalVel.y += gravity * Time.deltaTime;
+        float appliedGravity = gravity;
+        if (isJumping && verticalVel.y > 0f && !jumpButtonHeld)
+            appliedGravity *= jumpHeldGravityMultiplier;
+
+        verticalVel.y += appliedGravity * Time.deltaTime;
     }
 
     private void Jump()
