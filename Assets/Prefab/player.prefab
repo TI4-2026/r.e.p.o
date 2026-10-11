@@ -338,6 +338,15 @@ MonoBehaviour:
   coyoteTime: 0.2
   isGroundedGraceTime: 0.2
   rotationSpeed: 10
+  ledgeGrabLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  ledgeGrabForwardReach: 0.9
+  ledgeGrabMinHeight: 0.15
+  ledgeGrabMaxHeight: 1.35
+  ledgeGrabVerticalBoost: 14
+  ledgeGrabForwardBoost: 3
+  ledgeGrabTopInset: 0.12
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &714465639065153002
 MonoBehaviour:
