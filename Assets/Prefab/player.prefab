@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 1190388858981423134}
   - component: {fileID: 7650872300187395025}
   - component: {fileID: 2566955079252876387}
+  - component: {fileID: 1606883660732384378}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -129,6 +130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6542276453164464220}
   - {fileID: 3911065627793721540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -293,6 +295,62 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: aaf51941-31cd-448d-a9a3-b6fdb97223b1
     m_ActionName: 'basic/Interact[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc051d4d-a69b-4ba4-a862-c9a6d41c0225
+    m_ActionName: 'basic/Slide[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4effbb5d-4c43-46d4-9fb2-eb4de89fc12c
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d813de79-54ea-441d-bec9-100122f653fc
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 80cadfd6-e7fa-4497-911b-f3a7b06c49a4
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d9497c2e-0478-4c35-a903-e80dd6059a3c
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed169a91-05e7-495c-8fd7-408e937caad4
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f72da0d-20c9-44e5-9f89-fa0d4b67750f
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 16b6d34b-b614-4df8-bc15-f11b603eafd1
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a339b1d4-193f-491f-83a1-66fa9eaeb70d
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02e0c356-d4f4-42b6-8667-993554a1bb79
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f22d06e-2bf8-47af-b836-cbc4349b404b
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7bb9f456-31c4-4f01-9f19-b2963e57d95d
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3c44fa2-9f2d-4141-abc3-e21f563e0ce9
+    m_ActionName: 'UI/NextDialog[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a754c3b-899f-4a46-9777-b604ff71dff1
+    m_ActionName: 'UI/BackDialog[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -332,21 +390,18 @@ MonoBehaviour:
   jumpForce: 10
   gravity: -18
   maxFallSpeed: -20
+  slideFriction: 20
   slideSpeed: 3
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
   coyoteTime: 0.2
   isGroundedGraceTime: 0.2
   rotationSpeed: 10
-  ledgeGrabLayers:
+  jumpHeldGravityMultiplier: 3
+  moveObjectObstacleLayers:
     serializedVersion: 2
-    m_Bits: 64
-  ledgeGrabForwardReach: 0.9
-  ledgeGrabMinHeight: 0.15
-  ledgeGrabMaxHeight: 1.35
-  ledgeGrabVerticalBoost: 14
-  ledgeGrabForwardBoost: 3
-  ledgeGrabTopInset: 0.12
+    m_Bits: 4294967295
+  boxSkinWidth: 0.02
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &714465639065153002
 MonoBehaviour:
@@ -375,8 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
-  past: {fileID: 0}
-  future: {fileID: 0}
+  past: {fileID: 8110920129344117610}
+  future: {fileID: 5963768667170605888}
   cooldownSlider: {fileID: 0}
 --- !u!114 &1190388858981423134
 MonoBehaviour:
@@ -423,6 +478,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPush
   pushForce: 1
   maxPushSpeed: 3
+--- !u!95 &1606883660732384378
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+  m_Controller: {fileID: 9100000, guid: d7ab5eef71b132649b6a90c4f28227f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3911065627793721540
 Transform:
   m_ObjectHideFlags: 0
@@ -514,3 +591,75 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &6719490185659703223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4420632344708239137}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+      propertyPath: m_Name
+      value: AliceJogo_Anim 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+--- !u!1 &5963768667170605888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1118015006478652663, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+  m_PrefabInstance: {fileID: 6719490185659703223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6542276453164464220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+  m_PrefabInstance: {fileID: 6719490185659703223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8110920129344117610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5922327678678514467, guid: 49f1fbe80284ece40bb9d9637eee1d67, type: 3}
+  m_PrefabInstance: {fileID: 6719490185659703223}
+  m_PrefabAsset: {fileID: 0}
