@@ -72,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
     GameObject activePlatform;
     PlatformBehavior platBehave;
 
+    // Animator
+    public Animator animator;
+
     
 
     void Start()
@@ -93,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         HorizontalMovement();
         VerticalMovement();
         TryLedgeGrab();
+        animator.SetFloat("Speed Y", verticalVel.y + 2.36f);
 
         velocity = horizontalVel + verticalVel;
         Vector3 moveStep = velocity * Time.deltaTime;
@@ -108,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             
         characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
+        animator.SetFloat("Speed", moveInput.magnitude);
     }
 
     // --------------- Public Methods ---------------
@@ -429,6 +434,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        animator.SetTrigger("Jump");
         verticalVel.y = jumpForce;
         jumpRequestTimer = 0f;
         jumpRequested = false;

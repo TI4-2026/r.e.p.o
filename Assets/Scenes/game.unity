@@ -75532,6 +75532,10 @@ PrefabInstance:
       propertyPath: cameraInputAxisController
       value: 
       objectReference: {fileID: 2076868698}
+    - target: {fileID: 8684086751821290450, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2142758232}
     m_RemovedComponents:
     - {fileID: 1786998477783197190, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
     m_RemovedGameObjects: []
@@ -75570,6 +75574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
+--- !u!95 &2142758232 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1606883660732384378, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2143340915
 GameObject:
   m_ObjectHideFlags: 0
