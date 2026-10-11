@@ -28,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float jumpHeldGravityMultiplier = 3f;
 
+    [Header("Ledge Grab")]
+    [SerializeField] private LayerMask ledgeGrabLayers;
+    [SerializeField] private float ledgeGrabForwardReach = 0.9f;
+    [SerializeField] private float ledgeGrabMinHeight = 0.15f;
+    [SerializeField] private float ledgeGrabMaxHeight = 1.35f;
+    [SerializeField] private float ledgeGrabVerticalBoost = 14f;
+    [SerializeField] private float ledgeGrabForwardBoost = 3f;
+    [SerializeField] private float ledgeGrabTopInset = 0.12f;
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
@@ -55,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isMovementEnabled = true;
     private bool isMoveObjectMode = false;
     private bool isGrounded;
+    private bool ledgeGrabAvailable = true;
     private float jumpRequestTimer = 0f;
     private float lastGroundedTime = 0f;
     private float lastJumpTime = 0f;
@@ -82,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         }
         HorizontalMovement();
         VerticalMovement();
+        TryLedgeGrab();
 
         velocity = horizontalVel + verticalVel;
         Vector3 moveStep = velocity * Time.deltaTime;
@@ -145,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         jumpRequestTimer = 0f;
         jumpRequested = false;
         jumpButtonHeld = false;
+        ledgeGrabAvailable = true;
 
         transform.forward = destination.forward;
         transform.position = destination.position;
@@ -423,6 +435,87 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         lastJumpTime = Time.time;
     }
+
+    private void TryLedgeGrab()
+    {
+        if (!ledgeGrabAvailable || !isMovementEnabled || isMoveObjectMode || isGrounded ||
+            !characterController.enabled || ledgeGrabLayers.value == 0)
+            return;
+
+        Vector3 direction = horizontalVel;
+        direction.y = 0f;
+        if (direction.sqrMagnitude < 0.25f)
+            return;
+        direction.Normalize();
+
+        float radius = characterController.radius;
+        float skin = characterController.skinWidth;
+        Vector3 feet = transform.position + Vector3.up * (characterController.center.y - characterController.height * 0.5f);
+        float sideReach = radius + ledgeGrabForwardReach;
+
+        RaycastHit faceHit = default;
+        bool foundFace = false;
+        int faceSamples = Mathf.Clamp(Mathf.CeilToInt((ledgeGrabMaxHeight - ledgeGrabMinHeight) / Mathf.Max(radius, 0.1f)) + 1, 2, 8);
+        for (int i = 0; i < faceSamples; i++)
+        {
+            float t = (float)i / (faceSamples - 1);
+            Vector3 sideOrigin = feet + Vector3.up * Mathf.Lerp(ledgeGrabMinHeight, ledgeGrabMaxHeight, t);
+            if (!Physics.Raycast(sideOrigin, direction, out RaycastHit candidate, sideReach, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
+                continue;
+            if (Vector3.Dot(candidate.normal, -direction) < 0.5f)
+                continue;
+
+            faceHit = candidate;
+            foundFace = true;
+            break;
+        }
+
+        if (!foundFace)
+            return;
+
+        Vector3 topProbe = faceHit.point + direction * ledgeGrabTopInset;
+        topProbe.y = feet.y + ledgeGrabMaxHeight + 0.05f;
+        float topProbeDistance = ledgeGrabMaxHeight - ledgeGrabMinHeight + 0.1f;
+        if (!Physics.Raycast(topProbe, Vector3.down, out RaycastHit topHit, topProbeDistance, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
+            return;
+
+        float ledgeHeight = topHit.point.y - feet.y;
+        if (ledgeHeight < ledgeGrabMinHeight || ledgeHeight > ledgeGrabMaxHeight)
+            return;
+
+        Vector3 landingPosition = transform.position + direction * (radius + ledgeGrabTopInset);
+        landingPosition.y += ledgeHeight + skin;
+        if (!HasLedgeLandingClearance(landingPosition, faceHit.collider, topHit.collider))
+            return;
+
+        ledgeGrabAvailable = false;
+        isGrounded = false;
+        isJumping = true;
+        lastJumpTime = Time.time;
+        jumpRequested = false;
+        jumpRequestTimer = 0f;
+        verticalVel.y = ledgeGrabVerticalBoost;
+        horizontalVel = direction * Mathf.Max(horizontalVel.magnitude, ledgeGrabForwardBoost);
+    }
+
+    private bool HasLedgeLandingClearance(Vector3 landingPosition, Collider faceCollider, Collider topCollider)
+    {
+        float radius = Mathf.Max(0.01f, characterController.radius - characterController.skinWidth);
+        float halfSegment = Mathf.Max(0f, characterController.height * 0.5f - characterController.radius);
+        Vector3 center = landingPosition + characterController.center;
+        Vector3 bottom = center - Vector3.up * halfSegment;
+        Vector3 top = center + Vector3.up * halfSegment;
+        Collider[] overlaps = Physics.OverlapCapsule(bottom, top, radius, ~0, QueryTriggerInteraction.Ignore);
+
+        foreach (Collider overlap in overlaps)
+        {
+            if (overlap == null || overlap == faceCollider || overlap == topCollider || overlap.transform.root == transform.root)
+                continue;
+            return false;
+        }
+
+        return true;
+    }
     private float slideTol = 0.001f;
     private void StartSlide()
     {
@@ -453,6 +546,7 @@ public class PlayerMovement : MonoBehaviour
 
             isJumping = false;
             isGrounded = true;
+            ledgeGrabAvailable = true;
             lastGroundedTime = Time.time;
         }
         else

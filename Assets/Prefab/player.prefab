@@ -398,6 +398,15 @@ MonoBehaviour:
   isGroundedGraceTime: 0.2
   rotationSpeed: 10
   jumpHeldGravityMultiplier: 3
+  ledgeGrabLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  ledgeGrabForwardReach: 0.9
+  ledgeGrabMinHeight: 0.15
+  ledgeGrabMaxHeight: 1.35
+  ledgeGrabVerticalBoost: 14
+  ledgeGrabForwardBoost: 3
+  ledgeGrabTopInset: 0.12
   moveObjectObstacleLayers:
     serializedVersion: 2
     m_Bits: 4294967295
