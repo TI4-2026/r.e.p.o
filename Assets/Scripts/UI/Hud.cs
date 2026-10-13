@@ -120,9 +120,10 @@ public class Hud : MonoBehaviour
 
         LeanTween.cancel(currentRect.gameObject);
         LeanTween.cancel(incomingRect.gameObject);
-        LeanTween.move(currentRect, centerPosition + Vector2.down * 60f, 3f).setEaseInCubic().setIgnoreTimeScale(true);
+        LeanTween.move(currentRect, centerPosition + Vector2.down * 500f, 3f).setEaseInCubic().setIgnoreTimeScale(true);
         LeanTween.move(incomingRect, centerPosition, 3f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
         {
+            healthBar.color = Color.green;
             Time.timeScale = 1f;
             chancesText.text = newValue.ToString();
             currentRect.anchoredPosition = centerPosition;
