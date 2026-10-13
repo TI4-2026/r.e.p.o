@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7650872300187395025}
   - component: {fileID: 2566955079252876387}
   - component: {fileID: 1606883660732384378}
+  - component: {fileID: 1463231044258399484}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -351,6 +352,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0a754c3b-899f-4a46-9777-b604ff71dff1
     m_ActionName: 'UI/BackDialog[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1463231044258399484}
+        m_TargetAssemblyTypeName: PlayerTimeControl, Assembly-CSharp
+        m_MethodName: SnailTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5f5ba9fc-f7a9-4f16-8332-7f521cdf7305
+    m_ActionName: 'basic/Snail Time[/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1463231044258399484}
+        m_TargetAssemblyTypeName: PlayerTimeControl, Assembly-CSharp
+        m_MethodName: TimeStop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4872f2de-1511-406c-855d-052b0ff94b9d
+    m_ActionName: 'basic/TimeStop[/Keyboard/z]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -412,6 +445,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   boxSkinWidth: 0.02
   velocity: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
 --- !u!114 &714465639065153002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +543,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1463231044258399484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b575af7e62ac34ab51e976aeb40add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTimeControl
 --- !u!1 &3260861313430691233
 GameObject:
   m_ObjectHideFlags: 0

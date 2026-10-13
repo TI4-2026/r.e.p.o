@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ChasePlayer : MonoBehaviour
+public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 {
     [Header("Detectar")]
     [SerializeField] protected Transform player;
@@ -10,6 +10,7 @@ public abstract class ChasePlayer : MonoBehaviour
     [SerializeField] protected float moveSpeed = 3f;
     [SerializeField] protected float rotationSpeed = 10f;
     [SerializeField] protected bool canFly = false;
+    public float timeMultiplier { get; set; } = 1f;
 
     [Header("Antiqueda")]
     private float groundCheckDistance = 1f;
@@ -63,13 +64,12 @@ public abstract class ChasePlayer : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation,targetRotation,rotationSpeed * Time.fixedDeltaTime)
-        );
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation,targetRotation,rotationSpeed * Time.fixedDeltaTime * timeMultiplier));
     }
 
     protected virtual void Move(Vector3 direction)
     {
-        Vector3 velocity = direction * moveSpeed;
+        Vector3 velocity = direction * moveSpeed * timeMultiplier;
         if (!canFly)
         {
             if (!HasGroundAhead(direction))

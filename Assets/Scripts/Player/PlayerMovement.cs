@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponent<PlayerInteraction>();
+        animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         defaultSpeed = speed;   
     }
