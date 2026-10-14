@@ -12,6 +12,9 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 1f;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip sound;
+
     private CharacterController characterController;
     private PlayerMovement playerMovement;
 
@@ -32,6 +35,7 @@ public class PlayerDash : MonoBehaviour
         if (context.started && CanDash())
         {
             StartDash();
+            MusicManager.PlaySound(sound, gameObject.transform.position);
         }
     }
 

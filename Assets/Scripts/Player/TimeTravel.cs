@@ -8,6 +8,10 @@ public class TimeTravel : MonoBehaviour
     public GameObject past;
     public GameObject future;
     public Slider cooldownSlider;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip sound;
+
     float cooldown;
     public static bool isFuture = true;//se outro script for mudar o tempo, coloquem TimeTravel.isFuture = true/false
     public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudanca de tempo
@@ -32,6 +36,7 @@ public class TimeTravel : MonoBehaviour
     {
         if (context.performed && cooldown >= 2f)
         {
+            MusicManager.PlaySound(sound, gameObject.transform.position);
             StartCoroutine(ChangeTime(0.5f));
             cooldown = 0f;
         }

@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField]private float slideFriction = 20f;
      [SerializeField]private float slideSpeed = 3f;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip sound;
+    [SerializeField] private AudioClip soundJump;
+
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
     [SerializeField] private float jumpBufferTime = 0.2f;
@@ -200,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = context.ReadValue<Vector2>();
+        MusicManager.PlaySound(sound, gameObject.transform.position);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -211,6 +216,7 @@ public class PlayerMovement : MonoBehaviour
             jumpButtonHeld = true;
             jumpRequested = true;
             jumpRequestTimer = Time.time;
+            MusicManager.PlaySound(soundJump, gameObject.transform.position);
         }
 
         if (context.canceled)

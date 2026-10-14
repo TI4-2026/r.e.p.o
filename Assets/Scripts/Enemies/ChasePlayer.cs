@@ -17,6 +17,9 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     private float groundCheckHeight = 0.5f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("SFX")]
+    public AudioClip sound;
+
 
     protected Rigidbody rb;
     protected bool isSpawning = false;

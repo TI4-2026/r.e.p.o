@@ -424,6 +424,8 @@ MonoBehaviour:
   maxFallSpeed: -20
   slideFriction: 20
   slideSpeed: 3
+  sound: {fileID: 8300000, guid: 88c6881b75c60e84c8dee2239bd3fb02, type: 3}
+  soundJump: {fileID: 8300000, guid: 1352720ea34de6c47a8b63ad67a76deb, type: 3}
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
   coyoteTime: 0.2
@@ -460,6 +462,7 @@ MonoBehaviour:
   dashDistance: 5
   dashSpeed: 10
   dashCooldown: 1
+  sound: {fileID: 8300000, guid: 71e8d18dfab91594ba0c7bf433d6192b, type: 3}
 --- !u!114 &1693969227258872783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +478,7 @@ MonoBehaviour:
   past: {fileID: 8110920129344117610}
   future: {fileID: 5963768667170605888}
   cooldownSlider: {fileID: 0}
+  sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
 --- !u!114 &1190388858981423134
 MonoBehaviour:
   m_ObjectHideFlags: 0

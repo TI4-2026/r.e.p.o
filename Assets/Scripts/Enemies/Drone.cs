@@ -13,6 +13,7 @@ public class Drone : ChasePlayer
     }
     void SpinDrone(bool timeChange)
     {
+        MusicManager.PlaySound(sound, gameObject.transform.position);
         isSpawning = true;
         LeanTween.rotateY(gameObject, 360f, 1f).setOnComplete(()=>
         {
