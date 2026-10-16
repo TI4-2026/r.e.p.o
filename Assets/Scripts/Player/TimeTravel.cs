@@ -8,6 +8,8 @@ public class TimeTravel : MonoBehaviour
     public GameObject past;
     public GameObject future;
     public Slider cooldownSlider;
+    public Material skyboxfuturo;
+    public Material skyboxpassado;
 
     [Header("SFX")]
     [SerializeField] private AudioClip sound;
@@ -20,6 +22,7 @@ public class TimeTravel : MonoBehaviour
         cooldownSlider.maxValue = 2f;
         cooldownSlider.minValue = 0f;
         cooldown = 2f;
+        RenderSettings.skybox = skyboxfuturo;
     }
 
     // Update is called once per frame
@@ -50,10 +53,12 @@ public class TimeTravel : MonoBehaviour
         if (isFuture)
         {
             isFuture = false;
+            RenderSettings.skybox = skyboxpassado;
         }
         else
         {
             isFuture = true;
+            RenderSettings.skybox = skyboxfuturo;
         }
         TimeChange(isFuture);
         Time.timeScale = 1f;
