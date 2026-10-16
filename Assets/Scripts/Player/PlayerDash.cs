@@ -14,6 +14,7 @@ public class PlayerDash : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip sound;
+    public Animator animator;
 
     private CharacterController characterController;
     private PlayerMovement playerMovement;
@@ -59,6 +60,7 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
         lastDashTime = Time.time;
         playerMovement.SetMovementEnabled(false);
+        animator.SetTrigger("Dash");
 
         Vector3 lookDirection = GetDashDirection();
         lookDirection.y = 0f;
@@ -67,7 +69,6 @@ public class PlayerDash : MonoBehaviour
         Vector3 direction = GetDashDirection();
         float duration = dashDistance / dashSpeed;
         float previousValue = 0f;
-
         LeanTween.value(gameObject, 0f, dashDistance, duration)
             .setEase(LeanTweenType.easeOutQuad)
             .setOnUpdate((float value) =>
