@@ -28,8 +28,8 @@ public class TimeTravel : MonoBehaviour
         cooldownSlider.minValue = 0f;
         cooldown = 2f;
         RenderSettings.skybox = skyboxfuturo;
-        Alicefuturo.SetActive(true);
-        Alicepassado.SetActive(false);
+        Alicefuturo.SetActive(false);
+        Alicepassado.SetActive(true);
 
     }
 
@@ -62,17 +62,17 @@ public class TimeTravel : MonoBehaviour
         {
             isFuture = false;
             RenderSettings.skybox = skyboxpassado;
-            PlayerAnim.avatar = AlicePassado;
-            Alicefuturo.SetActive(false);
-            Alicepassado.SetActive(true);
+            PlayerAnim.avatar = AliceFuturo;
+            Alicepassado.SetActive(false);
+            Alicefuturo.SetActive(true);
         }
         else
         {
             isFuture = true;
             RenderSettings.skybox = skyboxfuturo;
-            PlayerAnim.avatar = AliceFuturo;
-            Alicepassado.SetActive(false);
-            Alicefuturo.SetActive(true);
+            PlayerAnim.avatar = AlicePassado;
+            Alicefuturo.SetActive(false);
+            Alicepassado.SetActive(true);
         }
         TimeChange(isFuture);
         Time.timeScale = 1f;
