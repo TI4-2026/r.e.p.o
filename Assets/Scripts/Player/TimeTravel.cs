@@ -5,6 +5,11 @@ using System;
 using UnityEngine.InputSystem;
 public class TimeTravel : MonoBehaviour
 {
+    public GameObject Alicefuturo;
+    public GameObject Alicepassado;
+    public Animator PlayerAnim;
+    public Avatar AlicePassado;
+    public Avatar AliceFuturo;
     public GameObject past;
     public GameObject future;
     public Slider cooldownSlider;
@@ -23,6 +28,9 @@ public class TimeTravel : MonoBehaviour
         cooldownSlider.minValue = 0f;
         cooldown = 2f;
         RenderSettings.skybox = skyboxfuturo;
+        Alicefuturo.SetActive(true);
+        Alicepassado.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -54,11 +62,17 @@ public class TimeTravel : MonoBehaviour
         {
             isFuture = false;
             RenderSettings.skybox = skyboxpassado;
+            PlayerAnim.avatar = AlicePassado;
+            Alicefuturo.SetActive(false);
+            Alicepassado.SetActive(true);
         }
         else
         {
             isFuture = true;
             RenderSettings.skybox = skyboxfuturo;
+            PlayerAnim.avatar = AliceFuturo;
+            Alicepassado.SetActive(false);
+            Alicefuturo.SetActive(true);
         }
         TimeChange(isFuture);
         Time.timeScale = 1f;
