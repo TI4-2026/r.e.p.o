@@ -5,6 +5,9 @@ public class MenuUi : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject creditsScreen1;
+    [SerializeField] private GameObject creditsScreen2;
+    [SerializeField] private GameObject creditsScreen3;
     [SerializeField] private GameObject startButton;
 
     private void Start()
@@ -12,6 +15,9 @@ public class MenuUi : MonoBehaviour
         MenuManager.Instance.MenuUi = this;
         loadingScreen.SetActive(false);
         optionsScreen.SetActive(false);
+        creditsScreen1.SetActive(false);
+        creditsScreen2.SetActive(false);
+        creditsScreen3.SetActive(false);
         EventSystem.current.SetSelectedGameObject(startButton);
     }
 
@@ -27,6 +33,21 @@ public class MenuUi : MonoBehaviour
         optionsScreen.SetActive(true);
     }
 
+    public void ShowCreditsScreen1()
+    {
+        creditsScreen1.SetActive(true);
+    }
+
+    public void ShowCreditsScreen2()
+    {
+        creditsScreen2.SetActive(true);
+    }
+
+    public void ShowCreditsScreen3()
+    {
+        creditsScreen3.SetActive(true);
+    }
+
     public void HideLoadingScreen()
     {
         loadingScreen.SetActive(false);
@@ -35,6 +56,28 @@ public class MenuUi : MonoBehaviour
     public void HideOptionsScreen()
     {
         optionsScreen.SetActive(false);
+    }
+
+    public void HideCreditsScreen1()
+    {
+        creditsScreen1.SetActive(false);
+    }
+
+    public void HideCreditsScreen2()
+    {
+        creditsScreen2.SetActive(false);
+    }
+
+    public void HideCreditsScreen3()
+    {
+        creditsScreen3.SetActive(false);
+    }
+
+    public void HideAllCredits()
+    {
+        creditsScreen1.SetActive(false);
+        creditsScreen2.SetActive(false);
+        creditsScreen3.SetActive(false);
     }
 
     // ------------------- Animations -------------------
