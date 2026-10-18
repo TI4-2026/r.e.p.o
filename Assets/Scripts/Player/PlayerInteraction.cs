@@ -5,10 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteraction: MonoBehaviour
 {
-    [Header("Interactions")]
-    [SerializeField] private string moveObjectLetter = "E";
-    [SerializeField] private string moveObjectDesc = "Move Object";
-
     [Header("References")]
     [SerializeField] private CinemachineInputAxisController cameraInputAxisController;
     [SerializeField] private GameObject cameraHandle;
