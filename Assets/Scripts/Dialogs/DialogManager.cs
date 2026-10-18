@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
     public DialogData dialog;
     public GameObject dialogBox;
     PlayerMovement controller;
-    public GameObject player;
+    public CharacterController Player;
 
     float tempoPorLetra = 0.03f;
 
@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
     bool dialogoAberto = false;
     void Start()
     {
-        controller = player.GetComponent<PlayerMovement>();
+        controller = Player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class DialogManager : MonoBehaviour
     public void IniciarDialogo(DialogData dialogoInicial)
     {
         controller.SetMovementEnabled(false);
+        Player.enabled = false;
         Debug.Log("Movimento do player desativado");
         dialogBox.SetActive(true);
         dialogBox.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -62,6 +63,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogBox.SetActive(false);
             controller.SetMovementEnabled(true);
+            Player.enabled = true;
             dialogoAberto = false;  
         }
         else
