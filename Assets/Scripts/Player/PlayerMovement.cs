@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeldGravityMultiplier = 3f;
 
     [Header("Ledge Grab")]
-    [SerializeField] private LayerMask ledgeGrabLayers;
     [SerializeField] private float ledgeGrabForwardReach = 0.9f;
     [SerializeField] private float ledgeGrabMinHeight = 0.15f;
     [SerializeField] private float ledgeGrabMaxHeight = 1.35f;
@@ -452,7 +451,7 @@ public class PlayerMovement : MonoBehaviour
     private void TryLedgeGrab()
     {
         if (!ledgeGrabAvailable || !isMovementEnabled || isMoveObjectMode || isGrounded ||
-            !characterController.enabled || ledgeGrabLayers.value == 0)
+            !characterController.enabled)
             return;
 
         Vector3 direction = horizontalVel;
@@ -473,7 +472,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float t = (float)i / (faceSamples - 1);
             Vector3 sideOrigin = feet + Vector3.up * Mathf.Lerp(ledgeGrabMinHeight, ledgeGrabMaxHeight, t);
-            if (!Physics.Raycast(sideOrigin, direction, out RaycastHit candidate, sideReach, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
+            if (!Physics.Raycast(sideOrigin, direction, out RaycastHit candidate, sideReach, LayerMask.NameToLayer("Default"), QueryTriggerInteraction.Ignore))
                 continue;
             if (Vector3.Dot(candidate.normal, -direction) < 0.5f)
                 continue;
@@ -489,7 +488,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 topProbe = faceHit.point + direction * ledgeGrabTopInset;
         topProbe.y = feet.y + ledgeGrabMaxHeight + 0.05f;
         float topProbeDistance = ledgeGrabMaxHeight - ledgeGrabMinHeight + 0.1f;
-        if (!Physics.Raycast(topProbe, Vector3.down, out RaycastHit topHit, topProbeDistance, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
+        if (!Physics.Raycast(topProbe, Vector3.down, out RaycastHit topHit, topProbeDistance, LayerMask.NameToLayer("Default"), QueryTriggerInteraction.Ignore))
             return;
 
         float ledgeHeight = topHit.point.y - feet.y;

@@ -14,7 +14,6 @@ public class PlayerInteraction: MonoBehaviour
     [SerializeField] private GameObject cameraHandle;
 
     private PlayerMovement playerMovement;
-    private Hud hud;
     private bool isCursorLocked = true;
 
     private GameObject moveObject;  
@@ -25,7 +24,6 @@ public class PlayerInteraction: MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        hud = GameManager.Instance.Hud;
         LockCursor();
 
         TimeTravel.OnTimeChange += RevokeInteraction;
@@ -84,8 +82,6 @@ public class PlayerInteraction: MonoBehaviour
         moveObject = go;
         moveObjectEnable = enable;
         moveObjectDisable = disable;
-
-        hud.EnableInteraction(moveObjectLetter, moveObjectDesc);
     }
 
     public void RemovePossibilityToMoveObject(GameObject go)
@@ -96,7 +92,6 @@ public class PlayerInteraction: MonoBehaviour
             moveObject = null;
             moveObjectEnable = null;
             moveObjectDisable = null;
-            hud.DisableInteraction();
         }
     }
 
@@ -104,7 +99,6 @@ public class PlayerInteraction: MonoBehaviour
     public void RevokeInteraction()
     {
         if (!isMoveObjectMode) return;
-        hud.DisableInteraction();
         TryMoveObject();
     }
 

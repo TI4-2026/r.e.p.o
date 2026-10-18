@@ -15,9 +15,6 @@ public class Hud : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image panelFade;
     [SerializeField] private Image healthBar;
-    [SerializeField] private GameObject InteractionPanel;
-    [SerializeField] private TextMeshProUGUI InteractionLetter;
-    [SerializeField] private TextMeshProUGUI InteractionDesc;
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
 
@@ -37,7 +34,6 @@ public class Hud : MonoBehaviour
     {
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         panelFade.gameObject.SetActive(false);
-        InteractionPanel.SetActive(false);
     }
 
     // ----------- Public Methods -----------
@@ -87,20 +83,6 @@ public class Hud : MonoBehaviour
     {
         LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
         .setOnUpdate(value => healthBar.color = value);
-    }
-
-    public void EnableInteraction(string letter, string desc)
-    {
-        InteractionPanel.SetActive(true);
-        InteractionLetter.text = letter;
-        InteractionDesc.text = "- " + desc;
-    }
-
-    public void DisableInteraction()
-    {
-        InteractionPanel.SetActive(false);
-        InteractionLetter.text = "";
-        InteractionDesc.text = "";
     }
     public void LostChance(float oldValue, float newValue)
     {
