@@ -8,6 +8,7 @@ public class DialogManager : MonoBehaviour
     public DialogData dialog;
     public GameObject dialogBox;
     PlayerMovement controller;
+    public GameObject player;
 
     float tempoPorLetra = 0.03f;
 
@@ -17,7 +18,7 @@ public class DialogManager : MonoBehaviour
     bool dialogoAberto = false;
     void Start()
     {
-        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        controller = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
