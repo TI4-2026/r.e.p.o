@@ -5,6 +5,7 @@ using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -20,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField]private float slideFriction = 20f;
      [SerializeField]private float slideSpeed = 3f;
 
-    [Header("SFX")]
+    [Header("Effects")]
     [SerializeField] private AudioClip sound;
     [SerializeField] private AudioClip soundJump;
+    [SerializeField] private ParticleSystem walkingEffect;
+    [SerializeField] private Transform foot;
 
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
@@ -86,7 +89,11 @@ public class PlayerMovement : MonoBehaviour
         playerInteraction = GetComponent<PlayerInteraction>();
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
-        defaultSpeed = speed;   
+        defaultSpeed = speed;
+        ParticleSystem effect = Instantiate(walkingEffect.gameObject, foot.position, foot.rotation, foot).
+            GetComponent<ParticleSystem>();
+        walkingEffect = effect;
+        walkingEffect.Stop();
     }
 
     void FixedUpdate()
@@ -199,11 +206,22 @@ public class PlayerMovement : MonoBehaviour
         if (!isMovementEnabled)
         {
             moveInput = Vector2.zero;
+            walkingEffect.Stop();
             return;
         }
 
         moveInput = context.ReadValue<Vector2>();
         MusicManager.PlaySound(sound, gameObject.transform.position);
+        
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            if (!walkingEffect.isPlaying)
+                walkingEffect.Play();
+        }
+        else
+        {
+            walkingEffect.Stop();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
