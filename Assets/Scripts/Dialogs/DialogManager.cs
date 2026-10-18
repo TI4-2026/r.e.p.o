@@ -28,6 +28,7 @@ public class DialogManager : MonoBehaviour
     public void IniciarDialogo(DialogData dialogoInicial)
     {
         controller.SetMovementEnabled(false);
+        Debug.Log("Movimento do player desativado");
         dialogBox.SetActive(true);
         dialogBox.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
