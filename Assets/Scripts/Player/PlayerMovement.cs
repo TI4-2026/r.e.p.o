@@ -98,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Dialogs and other gameplay systems can temporarily disable the controller.
+        // Skip the whole movement tick while it is inactive so no Move call is made.
+        if (characterController == null || !characterController.enabled)
+            return;
 
         CheckGrounded();
         if (activePlatform != null)
@@ -586,7 +590,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FollowPlatform()
     {
-        if (platBehave != null)
+        if (characterController != null && characterController.enabled && platBehave != null)
         {
             Vector3 platformMovement = platBehave.GetPlatformMovement();
 
