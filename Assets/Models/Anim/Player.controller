@@ -105,10 +105,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.31218946
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8677829
-  m_HasExitTime: 0
+  m_TransitionDuration: 0.12928629
+  m_TransitionOffset: 0.006642977
+  m_ExitTime: 0.99392307
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -183,7 +183,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -383,7 +383,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Armature|Dash
-  m_Speed: 2
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2642750629754602970}
@@ -478,9 +478,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1388889
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8563218
+  m_TransitionDuration: 0.13888896
+  m_TransitionOffset: 0.002526821
+  m_ExitTime: 0.96611035
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -633,7 +633,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.13067639
   m_TransitionOffset: 0
-  m_ExitTime: 0.86481756
+  m_ExitTime: 0.9702902
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -767,12 +767,12 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.023972407
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.68529147
+  m_ExitTime: 0
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &5402665212155027578
@@ -873,13 +873,13 @@ AnimatorStateMachine:
     m_Position: {x: 220, y: -250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4828490253056207983}
-    m_Position: {x: 80, y: 120, z: 0}
+    m_Position: {x: 20, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8390001259916304139}
-    m_Position: {x: -30, y: -170, z: 0}
+    m_Position: {x: 0, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 638775378908610212}
-    m_Position: {x: 240, y: -170, z: 0}
+    m_Position: {x: 280, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3835460645193192495}
     m_Position: {x: 540, y: 110, z: 0}
