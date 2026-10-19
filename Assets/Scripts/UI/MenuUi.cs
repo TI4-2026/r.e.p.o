@@ -36,16 +36,26 @@ public class MenuUi : MonoBehaviour
     public void ShowCreditsScreen1()
     {
         creditsScreen1.SetActive(true);
+        UIGlitch glitch = creditsScreen1.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
     }
 
     public void ShowCreditsScreen2()
     {
         creditsScreen2.SetActive(true);
+        UIGlitch close = creditsScreen1.GetComponent<UIGlitch>();
+        close.ChangeGlitch();
+        UIGlitch glitch = creditsScreen2.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
     }
 
     public void ShowCreditsScreen3()
     {
         creditsScreen3.SetActive(true);
+        UIGlitch close = creditsScreen2.GetComponent<UIGlitch>();
+        close.ChangeGlitch();
+        UIGlitch glitch = creditsScreen3.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
     }
 
     public void HideLoadingScreen()
@@ -75,9 +85,17 @@ public class MenuUi : MonoBehaviour
 
     public void HideAllCredits()
     {
-        creditsScreen1.SetActive(false);
-        creditsScreen2.SetActive(false);
-        creditsScreen3.SetActive(false);
+        UIGlitch[] close = new UIGlitch[3];
+        close[0] = creditsScreen1.GetComponent<UIGlitch>();
+        close[1] = creditsScreen2.GetComponent<UIGlitch>();
+        close[2] = creditsScreen3.GetComponent<UIGlitch>();
+        for(int i = 0; i < close.Length; i++)
+        {
+            if (close[i].gameObject.activeInHierarchy)
+            {
+                close[i].ChangeGlitch();
+            }
+        }
     }
 
     // ------------------- Animations -------------------

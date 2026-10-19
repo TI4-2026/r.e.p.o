@@ -2358,6 +2358,7 @@ GameObject:
   - component: {fileID: 795157143}
   - component: {fileID: 795157145}
   - component: {fileID: 795157144}
+  - component: {fileID: 795157146}
   m_Layer: 5
   m_Name: creditosProfessores
   m_TagString: Untagged
@@ -2427,6 +2428,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795157142}
   m_CullTransparentMesh: 1
+--- !u!114 &795157146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795157142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,7 +2569,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291091759
   m_fontColor: {r: 0.18431373, g: 0.8666667, b: 0.76862746, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3977,6 +4004,7 @@ GameObject:
   - component: {fileID: 1102889631}
   - component: {fileID: 1102889633}
   - component: {fileID: 1102889632}
+  - component: {fileID: 1102889634}
   m_Layer: 5
   m_Name: creditos
   m_TagString: Untagged
@@ -4045,6 +4073,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102889630}
   m_CullTransparentMesh: 1
+--- !u!114 &1102889634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102889630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &1127040563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4193,6 +4247,7 @@ GameObject:
   - component: {fileID: 1154611919}
   - component: {fileID: 1154611921}
   - component: {fileID: 1154611920}
+  - component: {fileID: 1154611922}
   m_Layer: 5
   m_Name: creditosAlunos
   m_TagString: Untagged
@@ -4261,6 +4316,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154611918}
   m_CullTransparentMesh: 1
+--- !u!114 &1154611922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154611918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &1211230992
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,7 +6018,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291091759
   m_fontColor: {r: 0.18431373, g: 0.8666667, b: 0.76862746, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
