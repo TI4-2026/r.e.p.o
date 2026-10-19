@@ -1,11 +1,6 @@
 using System;
-using NUnit.Framework;
-using Unity.Mathematics;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.VFX;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour

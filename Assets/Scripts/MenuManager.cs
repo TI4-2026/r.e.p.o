@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
     public MenuUi MenuUi;
 
     private bool isOptionsOpen = false;
-    private bool isCreditsOpen = false;
+    //private bool isCreditsOpen = false;
 
     private void Awake()
     {
@@ -59,12 +59,12 @@ public class MenuManager : MonoBehaviour
         if (isOptionsOpen)
         {
             MenuUi.HideCreditsScreen1();
-            isCreditsOpen = false;
+            //isCreditsOpen = false;
         }
         else
         {
             MenuUi.ShowCreditsScreen1();
-            isCreditsOpen = true;
+            //isCreditsOpen = true;
         }
     }
 
