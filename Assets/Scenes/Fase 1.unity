@@ -419154,6 +419154,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1773546986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8701026058862353541, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+  m_PrefabInstance: {fileID: 486802414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!43 &1773573089
 Mesh:
   m_ObjectHideFlags: 0
@@ -494205,7 +494216,7 @@ PrefabInstance:
     - target: {fileID: 7650872300187395025, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1773546986}
     - target: {fileID: 7938991980053644193, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_Enabled
       value: 1
