@@ -77,7 +77,11 @@ public class PlayerDash : MonoBehaviour
             {
                 float delta = value - previousValue;
                 previousValue = value;
-                characterController.Move(direction * delta);
+                try
+                {
+                    characterController.Move(direction * delta);
+                }catch {}
+                
             })
             .setOnComplete(EndDash);
     }

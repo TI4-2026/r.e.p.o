@@ -52,6 +52,7 @@ public abstract class TutorialTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        if (!isActiveAndEnabled || !tip || LeanTween.isTweening(tip)) return;
 
         tip.gameObject.SetActive(true);
         Time.timeScale = 0f;
@@ -70,6 +71,7 @@ public abstract class TutorialTrigger : MonoBehaviour
 
     public void TutorialComplete(InputAction.CallbackContext context)
     {
+        if (!context.performed || !isActiveAndEnabled || !tip) return;
         if (!LeanTween.isTweening(tip)) return;
 
         LeanTween.cancel(gameObject);
