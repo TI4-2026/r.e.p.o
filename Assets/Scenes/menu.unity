@@ -6649,6 +6649,7 @@ GameObject:
   - component: {fileID: 1744214467}
   - component: {fileID: 1744214469}
   - component: {fileID: 1744214468}
+  - component: {fileID: 1744214470}
   m_Layer: 5
   m_Name: loading-screen
   m_TagString: Untagged
@@ -6714,6 +6715,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744214466}
   m_CullTransparentMesh: 1
+--- !u!114 &1744214470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744214466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &1764915984
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,6 +7152,7 @@ GameObject:
   - component: {fileID: 1860962359}
   - component: {fileID: 1860962361}
   - component: {fileID: 1860962360}
+  - component: {fileID: 1860962362}
   m_Layer: 5
   m_Name: options
   m_TagString: Untagged
@@ -7193,6 +7221,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860962358}
   m_CullTransparentMesh: 1
+--- !u!114 &1860962362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860962358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &1950259666
 GameObject:
   m_ObjectHideFlags: 0

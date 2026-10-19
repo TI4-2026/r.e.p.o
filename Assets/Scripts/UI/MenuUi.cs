@@ -26,11 +26,15 @@ public class MenuUi : MonoBehaviour
     public void ShowLoadingScreen()
     {
         loadingScreen.SetActive(true);
+        UIGlitch glitch = loadingScreen.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
     }
 
     public void ShowOptionsScreen()
     {
         optionsScreen.SetActive(true);
+        UIGlitch glitch = optionsScreen.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
     }
 
     public void ShowCreditsScreen1()
@@ -65,7 +69,8 @@ public class MenuUi : MonoBehaviour
 
     public void HideOptionsScreen()
     {
-        optionsScreen.SetActive(false);
+        UIGlitch close = optionsScreen.GetComponent<UIGlitch>();
+        close.ChangeGlitch();
     }
 
     public void HideCreditsScreen1()
