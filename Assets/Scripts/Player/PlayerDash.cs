@@ -57,6 +57,8 @@ public class PlayerDash : MonoBehaviour
 
     private void StartDash()
     {
+        if (!characterController.enabled) return;
+
         isDashing = true;
         lastDashTime = Time.time;
         playerMovement.SetMovementEnabled(false);
