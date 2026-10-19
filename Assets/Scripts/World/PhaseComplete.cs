@@ -10,7 +10,7 @@ public class PhaseComplete : MonoBehaviour
             if(MusicManager.instance!=null)
                 MusicManager.instance.PlayMusic(0);
 
-            SceneManager.LoadScene("museu");
+            SceneManager.LoadScene("menu");
         }
     }
 }
