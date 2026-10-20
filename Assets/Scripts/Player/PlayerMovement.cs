@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         MusicManager.PlaySound(sound, gameObject.transform.position);
         
-        if (moveInput.sqrMagnitude > 0.01f)
+        if (moveInput.sqrMagnitude > 0.01f&&isGrounded)
         {
             if (!walkingEffect.isPlaying)
                 walkingEffect.Play();

@@ -159,7 +159,7 @@ public class UIGlitch : MonoBehaviour
             }
 
             float wait = Random.Range(minInterval, maxInterval);
-            yield return new WaitForSeconds(wait);
+            yield return new WaitForSecondsRealtime(wait);
             elapsed += wait;
         }
 

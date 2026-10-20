@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject optionsMenu;
     public GameObject[] PauseComponents;
 
     bool optionsMenuOpen = false;
@@ -45,13 +46,18 @@ public class Pause : MonoBehaviour
         LeanTween.scale(componente, Vector3.one, 0.5f)
             .setEase(LeanTweenType.easeOutBack)
             .setIgnoreTimeScale(true)
-            .setDelay(i * 0.3f);
+            .setDelay(i * 0.3f).setOnComplete(() =>
+            {
+                UIGlitch glitch = pauseMenu.GetComponent<UIGlitch>();
+                glitch.PlayGlitch();
+            });
     }
 }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
+        UIGlitch glitch = pauseMenu.GetComponent<UIGlitch>();
+        glitch.ChangeGlitch();
 
         Time.timeScale = 1f;
 
@@ -61,16 +67,22 @@ public class Pause : MonoBehaviour
 
     public void OpenOptionsMenu()
     {
+        UIGlitch glitch = optionsMenu.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
         optionsMenuOpen = true;
     }
 
     public void CloseOptionsMenu()
     {
+        UIGlitch glitch = optionsMenu.GetComponent<UIGlitch>();
+        glitch.ChangeGlitch();
         optionsMenuOpen = false;
     }
 
     public void GoToMainMenu()
     {
+        UIGlitch glitch = pauseMenu.GetComponent<UIGlitch>();
+        glitch.ChangeGlitch();
         Time.timeScale = 1f;
         SceneManager.LoadScene("menu");
     }

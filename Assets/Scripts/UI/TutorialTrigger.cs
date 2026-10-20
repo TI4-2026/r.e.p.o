@@ -71,18 +71,19 @@ public abstract class TutorialTrigger : MonoBehaviour
 
     public void TutorialComplete(InputAction.CallbackContext context)
     {
-        if (!context.performed || !isActiveAndEnabled || !tip) return;
+        if (context.performed || !isActiveAndEnabled || !tip) return;
         if (!LeanTween.isTweening(tip)) return;
 
+        Time.timeScale = 1f;
         LeanTween.cancel(gameObject);
         LeanTween.cancel(tip);
         vignette.intensity.value = 0f;
 
         LeanTween.value(gameObject, colorAdjustments.saturation.value, 0f, 0.5f).setEaseInOutSine().setIgnoreTimeScale(true)
-        .setOnUpdate(value => colorAdjustments.saturation.value = value);
-
-
-        OnTutorialCompleted();
+        .setOnUpdate(value => colorAdjustments.saturation.value = value).setOnComplete(() =>
+        {
+            OnTutorialCompleted();
+        });
 
         /*PlayerPrefs.SetInt(PrefsPrefix + tutorialId, 1);
         PlayerPrefs.Save();*/
