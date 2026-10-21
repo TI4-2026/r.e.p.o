@@ -8,7 +8,6 @@ public class MenuUi : MonoBehaviour
     [SerializeField] private GameObject creditsScreen1;
     [SerializeField] private GameObject creditsScreen2;
     [SerializeField] private GameObject creditsScreen3;
-    [SerializeField] private GameObject startButton;
 
     private void Start()
     {
@@ -18,7 +17,6 @@ public class MenuUi : MonoBehaviour
         creditsScreen1.SetActive(false);
         creditsScreen2.SetActive(false);
         creditsScreen3.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(startButton);
     }
 
     // ------------------- Public Methods -------------------
