@@ -18,24 +18,24 @@ MonoBehaviour:
     m_Value: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.8
   intensity:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 5.7
   scatter:
     m_OverrideState: 1
     m_Value: 0.5
   clamp:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 65472
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.63529414, g: 1, b: 0.98823535, a: 1}
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
   filter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   downscale:
     m_OverrideState: 0
@@ -44,11 +44,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 6
   dirtTexture:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {fileID: 0}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &-7526918489044499593
 MonoBehaviour:
@@ -90,21 +90,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 1, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2300589
+    m_Value: 0.33
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
+    m_OverrideState: 1
+    m_Value: 1
   rounded:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
