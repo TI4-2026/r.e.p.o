@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 1606883660732384378}
   - component: {fileID: 1463231044258399484}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1618,24 +1618,36 @@ MonoBehaviour:
     m_ActionName: 'basic/Interact[/Keyboard/f]'
   - m_PersistentCalls:
       m_Calls: []
+    m_ActionId: dc051d4d-a69b-4ba4-a862-c9a6d41c0225
+    m_ActionName: 'basic/Slide[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f5ba9fc-f7a9-4f16-8332-7f521cdf7305
+    m_ActionName: 'basic/Snail Time[/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4872f2de-1511-406c-855d-052b0ff94b9d
+    m_ActionName: 'basic/TimeStop[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 4effbb5d-4c43-46d4-9fb2-eb4de89fc12c
-    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+    m_ActionName: 'UI/Navigate[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/rightStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/leftStick/right,/DualSenseGamepadHID/rightStick/right,/DualSenseGamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d813de79-54ea-441d-bec9-100122f653fc
-    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+    m_ActionName: 'UI/Submit[/Keyboard/enter,/DualSenseGamepadHID/buttonSouth]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 80cadfd6-e7fa-4497-911b-f3a7b06c49a4
-    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+    m_ActionName: 'UI/Cancel[/Keyboard/escape,/DualSenseGamepadHID/buttonEast]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d9497c2e-0478-4c35-a903-e80dd6059a3c
-    m_ActionName: 'UI/Point[/Mouse/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]'
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: ed169a91-05e7-495c-8fd7-408e937caad4
-    m_ActionName: 'UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]'
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 2f72da0d-20c9-44e5-9f89-fa0d4b67750f
@@ -1668,30 +1680,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0a754c3b-899f-4a46-9777-b604ff71dff1
     m_ActionName: 'UI/BackDialog[/Keyboard/q]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8684086751821290450}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnSlide
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: dc051d4d-a69b-4ba4-a862-c9a6d41c0225
-    m_ActionName: 'basic/Slide[/Keyboard/ctrl]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5f5ba9fc-f7a9-4f16-8332-7f521cdf7305
-    m_ActionName: 'basic/Snail Time[/Keyboard/c]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4872f2de-1511-406c-855d-052b0ff94b9d
-    m_ActionName: 'basic/TimeStop[/Keyboard/z]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: basic
@@ -1790,8 +1778,8 @@ MonoBehaviour:
   past: {fileID: 0}
   future: {fileID: 0}
   cooldownSlider: {fileID: 0}
-  skyboxfuturo: {fileID: 0}
-  skyboxpassado: {fileID: 0}
+  skyboxfuturo: {fileID: 2100000, guid: b73dc2c0c9eceae4486bdb5b744fceb9, type: 2}
+  skyboxpassado: {fileID: 2100000, guid: bebabbca203115940bf67dfe65237b36, type: 2}
   sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
 --- !u!114 &1190388858981423134
 MonoBehaviour:
@@ -1807,7 +1795,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PairsTimeTravel
   future:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   past:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &7650872300187395025
 MonoBehaviour:
@@ -1833,7 +1859,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646676395974069671}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
   m_Controller: {fileID: 9100000, guid: d7ab5eef71b132649b6a90c4f28227f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
