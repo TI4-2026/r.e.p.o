@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField]private float slideSpeed = 3f;
 
     [Header("Effects")]
-    [SerializeField] private AudioClip sound;
     [SerializeField] private AudioClip soundJump;
     [SerializeField] private ParticleSystem walkingEffect;
     [SerializeField] private Transform foot;
@@ -210,7 +209,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = context.ReadValue<Vector2>();
-        MusicManager.PlaySound(sound, gameObject.transform.position);
         
         if (moveInput.sqrMagnitude > 0.01f&&isGrounded)
         {
