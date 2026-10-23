@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using static UnityEngine.Rendering.DebugUI;
 
 public abstract class TutorialTrigger : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public abstract class TutorialTrigger : MonoBehaviour
 
         vignette.color.value = vignetteColor;
         vignette.intensity.value = minIntensity;
+        colorAdjustments.saturation.value = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,4 +92,16 @@ public abstract class TutorialTrigger : MonoBehaviour
     }
 
     protected virtual void OnTutorialCompleted() { }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
+        vignette.intensity.value = minIntensity;
+        colorAdjustments.saturation.value = 0;
+        if (tip != null&&gameObject!=null)
+        {
+            LeanTween.cancel(gameObject);
+            LeanTween.cancel(tip);
+        }
+    }
 }
