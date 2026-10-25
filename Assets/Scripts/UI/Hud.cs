@@ -161,7 +161,7 @@ public class Hud : MonoBehaviour
     private void TimeChangeEffect(bool time)
     {
         timeTravelEffect.gameObject.SetActive(true);
-        timeTravelEffect.SetFloat("Speed", 1);
+        timeTravelEffect.SetFloat("Speed", 0.5f);
         timeTravelEffect.Play("ClockAnim");
         StartCoroutine(DeactivateClock());
     }
