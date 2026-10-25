@@ -17,6 +17,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
     [SerializeField] private Animator timeTravelEffect;
+    [SerializeField] private Slider timeTravelCooldownSlider;
 
     private Coroutine fadeCoroutine;
 
@@ -45,7 +46,7 @@ public class Hud : MonoBehaviour
 
     // ----------- Public Methods -----------
 
-    public void BlackFade(Action onMiddle = null, Action onComplete = null)
+    public void BlackFade(Action onMiddle = null, Action onComplete = null, float duration = -1f)
     {
         if (panelFade == null)
         {
@@ -59,7 +60,7 @@ public class Hud : MonoBehaviour
             StopCoroutine(fadeCoroutine);
         }
         
-        fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete));
+        fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete, duration > 0f ? duration : fadeDuration));
     }
 
     public void FlashHealthBar(Color color, float life, float maxLife)
@@ -91,6 +92,24 @@ public class Hud : MonoBehaviour
         LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
         .setOnUpdate(value => healthBar.color = value);
     }
+
+    public void SetTimeTravelCooldown(float value, float maxValue)
+    {
+        if (timeTravelCooldownSlider == null) return;
+
+        if (!Mathf.Approximately(timeTravelCooldownSlider.minValue, 0f))
+        {
+            timeTravelCooldownSlider.minValue = 0f;
+        }
+
+        if (!Mathf.Approximately(timeTravelCooldownSlider.maxValue, maxValue))
+        {
+            timeTravelCooldownSlider.maxValue = maxValue;
+        }
+
+        timeTravelCooldownSlider.value = value;
+    }
+
     public void LostChance(float oldValue, float newValue)
     {
         deathPanel.gameObject.SetActive(true);
@@ -129,14 +148,14 @@ public class Hud : MonoBehaviour
 
     // ----------- Private Methods -----------
 
-    private IEnumerator I_BlackFade(Action onMiddle, Action onComplete)
+    private IEnumerator I_BlackFade(Action onMiddle, Action onComplete, float totalDuration)
     {
         panelFade.gameObject.SetActive(true);
         LeanTween.cancel(panelFade.gameObject);
 
-        float fadeDurationIn = fadeDuration / 4f;
-        float fadeDurationOut = fadeDuration / 4f;
-        float idleDuration = fadeDuration - fadeDurationIn - fadeDurationOut;
+        float fadeDurationIn = totalDuration / 4f;
+        float fadeDurationOut = totalDuration / 4f;
+        float idleDuration = totalDuration - fadeDurationIn - fadeDurationOut;
 
         bool tweenFinished = false;
 

@@ -1491,7 +1491,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
@@ -1586,8 +1586,8 @@ MonoBehaviour:
     m_ActionName: 'basic/sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1693969227258872783}
-        m_TargetAssemblyTypeName: TimeTravel, Assembly-CSharp
+      - m_Target: {fileID: 7938991980053644193}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: ChangeTimeButton
         m_Mode: 0
         m_Arguments:
@@ -1765,21 +1765,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
-  Alicefuturo: {fileID: 1192435536953036480}
-  Alicepassado: {fileID: 5360473257093890393}
+  futureSO: {fileID: 0}
+  pastSO: {fileID: 0}
   PlayerAnim: {fileID: 1606883660732384378}
-  AlicePassado: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
-  AliceFuturo: {fileID: 9000000, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-  past: {fileID: 0}
-  future: {fileID: 0}
-  cooldownSlider: {fileID: 0}
-  skyboxfuturo: {fileID: 2100000, guid: b73dc2c0c9eceae4486bdb5b744fceb9, type: 2}
-  skyboxpassado: {fileID: 2100000, guid: bebabbca203115940bf67dfe65237b36, type: 2}
   sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
 --- !u!114 &1190388858981423134
 MonoBehaviour:
@@ -1788,7 +1781,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd1de7b40f5fd854bb79b12a69fef0e8, type: 3}
   m_Name: 
@@ -4742,6 +4735,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
       propertyPath: m_Name
       value: AlicePassado
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
       propertyPath: m_Avatar
