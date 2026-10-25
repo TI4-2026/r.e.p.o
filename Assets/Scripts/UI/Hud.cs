@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using TMPro;
-using Unity.InferenceEngine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +16,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
+    [SerializeField] private Animator timeTravelEffect;
 
     private Coroutine fadeCoroutine;
 
@@ -32,8 +32,15 @@ public class Hud : MonoBehaviour
 
     private void Start()
     {
+        TimeTravel.OnTimeChange += TimeChangeEffect;
+        timeTravelEffect.gameObject.SetActive(false);
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         panelFade.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        TimeTravel.OnTimeChange -= TimeChangeEffect;   
     }
 
     // ----------- Public Methods -----------
@@ -151,5 +158,20 @@ public class Hud : MonoBehaviour
     
     // ----------- Visual Feedback Methods -----------
 
+    private void TimeChangeEffect(bool time)
+    {
+        timeTravelEffect.gameObject.SetActive(true);
+        timeTravelEffect.SetFloat("Speed", 1);
+        timeTravelEffect.Play("ClockAnim");
+        StartCoroutine(DeactivateClock());
+    }
 
+    IEnumerator DeactivateClock()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        timeTravelEffect.SetFloat("Speed", -1);
+        timeTravelEffect.Play("ClockAnim");
+        yield return new WaitForSecondsRealtime(0.5f);
+        timeTravelEffect.gameObject.SetActive(false);
+    }
 }
