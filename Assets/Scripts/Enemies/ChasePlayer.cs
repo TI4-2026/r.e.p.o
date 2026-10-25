@@ -17,8 +17,9 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     private float groundCheckHeight = 0.5f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("SFX")]
+    [Header("Efeitos")]
     public AudioClip sound;
+    [SerializeField] private Animator animator;
 
 
     protected Rigidbody rb;
@@ -73,6 +74,10 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     protected virtual void Move(Vector3 direction)
     {
         Vector3 velocity = direction * moveSpeed * timeMultiplier;
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", velocity.magnitude);
+        }
         if (!canFly)
         {
             if (!HasGroundAhead(direction))
