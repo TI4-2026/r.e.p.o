@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpRequested;
     private bool jumpButtonHeld;
     private bool isJumping;
+    private bool isMovingOnGround;
     private bool isMovementEnabled = true;
     private bool isMoveObjectMode = false;
     private bool isGrounded;
@@ -71,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding = false;
     GameObject activePlatform;
     PlatformBehavior platBehave;
+    private float intervalosompasso = 0.5f;
+    private float tempoatual = 0f;
 
     // Animator
     public Animator animator;
@@ -122,6 +125,15 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
         animator.SetFloat("Speed", moveInput.magnitude);
+        if (isMovingOnGround && isGrounded)
+        {
+            tempoatual += Time.deltaTime;
+            if (tempoatual >= intervalosompasso)
+            {
+                MusicManager.PlaySound(sound, gameObject.transform.position);
+                tempoatual = 0f;
+            }
+        }
     }
 
     // --------------- Public Methods ---------------
@@ -210,14 +222,22 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput = context.ReadValue<Vector2>();
         
-        if (moveInput.sqrMagnitude > 0.01f&&isGrounded)
+        if (moveInput.sqrMagnitude > 0.01f && isGrounded)
         {
             if (!walkingEffect.isPlaying)
                 walkingEffect.Play();
+            isMovingOnGround = true;
+
         }
         else
         {
             walkingEffect.Stop();
+            isMovingOnGround = false;
+        }
+
+        if (moveInput.sqrMagnitude < 0.5f && isGrounded)
+        {
+            tempoatual = 0f;
         }
     }
 
@@ -456,6 +476,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         animator.SetTrigger("Jump");
+        MusicManager.PlaySound(soundJump, gameObject.transform.position);
         verticalVel.y = jumpForce;
         jumpRequestTimer = 0f;
         jumpRequested = false;

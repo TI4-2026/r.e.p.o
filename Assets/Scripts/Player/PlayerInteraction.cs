@@ -59,6 +59,11 @@ public class PlayerInteraction: MonoBehaviour
         if (TryMoveObject()) return;
     }
 
+    public void ChangeTimeButton(InputAction.CallbackContext context)
+    {
+        TimeTravel.Instance.ChangeTimeButton(context);
+    }
+
     // ----------------- Public Methods -----------------
 
     public void UnlockCursor()

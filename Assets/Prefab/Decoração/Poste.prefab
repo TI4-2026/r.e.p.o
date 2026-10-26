@@ -480,18 +480,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3f40c1c72eed124192f0e865f34e5b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5657251496122362231}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3f40c1c72eed124192f0e865f34e5b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4886495270717111174}
+      addedObject: {fileID: 6516160150235632487}
   m_SourcePrefab: {fileID: 100100000, guid: a3f40c1c72eed124192f0e865f34e5b3, type: 3}
 --- !u!1 &4767100673079153788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a3f40c1c72eed124192f0e865f34e5b3, type: 3}
   m_PrefabInstance: {fileID: 5686160804221921581}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &5657251496122362231
-BoxCollider:
+--- !u!64 &6516160150235632487
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -508,30 +505,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1340256, y: 3.4586728, z: 1}
-  m_Center: {x: -2.2861724, y: 1.2293364, z: 0}
---- !u!65 &4886495270717111174
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4767100673079153788}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.939148, y: 0.4721427, z: 0.48131943}
-  m_Center: {x: -2.2706962, y: 2.9076312, z: -0.01146251}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!4 &5288339091519753926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3f40c1c72eed124192f0e865f34e5b3, type: 3}
