@@ -42,7 +42,6 @@ public class TimeTravel : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(cooldown);
         cooldown += Time.deltaTime;
         UpdateCooldownDisplay();
     }

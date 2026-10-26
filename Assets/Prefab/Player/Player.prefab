@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 7650872300187395025}
   - component: {fileID: 1606883660732384378}
   - component: {fileID: 1463231044258399484}
+  - component: {fileID: 7258440485164031296}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1774,6 +1775,7 @@ MonoBehaviour:
   pastSO: {fileID: 0}
   PlayerAnim: {fileID: 1606883660732384378}
   sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
+  transitionFadeDuration: 0.6
 --- !u!114 &1190388858981423134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,6 +1879,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b575af7e62ac34ab51e976aeb40add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTimeControl
+--- !u!114 &7258440485164031296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30011c0d3c813404d993fce7d93f2c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldMusic
 --- !u!1 &2649622369104479528
 GameObject:
   m_ObjectHideFlags: 0

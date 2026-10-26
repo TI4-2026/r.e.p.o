@@ -14,10 +14,8 @@ public class PlayerTimeControl : MonoBehaviour
 
     public void TimeStop(InputAction.CallbackContext context)
     {
-        Debug.Log("apertou");
         if (context.started)
         {
-            Debug.Log("chamou");
             timeManager.SetTimeMultiplier(0f);
             StartCoroutine(ChangeBack(5f));
         }
@@ -25,10 +23,8 @@ public class PlayerTimeControl : MonoBehaviour
 
     public void SnailTime(InputAction.CallbackContext context)
     {
-        Debug.Log("apertou");
         if (context.started)
         {
-            Debug.Log("chamou");
             timeManager.SetTimeMultiplier(0.3f);
             StartCoroutine(ChangeBack(10f));
         }
