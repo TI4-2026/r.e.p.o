@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             tempoatual += Time.deltaTime;
             if (tempoatual >= intervalosompasso)
             {
-                MusicManager.PlaySound(sound, gameObject.transform.position);
+                //MusicManager.PlaySound(sound, gameObject.transform.position);
                 tempoatual = 0f;
             }
         }
