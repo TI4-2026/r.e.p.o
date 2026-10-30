@@ -680459,6 +680459,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2142758227}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2142758227}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SnailTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimeStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTimeControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTimeControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649918742527063091, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7650872300187395025, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: healthBar
       value: 
@@ -680493,6 +680549,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1606883660732384378, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
   m_PrefabInstance: {fileID: 2142758211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2142758227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1463231044258399484, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b575af7e62ac34ab51e976aeb40add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTimeControl
 --- !u!1 &2143314987
 GameObject:
   m_ObjectHideFlags: 0
