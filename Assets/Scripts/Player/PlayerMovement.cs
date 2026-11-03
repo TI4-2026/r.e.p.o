@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField]private float slideSpeed = 3f;
 
     [Header("Effects")]
-    [SerializeField] private AudioClip sound;
     [SerializeField] private AudioClip soundJump;
     [SerializeField] private ParticleSystem walkingEffect;
     [SerializeField] private Transform foot;
@@ -131,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             tempoatual += Time.deltaTime;
             if (tempoatual >= intervalosompasso)
             {
-                MusicManager.PlaySound(sound, gameObject.transform.position);
+                //MusicManager.PlaySound(sound, gameObject.transform.position);
                 tempoatual = 0f;
             }
         }
@@ -222,7 +221,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = context.ReadValue<Vector2>();
-        //MusicManager.PlaySound(sound, gameObject.transform.position);
         
         if (moveInput.sqrMagnitude > 0.01f && isGrounded)
         {
@@ -252,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
             jumpButtonHeld = true;
             jumpRequested = true;
             jumpRequestTimer = Time.time;
-            //MusicManager.PlaySound(soundJump, gameObject.transform.position);
+            MusicManager.PlaySound(soundJump, gameObject.transform.position);
         }
 
         if (context.canceled)
