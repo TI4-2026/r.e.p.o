@@ -14,17 +14,17 @@ public class MoveSpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        TimeTravel.OnTimeChange += UpdatePair;
+        TimeTravel.OnTimeChange.AddListener(UpdatePair);
     }
 
     private void OnDisable()
     {
-        TimeTravel.OnTimeChange -= UpdatePair;
+        TimeTravel.OnTimeChange.RemoveListener(UpdatePair);
     }
 
-    void UpdatePair(bool timeTravel)
+    void UpdatePair()
     {
-        parentPair.AlternateBehavior(timeTravel);
+        parentPair.AlternateBehavior(TimeTravel.isFuture);
     }
     */
 }

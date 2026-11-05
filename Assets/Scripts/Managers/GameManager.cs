@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [Header("Autofilled")]
     public Hud Hud;
     public Transform checkpoint = null;
+    public GameObject player;
     
     private int currentCheckpointPriority = 0;
 

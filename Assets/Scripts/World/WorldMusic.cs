@@ -5,12 +5,12 @@ public class WorldMusic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TimeTravel.OnTimeChange += TimeMusic;
+        TimeTravel.OnTimeChange.AddListener(TimeMusic);
     }
 
-    void TimeMusic(bool isFuture)
+    void TimeMusic()
     {
-        if (isFuture)
+        if (TimeTravel.isFuture)
         {
             MusicManager.instance.ChangeMusic(1);
         }

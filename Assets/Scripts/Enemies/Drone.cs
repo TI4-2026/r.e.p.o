@@ -4,14 +4,14 @@ public class Drone : ChasePlayer
 {
     private void Start()
     {
-        TimeTravel.OnTimeChange += SpinDrone;
+        TimeTravel.OnTimeChange.AddListener(SpinDrone);
     }
 
     private void OnDestroy()
     {
-        TimeTravel.OnTimeChange -= SpinDrone;
+        TimeTravel.OnTimeChange.RemoveListener(SpinDrone);
     }
-    void SpinDrone(bool timeChange)
+    void SpinDrone()
     {
         MusicManager.PlaySound(sound, gameObject.transform.position);
         isSpawning = true;

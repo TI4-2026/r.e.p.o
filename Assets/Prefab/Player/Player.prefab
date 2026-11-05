@@ -1421,14 +1421,12 @@ GameObject:
   - component: {fileID: 4420632344708239137}
   - component: {fileID: 5116510944022171384}
   - component: {fileID: 6861167194528145986}
+  - component: {fileID: 1606883660732384378}
   - component: {fileID: 7649918742527063091}
   - component: {fileID: 7938991980053644193}
   - component: {fileID: 8684086751821290450}
   - component: {fileID: 714465639065153002}
-  - component: {fileID: 1693969227258872783}
-  - component: {fileID: 1190388858981423134}
   - component: {fileID: 7650872300187395025}
-  - component: {fileID: 1606883660732384378}
   - component: {fileID: 1463231044258399484}
   - component: {fileID: 7258440485164031296}
   m_Layer: 0
@@ -1496,6 +1494,28 @@ CharacterController:
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &1606883660732384378
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
+  m_Controller: {fileID: 9100000, guid: d7ab5eef71b132649b6a90c4f28227f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7649918742527063091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1740,6 @@ MonoBehaviour:
   maxFallSpeed: -20
   slideFriction: 20
   slideSpeed: 3
-  sound: {fileID: 8300000, guid: 88c6881b75c60e84c8dee2239bd3fb02, type: 3}
   soundJump: {fileID: 8300000, guid: 1352720ea34de6c47a8b63ad67a76deb, type: 3}
   walkingEffect: {fileID: 6897682466417548645, guid: f92b20f0ea8d5ae46bd2b3e522b90a05, type: 3}
   foot: {fileID: 3030368856105900938}
@@ -1759,77 +1778,6 @@ MonoBehaviour:
   dashCooldown: 1.5
   sound: {fileID: 8300000, guid: 71e8d18dfab91594ba0c7bf433d6192b, type: 3}
   animator: {fileID: 1606883660732384378}
---- !u!114 &1693969227258872783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d49c6da0778841943957b6228ff7bf47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
-  futureSO: {fileID: 0}
-  pastSO: {fileID: 0}
-  PlayerAnim: {fileID: 1606883660732384378}
-  sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
-  transitionFadeDuration: 0.6
---- !u!114 &1190388858981423134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1de7b40f5fd854bb79b12a69fef0e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PairsTimeTravel
-  future:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  past:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7650872300187395025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,28 +1793,6 @@ MonoBehaviour:
   maxLife: 100
   chances: 3
   healthBar: {fileID: 0}
---- !u!95 &1606883660732384378
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
-  m_Controller: {fileID: 9100000, guid: d7ab5eef71b132649b6a90c4f28227f1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1463231044258399484
 MonoBehaviour:
   m_ObjectHideFlags: 0

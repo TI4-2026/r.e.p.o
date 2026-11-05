@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 public class TimeTravel : MonoBehaviour
 {
@@ -13,31 +14,40 @@ public class TimeTravel : MonoBehaviour
     }
 
     // ---------------------------------------
-
-
+    
     [SerializeField] TimeTravelInfo futureSO;
     [SerializeField] TimeTravelInfo pastSO;
-
-    public Animator PlayerAnim;
-
-    [Header("SFX")]
-    [SerializeField] private AudioClip sound;
-
-    [Header("Transition")]
+    
+    public static bool isFuture = true;
+    public static UnityEvent OnTimeChange = new UnityEvent();
+    
+    [Header("Settings")]
     [SerializeField, Min(0.1f)] private float transitionFadeDuration = 0.6f;
 
+    [Header("Others")]
+    [SerializeField] private AudioClip sound;
+    public Animator PlayerAnim;
+
+        
     private float cooldown;
     private bool isChangingTime;
     private const float CooldownDuration = 2f;
-
-    public static bool isFuture = true;//se outro script for mudar o tempo, coloquem TimeTravel.isFuture = true/false
-    public static Action<bool> OnTimeChange;//evento para chamar qualquer script que tenha mudanca de tempo
+    
+    private PlayerLife playerLife;
+    private PlayerCollisionSelf playerCollisionSelf;
+    
+    // ----------------- Default Methods -----------------
     
     void Start()
     {
         cooldown = 2f;
+        
+        playerLife = GameManager.Instance.player.GetComponent<PlayerLife>();
+        playerCollisionSelf = GameManager.Instance.player.GetComponent<PlayerCollisionSelf>();
+        
+        OnTimeChange?.AddListener(ChangeTime);
         UpdateCooldownDisplay();
-        ApplyTimeInfo(isFuture ? futureSO : pastSO);
+        ApplyTimeChange();
     }
 
     void Update()
@@ -45,57 +55,60 @@ public class TimeTravel : MonoBehaviour
         cooldown += Time.deltaTime;
         UpdateCooldownDisplay();
     }
+    
+    // ----------------- Public Methods -----------------
 
-    public void ChangeTimeButton(InputAction.CallbackContext context)
+    public void OnChangeTime()
     {
-        if (context.performed && cooldown >= CooldownDuration && !isChangingTime)
-        {
-            MusicManager.PlaySound(sound, gameObject.transform.position);
-            ChangeTime();
-            cooldown = 0f;
-        }
+        OnTimeChange.Invoke();
+        cooldown = 0f;
     }
-
+    
+    // ----------------- Private Methods -----------------
+    
     private void ChangeTime()
     {
         isChangingTime = true;
-        Time.timeScale = 0f;
-
-        void ApplyTimeChange()
-        {
-            isFuture = !isFuture;
-            ApplyTimeInfo(isFuture ? futureSO : pastSO);
-            TimeChange(isFuture);
-        }
-
-        void FinishTransition()
-        {
-            Time.timeScale = 1f;
-            isChangingTime = false;
-        }
-
-        GameManager.Instance.Hud.BlackFade(ApplyTimeChange, FinishTransition, transitionFadeDuration);
+        isFuture = !isFuture;
+        MusicManager.PlaySound(sound, gameObject.transform.position);
+        
+        GameManager.Instance.Hud.BlackFade(
+        ApplyTimeChange, 
+        () => isChangingTime = false,
+        transitionFadeDuration);
     }
 
-    private void ApplyTimeInfo(TimeTravelInfo timeInfo)
+    private void ApplyTimeChange()
     {
-        futureSO.mapCollection.SetActive(timeInfo == futureSO);
-        pastSO.mapCollection.SetActive(timeInfo == pastSO);
-        futureSO.playerModel.SetActive(timeInfo == futureSO);
-        pastSO.playerModel.SetActive(timeInfo == pastSO);
-        PlayerAnim.avatar = timeInfo.playerAvatar;
-        RenderSettings.skybox = timeInfo.skybox;
+        if (isFuture)
+        {
+            ApplyTimeChangeAux(futureSO, true, true);
+            ApplyTimeChangeAux(pastSO, false, false);
+        }
+        else
+        {
+            ApplyTimeChangeAux(pastSO, true, true);
+            ApplyTimeChangeAux(futureSO, false, false);
+        }
+    }
+
+    private void ApplyTimeChangeAux(TimeTravelInfo timeInfo, bool toEnable, bool checkCollisions)
+    {
+        timeInfo.mapCollection.SetActive(toEnable);
+        timeInfo.playerModel.SetActive(toEnable);
+
+        if (toEnable)
+        {
+            PlayerAnim.avatar = timeInfo.playerAvatar;
+            RenderSettings.skybox = timeInfo.skybox;
+        }
+
+        if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(diePlayer: true);
     }
 
     private void UpdateCooldownDisplay()
     {
         GameManager gameManager = GameManager.Instance;
         gameManager.Hud.SetTimeTravelCooldown(cooldown, CooldownDuration);
-    }
-
-    //fiz uma funcao estatica para caso algum outro script queira chamar (Ex:Ecilia)
-    public static void TimeChange(bool isFuture)
-    {
-        OnTimeChange?.Invoke(isFuture);
     }
 }
