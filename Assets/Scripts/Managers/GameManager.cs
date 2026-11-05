@@ -36,9 +36,16 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     
     private int currentCheckpointPriority = 0;
+    private int gearsCollected = 0;
 
     // --------------- Public Methods ---------------
 
+    public void CollectGear()
+    {
+        gearsCollected++;
+        Debug.Log("Gears collected: " + gearsCollected);
+    }
+    
     public void SpawnPlayer(GameObject player)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;

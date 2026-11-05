@@ -14,8 +14,7 @@ public class ItemBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
-            playerInteraction.CollectGear();
+            GameManager.Instance.CollectGear();
             Destroy(gameObject);
         }
     }
