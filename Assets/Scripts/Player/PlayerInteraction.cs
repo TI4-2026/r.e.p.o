@@ -7,8 +7,9 @@ public class PlayerInteraction: MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineInputAxisController cameraInputAxisController;
-
     private PlayerMovement playerMovement;
+
+    private int gearsCollected = 0;
     private bool isCursorLocked = true;
 
     private GameObject moveObject;  
@@ -62,6 +63,12 @@ public class PlayerInteraction: MonoBehaviour
     }
 
     // ----------------- Public Methods -----------------
+
+    public void CollectGear()
+    {
+        gearsCollected++;
+        Debug.Log("Gears collected: " + gearsCollected);
+    }
 
     public void UnlockCursor()
     {
