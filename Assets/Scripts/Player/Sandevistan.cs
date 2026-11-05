@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Sandevistan : MonoBehaviour
 {
     public float activetime = 2f;
+    public float cooldownTime = 1.5f;
+    private float cooldown = 0f;
 
     [Header("Mesh Related")]
     public float meshRefreshRate = 0.1f;
@@ -35,8 +37,9 @@ public class Sandevistan : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown (KeyCode.LeftShift) && !isTrailActive)
+        if(Input.GetKeyDown (KeyCode.LeftShift) && !isTrailActive&&Time.time>=cooldown)
         {
+            cooldown = Time.time + cooldownTime;
             isTrailActive = true;
             StartCoroutine (ActivateTrail(activetime));
         }
