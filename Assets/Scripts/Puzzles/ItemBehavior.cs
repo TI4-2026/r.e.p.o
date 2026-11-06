@@ -4,6 +4,7 @@ using UnityEngine;
 public class ItemBehavior : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private bool enableExitOnCollect = true;
     
     private void Update()
     {
@@ -14,7 +15,7 @@ public class ItemBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.CollectGear();
+            GameManager.Instance.CollectGear(enableExit: enableExitOnCollect);
             Destroy(gameObject);
         }
     }

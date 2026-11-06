@@ -45,7 +45,6 @@ public class TimeTravel : MonoBehaviour
         playerLife = GameManager.Instance.player.GetComponent<PlayerLife>();
         playerCollisionSelf = GameManager.Instance.player.GetComponent<PlayerCollisionSelf>();
         
-        OnTimeChange?.AddListener(ChangeTime);
         UpdateCooldownDisplay();
         ApplyTimeChange();
     }
@@ -60,7 +59,7 @@ public class TimeTravel : MonoBehaviour
 
     public void OnChangeTime()
     {
-        OnTimeChange.Invoke();
+        ChangeTime();
         cooldown = 0f;
     }
     
@@ -80,6 +79,7 @@ public class TimeTravel : MonoBehaviour
 
     private void ApplyTimeChange()
     {
+        OnTimeChange.Invoke();
         if (isFuture)
         {
             ApplyTimeChangeAux(futureSO, true, true);

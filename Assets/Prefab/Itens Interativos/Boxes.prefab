@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ae3d51c6fc6fb4e8c78508a02abc23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParentPairs
-  freezePast: 0
+  freezePast: 1
   freezeFuture: 0
+  meshFuture: {fileID: 4307487837369428085}
+  meshPast: {fileID: 8524623019475406266}
 --- !u!65 &8235816407019077140
 BoxCollider:
   m_ObjectHideFlags: 0
