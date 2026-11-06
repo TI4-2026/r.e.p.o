@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class Sandevistan : MonoBehaviour
 {
+    [SerializeField] private PlayerDash playerDash;
     public float activetime = 2f;
 
     [Header("Mesh Related")]
@@ -23,6 +25,11 @@ public class Sandevistan : MonoBehaviour
     private readonly List<Mesh> trailMeshes = new List<Mesh>();
     private readonly List<Material> trailMaterials = new List<Material>();
 
+    private void OnEnable()
+    {
+        playerDash.sandevistanActive = this;
+    }
+
     private void OnDisable()
     {
         // TimeTravel disables one character model while enabling the other. Unity
@@ -32,13 +39,13 @@ public class Sandevistan : MonoBehaviour
         skinnedMeshRenderer = null;
         ClearTrailObjects();
     }
-
-    void Update()
+    
+    public void ActivateTrailExternally()
     {
-        if(Input.GetKeyDown (KeyCode.LeftShift) && !isTrailActive)
+        if (!isTrailActive)
         {
             isTrailActive = true;
-            StartCoroutine (ActivateTrail(activetime));
+            StartCoroutine(ActivateTrail(activetime));
         }
     }
     

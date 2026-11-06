@@ -1719,7 +1719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
   cameraInputAxisController: {fileID: 0}
-  cameraHandle: {fileID: 0}
 --- !u!114 &8684086751821290450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,10 +1731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac10ef5d03bf044cb9f98cb80a8277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 9
+  speed: 7
   acceleration: 0.15
   deceleration: 0.1
-  jumpForce: 10
+  jumpForce: 11
   gravity: -18
   maxFallSpeed: -20
   slideFriction: 20
@@ -1776,6 +1775,7 @@ MonoBehaviour:
   dashDistance: 5
   dashSpeed: 10
   dashCooldown: 1.5
+  sandevistanActive: {fileID: 0}
   sound: {fileID: 8300000, guid: 71e8d18dfab91594ba0c7bf433d6192b, type: 3}
   animator: {fileID: 1606883660732384378}
 --- !u!114 &7650872300187395025
@@ -4611,6 +4611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3676c8997b3022f41b6c9dceaad3bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sandevistan
+  playerDash: {fileID: 714465639065153002}
   activetime: 0.5
   meshRefreshRate: 0.05
   meshDestroyDelay: 0.5
@@ -4718,6 +4719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3676c8997b3022f41b6c9dceaad3bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sandevistan
+  playerDash: {fileID: 714465639065153002}
   activetime: 0.5
   meshRefreshRate: 0.05
   meshDestroyDelay: 0.5

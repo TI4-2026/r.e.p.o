@@ -11,6 +11,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashDistance = 5f;
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 1f;
+    public Sandevistan sandevistanActive;
 
     [Header("SFX")]
     [SerializeField] private AudioClip sound;
@@ -65,6 +66,7 @@ public class PlayerDash : MonoBehaviour
         Vector3 lookDirection = GetDashDirection();
         lookDirection.y = 0f;
         transform.LookAt(transform.position + lookDirection);
+        sandevistanActive.ActivateTrailExternally();
 
         Vector3 direction = GetDashDirection();
         float duration = dashDistance / dashSpeed;
