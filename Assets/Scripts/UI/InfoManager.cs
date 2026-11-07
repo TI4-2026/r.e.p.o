@@ -28,6 +28,10 @@ public class InfoManager : MonoBehaviour
     
     // -------------- Default Methods --------------
     
+    /*
+     * Para funcionar o sistema de informação, um trigger com InfoTrigger.cs deve ser colocado no local desejado, com o texto e a duração da informação.
+     */
+    
     private void Start()
     {
         tipTextColor = tipText.color;
