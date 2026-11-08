@@ -1,5 +1,9 @@
 using System;
+using NUnit.Framework;
+using Unity.Mathematics;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -13,13 +17,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float maxFallSpeed = -20f;
-     [SerializeField]private float slideFriction = 20f;
-     [SerializeField]private float slideSpeed = 3f;
+    [SerializeField] private float slideFriction = 20f;
+    [SerializeField] private float slideSpeed = 3f;
 
-    [Header("Effects")]
+    [Header("SFX")]
+    [SerializeField] private AudioClip sound;
     [SerializeField] private AudioClip soundJump;
-    [SerializeField] private ParticleSystem walkingEffect;
-    [SerializeField] private Transform foot;
 
     [Header("Settings")]
     [SerializeField] private float groundCheckDistance = 0.15f;
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeldGravityMultiplier = 3f;
 
     [Header("Ledge Grab")]
+    [SerializeField] private LayerMask ledgeGrabLayers;
     [SerializeField] private float ledgeGrabForwardReach = 0.9f;
     [SerializeField] private float ledgeGrabMinHeight = 0.15f;
     [SerializeField] private float ledgeGrabMaxHeight = 1.35f;
@@ -40,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerCollisionSelf playerCollisionSelf = null;
-     private PlayerInteraction playerInteraction;
-    
+    private PlayerInteraction playerInteraction;
+
     [Header("Move Object Collision Check")]
     [SerializeField] private LayerMask moveObjectObstacleLayers = ~0;
     [SerializeField] private float boxSkinWidth = 0.02f;
@@ -61,8 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpRequested;
     private bool jumpButtonHeld;
     private bool isJumping;
-    private bool isMovingOnGround;
-    private bool isMovementEnabled = true;
+    public bool isMovementEnabled = true;
     private bool isMoveObjectMode = false;
     private bool isGrounded;
     private bool ledgeGrabAvailable = true;
@@ -72,11 +75,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding = false;
     GameObject activePlatform;
     PlatformBehavior platBehave;
-    private float intervalosompasso = 0.5f;
-    private float tempoatual = 0f;
 
     // Animator
     public Animator animator;
+
+
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -84,18 +88,10 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         defaultSpeed = speed;
-        ParticleSystem effect = Instantiate(walkingEffect.gameObject, foot.position, foot.rotation, foot).
-            GetComponent<ParticleSystem>();
-        walkingEffect = effect;
-        walkingEffect.Stop();
     }
 
     void FixedUpdate()
     {
-        // Dialogs and other gameplay systems can temporarily disable the controller.
-        // Skip the whole movement tick while it is inactive so no Move call is made.
-        if (characterController == null || !characterController.enabled)
-            return;
 
         CheckGrounded();
         if (activePlatform != null)
@@ -113,24 +109,32 @@ public class PlayerMovement : MonoBehaviour
         // "Pos-processamento" do movimento do player quando ele estiver movendo um objeto
         if (isMoveObjectMode)
         {
+            // Isso daqui é pro animator.
+            if (moveInput.sqrMagnitude > 0.01f)
+            {
+                if (moveInput.y < -0.1f)
+                {
+                    animator.SetFloat("GrabSpeed", -1f);
+                }
+                else
+                {
+                    animator.SetFloat("GrabSpeed", 1f);
+                }
+            }
+            else
+            {
+                animator.SetFloat("GrabSpeed", 0f);
+            }
             Vector3 horizStep = new Vector3(moveStep.x, 0f, moveStep.z);
             horizStep = AdjustMovementForBox(horizStep);
             horizontalVel = horizStep / Time.deltaTime;
             moveStep = new Vector3(horizStep.x, moveStep.y, horizStep.z);
+
         }
-            
+
         characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
         animator.SetFloat("Speed", moveInput.magnitude);
-        if (isMovingOnGround && isGrounded)
-        {
-            tempoatual += Time.deltaTime;
-            if (tempoatual >= intervalosompasso)
-            {
-                //MusicManager.PlaySound(sound, gameObject.transform.position);
-                tempoatual = 0f;
-            }
-        }
     }
 
     // --------------- Public Methods ---------------
@@ -194,7 +198,8 @@ public class PlayerMovement : MonoBehaviour
         currentMoveObject = enabled ? targetObject : null;
         currentMoveCollider = enabled && targetObject != null ? targetObject.GetComponent<Collider>() : null;
         currentBoxCollider = currentMoveCollider as BoxCollider;
-        
+
+        // isso daqui é pro animator 
         animator.SetBool("Grabbing", enabled);
         if (!enabled)
         {
@@ -202,9 +207,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public float GetSpeed() {return speed;}
-    public void SetSpeed(float speed) {this.speed = speed;}
-    public void SetDefaultSpeed() {speed = defaultSpeed;}
+    public float GetSpeed() { return speed; }
+    public void SetSpeed(float speed) { this.speed = speed; }
+    public void SetDefaultSpeed() { speed = defaultSpeed; }
 
     public bool IsSliding => isSliding;
     public bool CanSlide()
@@ -219,29 +224,11 @@ public class PlayerMovement : MonoBehaviour
         if (!isMovementEnabled)
         {
             moveInput = Vector2.zero;
-            walkingEffect.Stop();
             return;
         }
 
         moveInput = context.ReadValue<Vector2>();
-        
-        if (moveInput.sqrMagnitude > 0.01f && isGrounded)
-        {
-            if (!walkingEffect.isPlaying)
-                walkingEffect.Play();
-            isMovingOnGround = true;
-
-        }
-        else
-        {
-            walkingEffect.Stop();
-            isMovingOnGround = false;
-        }
-
-        if (moveInput.sqrMagnitude < 0.5f && isGrounded)
-        {
-            tempoatual = 0f;
-        }
+        MusicManager.PlaySound(sound, gameObject.transform.position);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -284,7 +271,8 @@ public class PlayerMovement : MonoBehaviour
         {
             movementDirection = GetMovementDirectionMoveObjectMode();
             targetVelocity = speed * movementDirection;
-        }else
+        }
+        else
         {
             movementDirection = GetMovementDirection();
             if (movementDirection.sqrMagnitude > 0.0001f) RotateTowardsMovement(movementDirection);
@@ -303,9 +291,9 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    
+
     private Vector3 AdjustMovementForBox(Vector3 horizStep)
-    {        
+    {
         /*
     
         O metodo abaixo e tipo um "pos" processamento do movimento do player. Ele vai ser chamado no FixedUpdate quando o player estiver movendo um objeto.
@@ -479,7 +467,6 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         animator.SetTrigger("Jump");
-        MusicManager.PlaySound(soundJump, gameObject.transform.position);
         verticalVel.y = jumpForce;
         jumpRequestTimer = 0f;
         jumpRequested = false;
@@ -490,7 +477,7 @@ public class PlayerMovement : MonoBehaviour
     private void TryLedgeGrab()
     {
         if (!ledgeGrabAvailable || !isMovementEnabled || isMoveObjectMode || isGrounded ||
-            !characterController.enabled)
+            !characterController.enabled || ledgeGrabLayers.value == 0)
             return;
 
         Vector3 direction = horizontalVel;
@@ -511,7 +498,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float t = (float)i / (faceSamples - 1);
             Vector3 sideOrigin = feet + Vector3.up * Mathf.Lerp(ledgeGrabMinHeight, ledgeGrabMaxHeight, t);
-            if (!Physics.Raycast(sideOrigin, direction, out RaycastHit candidate, sideReach, LayerMask.NameToLayer("Default"), QueryTriggerInteraction.Ignore))
+            if (!Physics.Raycast(sideOrigin, direction, out RaycastHit candidate, sideReach, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
                 continue;
             if (Vector3.Dot(candidate.normal, -direction) < 0.5f)
                 continue;
@@ -527,7 +514,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 topProbe = faceHit.point + direction * ledgeGrabTopInset;
         topProbe.y = feet.y + ledgeGrabMaxHeight + 0.05f;
         float topProbeDistance = ledgeGrabMaxHeight - ledgeGrabMinHeight + 0.1f;
-        if (!Physics.Raycast(topProbe, Vector3.down, out RaycastHit topHit, topProbeDistance, LayerMask.NameToLayer("Default"), QueryTriggerInteraction.Ignore))
+        if (!Physics.Raycast(topProbe, Vector3.down, out RaycastHit topHit, topProbeDistance, ledgeGrabLayers, QueryTriggerInteraction.Ignore))
             return;
 
         float ledgeHeight = topHit.point.y - feet.y;
@@ -583,7 +570,7 @@ public class PlayerMovement : MonoBehaviour
     private void EndSlide()
     {
         isSliding = false;
-        deceleration /=slideFriction;
+        deceleration /= slideFriction;
         speed -= slideSpeed;
         SetMovementEnabled(true);
     }
@@ -607,7 +594,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FollowPlatform()
     {
-        if (characterController != null && characterController.enabled && platBehave != null)
+        if (platBehave != null)
         {
             Vector3 platformMovement = platBehave.GetPlatformMovement();
 
