@@ -146008,6 +146008,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 645896047221215776, guid: 8ed3feb687a19fd4fb31f8ab0be08f95, type: 3}
   m_PrefabInstance: {fileID: 457427574}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &457718081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647179820299798461, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458046108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d0a495bf0e52cc849bdadfdb3d00647f, type: 3}
@@ -213577,11 +213582,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6371195766521007010, guid: ebeaf61b4ea310d4190651ee19bdecd7, type: 3}
---- !u!1 &682971857 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5360473257093890393, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
-  m_PrefabInstance: {fileID: 2142758211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &683814043
 GameObject:
   m_ObjectHideFlags: 0
@@ -246766,6 +246766,11 @@ Transform:
   - {fileID: 133148221}
   m_Father: {fileID: 1977529423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &757910609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 500175425928779671, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 2142758211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &757927226
 GameObject:
   m_ObjectHideFlags: 0
@@ -257649,8 +257654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 1398437237}
-  playerAvatar: {fileID: 9000000, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
+  playerModel: {fileID: 757910609}
   mapCollection: {fileID: 1949671690}
   skybox: {fileID: 2100000, guid: b73dc2c0c9eceae4486bdb5b744fceb9, type: 2}
 --- !u!4 &800176303
@@ -444914,11 +444918,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &1398437237 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1192435536953036480, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
-  m_PrefabInstance: {fileID: 2142758211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1399451066
 Mesh:
   m_ObjectHideFlags: 0
@@ -483795,8 +483794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 682971857}
-  playerAvatar: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
+  playerModel: {fileID: 457718081}
   mapCollection: {fileID: 1485663014}
   skybox: {fileID: 2100000, guid: bebabbca203115940bf67dfe65237b36, type: 2}
 --- !u!4 &1534484197

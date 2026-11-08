@@ -56,37 +56,38 @@ public class PlayerDash : MonoBehaviour
     // --------------- Private Methods ---------------
 
     private void StartDash()
-    {
-        if (!characterController.enabled) return;
-        isDashing = true;
-        lastDashTime = Time.time;
-        playerMovement.SetMovementEnabled(false);
-        animator.SetTrigger("Dash");
-        Vector3 lookDirection = GetDashDirection();
-        lookDirection.y = 0f;
-        transform.LookAt(transform.position + lookDirection);
+{
+    if (!characterController.enabled) return;
+     isDashing = true;
+    lastDashTime = Time.time;
+    animator.SetBool("dashing", true);
+    playerMovement.SetMovementEnabled(false);
+    Vector3 lookDirection = GetDashDirection();
+    lookDirection.y = 0f;
+    transform.LookAt(transform.position + lookDirection);
+    Vector3 direction = GetDashDirection();
+    float duration = dashDistance / dashSpeed;
+    float previousValue = 0f;
+ LeanTween.value(gameObject, 0f, dashDistance, duration)
+        .setEase(LeanTweenType.easeOutQuad)
+        .setOnUpdate((float value) =>
+        {
+            float delta = value - previousValue;
+            previousValue = value;
 
-        Vector3 direction = GetDashDirection();
-        float duration = dashDistance / dashSpeed;
-        float previousValue = 0f;
-        LeanTween.value(gameObject, 0f, dashDistance, duration)
-            .setEase(LeanTweenType.easeOutQuad)
-            .setOnUpdate((float value) =>
+            try
             {
-                float delta = value - previousValue;
-                previousValue = value;
-                try
-                {
-                    characterController.Move(direction * delta);
-                }catch {}
-                
-            })
-            .setOnComplete(EndDash);
-    }
+                characterController.Move(direction * delta);
+            }
+            catch { }
+        })
+        .setOnComplete(EndDash);
+}
 
     private void EndDash()
     {
         isDashing = false;
+        animator.SetBool("dashing", false);
         playerMovement.SetMovementEnabled(true);
     }
 

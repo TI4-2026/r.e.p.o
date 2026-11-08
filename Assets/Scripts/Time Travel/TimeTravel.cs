@@ -83,7 +83,6 @@ public class TimeTravel : MonoBehaviour
         pastSO.mapCollection.SetActive(timeInfo == pastSO);
         futureSO.playerModel.SetActive(timeInfo == futureSO);
         pastSO.playerModel.SetActive(timeInfo == pastSO);
-        PlayerAnim.avatar = timeInfo.playerAvatar;
         RenderSettings.skybox = timeInfo.skybox;
     }
 

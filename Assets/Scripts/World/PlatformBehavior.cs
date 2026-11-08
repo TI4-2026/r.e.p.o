@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PlatformBehavior : PlayerCollisionObject
@@ -6,6 +7,7 @@ public class PlatformBehavior : PlayerCollisionObject
     [SerializeField] protected bool rightDirection = true;
     [SerializeField] protected float distance = 5f;
     [SerializeField] protected float speed = 2f;
+    public float waitTime = 2f;
 
     protected Rigidbody rb;
     protected Vector3 startPosition;
@@ -16,6 +18,9 @@ public class PlatformBehavior : PlayerCollisionObject
 
     protected bool isPlayerAbove;
     protected PlayerMovement playerMovement;
+
+    private float waitTimer;
+    private bool isWaiting;
 
     protected virtual void Awake()
     {
@@ -37,7 +42,7 @@ public class PlatformBehavior : PlayerCollisionObject
         playerMovement = null;
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         Movement();
     }
@@ -45,17 +50,36 @@ public class PlatformBehavior : PlayerCollisionObject
     protected virtual void Movement()
     {
         previousPosition = transform.position;
-        nextPosition = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
 
-        rb.MovePosition(nextPosition);
-
-        if (Vector3.Distance(transform.position, targetPosition) <= 0.001f)
+        if (isWaiting)
         {
-            targetPosition = targetPosition == endPosition ? startPosition : endPosition;
+            if (Time.time >= waitTimer)
+            {
+                isWaiting = false;
+            }
+        }
+        else
+        {
+            nextPosition = Vector3.MoveTowards(
+                transform.position,
+                targetPosition,
+                speed * Time.deltaTime
+            );
+
+            rb.MovePosition(nextPosition);
+
+            if (Vector3.Distance(transform.position, targetPosition) <= 0.001f)
+            {
+                nextPosition = targetPosition;
+                waitTimer = Time.time + waitTime;
+                isWaiting = true;
+
+                targetPosition = targetPosition == endPosition
+                    ? startPosition
+                    : endPosition;
+            }
         }
     }
-
-    // ================ Override Methods ================
 
     public override void OnPlayerCollisionEnter(GameObject player)
     {
@@ -66,8 +90,9 @@ public class PlatformBehavior : PlayerCollisionObject
     {
         Debug.Log("CollisionExit");
     }
+
     public Vector3 GetPlatformMovement()
-{
-    return nextPosition - previousPosition;
-}
+    {
+        return nextPosition - previousPosition;
+    }
 }
