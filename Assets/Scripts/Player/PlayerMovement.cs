@@ -77,9 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
     // Animator
     public Animator animator;
-
-    
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -197,6 +194,12 @@ public class PlayerMovement : MonoBehaviour
         currentMoveObject = enabled ? targetObject : null;
         currentMoveCollider = enabled && targetObject != null ? targetObject.GetComponent<Collider>() : null;
         currentBoxCollider = currentMoveCollider as BoxCollider;
+        
+        animator.SetBool("Grabbing", enabled);
+        if (!enabled)
+        {
+            animator.SetFloat("GrabSpeed", 0f);
+        }
     }
 
     public float GetSpeed() {return speed;}
