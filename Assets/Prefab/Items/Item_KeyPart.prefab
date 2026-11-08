@@ -101,8 +101,9 @@ GameObject:
   - component: {fileID: 6444756163630565660}
   - component: {fileID: 7496844962841074710}
   - component: {fileID: 4071190271195749178}
+  - component: {fileID: 391367079628088168}
   m_Layer: 0
-  m_Name: Item_Gear1
+  m_Name: Item_KeyPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,3 +159,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemBehavior
   rotationSpeed: 240
+  enableExitOnCollect: 1
+--- !u!114 &391367079628088168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343278568924741509}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8528f3e2d87bdf14bb933858badc7d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerDialog
+  dialogo: {fileID: 0}

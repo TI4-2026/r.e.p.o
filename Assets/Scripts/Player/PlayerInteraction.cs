@@ -16,6 +16,11 @@ public class PlayerInteraction: MonoBehaviour
     private Action moveObjectDisable;
     private bool isMoveObjectMode = false;
 
+    private void Awake()
+    {
+        GameManager.Instance.player = gameObject;
+    }
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
