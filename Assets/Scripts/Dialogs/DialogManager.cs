@@ -1,9 +1,21 @@
+using System;
 using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
 public class DialogManager : MonoBehaviour
 {
+    // ----------- Singleton -----------
+
+    public static DialogManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null) Destroy(gameObject);
+        else Instance = this;
+    }
+
+
     public TMP_Text texto;
     public DialogData dialog;
     public GameObject dialogBox;
@@ -18,7 +30,8 @@ public class DialogManager : MonoBehaviour
     bool dialogoAberto = false;
     void Start()
     {
-        controller = Player.GetComponent<PlayerMovement>();
+        Player = GameManager.Instance.player.GetComponent<CharacterController>();
+        controller = GameManager.Instance.player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame

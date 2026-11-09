@@ -8,5 +8,6 @@ public class PC_CheckpointBehavior : PlayerCollisionObject
     protected override void OnPlayerTriggerEnter(GameObject go)
     {
         GameManager.Instance.SetCheckpoint(this.transform, checkpointPriority);
+        gameObject.SetActive(false);
     }
 }
