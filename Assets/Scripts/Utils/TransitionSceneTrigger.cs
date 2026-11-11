@@ -14,6 +14,7 @@ public class TransitionSceneTrigger : MonoBehaviour
 
     private void Start()
     {
+        isEnabled = true;
         if (isExit)
         {
             GameManager.Instance.SetExit(this);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour
+public class InteruptorScript : MonoBehaviour
 {
     public PortaManager portaManager;
     public Renderer meshRenderer;

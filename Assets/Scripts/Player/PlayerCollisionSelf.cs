@@ -31,16 +31,26 @@ public class PlayerCollisionSelf : MonoBehaviour
 
     public UnityEvent ccMoved; // Lembrando que isso e chamado depois do OnControllerColliderHit().
 
-    void Start()
+    void Awake()
     {
         characterController = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerMovement.SetPlayerCollisionSelf(this);
         playerInteraction = GetComponent<PlayerInteraction>();
         playerLife = GetComponent<PlayerLife>();
-
         testColliders = new Collider[10];
 
+        if (playerMovement != null)
+        {
+            playerMovement.SetPlayerCollisionSelf(this);
+        }
+    }
+
+    void Start()
+    {
+        if (ccMoved == null)
+        {
+            ccMoved = new UnityEvent();
+        }
         ccMoved.AddListener(RenewColliders);
     }
 
@@ -152,7 +162,7 @@ public class PlayerCollisionSelf : MonoBehaviour
             if (col == null) continue;
             if (col.transform.root == transform.root) continue;
             
-            if (diePlayer) playerLife.TakeDamage(1000f);
+            if (diePlayer && playerLife != null) playerLife.TakeDamage(1000f);
             return true;
         }
 
