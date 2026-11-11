@@ -79,8 +79,6 @@ public class PlayerMovement : MonoBehaviour
     // Animator
     public Animator animator;
 
-
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();

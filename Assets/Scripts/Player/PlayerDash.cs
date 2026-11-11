@@ -11,6 +11,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashDistance = 5f;
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 1f;
+    public Sandevistan sandevistanActive;
 
     [Header("SFX")]
     [SerializeField] private AudioClip sound;
@@ -58,9 +59,13 @@ public class PlayerDash : MonoBehaviour
     private void StartDash()
 {
     if (!characterController.enabled) return;
-     isDashing = true;
+    
+    isDashing = true;
     lastDashTime = Time.time;
+
     animator.SetBool("dashing", true);
+    sandevistanActive.ActivateTrailExternally();
+
     playerMovement.SetMovementEnabled(false);
     Vector3 lookDirection = GetDashDirection();
     lookDirection.y = 0f;
@@ -68,7 +73,7 @@ public class PlayerDash : MonoBehaviour
     Vector3 direction = GetDashDirection();
     float duration = dashDistance / dashSpeed;
     float previousValue = 0f;
- LeanTween.value(gameObject, 0f, dashDistance, duration)
+    LeanTween.value(gameObject, 0f, dashDistance, duration)
         .setEase(LeanTweenType.easeOutQuad)
         .setOnUpdate((float value) =>
         {

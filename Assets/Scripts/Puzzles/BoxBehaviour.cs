@@ -5,6 +5,9 @@ public class BoxBehaviour : PlayerCollisionObject // !!! ESTA HERDANDO DE "Playe
     [SerializeField] private bool freezePast; //Define se o objeto vai ser congelado no passado
     [SerializeField] private bool freezeFuture; //Define se o objeto vai ser congelado no futuro
 
+    [SerializeField] private GameObject meshFuture;
+    [SerializeField] private GameObject meshPast;
+
     private Rigidbody rb;
     private PlayerInteraction playerInteraction;
     private bool isMoveObjectMode = false;
@@ -17,8 +20,9 @@ public class BoxBehaviour : PlayerCollisionObject // !!! ESTA HERDANDO DE "Playe
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-
         defaultParent = gameObject.transform.parent;
+        
+        TimeTravel.OnTimeChange.AddListener(ChangeTimeModel);
     }
 
     private void Update() {
@@ -52,6 +56,12 @@ public class BoxBehaviour : PlayerCollisionObject // !!! ESTA HERDANDO DE "Playe
     }
 
     // ----------------- Private Methods -----------------
+
+    private void ChangeTimeModel()
+    {
+        meshFuture.SetActive(TimeTravel.isFuture);
+        meshPast.SetActive(!TimeTravel.isFuture);
+    }
 
     public void EnableMoveObjectMode()
     {

@@ -7,14 +7,14 @@ public class Cockroach : ChasePlayer
 
     private void Start()
     {
-        TimeTravel.OnTimeChange += ScaredRoach;   
+        TimeTravel.OnTimeChange.AddListener(ScaredRoach);
     }
 
     private void OnDestroy()
     {
-        TimeTravel.OnTimeChange -= ScaredRoach;
+        TimeTravel.OnTimeChange.RemoveListener(ScaredRoach);
     }
-    public void ScaredRoach(bool isFuture)
+    public void ScaredRoach()
     {
         MusicManager.PlaySound(sound, gameObject.transform.position);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

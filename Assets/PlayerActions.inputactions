@@ -239,6 +239,24 @@
             "id": "28609f9e-96a0-4169-bbfc-e03d5e883a4a",
             "actions": [
                 {
+                    "name": "NextDialog",
+                    "type": "Button",
+                    "id": "c3c44fa2-9f2d-4141-abc3-e21f563e0ce9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BackDialog",
+                    "type": "Button",
+                    "id": "0a754c3b-899f-4a46-9777-b604ff71dff1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Navigate",
                     "type": "PassThrough",
                     "id": "4effbb5d-4c43-46d4-9fb2-eb4de89fc12c",
@@ -332,24 +350,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "7bb9f456-31c4-4f01-9f19-b2963e57d95d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "NextDialog",
-                    "type": "Button",
-                    "id": "c3c44fa2-9f2d-4141-abc3-e21f563e0ce9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BackDialog",
-                    "type": "Button",
-                    "id": "0a754c3b-899f-4a46-9777-b604ff71dff1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",

@@ -19,6 +19,8 @@ public class PlayerCollisionSelf : MonoBehaviour
     private CharacterController characterController;
     private PlayerMovement playerMovement;
     private PlayerInteraction playerInteraction;
+    private PlayerLife playerLife;
+    private Collider[] testColliders;
 
     private HashSet<PlayerCollisionObject> currentColliders = new HashSet<PlayerCollisionObject>();
     private HashSet<PlayerCollisionObject> previousColliders = new HashSet<PlayerCollisionObject>();
@@ -33,8 +35,11 @@ public class PlayerCollisionSelf : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerInteraction = GetComponent<PlayerInteraction>();
         playerMovement.SetPlayerCollisionSelf(this);
+        playerInteraction = GetComponent<PlayerInteraction>();
+        playerLife = GetComponent<PlayerLife>();
+
+        testColliders = new Collider[10];
 
         ccMoved.AddListener(RenewColliders);
     }
@@ -128,5 +133,29 @@ public class PlayerCollisionSelf : MonoBehaviour
         float halfHeight = Mathf.Max(0f, (characterController.height * transform.lossyScale.y * 0.5f) - radius);
         point1 = center + transform.up * halfHeight;
         point2 = center - transform.up * halfHeight;
+    }
+    
+    // ----------------- Public Methods -----------------
+
+    public bool CheckPlayerInsideObject(bool diePlayer)
+    {
+        Physics.OverlapSphereNonAlloc(
+        transform.position + characterController.center,
+        characterController.radius * 0.9f,
+        testColliders,
+        ~0,
+        QueryTriggerInteraction.Ignore
+        );
+
+        foreach (Collider col in testColliders)
+        {
+            if (col == null) continue;
+            if (col.transform.root == transform.root) continue;
+            
+            if (diePlayer) playerLife.TakeDamage(1000f);
+            return true;
+        }
+
+        return false;
     }
 }

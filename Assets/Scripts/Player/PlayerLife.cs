@@ -21,6 +21,11 @@ public class PlayerLife : MonoBehaviour
 
     // ----------- Unity Methods -----------
 
+    private void Awake()
+    {
+        GameManager.Instance.player = this.gameObject;
+    }
+
     private void Start()
     {
         life = maxLife;

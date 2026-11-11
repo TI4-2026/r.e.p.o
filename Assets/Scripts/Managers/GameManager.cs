@@ -33,11 +33,20 @@ public class GameManager : MonoBehaviour
     [Header("Autofilled")]
     public Hud Hud;
     public Transform checkpoint = null;
+    private TransitionSceneTrigger exitLevel = null;
+    public GameObject player;
     
     private int currentCheckpointPriority = 0;
+    private int gearsCollected = 0;
 
     // --------------- Public Methods ---------------
 
+    public void CollectGear(bool enableExit = false)
+    {
+        gearsCollected++;
+        if (enableExit) EnableExit();
+    }
+    
     public void SpawnPlayer(GameObject player)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
@@ -72,5 +81,21 @@ public class GameManager : MonoBehaviour
 
         checkpoint = newCheckpoint;
         currentCheckpointPriority = priority;
+    }
+
+    public void SetExit(TransitionSceneTrigger exit)
+    {
+        if (exitLevel != null) return;
+        
+        exitLevel = exit;
+    }
+    
+    // --------------- Private Methods ---------------
+    
+    private void EnableExit()
+    {
+        if (exitLevel == null) return;
+        
+        exitLevel.SetEnabled(true);
     }
 }

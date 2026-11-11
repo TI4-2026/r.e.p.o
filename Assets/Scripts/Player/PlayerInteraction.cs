@@ -7,9 +7,8 @@ public class PlayerInteraction: MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineInputAxisController cameraInputAxisController;
-    [SerializeField] private GameObject cameraHandle;
-
     private PlayerMovement playerMovement;
+
     private bool isCursorLocked = true;
 
     private GameObject moveObject;  
@@ -17,16 +16,17 @@ public class PlayerInteraction: MonoBehaviour
     private Action moveObjectDisable;
     private bool isMoveObjectMode = false;
 
+    private void Awake()
+    {
+        GameManager.Instance.player = gameObject;
+    }
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         LockCursor();
 
-        TimeTravel.OnTimeChange += RevokeInteraction;
-    }
-
-    private void Update() {
-        cameraHandle.transform.position = transform.position;
+        TimeTravel.OnTimeChange.AddListener(RevokeInteraction);
     }
 
     // ----------------- Input Actions -----------------
@@ -59,9 +59,11 @@ public class PlayerInteraction: MonoBehaviour
         if (TryMoveObject()) return;
     }
 
-    public void ChangeTimeButton(InputAction.CallbackContext context)
+    public void OnChangeTime(InputAction.CallbackContext context)
     {
-        TimeTravel.Instance.ChangeTimeButton(context);
+        if (!context.started) return;
+        
+        TimeTravel.Instance.OnChangeTime();
     }
 
     // ----------------- Public Methods -----------------
@@ -96,7 +98,6 @@ public class PlayerInteraction: MonoBehaviour
         }
     }
 
-    public void RevokeInteraction(bool isFuture) { RevokeInteraction(); }
     public void RevokeInteraction()
     {
         if (!isMoveObjectMode) return;
