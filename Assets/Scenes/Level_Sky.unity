@@ -7225,7 +7225,7 @@ Transform:
   m_GameObject: {fileID: 120198175}
   serializedVersion: 2
   m_LocalRotation: {x: 0.037421178, y: 0, z: 0, w: 0.9992996}
-  m_LocalPosition: {x: 0.286, y: 2.5939999, z: -4.166}
+  m_LocalPosition: {x: 0, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13819,6 +13819,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5956706099947479637, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Name
       value: Drone (2)
@@ -13826,7 +13830,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565710446}
   m_SourcePrefab: {fileID: 100100000, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
 --- !u!1 &242349023
 GameObject:
@@ -15795,7 +15802,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5120386037919280471, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.938559
+      value: -9.88
       objectReference: {fileID: 0}
     - target: {fileID: 5120386037919280471, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15833,6 +15840,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5956706099947479637, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Name
       value: Drone
@@ -24601,15 +24612,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.594
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.166
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46963,6 +46974,33 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &565710439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+  m_PrefabInstance: {fileID: 242315294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565710446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565710439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34050de8165227d44aa22ed53af0c6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Drone
+  player: {fileID: 0}
+  detectionRange: 2
+  moveSpeed: 3
+  rotationSpeed: 10
+  canFly: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  sound: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!43 &567690574
 Mesh:
   m_ObjectHideFlags: 0
@@ -72574,6 +72612,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897347290843867818, guid: ebfcfbae6d903e94eacca0c460216d16, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -113337,7 +113379,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 472686422}
+  m_Mesh: {fileID: 1973504273}
 --- !u!33 &1351820735
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -121234,6 +121276,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897347290843867818, guid: ebfcfbae6d903e94eacca0c460216d16, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -127615,6 +127661,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897347290843867818, guid: ebfcfbae6d903e94eacca0c460216d16, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -128557,7 +128607,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 113894203}
+  m_Mesh: {fileID: 1998947371}
 --- !u!33 &1597979482
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -136472,7 +136522,7 @@ Transform:
   m_GameObject: {fileID: 1698865934}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03742109, y: 0, z: 0, w: 0.9992996}
-  m_LocalPosition: {x: 0.286, y: 2.5939999, z: -4.166}
+  m_LocalPosition: {x: 0, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175195,6 +175245,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5956706099947479637, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 623545648}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Name
       value: Drone (1)
