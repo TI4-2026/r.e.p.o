@@ -7,16 +7,15 @@ using UnityEngine.InputSystem;
 public class PlayerDash : MonoBehaviour
 {
 
-    [Header("Attributes")]
+    [Header("Atributos")]
     [SerializeField] private float dashDistance = 5f;
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 1f;
-    public Sandevistan sandevistanActive;
 
-    [Header("SFX")]
+    [Header("Referencias")]
+    [SerializeField] private Sandevistan sandevistanActive;
     [SerializeField] private AudioClip sound;
-    public Animator animator;
-
+    [SerializeField] private Animator animator;
     private CharacterController characterController;
     private PlayerMovement playerMovement;
 
@@ -34,7 +33,7 @@ public class PlayerDash : MonoBehaviour
         if (context.started && CanDash())
         {
             StartDash();
-            //MusicManager.PlaySound(sound, gameObject.transform.position);
+            MusicManager.PlaySound(sound, gameObject.transform.position);
         }
     }
 
@@ -51,6 +50,11 @@ public class PlayerDash : MonoBehaviour
     public bool CanDash()
     {
         return !isDashing && CooldownRemaining <= 0f;
+    }
+
+    public void SetSandevistan(Sandevistan sand)
+    {
+        sandevistanActive = sand;
     }
 
     // --------------- Private Methods ---------------
