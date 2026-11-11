@@ -25,11 +25,6 @@ public class Sandevistan : MonoBehaviour
     private readonly List<Mesh> trailMeshes = new List<Mesh>();
     private readonly List<Material> trailMaterials = new List<Material>();
 
-    private void OnEnable()
-    {
-        playerDash.sandevistanActive = this;
-    }
-
     private void OnDisable()
     {
         // TimeTravel disables one character model while enabling the other. Unity

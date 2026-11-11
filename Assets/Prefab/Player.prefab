@@ -1422,11 +1422,11 @@ GameObject:
   - component: {fileID: 5116510944022171384}
   - component: {fileID: 6861167194528145986}
   - component: {fileID: 7649918742527063091}
+  - component: {fileID: 1606883660732384378}
   - component: {fileID: 7938991980053644193}
   - component: {fileID: 8684086751821290450}
   - component: {fileID: 714465639065153002}
   - component: {fileID: 7650872300187395025}
-  - component: {fileID: 1606883660732384378}
   - component: {fileID: 1463231044258399484}
   - component: {fileID: 7258440485164031296}
   m_Layer: 0
@@ -1586,7 +1586,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7938991980053644193}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
-        m_MethodName: ChangeTimeButton
+        m_MethodName: OnChangeTime
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1619,11 +1619,35 @@ MonoBehaviour:
     m_ActionId: dc051d4d-a69b-4ba4-a862-c9a6d41c0225
     m_ActionName: 'basic/Slide[/Keyboard/ctrl]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1463231044258399484}
+        m_TargetAssemblyTypeName: PlayerTimeControl, Assembly-CSharp
+        m_MethodName: SnailTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5f5ba9fc-f7a9-4f16-8332-7f521cdf7305
     m_ActionName: 'basic/Snail Time[/Keyboard/c]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1463231044258399484}
+        m_TargetAssemblyTypeName: PlayerTimeControl, Assembly-CSharp
+        m_MethodName: TimeStop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4872f2de-1511-406c-855d-052b0ff94b9d
     m_ActionName: 'basic/TimeStop[/Keyboard/z]'
   - m_PersistentCalls:
@@ -1683,93 +1707,6 @@ MonoBehaviour:
   m_DefaultActionMap: basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7938991980053644193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
-  cameraInputAxisController: {fileID: 0}
-  cameraHandle: {fileID: 0}
---- !u!114 &8684086751821290450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac10ef5d03bf044cb9f98cb80a8277e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 9
-  acceleration: 0.15
-  deceleration: 0.1
-  jumpForce: 12.5
-  gravity: -18
-  maxFallSpeed: -20
-  slideFriction: 20
-  slideSpeed: 3
-  soundJump: {fileID: 8300000, guid: 1352720ea34de6c47a8b63ad67a76deb, type: 3}
-  walkingEffect: {fileID: 6897682466417548645, guid: f92b20f0ea8d5ae46bd2b3e522b90a05, type: 3}
-  foot: {fileID: 3030368856105900938}
-  groundCheckDistance: 0.15
-  jumpBufferTime: 0.2
-  coyoteTime: 0.2
-  isGroundedGraceTime: 0.2
-  rotationSpeed: 10
-  jumpHeldGravityMultiplier: 1.5
-  ledgeGrabForwardReach: 0.9
-  ledgeGrabMinHeight: 0.15
-  ledgeGrabMaxHeight: 1.35
-  ledgeGrabVerticalBoost: 14
-  ledgeGrabForwardBoost: 3
-  ledgeGrabTopInset: 0.12
-  moveObjectObstacleLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  boxSkinWidth: 0.02
-  velocity: {x: 0, y: 0, z: 0}
-  animator: {fileID: 1606883660732384378}
---- !u!114 &714465639065153002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 211aa28ca043af346aedcc41ee5d402e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
-  dashDistance: 5
-  dashSpeed: 10
-  dashCooldown: 1.5
-  sound: {fileID: 8300000, guid: 71e8d18dfab91594ba0c7bf433d6192b, type: 3}
-  animator: {fileID: 1606883660732384378}
---- !u!114 &7650872300187395025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646676395974069671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c36d23e6ce03f64dbddcaa782223f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
-  maxLife: 100
-  chances: 3
-  healthBar: {fileID: 0}
 --- !u!95 &1606883660732384378
 Animator:
   serializedVersion: 7
@@ -1792,6 +1729,96 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7938991980053644193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c67fa1ecd735440b9abc7c698c0e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
+  cameraInputAxisController: {fileID: 0}
+--- !u!114 &8684086751821290450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac10ef5d03bf044cb9f98cb80a8277e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 9
+  acceleration: 0.15
+  deceleration: 0.1
+  jumpForce: 12.5
+  gravity: -18
+  maxFallSpeed: -20
+  slideFriction: 20
+  slideSpeed: 3
+  sound: {fileID: 0}
+  soundJump: {fileID: 8300000, guid: 1352720ea34de6c47a8b63ad67a76deb, type: 3}
+  groundCheckDistance: 0.15
+  jumpBufferTime: 0.2
+  coyoteTime: 0.2
+  isGroundedGraceTime: 0.2
+  rotationSpeed: 10
+  jumpHeldGravityMultiplier: 1.5
+  ledgeGrabLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  ledgeGrabForwardReach: 0.9
+  ledgeGrabMinHeight: 0.15
+  ledgeGrabMaxHeight: 1.35
+  ledgeGrabVerticalBoost: 14
+  ledgeGrabForwardBoost: 3
+  ledgeGrabTopInset: 0.12
+  moveObjectObstacleLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  boxSkinWidth: 0.02
+  velocity: {x: 0, y: 0, z: 0}
+  isMovementEnabled: 1
+  animator: {fileID: 1606883660732384378}
+--- !u!114 &714465639065153002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211aa28ca043af346aedcc41ee5d402e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
+  dashDistance: 5
+  dashSpeed: 10
+  dashCooldown: 1.5
+  sandevistanActive: {fileID: 0}
+  sound: {fileID: 8300000, guid: 71e8d18dfab91594ba0c7bf433d6192b, type: 3}
+  animator: {fileID: 1606883660732384378}
+--- !u!114 &7650872300187395025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646676395974069671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c36d23e6ce03f64dbddcaa782223f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
+  maxLife: 100
+  chances: 3
+  healthBar: {fileID: 0}
 --- !u!114 &1463231044258399484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4617,8 +4644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3676c8997b3022f41b6c9dceaad3bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sandevistan
+  playerDash: {fileID: 0}
   activetime: 0.75
-  cooldownTime: 1.5
   meshRefreshRate: 0.05
   meshDestroyDelay: 0.75
   positionToSpawn: {fileID: 4992132411145821004}
@@ -4648,8 +4675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3676c8997b3022f41b6c9dceaad3bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sandevistan
+  playerDash: {fileID: 0}
   activetime: 0.75
-  cooldownTime: 1.5
   meshRefreshRate: 0.05
   meshDestroyDelay: 0.75
   positionToSpawn: {fileID: 510648368454051839}

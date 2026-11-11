@@ -33,7 +33,6 @@ public class TimeTravel : MonoBehaviour
     private bool isChangingTime;
     private const float CooldownDuration = 2f;
     
-    private PlayerLife playerLife;
     private PlayerCollisionSelf playerCollisionSelf;
     
     // ----------------- Default Methods -----------------
@@ -41,8 +40,7 @@ public class TimeTravel : MonoBehaviour
     void Start()
     {
         cooldown = 2f;
-        
-        playerLife = GameManager.Instance.player.GetComponent<PlayerLife>();
+    
         playerCollisionSelf = GameManager.Instance.player.GetComponent<PlayerCollisionSelf>();
         
         UpdateCooldownDisplay();
@@ -99,7 +97,6 @@ public class TimeTravel : MonoBehaviour
 
         if (toEnable)
         {
-            PlayerAnim.avatar = timeInfo.playerAvatar;
             RenderSettings.skybox = timeInfo.skybox;
         }
 

@@ -23,12 +23,9 @@ public class PlayerDash : MonoBehaviour
     // ---------- Control Variables ----------
     private bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
-
-    void Awake()
-    {
-        characterController = GetComponent<CharacterController>();
-        playerMovement = GetComponent<PlayerMovement>();
-    }
+    public bool IsDashing => isDashing;
+    public float CooldownRemaining => Mathf.Max(0f, dashCooldown - (Time.time - lastDashTime));
+    public float CooldownProgressNormalized => dashCooldown <= 0f ? 1f : Mathf.Clamp01((Time.time - lastDashTime) / dashCooldown);
 
     // --------------- Input Actions ---------------
 
@@ -37,17 +34,19 @@ public class PlayerDash : MonoBehaviour
         if (context.started && CanDash())
         {
             StartDash();
-            MusicManager.PlaySound(sound, gameObject.transform.position);
+            //MusicManager.PlaySound(sound, gameObject.transform.position);
         }
     }
 
+    // --------------- Default Methods ---------------
+
+    void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
     // --------------- Public Methods ---------------
-
-    public bool IsDashing => isDashing;
-
-    public float CooldownRemaining => Mathf.Max(0f, dashCooldown - (Time.time - lastDashTime));
-
-    public float CooldownProgressNormalized => dashCooldown <= 0f ? 1f : Mathf.Clamp01((Time.time - lastDashTime) / dashCooldown);
 
     public bool CanDash()
     {

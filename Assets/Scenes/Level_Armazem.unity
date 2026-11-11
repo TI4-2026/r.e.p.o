@@ -2791,16 +2791,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
   m_PrefabInstance: {fileID: 172681033}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &172681035 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1192435536953036480, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
-  m_PrefabInstance: {fileID: 172681033}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &172681036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5360473257093890393, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
-  m_PrefabInstance: {fileID: 172681033}
-  m_PrefabAsset: {fileID: 0}
 --- !u!143 &172681037 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 6861167194528145986, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
@@ -12155,8 +12145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 172681035}
-  playerAvatar: {fileID: 9000000, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
+  playerModel: {fileID: 0}
   mapCollection: {fileID: 472335883}
   skybox: {fileID: 2100000, guid: b73dc2c0c9eceae4486bdb5b744fceb9, type: 2}
 --- !u!4 &721641258
@@ -15790,8 +15779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 172681036}
-  playerAvatar: {fileID: 9000000, guid: 1453c7bd0334f6147b3f991b16122957, type: 3}
+  playerModel: {fileID: 0}
   mapCollection: {fileID: 2020358938}
   skybox: {fileID: 2100000, guid: bebabbca203115940bf67dfe65237b36, type: 2}
 --- !u!4 &911620045
@@ -23885,6 +23873,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30329,7 +30321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1891415094
 Transform:
   m_ObjectHideFlags: 0
@@ -32426,6 +32418,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
