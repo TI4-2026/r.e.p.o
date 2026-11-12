@@ -1830,6 +1830,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ed3feb687a19fd4fb31f8ab0be08f95, type: 3}
+--- !u!1 &102498988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647179820299798461, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 172681033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &111657287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12145,7 +12150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 102498988}
   mapCollection: {fileID: 472335883}
   skybox: {fileID: 2100000, guid: b73dc2c0c9eceae4486bdb5b744fceb9, type: 2}
 --- !u!4 &721641258
@@ -15779,7 +15784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce142b3e1bb6035438dc71fda530bced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravelInfo
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1741333729}
   mapCollection: {fileID: 2020358938}
   skybox: {fileID: 2100000, guid: bebabbca203115940bf67dfe65237b36, type: 2}
 --- !u!4 &911620045
@@ -28617,6 +28622,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 645896047221215776, guid: 8ed3feb687a19fd4fb31f8ab0be08f95, type: 3}
   m_PrefabInstance: {fileID: 1740818464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1741333729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 500175425928779671, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
+  m_PrefabInstance: {fileID: 172681033}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1745124369 stripped
 Transform:
