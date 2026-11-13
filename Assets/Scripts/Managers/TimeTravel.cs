@@ -57,8 +57,11 @@ public class TimeTravel : MonoBehaviour
 
     public void OnChangeTime()
     {
-        ChangeTime();
-        cooldown = 0f;
+        if (cooldown >= CooldownDuration && !isChangingTime)
+        {
+            ChangeTime();
+            cooldown = 0f;
+        }
     }
     
     // ----------------- Private Methods -----------------

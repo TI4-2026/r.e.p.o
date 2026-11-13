@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     // ---------- Control Variables ----------
 
     private Vector3 verticalVel;
+    private Vector3 lastPosition;
     private Vector3 horizontalVel;
     private Vector3 horizontalVelRef;
     public Vector3 velocity;
@@ -81,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        lastPosition = transform.position;
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponent<PlayerInteraction>();
         animator = GetComponent<Animator>();
@@ -99,11 +101,11 @@ public class PlayerMovement : MonoBehaviour
         HorizontalMovement();
         VerticalMovement();
         TryLedgeGrab();
-        animator.SetFloat("Speed Y", verticalVel.y + 2.36f);
-
+        float speedY = (transform.position.y - lastPosition.y) / Time.fixedDeltaTime;
+        animator.SetFloat("Speed Y", speedY);
+        lastPosition = transform.position;
         velocity = horizontalVel + verticalVel;
         Vector3 moveStep = velocity * Time.deltaTime;
-
         // "Pos-processamento" do movimento do player quando ele estiver movendo um objeto
         if (isMoveObjectMode)
         {
