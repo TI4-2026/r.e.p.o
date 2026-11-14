@@ -71,10 +71,11 @@ public class TimeTravel : MonoBehaviour
         isChangingTime = true;
         isFuture = !isFuture;
         MusicManager.PlaySound(sound, gameObject.transform.position);
-        
+
+        Time.timeScale = 0;
         GameManager.Instance.Hud.BlackFade(
         ApplyTimeChange, 
-        () => isChangingTime = false,
+        FinishTimeChange,
         transitionFadeDuration);
     }
 
@@ -91,6 +92,12 @@ public class TimeTravel : MonoBehaviour
             ApplyTimeChangeAux(pastSO, true, true);
             ApplyTimeChangeAux(futureSO, false, false);
         }
+    }
+
+    private void FinishTimeChange()
+    {
+        isChangingTime = false;
+        Time.timeScale = 1;
     }
 
     private void ApplyTimeChangeAux(TimeTravelInfo timeInfo, bool toEnable, bool checkCollisions)
