@@ -16,6 +16,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
+    [SerializeField] private Animator timeTravelEffect;
     [SerializeField] private Slider timeTravelCooldownSlider;
 
     private Coroutine fadeCoroutine;
@@ -34,14 +35,15 @@ public class Hud : MonoBehaviour
     {
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         panelFade.gameObject.SetActive(false);
+        
+        TimeTravel.OnTimeChange.AddListener(TimeChangeEffect);
+        timeTravelEffect.gameObject.SetActive(false);
     }
     
-    /*
     private void OnDisable()
     {
         TimeTravel.OnTimeChange.RemoveListener(TimeChangeEffect);
     }
-    */
 
     // ----------- Public Methods -----------
 
@@ -171,5 +173,22 @@ public class Hud : MonoBehaviour
         onComplete?.Invoke();
         fadeCoroutine = null;
         panelFade.gameObject.SetActive(false);
+    }
+    
+    private void TimeChangeEffect()
+    {
+        timeTravelEffect.gameObject.SetActive(true);
+        timeTravelEffect.SetFloat("Speed", 0.5f);
+        timeTravelEffect.Play("ClockAnim");
+        StartCoroutine(DeactivateClock());
+    }
+
+    IEnumerator DeactivateClock()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        timeTravelEffect.SetFloat("Speed", -1);
+        timeTravelEffect.Play("ClockAnim");
+        yield return new WaitForSecondsRealtime(0.5f);
+        timeTravelEffect.gameObject.SetActive(false);
     }
 }
