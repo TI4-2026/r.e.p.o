@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slideSpeed = 3f;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip sound;
     [SerializeField] private AudioClip soundJump;
 
     [Header("Settings")]
@@ -228,7 +227,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveInput = context.ReadValue<Vector2>();
-        MusicManager.PlaySound(sound, gameObject.transform.position);
     }
 
     public void OnJump(InputAction.CallbackContext context)

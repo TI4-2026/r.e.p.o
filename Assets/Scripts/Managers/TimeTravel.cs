@@ -25,7 +25,6 @@ public class TimeTravel : MonoBehaviour
     [SerializeField, Min(0.1f)] private float transitionFadeDuration = 0.6f;
 
     [Header("Others")]
-    [SerializeField] private AudioClip sound;
     public Animator PlayerAnim;
 
         
@@ -70,7 +69,6 @@ public class TimeTravel : MonoBehaviour
     {
         isChangingTime = true;
         isFuture = !isFuture;
-        MusicManager.PlaySound(sound, gameObject.transform.position);
 
         Time.timeScale = 0;
         GameManager.Instance.Hud.BlackFade(
