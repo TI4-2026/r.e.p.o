@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeTravelInfo : MonoBehaviour
+public class TimeTravel_ManagerInfo : MonoBehaviour
 {
     [Header("Player")]
     public GameObject playerModel;

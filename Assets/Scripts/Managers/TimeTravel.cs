@@ -15,8 +15,8 @@ public class TimeTravel : MonoBehaviour
 
     // ---------------------------------------
     
-    [SerializeField] TimeTravelInfo futureSO;
-    [SerializeField] TimeTravelInfo pastSO;
+    [SerializeField] TimeTravel_ManagerInfo futureSO;
+    [SerializeField] TimeTravel_ManagerInfo pastSO;
     
     public static bool isFuture = true;
     public static UnityEvent OnTimeChange = new UnityEvent();
@@ -98,14 +98,14 @@ public class TimeTravel : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private void ApplyTimeChangeAux(TimeTravelInfo timeInfo, bool toEnable, bool checkCollisions)
+    private void ApplyTimeChangeAux(TimeTravel_ManagerInfo timeManagerInfo, bool toEnable, bool checkCollisions)
     {
-        timeInfo.mapCollection.SetActive(toEnable);
-        timeInfo.playerModel.SetActive(toEnable);
+        timeManagerInfo.mapCollection.SetActive(toEnable);
+        timeManagerInfo.playerModel.SetActive(toEnable);
 
         if (toEnable)
         {
-            RenderSettings.skybox = timeInfo.skybox;
+            RenderSettings.skybox = timeManagerInfo.skybox;
         }
 
         if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(diePlayer: true);
