@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 9cb03a8a38e74f249b9c599546e6ff61
+guid: 3c48d3dbbc39f3e45ada7c3fc19965cc
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LampiaoBase
+    second: {fileID: 2100000, guid: cf0fddb7bb3889e41beb3a98d337af54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Luz
+    second: {fileID: 2100000, guid: f5a541f5b697ba04099285805060eca7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
