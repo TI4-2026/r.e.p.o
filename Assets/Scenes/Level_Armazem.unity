@@ -12278,7 +12278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18d8ee6282cd2964890dfd2956fe9276, type: 2}
+  - {fileID: 2100000, guid: 8d0e9a760fab9884d84314177201986f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14258,25 +14258,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878743986}
     m_Modifications:
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8763143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8689859
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8625587
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0086
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4799
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123951483677366799, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0054
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
       value: Boxes
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14316,14 +14324,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8524623019475406266, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8524623019475406266, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15891,6 +15891,10 @@ PrefabInstance:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24982,6 +24986,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1461867403}
     m_Modifications:
+    - target: {fileID: 2559907300306205314, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6343278568924741509, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
       propertyPath: m_Name
       value: Item_Gear1
@@ -27641,7 +27649,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d0e9a760fab9884d84314177201986f, type: 2}
+  - {fileID: 2100000, guid: fec09247904856645989eb2027f78220, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
