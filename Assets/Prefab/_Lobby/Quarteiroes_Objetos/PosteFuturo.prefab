@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5667721173056936450}
+  - component: {fileID: 6407853505999756993}
   m_Layer: 3
   m_Name: PosteFuturo
   m_TagString: Untagged
@@ -32,6 +33,29 @@ Transform:
   - {fileID: 1666473772239875419}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6407853505999756993
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411057159540777531}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.86105466
+  m_Height: 5.648988
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.7646346, z: 0}
 --- !u!1001 &1200834289225271984
 PrefabInstance:
   m_ObjectHideFlags: 0
