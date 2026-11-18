@@ -195,7 +195,7 @@ public class Hud : MonoBehaviour
     private void TimeChangeEffect()
     {
         timeTravelEffect.gameObject.SetActive(true);
-        timeTravelEffect.SetFloat("Speed", 0.5f);
+        timeTravelEffect.SetFloat("Speed", 1f);
         timeTravelEffect.Play("ClockAnim");
         StartCoroutine(DeactivateClock());
     }
@@ -205,7 +205,7 @@ public class Hud : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         timeTravelEffect.SetFloat("Speed", -1);
         timeTravelEffect.Play("ClockAnim");
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.25f);
         timeTravelEffect.gameObject.SetActive(false);
     }
 }

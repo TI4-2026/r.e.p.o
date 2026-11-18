@@ -16,7 +16,6 @@ public class Cockroach : ChasePlayer
     }
     public void ScaredRoach()
     {
-        MusicManager.PlaySound(sound, gameObject.transform.position);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 }

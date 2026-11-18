@@ -18,7 +18,6 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Efeitos")]
-    public AudioClip sound;
     [SerializeField] private Animator animator;
 
 

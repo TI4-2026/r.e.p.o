@@ -1329,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5956706099947479637, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 684154935}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Name
       value: Drone
@@ -11000,6 +11004,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5956706099947479637, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 684154935}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Name
       value: Drone (1)
@@ -11224,7 +11232,6 @@ MonoBehaviour:
   futureSO: {fileID: 520131915}
   pastSO: {fileID: 581239659}
   transitionFadeDuration: 0.6
-  sound: {fileID: 8300000, guid: 6be0031472a60c448a6737f38fbda220, type: 3}
   PlayerAnim: {fileID: 684154937}
 --- !u!4 &880903354
 Transform:

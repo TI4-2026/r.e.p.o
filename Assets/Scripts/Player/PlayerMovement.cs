@@ -303,7 +303,6 @@ public class PlayerMovement : MonoBehaviour
             jumpButtonHeld = true;
             jumpRequested = true;
             jumpRequestTimer = Time.time;
-            MusicManager.PlaySound(soundJump, gameObject.transform.position);
         }
 
         if (context.canceled)
@@ -530,6 +529,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         animator.SetTrigger("Jump");
+        MusicManager.PlaySound(soundJump, gameObject.transform.position);
         verticalVel.y = jumpForce;
         jumpRequestTimer = 0f;
         jumpRequested = false;
