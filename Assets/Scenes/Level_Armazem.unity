@@ -7004,7 +7004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &472335884
 Transform:
   m_ObjectHideFlags: 0
@@ -11823,6 +11823,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3508980169091372870, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508980169091372870, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -11830,6 +11834,14 @@ PrefabInstance:
       propertyPath: timeTravelEffect
       value: 
       objectReference: {fileID: 1473378596}
+    - target: {fileID: 5400156767998912488, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.753052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400156767998912488, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.43440247
+      objectReference: {fileID: 0}
     - target: {fileID: 5417803891368777973, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
