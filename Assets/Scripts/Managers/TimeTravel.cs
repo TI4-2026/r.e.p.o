@@ -108,7 +108,7 @@ public class TimeTravel : MonoBehaviour
             RenderSettings.skybox = timeManagerInfo.skybox;
         }
 
-        if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(diePlayer: true);
+        if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(restartPlayer: true);
     }
 
     private void UpdateCooldownDisplay()

@@ -147,11 +147,11 @@ public class PlayerCollisionSelf : MonoBehaviour
     
     // ----------------- Public Methods -----------------
 
-    public bool CheckPlayerInsideObject(bool diePlayer)
+    public bool CheckPlayerInsideObject(bool restartPlayer)
     {
         Physics.OverlapSphereNonAlloc(
         transform.position + characterController.center,
-        characterController.radius * 0.9f,
+        characterController.radius * 0.15f,
         testColliders,
         ~0,
         QueryTriggerInteraction.Ignore
@@ -162,7 +162,7 @@ public class PlayerCollisionSelf : MonoBehaviour
             if (col == null) continue;
             if (col.transform.root == transform.root) continue;
             
-            if (diePlayer && playerLife != null) playerLife.TakeDamage(1000f);
+            if (restartPlayer && playerLife != null) GameManager.Instance.KillPlayer(gameObject);
             return true;
         }
 
