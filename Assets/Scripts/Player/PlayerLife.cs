@@ -109,7 +109,10 @@ public class PlayerLife : MonoBehaviour
         {
             float t = elapsed / duration;
             float currentForce = Mathf.Lerp(force, 0f, t);
-            characterController.Move(direction * currentForce * Time.deltaTime);
+            if (characterController != null && characterController.enabled)
+            {
+                characterController.Move(direction * currentForce * Time.deltaTime);
+            }
             elapsed += Time.deltaTime;
 
             yield return null;
@@ -120,11 +123,19 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        StopAllCoroutines();
+        isKnockedBack = false;
         GameManager.Instance.KillPlayer(gameObject);
         Time.timeScale = 0f;
         life = maxLife;
         chances -= 1;
         playerInteraction.UnlockCursor();
-        hud.LostChance(chances+1, chances);
+        hud.LostChance(chances + 1, chances, () =>
+        {
+            if (chances > 0 && playerInteraction != null)
+            {
+                playerInteraction.LockCursor();
+            }
+        });
     }
 }

@@ -9,8 +9,21 @@ public class TimeTravel : MonoBehaviour
     public static TimeTravel Instance { get; private set; }
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            isFuture = true;
+        }
         else Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+            OnTimeChange.RemoveAllListeners();
+        }
     }
 
     // ---------------------------------------
@@ -26,13 +39,13 @@ public class TimeTravel : MonoBehaviour
 
     [Header("Others")]
     public Animator PlayerAnim;
-
-        
+    
     private float cooldown;
     private bool isChangingTime;
     private const float CooldownDuration = 2f;
     
     private PlayerCollisionSelf playerCollisionSelf;
+    private GameManager gameManager;
     
     // ----------------- Default Methods -----------------
     
@@ -41,6 +54,7 @@ public class TimeTravel : MonoBehaviour
         cooldown = 2f;
     
         playerCollisionSelf = GameManager.Instance.player.GetComponent<PlayerCollisionSelf>();
+        gameManager = GameManager.Instance;
         
         UpdateCooldownDisplay();
         ApplyTimeChange();
@@ -56,6 +70,11 @@ public class TimeTravel : MonoBehaviour
 
     public void OnChangeTime()
     {
+        if (Time.timeScale == 0f) return;
+        
+        if (gameManager.IsRespawning) return;
+        if (gameManager.Hud != null && (gameManager.Hud.IsFading || gameManager.Hud.ActiveFade)) return;
+
         if (cooldown >= CooldownDuration && !isChangingTime)
         {
             ChangeTime();
@@ -95,7 +114,11 @@ public class TimeTravel : MonoBehaviour
     private void FinishTimeChange()
     {
         isChangingTime = false;
-        Time.timeScale = 1;
+        Hud hud = GameManager.Instance != null ? GameManager.Instance.Hud : null;
+        if (hud == null || !hud.ActiveFade)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private void ApplyTimeChangeAux(TimeTravel_ManagerInfo timeManagerInfo, bool toEnable, bool checkCollisions)

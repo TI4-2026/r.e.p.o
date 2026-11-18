@@ -29,6 +29,11 @@ public class PlayerInteraction: MonoBehaviour
         TimeTravel.OnTimeChange.AddListener(RevokeInteraction);
     }
 
+    private void OnDestroy()
+    {
+        TimeTravel.OnTimeChange.RemoveListener(RevokeInteraction);
+    }
+
     // ----------------- Input Actions -----------------
 
     public void AlternateCursor(InputAction.CallbackContext context)
@@ -62,7 +67,6 @@ public class PlayerInteraction: MonoBehaviour
     public void OnChangeTime(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        
         TimeTravel.Instance.OnChangeTime();
     }
 

@@ -62,10 +62,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 horizontalVelRef;
     public Vector3 velocity;
     private Vector2 moveInput;
+    private Vector2 EffectiveMoveInput => isMovementEnabled ? moveInput : Vector2.zero;
     private bool jumpRequested;
     private bool jumpButtonHeld;
     private bool isJumping;
     public bool isMovementEnabled = true;
+    private bool isVelocityOverridden = false;
     private bool isMoveObjectMode = false;
     private bool isGrounded;
     private bool ledgeGrabAvailable = true;
@@ -106,12 +108,13 @@ public class PlayerMovement : MonoBehaviour
         velocity = horizontalVel + verticalVel;
         Vector3 moveStep = velocity * Time.deltaTime;
         // "Pos-processamento" do movimento do player quando ele estiver movendo um objeto
+        Vector2 currentMoveInput = EffectiveMoveInput;
         if (isMoveObjectMode)
         {
             // Isso daqui é pro animator.
-            if (moveInput.sqrMagnitude > 0.01f)
+            if (currentMoveInput.sqrMagnitude > 0.01f)
             {
-                if (moveInput.y < -0.1f)
+                if (currentMoveInput.y < -0.1f)
                 {
                     animator.SetFloat("GrabSpeed", -1f);
                 }
@@ -133,7 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
-        animator.SetFloat("Speed", moveInput.magnitude);
+        float animSpeed = isVelocityOverridden ? moveInput.magnitude : currentMoveInput.magnitude;
+        animator.SetFloat("Speed", animSpeed);
     }
 
     // --------------- Public Methods ---------------
@@ -145,13 +149,43 @@ public class PlayerMovement : MonoBehaviour
         playerCollisionSelf = script;
     }
 
+    public bool HasMoveInput => moveInput.sqrMagnitude > 0.01f;
+
+    public void SetExternalHorizontalVelocity(Vector3 vel)
+    {
+        isVelocityOverridden = true;
+        horizontalVel = new Vector3(vel.x, 0f, vel.z);
+        horizontalVelRef = Vector3.zero;
+    }
+
+    public void ClearExternalHorizontalVelocity(bool preserveRunMomentum = false)
+    {
+        isVelocityOverridden = false;
+        horizontalVelRef = Vector3.zero;
+
+        if (preserveRunMomentum && HasMoveInput)
+        {
+            Vector3 moveDir = GetMovementDirection();
+            if (moveDir.sqrMagnitude > 0.0001f)
+            {
+                horizontalVel = moveDir * speed;
+            }
+        }
+    }
+
     public void SetMovementEnabled(bool enabled)
     {
         isMovementEnabled = enabled;
+        if (!enabled)
+        {
+            jumpRequested = false;
+            jumpButtonHeld = false;
+        }
     }
 
     public Vector3 GetMovementDirection()
     {
+        Vector2 currentMoveInput = EffectiveMoveInput;
         Vector3 cameraRight = mainCamera.transform.right;
         Vector3 cameraForward = mainCamera.transform.forward;
         cameraRight.y = 0f;
@@ -159,23 +193,55 @@ public class PlayerMovement : MonoBehaviour
         cameraRight.Normalize();
         cameraForward.Normalize();
 
-        Vector3 movementDirection = (cameraRight * moveInput.x) + (cameraForward * moveInput.y);
+        Vector3 movementDirection = (cameraRight * currentMoveInput.x) + (cameraForward * currentMoveInput.y);
         return movementDirection.normalized;
     }
 
     public Vector3 GetMovementDirectionMoveObjectMode()
     {
-        Vector3 movementDirection = (transform.right * moveInput.x) + (transform.forward * moveInput.y);
+        Vector2 currentMoveInput = EffectiveMoveInput;
+        Vector3 movementDirection = (transform.right * currentMoveInput.x) + (transform.forward * currentMoveInput.y);
         return movementDirection.normalized;
     }
 
     public void ExecuteTeleport(Transform destination)
     {
+        if (destination == null)
+        {
+            Debug.LogWarning("PlayerMovement.ExecuteTeleport: destination is null.");
+            return;
+        }
+
+        if (characterController == null)
+        {
+            characterController = GetComponent<CharacterController>();
+        }
+
+        if (TryGetComponent(out PlayerDash playerDash))
+        {
+            playerDash.CancelDash();
+        }
+
+        if (isSliding)
+        {
+            isSliding = false;
+            deceleration /= slideFriction;
+            speed -= slideSpeed;
+        }
+
+        if (isMoveObjectMode && playerInteraction != null)
+        {
+            playerInteraction.RevokeInteraction();
+        }
+
+        StopFollowing();
+
         characterController.enabled = false;
 
         verticalVel = Vector3.zero;
         horizontalVel = Vector3.zero;
         horizontalVelRef = Vector3.zero;
+        velocity = Vector3.zero;
         isJumping = false;
         lastGroundedTime = 0f;
         lastJumpTime = 0f;
@@ -184,8 +250,13 @@ public class PlayerMovement : MonoBehaviour
         jumpButtonHeld = false;
         ledgeGrabAvailable = true;
 
-        transform.forward = destination.forward;
+        Vector3 flatForward = new Vector3(destination.forward.x, 0f, destination.forward.z);
+        if (flatForward.sqrMagnitude > 0.0001f)
+        {
+            transform.forward = flatForward.normalized;
+        }
         transform.position = destination.position;
+        lastPosition = destination.position;
 
         characterController.enabled = true;
     }
@@ -220,12 +291,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!isMovementEnabled)
-        {
-            moveInput = Vector2.zero;
-            return;
-        }
-
         moveInput = context.ReadValue<Vector2>();
     }
 
@@ -260,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HorizontalMovement()
     {
-        if (!characterController.enabled) return;
+        if (!characterController.enabled || isVelocityOverridden) return;
 
         Vector3 movementDirection = Vector3.zero;
         Vector3 targetVelocity = Vector3.zero;

@@ -20,6 +20,11 @@ public class Hud : MonoBehaviour
     [SerializeField] private Slider timeTravelCooldownSlider;
 
     private Coroutine fadeCoroutine;
+    private Action activeFadeOnComplete;
+    private bool activeFade;
+
+    public bool IsFading => fadeCoroutine != null;
+    public bool ActiveFade => activeFade;
 
     // ----------- Unity Methods -----------
     
@@ -43,25 +48,25 @@ public class Hud : MonoBehaviour
     private void OnDisable()
     {
         TimeTravel.OnTimeChange.RemoveListener(TimeChangeEffect);
+        activeFade = false;
     }
 
     // ----------- Public Methods -----------
 
     public void BlackFade(Action onMiddle = null, Action onComplete = null, float duration = -1f)
     {
-        if (panelFade == null)
-        {
-            onMiddle?.Invoke();
-            onComplete?.Invoke();
-            return;
-        }
+        Action previousOnComplete = activeFadeOnComplete;
+        Action allOnComplete = previousOnComplete != null
+            ? () => { previousOnComplete.Invoke(); onComplete?.Invoke(); }
+            : onComplete;
 
         if (fadeCoroutine != null)
         {
             StopCoroutine(fadeCoroutine);
         }
-        
-        fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, onComplete, duration > 0f ? duration : fadeDuration));
+
+        activeFadeOnComplete = allOnComplete;
+        fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, allOnComplete, duration > 0f ? duration : fadeDuration));
     }
 
     public void FlashHealthBar(Color color, float life, float maxLife)
@@ -111,8 +116,9 @@ public class Hud : MonoBehaviour
         timeTravelCooldownSlider.value = value;
     }
 
-    public void LostChance(float oldValue, float newValue)
+    public void LostChance(float oldValue, float newValue, Action onComplete = null)
     {
+        activeFade = true;
         deathPanel.gameObject.SetActive(true);
         RectTransform currentRect = chancesText.rectTransform;
         Vector2 centerPosition = currentRect.anchoredPosition;
@@ -132,17 +138,19 @@ public class Hud : MonoBehaviour
         LeanTween.move(currentRect, centerPosition + Vector2.down * 500f, 3f).setEaseInCubic().setIgnoreTimeScale(true);
         LeanTween.move(incomingRect, centerPosition, 3f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
         {
+            activeFade = false;
             healthBar.color = Color.green;
             Time.timeScale = 1f;
             chancesText.text = newValue.ToString();
             currentRect.anchoredPosition = centerPosition;
             Destroy(incomingObject);
+            deathPanel.gameObject.SetActive(false);
+            onComplete?.Invoke();
             if (newValue <= 0)
             {
                 Scene currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }
-            deathPanel.gameObject.SetActive(false);
         });
     }
 
@@ -163,16 +171,25 @@ public class Hud : MonoBehaviour
         LeanTween.alpha(panelFade.rectTransform, 1f, fadeDurationIn).setIgnoreTimeScale(true).setOnComplete(() => tweenFinished = true);
         yield return new WaitUntil(() => tweenFinished);
 
-        onMiddle?.Invoke();
+        try
+        {
+            onMiddle?.Invoke();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+
         yield return new WaitForSecondsRealtime(idleDuration);
 
         tweenFinished = false;
         LeanTween.alpha(panelFade.rectTransform, 0f, fadeDurationOut).setIgnoreTimeScale(true).setOnComplete(() => tweenFinished = true);
         yield return new WaitUntil(() => tweenFinished);
 
-        onComplete?.Invoke();
         fadeCoroutine = null;
+        activeFadeOnComplete = null;
         panelFade.gameObject.SetActive(false);
+        onComplete?.Invoke();
     }
     
     private void TimeChangeEffect()

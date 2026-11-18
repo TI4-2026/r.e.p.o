@@ -22,6 +22,11 @@ public class PlayerDash : MonoBehaviour
     // ---------- Control Variables ----------
     private bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
+    private Vector3 dashDirection;
+    private float dashElapsed;
+    private float dashDuration;
+    private float dashStartSpeed;
+    private float dashEndSpeed;
     public bool IsDashing => isDashing;
     public float CooldownRemaining => Mathf.Max(0f, dashCooldown - (Time.time - lastDashTime));
     public float CooldownProgressNormalized => dashCooldown <= 0f ? 1f : Mathf.Clamp01((Time.time - lastDashTime) / dashCooldown);
@@ -45,11 +50,32 @@ public class PlayerDash : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
+    void FixedUpdate()
+    {
+        if (!isDashing) return;
+
+        if (!characterController.enabled)
+        {
+            CancelDash();
+            return;
+        }
+
+        dashElapsed += Time.fixedDeltaTime;
+        float t = dashDuration > 0f ? Mathf.Clamp01(dashElapsed / dashDuration) : 1f;
+        float currentSpeed = Mathf.Lerp(dashStartSpeed, dashEndSpeed, t);
+        playerMovement.SetExternalHorizontalVelocity(dashDirection * currentSpeed);
+
+        if (t >= 1f)
+        {
+            EndDash();
+        }
+    }
+
     // --------------- Public Methods ---------------
 
     public bool CanDash()
     {
-        return !isDashing && CooldownRemaining <= 0f;
+        return (playerMovement == null || playerMovement.isMovementEnabled) && !isDashing && CooldownRemaining <= 0f;
     }
 
     public void SetSandevistan(Sandevistan sand)
@@ -57,46 +83,53 @@ public class PlayerDash : MonoBehaviour
         sandevistanActive = sand;
     }
 
+    public void CancelDash()
+    {
+        if (!isDashing) return;
+
+        isDashing = false;
+        if (animator != null) animator.SetBool("dashing", false);
+        if (playerMovement != null) playerMovement.ClearExternalHorizontalVelocity(preserveRunMomentum: false);
+    }
+
     // --------------- Private Methods ---------------
 
     private void StartDash()
-{
-    if (!characterController.enabled) return;
-    
-    isDashing = true;
-    lastDashTime = Time.time;
+    {
+        if (!characterController.enabled || Time.timeScale == 0f) return;
 
-    animator.SetBool("dashing", true);
-    sandevistanActive.ActivateTrailExternally();
-
-    playerMovement.SetMovementEnabled(false);
-    Vector3 lookDirection = GetDashDirection();
-    lookDirection.y = 0f;
-    transform.LookAt(transform.position + lookDirection);
-    Vector3 direction = GetDashDirection();
-    float duration = dashDistance / dashSpeed;
-    float previousValue = 0f;
-    LeanTween.value(gameObject, 0f, dashDistance, duration)
-        .setEase(LeanTweenType.easeOutQuad)
-        .setOnUpdate((float value) =>
+        dashDirection = GetDashDirection();
+        Vector3 lookDirection = dashDirection;
+        lookDirection.y = 0f;
+        if (lookDirection.sqrMagnitude > 0.0001f)
         {
-            float delta = value - previousValue;
-            previousValue = value;
+            transform.LookAt(transform.position + lookDirection);
+        }
 
-            try
-            {
-                characterController.Move(direction * delta);
-            }
-            catch { }
-        })
-        .setOnComplete(EndDash);
-}
+        float runSpeed = playerMovement.GetSpeed();
+        dashStartSpeed = Mathf.Max(dashSpeed * 2f, runSpeed * 1.5f);
+        dashEndSpeed = playerMovement.HasMoveInput ? runSpeed : 0f;
+
+        float averageSpeed = Mathf.Max(0.1f, (dashStartSpeed + dashEndSpeed) * 0.5f);
+        dashDuration = dashDistance / averageSpeed;
+        dashElapsed = 0f;
+
+        isDashing = true;
+        lastDashTime = Time.time;
+
+        animator.SetBool("dashing", true);
+        sandevistanActive.ActivateTrailExternally();
+
+        playerMovement.SetMovementEnabled(false);
+        playerMovement.SetExternalHorizontalVelocity(dashDirection * dashStartSpeed);
+    }
 
     private void EndDash()
     {
         isDashing = false;
         animator.SetBool("dashing", false);
         playerMovement.SetMovementEnabled(true);
+        playerMovement.ClearExternalHorizontalVelocity(preserveRunMomentum: true);
     }
 
     private Vector3 GetDashDirection()
@@ -110,7 +143,13 @@ public class PlayerDash : MonoBehaviour
             inputDirection.y = 0f;
         }
 
-        return inputDirection;
+        if (inputDirection.sqrMagnitude <= 0.0001f)
+        {
+            inputDirection = transform.forward;
+            inputDirection.y = 0f;
+        }
+
+        return inputDirection.normalized;
     }
 
 }

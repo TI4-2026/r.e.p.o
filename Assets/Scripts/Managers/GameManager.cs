@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     
     private int currentCheckpointPriority = 0;
     private int gearsCollected = 0;
+    public bool IsRespawning { get; private set; }
 
     // --------------- Public Methods ---------------
 
@@ -50,29 +51,54 @@ public class GameManager : MonoBehaviour
     public void SpawnPlayer(GameObject player)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
+        GameObject targetPlayer = player != null
+            ? player
+            : (this.player != null ? this.player : GameObject.FindGameObjectWithTag("Player"));
 
-        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if (targetPlayer == null || !targetPlayer.TryGetComponent(out PlayerMovement playerMovement))
+        {
+            Debug.LogWarning("GameManager.SpawnPlayer: Player or PlayerMovement not found.");
+            return;
+        }
+
+        if (teleportPoint == null)
+        {
+            Debug.LogWarning("GameManager.SpawnPlayer: No checkpoint or spawn Transform assigned.");
+            playerMovement.SetMovementEnabled(true);
+            return;
+        }
+
+        if (IsRespawning) return;
 
         if (Hud != null)
         {
+            IsRespawning = true;
+            playerMovement.SetMovementEnabled(false);
+
             Hud.BlackFade(
-                onMiddle: () => 
+                onMiddle: () =>
                 {
                     playerMovement.SetMovementEnabled(false);
                     playerMovement.ExecuteTeleport(teleportPoint);
                 },
-                onComplete: () => playerMovement.SetMovementEnabled(true)
+                onComplete: () =>
+                {
+                    IsRespawning = false;
+                    playerMovement.SetMovementEnabled(true);
+                }
             );
         }
         else
         {
             playerMovement.ExecuteTeleport(teleportPoint);
+            playerMovement.SetMovementEnabled(true);
         }
     }
 
     public void KillPlayer(GameObject player)
     {
         SpawnPlayer(player);
+        
     }
 
     public void SetCheckpoint(Transform newCheckpoint, int priority=0)
