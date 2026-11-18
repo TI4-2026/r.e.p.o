@@ -13,7 +13,7 @@ public class Hud : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Image panelFade;
-    [SerializeField] private Image healthBar;
+    public Image healthBar;
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
     [SerializeField] private Animator timeTravelEffect;
