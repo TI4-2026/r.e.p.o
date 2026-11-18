@@ -59,18 +59,8 @@ public class PlayerLife : MonoBehaviour
         inviciEnd = Time.time + inviciTime;
 
         hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
-
-        if (life <= maxLife / 2 && life > maxLife / 4 && healthProgression == 0)
-        {
-            healthProgression = 1;
-            hud.ChangeHealthBar(Color.yellow);
-        }
-        else if (life <= maxLife / 4 && life > 0 && healthProgression == 1)
-        {
-            healthProgression = 2;
-            hud.ChangeHealthBar(Color.red);
-        }
-        else if (life <= 0)
+            hud.ChangeHealthBar(life, maxLife);
+        if (life <= 0)
         {
             Die();
         }
@@ -85,7 +75,8 @@ public class PlayerLife : MonoBehaviour
     public void ResetHealth()
     {
         life = maxLife;
-        hud.FlashHealthBar(healthBar.color, life, maxLife);
+        hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
+        hud.ChangeHealthBar(life, maxLife);
     }
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
@@ -135,6 +126,7 @@ public class PlayerLife : MonoBehaviour
             if (chances > 0 && playerInteraction != null)
             {
                 playerInteraction.LockCursor();
+                ResetHealth();
             }
         });
     }

@@ -10,6 +10,7 @@ public class Hud : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float fadeDuration = 3f;
     [SerializeField] private Color fadeColor = Color.black;
+    [SerializeField] private Gradient gradient;
 
     [Header("References")]
     [SerializeField] private Image panelFade;
@@ -93,9 +94,9 @@ public class Hud : MonoBehaviour
             });
     }
 
-    public void ChangeHealthBar(Color color)
+    public void ChangeHealthBar(float life, float maxLife)
     {
-        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
+        LeanTween.value(gameObject, healthBar.color, gradient.Evaluate(life/maxLife), 1f).setEaseInOutSine().setIgnoreTimeScale(true)
         .setOnUpdate(value => healthBar.color = value);
     }
 
