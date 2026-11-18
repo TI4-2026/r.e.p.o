@@ -33,7 +33,7 @@ public class PlayerLife : MonoBehaviour
         playerInteraction = GetComponent<PlayerInteraction>();
         hud = GameManager.Instance.Hud;
 
-        //hud.FlashHealthBar(healthBar.color, life, maxLife);
+        hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
@@ -58,7 +58,7 @@ public class PlayerLife : MonoBehaviour
         life = Mathf.Max(life - damage, 0f);
         inviciEnd = Time.time + inviciTime;
 
-        //hud.FlashHealthBar(healthBar.color, life, maxLife);
+        hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
 
         if (life <= maxLife / 2 && life > maxLife / 4 && healthProgression == 0)
         {
