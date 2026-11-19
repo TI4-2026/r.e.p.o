@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System.Collections;
 public class TimeTravel : MonoBehaviour
 {
     // ------------- Singleton -------------
@@ -90,10 +91,13 @@ public class TimeTravel : MonoBehaviour
         isFuture = !isFuture;
 
         Time.timeScale = 0;
-        GameManager.Instance.Hud.BlackFade(
+        GameManager.Instance.Hud.TimeChangeEffect();
+        ApplyTimeChange();//se escolherem manter o fade, tirem essa linha
+        StartCoroutine(FinishTimeChange()); //e essa também
+        /*GameManager.Instance.Hud.BlackFade(
         ApplyTimeChange, 
         FinishTimeChange,
-        transitionFadeDuration);
+        transitionFadeDuration);*/
     }
 
     private void ApplyTimeChange()
@@ -111,8 +115,9 @@ public class TimeTravel : MonoBehaviour
         }
     }
 
-    private void FinishTimeChange()
+    IEnumerator FinishTimeChange()//se escolherem manter o fade, transformem isso em private void
     {
+        yield return new WaitForSecondsRealtime(0.5f);//e tirem essa linha
         isChangingTime = false;
         Hud hud = GameManager.Instance != null ? GameManager.Instance.Hud : null;
         if (hud == null || !hud.ActiveFade)
