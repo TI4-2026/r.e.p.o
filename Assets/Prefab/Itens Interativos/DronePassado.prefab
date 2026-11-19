@@ -136,7 +136,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
-  sound: {fileID: 8300000, guid: 405460a01ad493f459792c6bbeaea67f, type: 3}
   animator: {fileID: 2489146497072885835}
 --- !u!54 &4445374666815934787
 Rigidbody:
@@ -179,6 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ContactDamage
   damage: 10
   knockbackPower: 20
+  impactSound: {fileID: 8300000, guid: 881c9e572a5c286428b5d78d03cd6a06, type: 3}
+  strikeSound: {fileID: 8300000, guid: 4e04d08694aa3224e89ec701db621ddf, type: 3}
 --- !u!4 &616646496648926468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6287ae2fd4fa01c48b9887b9ad6bb21d, type: 3}

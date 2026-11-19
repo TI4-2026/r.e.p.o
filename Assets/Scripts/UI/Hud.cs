@@ -18,6 +18,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
     [SerializeField] private Animator timeTravelEffect;
+    [SerializeField] private AudioClip timeSoundSfx;
     [SerializeField] private Slider timeTravelCooldownSlider;
 
     private Coroutine fadeCoroutine;
@@ -193,6 +194,7 @@ public class Hud : MonoBehaviour
     
     public void TimeChangeEffect()
     {
+        MusicManager.PlaySound(timeSoundSfx, transform.position);
         timeTravelEffect.gameObject.SetActive(true);
         timeTravelEffect.SetFloat("Speed", 1f);
         timeTravelEffect.Play("ClockAnim");

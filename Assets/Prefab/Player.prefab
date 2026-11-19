@@ -1762,7 +1762,6 @@ MonoBehaviour:
   maxFallSpeed: -20
   slideFriction: 20
   slideSpeed: 3
-  sound: {fileID: 0}
   soundJump: {fileID: 8300000, guid: 7c78eb720fd426940ba1b8ef0b078bf8, type: 3}
   groundCheckDistance: 0.15
   jumpBufferTime: 0.2
@@ -1819,6 +1818,8 @@ MonoBehaviour:
   maxLife: 100
   chances: 3
   healthBar: {fileID: 0}
+  impactSound: {fileID: 8300000, guid: 881c9e572a5c286428b5d78d03cd6a06, type: 3}
+  strikeSound: {fileID: 8300000, guid: 4e04d08694aa3224e89ec701db621ddf, type: 3}
 --- !u!114 &1463231044258399484
 MonoBehaviour:
   m_ObjectHideFlags: 0

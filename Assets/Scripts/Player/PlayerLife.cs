@@ -9,6 +9,8 @@ public class PlayerLife : MonoBehaviour
     private float life;
     [SerializeField] private float chances = 3;
     public Image healthBar;
+    public AudioClip impactSound;
+    public AudioClip strikeSound;
 
     // OnDamage
     private float inviciTime = 1f;
@@ -42,6 +44,15 @@ public class PlayerLife : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out ContactDamage contactDamage))
             {
+                int random = Random.Range(0, 10);
+                if (random % 2 == 0)
+                {
+                    MusicManager.PlaySound(impactSound, transform.position);
+                }
+                else
+                {
+                    MusicManager.PlaySound(strikeSound, transform.position);
+                }
                 TakeDamage(contactDamage.damage);
                 ApplyKnockback(collision.transform.position, contactDamage.knockbackPower);
             }

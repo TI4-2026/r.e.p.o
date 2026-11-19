@@ -92,12 +92,10 @@ public class TimeTravel : MonoBehaviour
 
         Time.timeScale = 0;
         GameManager.Instance.Hud.TimeChangeEffect();
-        ApplyTimeChange();//se escolherem manter o fade, tirem essa linha
-        StartCoroutine(FinishTimeChange()); //e essa também
-        /*GameManager.Instance.Hud.BlackFade(
+        GameManager.Instance.Hud.BlackFade(
         ApplyTimeChange, 
         FinishTimeChange,
-        transitionFadeDuration);*/
+        transitionFadeDuration);
     }
 
     private void ApplyTimeChange()
@@ -115,9 +113,8 @@ public class TimeTravel : MonoBehaviour
         }
     }
 
-    IEnumerator FinishTimeChange()//se escolherem manter o fade, transformem isso em private void
+    private void FinishTimeChange()
     {
-        yield return new WaitForSecondsRealtime(0.5f);//e tirem essa linha
         isChangingTime = false;
         Hud hud = GameManager.Instance != null ? GameManager.Instance.Hud : null;
         if (hud == null || !hud.ActiveFade)
