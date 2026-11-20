@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
@@ -20,7 +21,6 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     [Header("Efeitos")]
     [SerializeField] private Animator animator;
 
-
     protected Rigidbody rb;
     protected bool isSpawning = false;
 
@@ -32,6 +32,10 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 
     protected virtual void FixedUpdate()
     {
+        // Atualiza a velocidade da animação sempre
+        if (animator != null)
+            animator.speed = timeMultiplier;
+
         if (isSpawning)
             return;
 
@@ -47,14 +51,17 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
         else
         {
             StopMovement();
+
+            if (animator != null)
+                animator.SetFloat("Speed", 0f);
         }
     }
 
     protected Vector3 GetDirectionToPlayer()
     {
         Vector3 direction = player.position - transform.position;
-        
-        if(!canFly)
+
+        if (!canFly)
             direction.y = 0f;
 
         return direction.normalized;
@@ -67,38 +74,64 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation,targetRotation,rotationSpeed * Time.fixedDeltaTime * timeMultiplier));
+        rb.MoveRotation(Quaternion.Slerp(
+            rb.rotation,
+            targetRotation,
+            rotationSpeed * Time.fixedDeltaTime * timeMultiplier
+        ));
     }
 
     protected virtual void Move(Vector3 direction)
     {
         Vector3 velocity = direction * moveSpeed * timeMultiplier;
+
         if (animator != null)
-        {
             animator.SetFloat("Speed", velocity.magnitude);
-        }
+
         if (!canFly)
         {
             if (!HasGroundAhead(direction))
             {
                 StopMovement();
+
+                if (animator != null)
+                    animator.SetFloat("Speed", 0f);
+
                 return;
             }
+
             direction.y = 0f;
         }
-        rb.linearVelocity = new Vector3(velocity.x,velocity.y,velocity.z);
+
+        rb.linearVelocity = new Vector3(
+            velocity.x,
+            velocity.y,
+            velocity.z
+        );
     }
 
     protected virtual void StopMovement()
     {
-        rb.linearVelocity = new Vector3(0f,rb.linearVelocity.y,0f);
+        rb.linearVelocity = new Vector3(
+            0f,
+            rb.linearVelocity.y,
+            0f
+        );
     }
 
     private bool HasGroundAhead(Vector3 direction)
     {
-        Vector3 origin = transform.position + direction * groundCheckDistance + Vector3.up * groundCheckHeight;
+        Vector3 origin = transform.position
+            + direction * groundCheckDistance
+            + Vector3.up * groundCheckHeight;
+
         float rayLength = groundCheckHeight + 2f;
 
-        return Physics.Raycast(origin, Vector3.down, rayLength, groundLayer);
+        return Physics.Raycast(
+            origin,
+            Vector3.down,
+            rayLength,
+            groundLayer
+        );
     }
 }

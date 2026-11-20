@@ -1,13 +1,14 @@
 
 using UnityEngine;
 
-public class PlatformBehavior : PlayerCollisionObject
+public class PlatformBehavior : PlayerCollisionObject, ITimeAffectable
 {
     [Header("Attributes")]
     [SerializeField] protected bool rightDirection = true;
     [SerializeField] protected float distance = 5f;
     [SerializeField] protected float speed = 2f;
     public float waitTime = 2f;
+    public float timeMultiplier { get; set; } = 1f;
 
     protected Rigidbody rb;
     protected Vector3 startPosition;
@@ -63,7 +64,7 @@ public class PlatformBehavior : PlayerCollisionObject
             nextPosition = Vector3.MoveTowards(
                 transform.position,
                 targetPosition,
-                speed * Time.deltaTime
+                speed * Time.deltaTime * timeMultiplier
             );
 
             rb.MovePosition(nextPosition);

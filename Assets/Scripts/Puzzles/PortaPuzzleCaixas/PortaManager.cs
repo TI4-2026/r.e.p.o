@@ -6,6 +6,7 @@ public class PortaManager : MonoBehaviour
     public int placasNecessarias = 4;
 
     private int placasAtivadas = 0;
+    bool portaAberta = false;
 
     void Start()
     {
@@ -26,10 +27,12 @@ public class PortaManager : MonoBehaviour
         if (placasAtivadas >= placasNecessarias)
         {
             animacaoPorta.Play(animacaoPorta.GetClip("PortaAbrindo").name);
+            portaAberta = true;
         }
-        else
+        else if (placasAtivadas < placasNecessarias && portaAberta)
         {
             animacaoPorta.Play(animacaoPorta.GetClip("PortaFechando").name);
+            portaAberta = false;
         }
     }
 }

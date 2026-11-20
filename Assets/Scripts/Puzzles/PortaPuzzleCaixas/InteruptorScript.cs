@@ -27,10 +27,7 @@ public class InteruptorScript : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Caixa"))
-        {
             temCaixa = true;
-        }
     }
 
     void AtualizarEmissao(Color cor)

@@ -1833,6 +1833,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b575af7e62ac34ab51e976aeb40add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTimeControl
+  tempoTimeStop: 5
+  cooldown: 10
+  slider: {fileID: 0}
+  globalVolume: {fileID: 0}
+  normal: {fileID: 11400000, guid: ab09877e2e707104187f6f83e2f62510, type: 2}
+  timeStop: {fileID: 11400000, guid: 8a137a47e1d4e07488f11d32d843fa2f, type: 2}
 --- !u!114 &7258440485164031296
 MonoBehaviour:
   m_ObjectHideFlags: 0
