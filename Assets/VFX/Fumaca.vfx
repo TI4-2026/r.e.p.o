@@ -38,9 +38,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 602
-    y: -1433
+    y: -1434
     width: 727
-    height: 2931
+    height: 2943
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,22 +106,6 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: MatrizSprite
-    path: MatrizSprite
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_Vector2f
-    realType: Vector2
-    defaultValue:
-      m_Type:
-        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":6.0,"y":6.0}'
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
   - name: New Texture 2D
     path: New Texture 2D
     tooltip: 
@@ -154,20 +138,18 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Velocidade
-    path: Velocidade
-    tooltip: 'Veloc. min. =x
-
-      Veloc. max.= y'
+  - name: Gravidade
+    path: Gravidade
+    tooltip: 
     space: -1
     spaceable: 0
-    sheetType: m_Vector2f
-    realType: Vector2
+    sheetType: m_Vector3f
+    realType: Vector3
     defaultValue:
       m_Type:
-        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":4.800000190734863,"y":7.5}'
+      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -188,18 +170,36 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Gravidade
-    path: Gravidade
+  - name: MatrizSprite
+    path: MatrizSprite
     tooltip: 
     space: -1
     spaceable: 0
-    sheetType: m_Vector3f
-    realType: Vector3
+    sheetType: m_Vector2f
+    realType: Vector2
     defaultValue:
       m_Type:
-        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":6.0,"y":6.0}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Velocidade
+    path: Velocidade
+    tooltip: 'Veloc. min. =x
+
+      Veloc. max.= y'
+    space: -1
+    spaceable: 0
+    sheetType: m_Vector2f
+    realType: Vector2
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":4.800000190734863,"y":7.5}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -494,7 +494,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.8
+      m_SerializableObject: 0.4
     m_Space: -1
   m_Property:
     name: A
@@ -528,7 +528,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.2
+      m_SerializableObject: 0.8
     m_Space: -1
   m_Property:
     name: B
@@ -3677,7 +3677,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614915}
       inputSlot: {fileID: 8926484042661614917}
-    position: {x: 637, y: 1332}
+    position: {x: 639.2, y: 1332}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
@@ -3809,7 +3809,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614919}
   m_ExposedName: New Texture 2D
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -3890,7 +3890,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614921}
   m_ExposedName: Cor
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -4335,7 +4335,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614956}
   m_ExposedName: Gravidade
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -4518,7 +4518,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614961}
   m_ExposedName: Direcao
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -4701,7 +4701,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614966}
   m_ExposedName: MatrizSprite
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614989}
   m_ExposedName: Velocidade
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
