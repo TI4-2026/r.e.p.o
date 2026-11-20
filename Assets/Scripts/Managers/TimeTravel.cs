@@ -29,17 +29,13 @@ public class TimeTravel : MonoBehaviour
 
     // ---------------------------------------
     
-    [SerializeField] TimeTravel_ManagerInfo futureSO;
-    [SerializeField] TimeTravel_ManagerInfo pastSO;
-    
     public static bool isFuture = true;
     public static UnityEvent OnTimeChange = new UnityEvent();
     
-    [Header("Settings")]
+    [SerializeField] TimeTravel_ManagerInfo futureSO;
+    [SerializeField] TimeTravel_ManagerInfo pastSO;
     [SerializeField, Min(0.1f)] private float transitionFadeDuration = 0.6f;
-
-    [Header("Others")]
-    public Animator PlayerAnim;
+    [SerializeField] private Animator PlayerAnim;
     
     private float cooldown;
     private bool isChangingTime;
@@ -133,7 +129,7 @@ public class TimeTravel : MonoBehaviour
             RenderSettings.skybox = timeManagerInfo.skybox;
         }
 
-        if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(restartPlayer: true);
+        if (checkCollisions) playerCollisionSelf.CheckPlayerInsideObject(restartPlayer: true, showBlackFade: false);
     }
 
     private void UpdateCooldownDisplay()

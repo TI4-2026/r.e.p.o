@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         if (enableExit) EnableExit();
     }
     
-    public void SpawnPlayer(GameObject player)
+    public void SpawnPlayer(GameObject player, bool shownBlackFade = false)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
         GameObject targetPlayer = player != null
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         if (IsRespawning) return;
 
-        if (Hud != null)
+        if (shownBlackFade && Hud != null)
         {
             IsRespawning = true;
             playerMovement.SetMovementEnabled(false);
@@ -95,9 +95,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void KillPlayer(GameObject player)
+    public void KillPlayer(GameObject player, bool showBlackFade = false)
     {
-        SpawnPlayer(player);
+        SpawnPlayer(player, showBlackFade);
         
     }
 
