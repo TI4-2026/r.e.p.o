@@ -3,7 +3,6 @@ using UnityEngine;
 public class TriggerDialog : PlayerCollisionObject
 {
     public DialogData dialogo;
-    
     private bool dialogLido = false;
     
     // -------------- Default Methods --------------

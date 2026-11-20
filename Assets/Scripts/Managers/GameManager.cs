@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -36,41 +37,52 @@ public class GameManager : MonoBehaviour
     private TransitionSceneTrigger exitLevel = null;
     public GameObject player;
     
+    [Header("Settings")]
+    [SerializeField] private DialogData firstKeyDialog;
+    [SerializeField] private DialogData secondKeyDialog;
+    [SerializeField] private DialogData thirdKeyDialog;
+
+    private ItemBehavior keyLevel;
+    private int keysCollected = 0;
     private int currentCheckpointPriority = 0;
-    private int gearsCollected = 0;
     public bool IsRespawning { get; private set; }
 
     // --------------- Public Methods ---------------
 
-    public void CollectGear(bool enableExit = false)
+    public void SetKey(ItemBehavior key)
     {
-        gearsCollected++;
+        keyLevel = key;
+
+        DialogData currentDialog = firstKeyDialog;
+        switch (keysCollected)
+        {
+            case 0:
+                currentDialog = firstKeyDialog;
+                break;
+            case 1:
+                currentDialog = secondKeyDialog;
+                break;
+            case 2:
+                currentDialog = thirdKeyDialog;
+                break;
+        }
+        key.SetDialog(currentDialog);
+    }
+    
+    public void CollectKey(bool enableExit = false)
+    {
+        keysCollected++;
         if (enableExit) EnableExit();
     }
     
     public void SpawnPlayer(GameObject player, bool shownBlackFade = false)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
-        GameObject targetPlayer = player != null
-            ? player
-            : (this.player != null ? this.player : GameObject.FindGameObjectWithTag("Player"));
-
-        if (targetPlayer == null || !targetPlayer.TryGetComponent(out PlayerMovement playerMovement))
-        {
-            Debug.LogWarning("GameManager.SpawnPlayer: Player or PlayerMovement not found.");
-            return;
-        }
-
-        if (teleportPoint == null)
-        {
-            Debug.LogWarning("GameManager.SpawnPlayer: No checkpoint or spawn Transform assigned.");
-            playerMovement.SetMovementEnabled(true);
-            return;
-        }
+        player.TryGetComponent(out PlayerMovement playerMovement);
 
         if (IsRespawning) return;
 
-        if (shownBlackFade && Hud != null)
+        if (shownBlackFade)
         {
             IsRespawning = true;
             playerMovement.SetMovementEnabled(false);
@@ -111,8 +123,6 @@ public class GameManager : MonoBehaviour
 
     public void SetExit(TransitionSceneTrigger exit)
     {
-        if (exitLevel != null) return;
-        
         exitLevel = exit;
     }
     
@@ -121,7 +131,6 @@ public class GameManager : MonoBehaviour
     private void EnableExit()
     {
         if (exitLevel == null) return;
-        
         exitLevel.SetEnabled(true);
     }
 }

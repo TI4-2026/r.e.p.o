@@ -70,7 +70,8 @@ public class TimeTravel : MonoBehaviour
         if (Time.timeScale == 0f) return;
         
         if (gameManager.IsRespawning) return;
-        if (gameManager.Hud != null && (gameManager.Hud.IsFading || gameManager.Hud.ActiveFade)) return;
+        if (gameManager.Hud.IsFading || gameManager.Hud.ActiveFade) return;
+        if (isChangingTime) return;
 
         if (cooldown >= CooldownDuration && !isChangingTime)
         {
