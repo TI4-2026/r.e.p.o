@@ -2,19 +2,14 @@ using UnityEngine;
 
 public class PortaManager : MonoBehaviour
 {
-    public GameObject portaPrefab;
+    public Animation animacaoPorta;
     public int placasNecessarias = 4;
-
-    public GameObject porta;
-    private Vector3 posicaoInicial;
-    private Quaternion rotacaoInicial;
 
     private int placasAtivadas = 0;
 
     void Start()
     {
-        posicaoInicial = porta.transform.position;
-        rotacaoInicial = porta.transform.rotation;
+        animacaoPorta.Play(animacaoPorta.GetClip("PortaFechando").name);
     }
 
     public void AtualizarPlaca(bool ativada)
@@ -30,18 +25,11 @@ public class PortaManager : MonoBehaviour
 
         if (placasAtivadas >= placasNecessarias)
         {
-            if (porta != null)
-            {
-                Destroy(porta);
-                porta = null;
-            }
+            animacaoPorta.Play(animacaoPorta.GetClip("PortaAbrindo").name);
         }
         else
         {
-            if (porta == null)
-            {
-                porta = Instantiate(portaPrefab, posicaoInicial, rotacaoInicial);
-            }
+            animacaoPorta.Play(animacaoPorta.GetClip("PortaFechando").name);
         }
     }
 }

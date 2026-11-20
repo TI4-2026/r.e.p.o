@@ -9,6 +9,8 @@ public class PlayerLife : MonoBehaviour
     private float life;
     [SerializeField] private float chances = 3;
     public Image healthBar;
+    public AudioClip impactSound;
+    public AudioClip strikeSound;
 
     // OnDamage
     private float inviciTime = 1f;
@@ -42,6 +44,15 @@ public class PlayerLife : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out ContactDamage contactDamage))
             {
+                int random = Random.Range(0, 10);
+                if (random % 2 == 0)
+                {
+                    MusicManager.PlaySound(impactSound, transform.position);
+                }
+                else
+                {
+                    MusicManager.PlaySound(strikeSound, transform.position);
+                }
                 TakeDamage(contactDamage.damage);
                 ApplyKnockback(collision.transform.position, contactDamage.knockbackPower);
             }
@@ -59,18 +70,8 @@ public class PlayerLife : MonoBehaviour
         inviciEnd = Time.time + inviciTime;
 
         hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
-
-        if (life <= maxLife / 2 && life > maxLife / 4 && healthProgression == 0)
-        {
-            healthProgression = 1;
-            hud.ChangeHealthBar(Color.yellow);
-        }
-        else if (life <= maxLife / 4 && life > 0 && healthProgression == 1)
-        {
-            healthProgression = 2;
-            hud.ChangeHealthBar(Color.red);
-        }
-        else if (life <= 0)
+            hud.ChangeHealthBar(life, maxLife);
+        if (life <= 0)
         {
             Die();
         }
@@ -85,7 +86,8 @@ public class PlayerLife : MonoBehaviour
     public void ResetHealth()
     {
         life = maxLife;
-        hud.FlashHealthBar(healthBar.color, life, maxLife);
+        hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
+        hud.ChangeHealthBar(life, maxLife);
     }
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
@@ -135,6 +137,7 @@ public class PlayerLife : MonoBehaviour
             if (chances > 0 && playerInteraction != null)
             {
                 playerInteraction.LockCursor();
+                ResetHealth();
             }
         });
     }

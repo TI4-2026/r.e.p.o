@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System.Collections;
 public class TimeTravel : MonoBehaviour
 {
     // ------------- Singleton -------------
@@ -90,6 +91,7 @@ public class TimeTravel : MonoBehaviour
         isFuture = !isFuture;
 
         Time.timeScale = 0;
+        GameManager.Instance.Hud.TimeChangeEffect();
         GameManager.Instance.Hud.BlackFade(
         ApplyTimeChange, 
         FinishTimeChange,

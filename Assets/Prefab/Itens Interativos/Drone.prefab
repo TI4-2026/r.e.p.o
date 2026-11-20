@@ -80,13 +80,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Drone
   player: {fileID: 0}
   detectionRange: 20
-  moveSpeed: 7.5
+  moveSpeed: 3.5
   rotationSpeed: 10
   canFly: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  sound: {fileID: 8300000, guid: 405460a01ad493f459792c6bbeaea67f, type: 3}
   animator: {fileID: 0}
 --- !u!54 &7063072411823266103
 Rigidbody:
@@ -128,7 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContactDamage
   damage: 10
-  knockbackPower: 10
+  knockbackPower: 15
+  impactSound: {fileID: 8300000, guid: 881c9e572a5c286428b5d78d03cd6a06, type: 3}
+  strikeSound: {fileID: 8300000, guid: 40b59603406fd9d4794ccb5b2f66e515, type: 3}
 --- !u!1001 &4382484928667577359
 PrefabInstance:
   m_ObjectHideFlags: 0

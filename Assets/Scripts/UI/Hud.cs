@@ -10,6 +10,7 @@ public class Hud : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float fadeDuration = 3f;
     [SerializeField] private Color fadeColor = Color.black;
+    [SerializeField] private Gradient gradient;
 
     [Header("References")]
     [SerializeField] private Image panelFade;
@@ -17,6 +18,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image deathPanel;
     [SerializeField] private TextMeshProUGUI chancesText;
     [SerializeField] private Animator timeTravelEffect;
+    [SerializeField] private AudioClip timeSoundSfx;
     [SerializeField] private Slider timeTravelCooldownSlider;
 
     private Coroutine fadeCoroutine;
@@ -41,13 +43,11 @@ public class Hud : MonoBehaviour
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         panelFade.gameObject.SetActive(false);
         
-        TimeTravel.OnTimeChange.AddListener(TimeChangeEffect);
         timeTravelEffect.gameObject.SetActive(false);
     }
     
     private void OnDisable()
     {
-        TimeTravel.OnTimeChange.RemoveListener(TimeChangeEffect);
         activeFade = false;
     }
 
@@ -93,9 +93,9 @@ public class Hud : MonoBehaviour
             });
     }
 
-    public void ChangeHealthBar(Color color)
+    public void ChangeHealthBar(float life, float maxLife)
     {
-        LeanTween.value(gameObject, healthBar.color, color, 1f).setEaseInOutSine().setIgnoreTimeScale(true)
+        LeanTween.value(gameObject, healthBar.color, gradient.Evaluate(life/maxLife), 1f).setEaseInOutSine().setIgnoreTimeScale(true)
         .setOnUpdate(value => healthBar.color = value);
     }
 
@@ -192,8 +192,9 @@ public class Hud : MonoBehaviour
         onComplete?.Invoke();
     }
     
-    private void TimeChangeEffect()
+    public void TimeChangeEffect()
     {
+        MusicManager.PlaySound(timeSoundSfx, transform.position);
         timeTravelEffect.gameObject.SetActive(true);
         timeTravelEffect.SetFloat("Speed", 1f);
         timeTravelEffect.Play("ClockAnim");
@@ -203,9 +204,9 @@ public class Hud : MonoBehaviour
     IEnumerator DeactivateClock()
     {
         yield return new WaitForSecondsRealtime(0.5f);
-        timeTravelEffect.SetFloat("Speed", -1);
+        timeTravelEffect.SetFloat("Speed", -2);
         timeTravelEffect.Play("ClockAnim");
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.125f);
         timeTravelEffect.gameObject.SetActive(false);
     }
 }

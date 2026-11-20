@@ -16,6 +16,8 @@ public class PlayerCollisionSelf : MonoBehaviour
     **********************************************************************************************************************************
     */
 
+    [SerializeField] private CardData timeTravelCollisionWarning;
+
     private CharacterController characterController;
     private PlayerMovement playerMovement;
     private PlayerInteraction playerInteraction;
@@ -162,7 +164,11 @@ public class PlayerCollisionSelf : MonoBehaviour
             if (col == null) continue;
             if (col.transform.root == transform.root) continue;
             
-            if (restartPlayer && playerLife != null) GameManager.Instance.KillPlayer(gameObject);
+            if (restartPlayer && playerLife != null)
+            {
+                GameManager.Instance.KillPlayer(gameObject);
+                InfoManager.Instance.CreateCard(timeTravelCollisionWarning);
+            }
             return true;
         }
 

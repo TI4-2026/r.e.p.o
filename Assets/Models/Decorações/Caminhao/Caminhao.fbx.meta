@@ -3,7 +3,12 @@ guid: 62059c10dcd824947a9d3a0aa2e170be
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAKECaminhao
+    second: {fileID: 2100000, guid: f454e5ec519d6b74182944764849ced7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -91,7 +96,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.044999998
+    globalScale: 4.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
