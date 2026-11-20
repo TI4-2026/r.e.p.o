@@ -584,11 +584,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (20)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -596,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -604,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -614,17 +618,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.34737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.55
+      value: 2.7376099
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -678,11 +686,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (2)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -690,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -698,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -708,17 +720,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2549,11 +2565,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (31)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -2561,7 +2581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -2569,7 +2589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -2579,17 +2599,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.592628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.51999
+      value: 122.8076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3169,11 +3193,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (3)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3181,7 +3209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3189,7 +3217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -3199,17 +3227,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.78761
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3263,11 +3295,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (24)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3275,7 +3311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3283,7 +3319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -3293,17 +3329,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.592628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.02
+      value: 120.3076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3357,11 +3397,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (45)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3369,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -3377,7 +3421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -3387,17 +3431,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.176651
+      value: -17.87928
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.86894
+      value: 114.156555
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5595,11 +5643,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (42)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -5607,7 +5659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -5615,7 +5667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -5625,17 +5677,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.057484
+      value: -16.760113
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.7276
+      value: 117.01521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8321,11 +8377,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (18)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -8333,7 +8393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -8341,7 +8401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -8351,17 +8411,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.742631
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.24
+      value: 4.0476074
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8622,6 +8686,7 @@ Transform:
   - {fileID: 483849693}
   - {fileID: 1455441839}
   - {fileID: 878743986}
+  - {fileID: 1560357545}
   - {fileID: 960527219}
   - {fileID: 1408383378}
   - {fileID: 5394957}
@@ -8702,11 +8767,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (14)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -8714,7 +8783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -8722,7 +8791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -8732,17 +8801,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.15263
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.48
+      value: 1.8076096
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9155,7 +9228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (5)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -10221,11 +10294,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (37)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -10233,7 +10310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -10241,7 +10318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -10251,17 +10328,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.66045
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.36308
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.58417
+      value: 113.87178
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13629,11 +13710,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (7)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -13641,7 +13726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -13649,7 +13734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -13659,17 +13744,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.29737
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.78761
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16183,11 +16272,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (8)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -16195,7 +16288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -16203,7 +16296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -16213,17 +16306,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.78761
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17842,7 +17939,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (1)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -18701,11 +18798,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (16)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -18713,7 +18814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -18721,7 +18822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -18731,17 +18832,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.52263
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.61
+      value: 6.6776085
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19011,11 +19116,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (15)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -19023,7 +19132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -19031,7 +19140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -19041,17 +19150,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.45
+      value: -17.15263
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.48
+      value: 1.8076096
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19911,11 +20024,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (25)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -19923,7 +20040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -19931,7 +20048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -19941,17 +20058,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.54263
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.245258
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 85.2576
+      value: 121.54521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20530,11 +20651,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -20542,7 +20667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -20550,7 +20675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -20560,17 +20685,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.29737
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.78761
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20748,11 +20877,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (41)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -20760,7 +20893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -20768,7 +20901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -20778,17 +20911,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.73307
+      value: -19.4357
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.36052
+      value: 116.64813
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20991,11 +21128,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (10)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -21003,7 +21144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -21011,7 +21152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -21021,17 +21162,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.88263
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.19
+      value: 5.0976086
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31040,11 +31185,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (6)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -31052,7 +31201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -31060,7 +31209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -31070,17 +31219,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.29737
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.78761
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32934,11 +33087,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (13)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -32946,7 +33103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -32954,7 +33111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -32964,21 +33121,25 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.18
+      value: -17.88263
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.19
+      value: 5.0976086
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9961058
+      value: 0.99610585
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -32986,7 +33147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.08816593
+      value: -0.08816594
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -37556,11 +37717,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (1)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -37568,7 +37733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -37576,7 +37741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -37586,17 +37751,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.78761
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37952,11 +38121,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (22)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -37964,7 +38137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -37972,7 +38145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -37982,17 +38155,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.989999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.287369
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.85
+      value: 5.4376087
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38395,11 +38572,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -38407,7 +38588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -38415,7 +38596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -38425,17 +38606,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.70263
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.78761
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38841,11 +39026,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -38853,7 +39042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -38861,7 +39050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -38871,17 +39060,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.29737
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.78761
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39084,61 +39277,6 @@ Transform:
   - {fileID: 1024134442}
   - {fileID: 729714474}
   - {fileID: 1127617004}
-  - {fileID: 238408051}
-  - {fileID: 73524974}
-  - {fileID: 286360927}
-  - {fileID: 14642840}
-  - {fileID: 501882491}
-  - {fileID: 1354007472}
-  - {fileID: 807086814}
-  - {fileID: 939899910}
-  - {fileID: 1317556199}
-  - {fileID: 798452050}
-  - {fileID: 1148267608}
-  - {fileID: 1905469788}
-  - {fileID: 886877066}
-  - {fileID: 1186339252}
-  - {fileID: 535998520}
-  - {fileID: 972974645}
-  - {fileID: 925916403}
-  - {fileID: 130419349}
-  - {fileID: 410456521}
-  - {fileID: 1206116302}
-  - {fileID: 1345259700}
-  - {fileID: 1449810896}
-  - {fileID: 235392640}
-  - {fileID: 472058908}
-  - {fileID: 203436524}
-  - {fileID: 1003151593}
-  - {fileID: 479558513}
-  - {fileID: 1691279112}
-  - {fileID: 1529440076}
-  - {fileID: 1966399092}
-  - {fileID: 54947871}
-  - {fileID: 1315033246}
-  - {fileID: 16180268}
-  - {fileID: 1890385646}
-  - {fileID: 74119688}
-  - {fileID: 1866455093}
-  - {fileID: 1483911965}
-  - {fileID: 1232008103}
-  - {fileID: 1596832168}
-  - {fileID: 1371844290}
-  - {fileID: 1546657428}
-  - {fileID: 335215192}
-  - {fileID: 1419633487}
-  - {fileID: 1651607274}
-  - {fileID: 1340857556}
-  - {fileID: 1629435323}
-  - {fileID: 73236352}
-  - {fileID: 1651372695}
-  - {fileID: 1012265919}
-  - {fileID: 1602178123}
-  - {fileID: 570836070}
-  - {fileID: 694364207}
-  - {fileID: 1027122022}
-  - {fileID: 337896210}
-  - {fileID: 738360131}
   m_Father: {fileID: 215066332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &881274692
@@ -39429,11 +39567,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (21)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -39441,7 +39583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -39449,7 +39591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -39459,17 +39601,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.05
+      value: 17.34737
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.55
+      value: 2.7376099
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39589,7 +39735,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (7)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -40301,11 +40447,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (29)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -40313,7 +40463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -40321,7 +40471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -40331,17 +40481,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.60263
+      value: -20.30526
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.9576
+      value: 124.24521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40462,11 +40616,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (26)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -40474,7 +40632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -40482,7 +40640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -40492,17 +40650,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.60263
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.30526
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.9576
+      value: 124.24521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -45013,11 +45175,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (23)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -45029,7 +45195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -45037,7 +45203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -45047,17 +45213,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.989999
+      value: 17.287369
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.85
+      value: 5.4376087
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -45426,11 +45596,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (4)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -45438,7 +45612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -45446,7 +45620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -45456,17 +45630,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.29737
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.78761
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47034,11 +47212,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (49)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -47046,7 +47228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -47054,7 +47236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -47064,17 +47246,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.693066
+      value: -15.395696
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 78.15373
+      value: 114.441345
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47132,7 +47318,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (6)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -47222,11 +47408,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (12)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -47234,7 +47424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -47242,7 +47432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -47252,17 +47442,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.18
+      value: -17.88263
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.19
+      value: 5.0976086
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48895,11 +49089,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -48907,7 +49105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -48915,7 +49113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -48925,21 +49123,25 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.70263
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.78761
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.96512794
+      value: 0.965128
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -48947,7 +49149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.26177856
+      value: -0.2617786
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -50815,7 +51017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1104085828}
   m_Layer: 0
-  m_Name: Arranhoes
+  m_Name: ArranhoesCaixas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51583,7 +51785,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (9)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -51787,11 +51989,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (27)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -51799,7 +52005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -51807,7 +52013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -51817,17 +52023,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.01999
+      value: 120.3076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53150,11 +53360,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -53162,7 +53376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -53170,7 +53384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -53180,17 +53394,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.29737
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55032,11 +55250,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (28)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55044,7 +55266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55052,7 +55274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -55062,17 +55284,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.54263
+      value: -20.245258
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 85.2576
+      value: 121.54521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55667,11 +55893,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (30)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55679,7 +55909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55687,7 +55917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -55697,17 +55927,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.01999
+      value: 120.3076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55890,11 +56124,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55902,7 +56140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -55910,7 +56148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -55920,17 +56158,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.70263
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56341,11 +56583,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (46)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -56353,7 +56599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -56361,7 +56607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -56371,17 +56617,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.176651
+      value: -17.87928
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.86894
+      value: 114.156555
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58189,11 +58439,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (44)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58201,7 +58455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58209,7 +58463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -58219,17 +58473,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.176651
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.87928
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.86894
+      value: 114.156555
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58402,11 +58660,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (39)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58414,7 +58676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58422,7 +58684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -58432,17 +58694,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.057484
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.760113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.7276
+      value: 117.01521
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58557,7 +58823,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: Boxes (4)
+      value: Boxes
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58766,11 +59032,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (35)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58778,7 +59048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58786,7 +59056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -58796,21 +59066,25 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.592628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.01999
+      value: 125.3076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.96512794
+      value: 0.965128
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -58818,7 +59092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.26177856
+      value: -0.2617786
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -58865,11 +59139,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (43)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58877,7 +59155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -58885,7 +59163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -58895,17 +59173,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.66045
+      value: -20.36308
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.58417
+      value: 113.87178
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59133,11 +59415,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (38)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -59145,7 +59431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -59153,7 +59439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -59163,17 +59449,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -23.73307
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.4357
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.36052
+      value: 116.64813
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59408,11 +59698,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (34)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -59420,7 +59714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -59428,7 +59722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -59438,17 +59732,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.51999
+      value: 122.8076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62680,11 +62978,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (5)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -62692,7 +62994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -62700,7 +63002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -62710,17 +63012,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.29737
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67060,11 +67366,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (33)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -67072,7 +67382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -67080,7 +67390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -67090,21 +67400,25 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.51999
+      value: 122.8076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.88408864
+      value: 0.8840887
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -67112,7 +67426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.46731916
+      value: -0.4673192
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -67987,11 +68301,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (19)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -67999,7 +68317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -68007,7 +68325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -68017,17 +68335,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.04
+      value: -14.742631
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.24
+      value: 4.0476074
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68461,11 +68783,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (47)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -68473,7 +68799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -68481,7 +68807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -68491,17 +68817,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.176651
+      value: -17.87928
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.86894
+      value: 114.156555
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70005,25 +70335,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1461867403}
     m_Modifications:
-    - target: {fileID: 2559907300306205314, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6343278568924741509, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
       propertyPath: m_Name
-      value: Item_Gear1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444756163630565660, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.297
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444756163630565660, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.297
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444756163630565660, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.297
+      value: Item_Key
       objectReference: {fileID: 0}
     - target: {fileID: 6444756163630565660, guid: 91a2b67d46553ff479dfa0aa73cfe4a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70127,6 +70441,92 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c34bbc6bfa322145aca1b03199f8817, type: 3}
+--- !u!1 &1560357544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560357545}
+  m_Layer: 0
+  m_Name: BoxesStatic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1560357545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560357544}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 238408051}
+  - {fileID: 73524974}
+  - {fileID: 286360927}
+  - {fileID: 14642840}
+  - {fileID: 501882491}
+  - {fileID: 1354007472}
+  - {fileID: 807086814}
+  - {fileID: 939899910}
+  - {fileID: 1317556199}
+  - {fileID: 798452050}
+  - {fileID: 1148267608}
+  - {fileID: 1905469788}
+  - {fileID: 886877066}
+  - {fileID: 1186339252}
+  - {fileID: 535998520}
+  - {fileID: 972974645}
+  - {fileID: 925916403}
+  - {fileID: 130419349}
+  - {fileID: 410456521}
+  - {fileID: 1206116302}
+  - {fileID: 1345259700}
+  - {fileID: 1449810896}
+  - {fileID: 235392640}
+  - {fileID: 472058908}
+  - {fileID: 203436524}
+  - {fileID: 1003151593}
+  - {fileID: 479558513}
+  - {fileID: 1691279112}
+  - {fileID: 1529440076}
+  - {fileID: 1966399092}
+  - {fileID: 54947871}
+  - {fileID: 1315033246}
+  - {fileID: 16180268}
+  - {fileID: 1890385646}
+  - {fileID: 74119688}
+  - {fileID: 1866455093}
+  - {fileID: 1483911965}
+  - {fileID: 1232008103}
+  - {fileID: 1596832168}
+  - {fileID: 1371844290}
+  - {fileID: 1546657428}
+  - {fileID: 335215192}
+  - {fileID: 1419633487}
+  - {fileID: 1651607274}
+  - {fileID: 1340857556}
+  - {fileID: 1629435323}
+  - {fileID: 73236352}
+  - {fileID: 1651372695}
+  - {fileID: 1012265919}
+  - {fileID: 1602178123}
+  - {fileID: 570836070}
+  - {fileID: 694364207}
+  - {fileID: 1027122022}
+  - {fileID: 337896210}
+  - {fileID: 738360131}
+  m_Father: {fileID: 215066332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1563479975
 GameObject:
   m_ObjectHideFlags: 0
@@ -72116,11 +72516,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (11)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -72128,7 +72532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -72136,7 +72540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -72146,17 +72550,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73619,96 +74027,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7169393879306713956, guid: c3ec6a607a5a62c48a2010625d52a27f, type: 3}
   m_PrefabInstance: {fileID: 1608851184}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1612676633
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -595.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 30.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -130.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_Name
-      value: PlayerSizeRef
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1612676635}
-  m_SourcePrefab: {fileID: 100100000, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
---- !u!1 &1612676634 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9dc9040bd3447f458bd74656ac59340, type: 3}
-  m_PrefabInstance: {fileID: 1612676633}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1612676635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612676634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3676c8997b3022f41b6c9dceaad3bc49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Sandevistan
-  playerDash: {fileID: 0}
-  activetime: 0.5
-  meshRefreshRate: 0.05
-  meshDestroyDelay: 0.5
-  positionToSpawn: {fileID: 172681034}
-  mat: {fileID: 2100000, guid: 7696f2d41597fda449363cb7ebf10c0b, type: 2}
-  shaderVarRef: _Alpha
-  shaderVarRate: 0.1
-  shaderVarRefreshRate: 0.05
 --- !u!4 &1613192798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2701761026853498845, guid: 0c34bbc6bfa322145aca1b03199f8817, type: 3}
@@ -75113,11 +75431,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (48)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -75125,7 +75447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -75133,7 +75455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -75143,17 +75465,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19.693066
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.395696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 78.15373
+      value: 114.441345
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75418,11 +75744,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (36)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -75430,7 +75760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -75438,7 +75768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -75448,17 +75778,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.01999
+      value: 125.3076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77329,11 +77663,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (17)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -77341,7 +77679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -77349,7 +77687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -77359,17 +77697,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.82
+      value: -15.52263
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.61
+      value: 6.6776085
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -83827,11 +84169,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (9)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -83839,7 +84185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -83847,7 +84193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -83857,21 +84203,25 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.70263
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.28761
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.88408864
+      value: 0.8840887
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -83879,7 +84229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.46731916
+      value: -0.4673192
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -84399,11 +84749,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (32)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -84411,7 +84765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -84419,7 +84773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -84429,17 +84783,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: -17.592628
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.51999
+      value: 122.8076
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -86185,11 +86543,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 878743986}
+    m_TransformParent: {fileID: 1560357545}
     m_Modifications:
+    - target: {fileID: 347554835197624501, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Name
-      value: BoxesFreezed (40)
+      value: BoxesStatic
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -86197,7 +86559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738787196770504753, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_Layer
@@ -86205,7 +86567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4307487837369428085, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6417361843635001040, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: freezePast
@@ -86215,17 +86577,21 @@ PrefabInstance:
       propertyPath: freezeFuture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828753201652639011, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.66045
+      value: -20.36308
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.58417
+      value: 113.87178
       objectReference: {fileID: 0}
     - target: {fileID: 7381886471272245196, guid: 4ca1cc36e283005419beb74ca3f64cfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -93837,5 +94203,4 @@ SceneRoots:
   - {fileID: 472335884}
   - {fileID: 2020358939}
   - {fileID: 215066332}
-  - {fileID: 1612676633}
   - {fileID: 96851572}
