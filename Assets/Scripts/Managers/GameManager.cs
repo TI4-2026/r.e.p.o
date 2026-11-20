@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
 
     // --------------- Variables ---------------
 
-    [Header("Attributes")]
+    [Header("References")]
     [SerializeField] private Transform spawn;
+    [SerializeField] private DialogData firstKeyDialog;
+    [SerializeField] private DialogData secondKeyDialog;
+    [SerializeField] private DialogData thirdKeyDialog;
 
     [Header("Autofilled")]
     public Hud Hud;
@@ -37,10 +40,6 @@ public class GameManager : MonoBehaviour
     private TransitionSceneTrigger exitLevel = null;
     public GameObject player;
     
-    [Header("Settings")]
-    [SerializeField] private DialogData firstKeyDialog;
-    [SerializeField] private DialogData secondKeyDialog;
-    [SerializeField] private DialogData thirdKeyDialog;
 
     private ItemBehavior keyLevel;
     private int keysCollected = 0;

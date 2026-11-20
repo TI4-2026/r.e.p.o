@@ -43,7 +43,7 @@ public class DialogManager : MonoBehaviour
     {
         controller.SetMovementEnabled(false);
         Player.enabled = false;
-        Debug.Log("Movimento do player desativado");
+        //Debug.Log("Movimento do player desativado");
         dialogBox.SetActive(true);
         dialogBox.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
@@ -54,10 +54,10 @@ public class DialogManager : MonoBehaviour
         dialog = dialogoInicial;
         if (dialog == null)
         {
-            Debug.LogError("Dialogo inicial é nulo");
+            //Debug.LogError("Dialogo inicial é nulo");
             return;
         }
-        Debug.Log("Texto recebido: " + dialog.text);
+        //Debug.Log("Texto recebido: " + dialog.text);
         dialogoAberto = true;   
         MostrarTextoAnimado(dialog.text);
     }
