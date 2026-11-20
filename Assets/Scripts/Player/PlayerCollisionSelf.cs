@@ -149,7 +149,7 @@ public class PlayerCollisionSelf : MonoBehaviour
     
     // ----------------- Public Methods -----------------
 
-    public bool CheckPlayerInsideObject(bool restartPlayer)
+    public bool CheckPlayerInsideObject(bool restartPlayer, bool showBlackFade)
     {
         Physics.OverlapSphereNonAlloc(
         transform.position + characterController.center,
@@ -166,7 +166,7 @@ public class PlayerCollisionSelf : MonoBehaviour
             
             if (restartPlayer && playerLife != null)
             {
-                GameManager.Instance.KillPlayer(gameObject);
+                GameManager.Instance.KillPlayer(gameObject, showBlackFade);
                 InfoManager.Instance.CreateCard(timeTravelCollisionWarning);
             }
             return true;
