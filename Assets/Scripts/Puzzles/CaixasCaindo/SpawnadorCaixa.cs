@@ -17,7 +17,7 @@ public class SpawnadorCaixa : MonoBehaviour, ITimeAffectable
 
         if (tempoAtual >= cooldown)
         {
-            Instantiate(caixa, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(caixa, transform.position, transform.rotation, transform);
             tempoAtual = 0f;
         }
     }
