@@ -149,7 +149,7 @@ public class PlayerCollisionSelf : MonoBehaviour
     
     // ----------------- Public Methods -----------------
 
-    public bool CheckPlayerInsideObject(bool restartPlayer, bool showBlackFade)
+    public bool CheckPlayerInsideObject(bool restartPlayer=true, bool showBlackFade=true)
     {
         Physics.OverlapSphereNonAlloc(
         transform.position + characterController.center,
