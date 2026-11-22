@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
-
     private readonly List<ITimeAffectable> targets = new();
 
     private void Awake()
@@ -57,7 +56,6 @@ public class TimeManager : MonoBehaviour
 
     public void SetTimeMultiplier(float multiplier)
     {
-        Debug.Log(multiplier);
         foreach (ITimeAffectable target in targets)
         {
             target.timeMultiplier = multiplier;

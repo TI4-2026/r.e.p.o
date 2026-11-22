@@ -39,10 +39,10 @@ public class PlayerTimeControl : MonoBehaviour
     {
         if (context.performed && podeUsarTimeStop)
         {
-            Debug.Log("Time Stop");
-
             podeUsarTimeStop = false;
-
+            
+            
+            Debug.Log(timeManager.gameObject.name);
             timeManager.SetTimeMultiplier(0f);
 
             globalVolume.sharedProfile = timeStop;
