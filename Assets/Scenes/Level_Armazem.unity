@@ -413,7 +413,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 215066332}
+    m_TransformParent: {fileID: 472335884}
     m_Modifications:
     - target: {fileID: 173598600740808025, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Layer
@@ -8551,9 +8551,6 @@ Transform:
   - {fileID: 1455441839}
   - {fileID: 878743986}
   - {fileID: 1560357545}
-  - {fileID: 960527219}
-  - {fileID: 1408383378}
-  - {fileID: 5394957}
   - {fileID: 1104085828}
   - {fileID: 147085773}
   m_Father: {fileID: 0}
@@ -18052,6 +18049,9 @@ Transform:
   - {fileID: 109428048}
   - {fileID: 1963874918}
   - {fileID: 1130462748}
+  - {fileID: 960527219}
+  - {fileID: 1408383378}
+  - {fileID: 5394957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &474176773 stripped
@@ -38896,7 +38896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &891460249
 Transform:
   m_ObjectHideFlags: 0
@@ -61310,7 +61310,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 215066332}
+    m_TransformParent: {fileID: 472335884}
     m_Modifications:
     - target: {fileID: 173598600740808025, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Layer
@@ -61410,7 +61410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82369,6 +82369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
   futureSO: {fileID: 721641257}
   pastSO: {fileID: 911620044}
+  deathDialogInitial: {fileID: 0}
+  deathDialogs: []
   transitionFadeDuration: 0.6
   PlayerAnim: {fileID: 172681039}
 --- !u!4 &1838327872
@@ -87581,7 +87583,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 215066332}
+    m_TransformParent: {fileID: 472335884}
     m_Modifications:
     - target: {fileID: 173598600740808025, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_Layer
@@ -87681,7 +87683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453921683368383085, guid: 74c0781bcfea1d641a0b971f97661a56, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
