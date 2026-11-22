@@ -19,8 +19,9 @@ public class DialogManager : MonoBehaviour
     public TMP_Text texto;
     public DialogData dialog;
     public GameObject dialogBox;
-    PlayerMovement controller;
     public CharacterController Player;
+    private PlayerMovement _playerMovement;
+    private PlayerInteraction _playerInteraction;
 
     float tempoPorLetra = 0.03f;
 
@@ -31,17 +32,14 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         Player = GameManager.Instance.player.GetComponent<CharacterController>();
-        controller = GameManager.Instance.player.GetComponent<PlayerMovement>();
+        _playerMovement = Player.gameObject.GetComponent<PlayerMovement>();
+        _playerInteraction = Player.gameObject.GetComponent<PlayerInteraction>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void IniciarDialogo(DialogData dialogoInicial)
     {
-        controller.SetMovementEnabled(false);
+        _playerMovement.SetMovementEnabled(false);
+        _playerInteraction.BlockTimeTravelInput();
         Player.enabled = false;
         //Debug.Log("Movimento do player desativado");
         dialogBox.SetActive(true);
@@ -75,7 +73,8 @@ public class DialogManager : MonoBehaviour
         if (dialog.nextDialog[0] == null)
         {
             dialogBox.SetActive(false);
-            controller.SetMovementEnabled(true);
+            _playerMovement.SetMovementEnabled(true);
+            _playerInteraction.UnblockTimeTravelInput();
             Player.enabled = true;
             dialogoAberto = false;  
         }
