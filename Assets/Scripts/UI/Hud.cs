@@ -154,7 +154,10 @@ public class Hud : MonoBehaviour
     public void LostChance(float oldValue, float newValue, Action onComplete = null)
     {
         activeFade = true;
+        if (deathPanel != null)
+        {
         deathPanel.gameObject.SetActive(true);
+        }
         RectTransform currentRect = chancesText.rectTransform;
         Vector2 centerPosition = currentRect.anchoredPosition;
         GameObject incomingObject = Instantiate(chancesText.gameObject, chancesText.transform.parent);

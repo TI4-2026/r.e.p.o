@@ -12,7 +12,7 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     [SerializeField] protected float rotationSpeed = 10f;
     [SerializeField] protected bool canFly = false;
     public float timeMultiplier { get; set; } = 1f;
-
+    public float multiplicadorAtual;
     [Header("Antiqueda")]
     private float groundCheckDistance = 1f;
     private float groundCheckHeight = 0.5f;
@@ -32,6 +32,8 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 
     protected virtual void FixedUpdate()
     {
+        TimeManager.Instance.Register(this);
+        multiplicadorAtual = timeMultiplier;
         // Atualiza a velocidade da animação sempre
         if (animator != null)
             animator.speed = timeMultiplier;
