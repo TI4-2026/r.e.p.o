@@ -47,31 +47,30 @@ public class GameManager : MonoBehaviour
     public bool IsRespawning { get; private set; }
 
     // --------------- Public Methods ---------------
-
-    public void SetKey(ItemBehavior key)
-    {
-        keyLevel = key;
-
-        DialogData currentDialog = firstKeyDialog;
-        switch (keysCollected)
-        {
-            case 0:
-                currentDialog = firstKeyDialog;
-                break;
-            case 1:
-                currentDialog = secondKeyDialog;
-                break;
-            case 2:
-                currentDialog = thirdKeyDialog;
-                break;
-        }
-        key.SetDialog(currentDialog);
-    }
     
     public void CollectKey(bool enableExit = false)
     {
+        Debug.Log(keysCollected);
         keysCollected++;
         if (enableExit) EnableExit();
+    }
+
+    public void StartKeyDialog()
+    {
+        DialogData currentDialog = firstKeyDialog;
+        switch (keysCollected)
+        {
+            case 1:
+                currentDialog = firstKeyDialog;
+                break;
+            case 2:
+                currentDialog = secondKeyDialog;
+                break;
+            case 3:
+                currentDialog = thirdKeyDialog;
+                break;
+        }
+        DialogManager.Instance.IniciarDialogo(currentDialog);
     }
     
     public void SpawnPlayer(GameObject player, bool shownBlackFade = false)
