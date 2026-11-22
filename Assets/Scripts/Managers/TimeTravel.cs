@@ -1,9 +1,6 @@
 using UnityEngine;
-using System;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using System.Collections;
-using Random = System.Random;
+using System.Collections.Generic;
 
 public class TimeTravel : MonoBehaviour
 {
@@ -54,9 +51,13 @@ public class TimeTravel : MonoBehaviour
     [SerializeField] private Animator PlayerAnim;
     
     private float cooldown;
-    private bool isChangingTime;
     private const float CooldownDuration = 2f;
+    private bool isChangingTime; // Sera verdadeiro enquanto o player estiver na animacao de mudar o tempo
     private int playersCollisionDeath; // Quant. vezes o player morreu por colisao dentro de objeto
+    
+    private bool onBlockedArea; // Sera verdadeiro enquanto o player estiver em uma area que nao se pode mudar o tempo
+    private List<GameObject> blockedArea; // Todos os objetos que estao bloqueando o time travel
+    private DialogData blockedAreaDialog;
     
     private PlayerCollisionSelf playerCollisionSelf;
     private GameManager gameManager;
@@ -66,6 +67,8 @@ public class TimeTravel : MonoBehaviour
     void Start()
     {
         cooldown = 2f;
+        blockedArea = new List<GameObject>();
+        blockedAreaDialog = null;
     
         playerCollisionSelf = GameManager.Instance.player.GetComponent<PlayerCollisionSelf>();
         gameManager = GameManager.Instance;
@@ -82,9 +85,39 @@ public class TimeTravel : MonoBehaviour
     
     // ----------------- Public Methods -----------------
 
+    public void BlockTimeTravel(GameObject area, DialogData dialog)
+    {
+        blockedArea.Add(area);
+        onBlockedArea = true;
+        blockedAreaDialog = dialog;
+        
+        GameManager.Instance.Hud.DisableTimeTravelSlider();
+    }
+
+    public void UnblockTimeTravel(GameObject area)
+    {
+        blockedArea.RemoveAll(go => go == area);
+
+        if (blockedArea.Count == 0)
+        {
+            blockedAreaDialog = null;
+            onBlockedArea = false;
+            
+            GameManager.Instance.Hud.EnableTimeTravelSlider();
+        }
+    }
+
     public void OnChangeTime()
     {
         if (Time.timeScale == 0f) return;
+        
+        Debug.Log($"Lista: {blockedArea.Count} | bloqueado: {onBlockedArea}");
+
+        if (onBlockedArea)
+        {
+            DialogManager.Instance.IniciarDialogo(blockedAreaDialog);
+            return;
+        }
         
         if (gameManager.IsRespawning) return;
         if (gameManager.Hud.IsFading || gameManager.Hud.ActiveFade) return;

@@ -20,10 +20,15 @@ public class Hud : MonoBehaviour
     [SerializeField] private Animator timeTravelEffect;
     [SerializeField] private AudioClip timeSoundSfx;
     [SerializeField] private Slider timeTravelCooldownSlider;
+    [SerializeField] private Image timeTravelFill;
+    [SerializeField] private Image timeTravelBackground;
+    [SerializeField] Color timeTravelDisabledColor;
+    private Color _timeTravelDefaultColor;
 
     private Coroutine fadeCoroutine;
     private Action activeFadeOnComplete;
     private bool activeFade;
+    
 
     public bool IsFading => fadeCoroutine != null;
     public bool ActiveFade => activeFade;
@@ -42,6 +47,8 @@ public class Hud : MonoBehaviour
     {
         panelFade.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         panelFade.gameObject.SetActive(false);
+        
+        _timeTravelDefaultColor = timeTravelFill.color;
         
         timeTravelEffect.gameObject.SetActive(false);
     }
@@ -114,6 +121,18 @@ public class Hud : MonoBehaviour
         }
 
         timeTravelCooldownSlider.value = value;
+    }
+
+    public void EnableTimeTravelSlider()
+    {
+        timeTravelBackground.color = _timeTravelDefaultColor;
+        timeTravelFill.color = _timeTravelDefaultColor;
+    }
+
+    public void DisableTimeTravelSlider()
+    {
+        timeTravelBackground.color = timeTravelDisabledColor;
+        timeTravelFill.color = timeTravelDisabledColor;
     }
 
     public void LostChance(float oldValue, float newValue, Action onComplete = null)

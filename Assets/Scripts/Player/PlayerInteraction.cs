@@ -10,6 +10,7 @@ public class PlayerInteraction: MonoBehaviour
     private PlayerMovement playerMovement;
 
     private bool isCursorLocked = true;
+    private bool isTimeTravelLocked = false;
 
     private GameObject moveObject;  
     private Action moveObjectEnable;
@@ -67,11 +68,23 @@ public class PlayerInteraction: MonoBehaviour
     public void OnChangeTime(InputAction.CallbackContext context)
     {
         if (!context.started) return;
+        if (isTimeTravelLocked) return;
+        
         TimeTravel.Instance.OnChangeTime();
     }
 
     // ----------------- Public Methods -----------------
 
+    public void BlockTimeTravelInput()
+    {
+        isTimeTravelLocked = true;
+    }
+
+    public void UnblockTimeTravelInput()
+    {
+        isTimeTravelLocked = false;
+    }
+    
     public void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
