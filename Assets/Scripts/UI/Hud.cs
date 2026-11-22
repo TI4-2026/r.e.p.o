@@ -75,6 +75,22 @@ public class Hud : MonoBehaviour
         activeFadeOnComplete = allOnComplete;
         fadeCoroutine = StartCoroutine(I_BlackFade(onMiddle, allOnComplete, duration > 0f ? duration : fadeDuration));
     }
+    
+    public void BlackFadeFinishOnMiddle(Action onComplete = null, float duration = -1f)
+    {
+        Action previousOnComplete = activeFadeOnComplete;
+        Action allOnComplete = previousOnComplete != null
+            ? () => { previousOnComplete.Invoke(); onComplete?.Invoke(); }
+            : onComplete;
+
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+
+        activeFadeOnComplete = allOnComplete;
+        fadeCoroutine = StartCoroutine(I_BlackFadeFinishOnMiddle(allOnComplete, duration > 0f ? duration : fadeDuration));
+    }
 
     public void FlashHealthBar(Color color, float life, float maxLife)
     {
@@ -208,6 +224,23 @@ public class Hud : MonoBehaviour
         fadeCoroutine = null;
         activeFadeOnComplete = null;
         panelFade.gameObject.SetActive(false);
+        onComplete?.Invoke();
+    }
+    
+    private IEnumerator I_BlackFadeFinishOnMiddle(Action onComplete, float totalDuration)
+    {
+        panelFade.gameObject.SetActive(true);
+        LeanTween.cancel(panelFade.gameObject);
+
+        bool tweenFinished = false;
+
+        LeanTween.alpha(panelFade.rectTransform, 1f, totalDuration)
+            .setIgnoreTimeScale(true)
+            .setOnComplete(() => tweenFinished = true);
+        
+        yield return new WaitUntil(() => tweenFinished);
+        fadeCoroutine = null;
+        activeFadeOnComplete = null;
         onComplete?.Invoke();
     }
     
