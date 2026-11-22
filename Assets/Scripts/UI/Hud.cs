@@ -192,21 +192,21 @@ public class Hud : MonoBehaviour
         onComplete?.Invoke();
     }
     
-    public void TimeChangeEffect()
+    public void TimeChangeEffect(float animSpeedMulti=1f, bool showEndFewSeconds = true)
     {
         MusicManager.PlaySound(timeSoundSfx, transform.position);
         timeTravelEffect.gameObject.SetActive(true);
-        timeTravelEffect.SetFloat("Speed", 1f);
+        timeTravelEffect.SetFloat("Speed", 1f * animSpeedMulti);
         timeTravelEffect.Play("ClockAnim");
-        StartCoroutine(DeactivateClock());
+        StartCoroutine(DeactivateClock(animSpeedMulti, showEndFewSeconds));
     }
 
-    IEnumerator DeactivateClock()
+    IEnumerator DeactivateClock(float animSpeedMulti=1f, bool showEndFewSeconds = true)
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        timeTravelEffect.SetFloat("Speed", -2);
+        yield return new WaitForSecondsRealtime(0.5f / animSpeedMulti);
+        timeTravelEffect.SetFloat("Speed", -2 * animSpeedMulti);
         timeTravelEffect.Play("ClockAnim");
-        yield return new WaitForSecondsRealtime(0.125f);
+        if (showEndFewSeconds) yield return new WaitForSecondsRealtime(0.125f);
         timeTravelEffect.gameObject.SetActive(false);
     }
 }
