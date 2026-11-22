@@ -1620,19 +1620,7 @@ MonoBehaviour:
     m_ActionId: dc051d4d-a69b-4ba4-a862-c9a6d41c0225
     m_ActionName: 'basic/Slide[/Keyboard/ctrl]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1463231044258399484}
-        m_TargetAssemblyTypeName: PlayerTimeControl, Assembly-CSharp
-        m_MethodName: SnailTime
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 5f5ba9fc-f7a9-4f16-8332-7f521cdf7305
     m_ActionName: 'basic/Snail Time[/Keyboard/c]'
   - m_PersistentCalls:
@@ -4619,6 +4607,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4eb21051bdfd5f2488090bf6e20aed51, type: 3}
       propertyPath: m_Name
       value: Alices
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118015006478652663, guid: 4eb21051bdfd5f2488090bf6e20aed51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 4eb21051bdfd5f2488090bf6e20aed51, type: 3}
       propertyPath: m_Controller
