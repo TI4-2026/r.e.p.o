@@ -38,12 +38,17 @@ public class TransitionSceneTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (MusicManager.instance != null) MusicManager.instance.PlayMusic(0);
-            StartCoroutine(I_SceneTransition());
+            StartCoroutine(I_SceneTransition(other.gameObject));
         }
     }
     
-    private IEnumerator I_SceneTransition()
+    private IEnumerator I_SceneTransition(GameObject player)
     {
-        yield return SceneManager.LoadSceneAsync(nextSceneName);
+        player.GetComponent<PlayerMovement>().SetMovementEnabled(false);
+        GameManager.Instance.Hud.BlackFadeFinishOnMiddle(duration: 2f);
+
+        yield return new WaitForSeconds(2.25f);
+        
+        SceneManager.LoadSceneAsync(nextSceneName);
     }
 }
