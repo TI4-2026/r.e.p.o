@@ -4483,7 +4483,7 @@ Transform:
   m_GameObject: {fileID: 97361594}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03742109, y: 0, z: 0, w: 0.9992996}
-  m_LocalPosition: {x: -537.9, y: 32.42, z: -127.97}
+  m_LocalPosition: {x: -537.9, y: 32.58117, z: -127.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51551,7 +51551,7 @@ Transform:
   m_GameObject: {fileID: 1220860705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -541.4, y: 32.44, z: -128.8}
+  m_LocalPosition: {x: -537.9, y: 30.581171, z: -123.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60240,7 +60240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.42
+      value: 30.581171
       objectReference: {fileID: 0}
     - target: {fileID: 4420632344708239137, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68051,6 +68051,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimeTravel
   futureSO: {fileID: 1256326321}
   pastSO: {fileID: 173042784}
+  deathDialogInitial: {fileID: 11400000, guid: 6b25764f92c52c3428b21d16428c5d62, type: 2}
+  deathDialogs:
+  - {fileID: 11400000, guid: b28ec47cd9887bb4c861b5a2cb67d28e, type: 2}
+  - {fileID: 11400000, guid: 22d8dd1527312da4dad97f46f589bed3, type: 2}
+  - {fileID: 11400000, guid: f42531b48af02fb4b9888bec75609f49, type: 2}
   transitionFadeDuration: 0.6
   PlayerAnim: {fileID: 1467605966}
 --- !u!4 &1649285908
@@ -68062,7 +68067,7 @@ Transform:
   m_GameObject: {fileID: 1649285906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -519.3667, y: 30.5, z: 48.55876}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79737,7 +79742,7 @@ Transform:
   m_GameObject: {fileID: 1855705977}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03742109, y: 0, z: 0, w: 0.9992996}
-  m_LocalPosition: {x: -537.9, y: 32.42, z: -127.97}
+  m_LocalPosition: {x: -537.9, y: 32.58117, z: -127.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
