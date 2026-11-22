@@ -7,6 +7,7 @@ public class PlayerInteraction: MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineInputAxisController cameraInputAxisController;
+    [SerializeField] private GameObject keyOnAliceHand;
     private PlayerMovement playerMovement;
 
     private bool isCursorLocked = true;
@@ -28,6 +29,7 @@ public class PlayerInteraction: MonoBehaviour
         LockCursor();
 
         TimeTravel.OnTimeChange.AddListener(RevokeInteraction);
+        keyOnAliceHand.SetActive(false);
     }
 
     private void OnDestroy()
@@ -74,6 +76,20 @@ public class PlayerInteraction: MonoBehaviour
     }
 
     // ----------------- Public Methods -----------------
+
+    public void EnableKeyOnAliceHand()
+    {
+        if (keyOnAliceHand == null) return;
+        
+        keyOnAliceHand.SetActive(true);
+    }
+
+    public void DisableKeyOnAliceHand()
+    {
+        if (keyOnAliceHand == null) return;
+        
+        keyOnAliceHand.SetActive(false);
+    }
 
     public void BlockTimeTravelInput()
     {
