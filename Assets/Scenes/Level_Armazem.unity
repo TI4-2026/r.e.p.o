@@ -6331,7 +6331,7 @@ PrefabInstance:
       objectReference: {fileID: 532542864}
     - target: {fileID: 1463231044258399484, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1463231044258399484, guid: 9f100a6635b96114fbb120f6ebabd71c, type: 3}
       propertyPath: globalVolume
@@ -6473,7 +6473,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 172681033}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83b575af7e62ac34ab51e976aeb40add, type: 3}
   m_Name: 
@@ -32652,6 +32652,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3508980169091372870, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386728670303539512, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386728670303539512, guid: 5453dac144e5ba547ab8346c8f2eb94b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -65766,17 +65774,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeTravelVFX
       objectReference: {fileID: 0}
+    - target: {fileID: 698134392689475023, guid: b937b7317749b584e9ce010317a0b0f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5204777840238772565, guid: b937b7317749b584e9ce010317a0b0f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -728.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5204777840238772565, guid: b937b7317749b584e9ce010317a0b0f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.793583
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5204777840238772565, guid: b937b7317749b584e9ce010317a0b0f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.234297
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5204777840238772565, guid: b937b7317749b584e9ce010317a0b0f8, type: 3}
       propertyPath: m_LocalRotation.w

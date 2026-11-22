@@ -40,11 +40,10 @@ public class PlayerTimeControl : MonoBehaviour
         if (context.performed && podeUsarTimeStop)
         {
             podeUsarTimeStop = false;
-            
-            Debug.Log(timeManager.gameObject.name);
             timeManager.SetTimeMultiplier(0f);
 
             globalVolume.sharedProfile = timeStop;
+            GameManager.Instance.Hud.TimeChangeEffect(2f, false);
 
             rotinaAtual = StartCoroutine(ChangeBack());
         }
