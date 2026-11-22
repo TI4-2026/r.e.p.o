@@ -184,11 +184,13 @@ public class Hud : MonoBehaviour
             Destroy(incomingObject);
             deathPanel.gameObject.SetActive(false);
             onComplete?.Invoke();
+            /*
             if (newValue <= 0)
             {
                 Scene currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }
+            */
         });
     }
 

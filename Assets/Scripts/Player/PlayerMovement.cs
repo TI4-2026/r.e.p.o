@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             moveStep = new Vector3(horizStep.x, moveStep.y, horizStep.z);
 
         }
-
+        
         if (characterController.enabled) characterController.Move(moveStep);
         playerCollisionSelf.ccMoved.Invoke();
         float animSpeed = isVelocityOverridden ? moveInput.magnitude : currentMoveInput.magnitude;

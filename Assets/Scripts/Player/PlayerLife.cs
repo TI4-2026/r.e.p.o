@@ -139,6 +139,11 @@ public class PlayerLife : MonoBehaviour
                 playerInteraction.LockCursor();
                 ResetHealth();
             }
+            else
+            {
+                playerInteraction.UnlockCursor();
+                SceneManager.LoadSceneAsync("Menu");
+            }
         });
     }
 }
