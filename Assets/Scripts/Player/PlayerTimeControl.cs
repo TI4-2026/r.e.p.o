@@ -41,7 +41,6 @@ public class PlayerTimeControl : MonoBehaviour
         {
             podeUsarTimeStop = false;
             
-            
             Debug.Log(timeManager.gameObject.name);
             timeManager.SetTimeMultiplier(0f);
 
