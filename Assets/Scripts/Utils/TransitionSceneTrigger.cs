@@ -45,6 +45,7 @@ public class TransitionSceneTrigger : MonoBehaviour
     private IEnumerator I_SceneTransition(GameObject player)
     {
         player.GetComponent<PlayerMovement>().SetMovementEnabled(false);
+        player.GetComponent<PlayerInteraction>().UnlockCursor();
         GameManager.Instance.Hud.BlackFadeFinishOnMiddle(duration: 0.75f);
 
         yield return new WaitForSeconds(1f);

@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
             case 3:
                 currentDialog = thirdKeyDialog;
                 break;
+            case 4:
+                return;
         }
         DialogManager.Instance.IniciarDialogo(currentDialog);
     }
