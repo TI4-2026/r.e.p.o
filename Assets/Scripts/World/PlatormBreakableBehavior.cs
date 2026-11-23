@@ -23,19 +23,12 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
     {
         base.Awake();
 
-        distance = 5f;
-        speed = 5f;
-        waitTime = 5f;
-
         pointA = transform.position;
         pointB = pointA + Vector3.down * fallDistance;
     }
 
     protected override void Movement()
     {
-        if (!isActive || isBreaking) return;
-
-        base.Movement();
     }
 
     public void OnPlayerCollision()
