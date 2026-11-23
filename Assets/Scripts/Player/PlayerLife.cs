@@ -19,6 +19,7 @@ public class PlayerLife : MonoBehaviour
     private Hud hud;
     private CharacterController characterController;
     private PlayerInteraction playerInteraction;
+    private PlayerMovement playerMovement;
     private int healthProgression = 0;
 
     // ----------- Unity Methods -----------
@@ -33,6 +34,7 @@ public class PlayerLife : MonoBehaviour
         life = maxLife;
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponent<PlayerInteraction>();
+        playerMovement = GetComponent<PlayerMovement>();
         hud = GameManager.Instance.Hud;
 
         hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
@@ -142,8 +144,17 @@ public class PlayerLife : MonoBehaviour
             else
             {
                 playerInteraction.UnlockCursor();
-                SceneManager.LoadSceneAsync("Menu");
+                playerMovement.SetMovementEnabled(false);
+                StartCoroutine(I_GameOver());
             }
         });
+    }
+    
+    private IEnumerator I_GameOver()
+    {
+        InfoManager.Instance.SetGameOver(true);
+        yield return new WaitForSeconds(3f);
+        
+        SceneManager.LoadSceneAsync("Menu");
     }
 }

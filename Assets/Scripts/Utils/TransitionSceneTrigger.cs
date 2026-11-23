@@ -7,6 +7,7 @@ public class TransitionSceneTrigger : MonoBehaviour
 {
     [SerializeField] private string nextSceneName;
     [SerializeField] private bool isExit;
+    [SerializeField] private bool isVictory=false;
     
     private bool isEnabled;
     
@@ -47,8 +48,18 @@ public class TransitionSceneTrigger : MonoBehaviour
         player.GetComponent<PlayerMovement>().SetMovementEnabled(false);
         player.GetComponent<PlayerInteraction>().UnlockCursor();
         GameManager.Instance.Hud.BlackFadeFinishOnMiddle(duration: 0.75f);
+        
+        yield return new WaitForSeconds(0.75f);
 
-        yield return new WaitForSeconds(1f);
+        if (isVictory)
+        {
+            InfoManager.Instance.SetVictory(true);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
         
         SceneManager.LoadSceneAsync(nextSceneName);
     }

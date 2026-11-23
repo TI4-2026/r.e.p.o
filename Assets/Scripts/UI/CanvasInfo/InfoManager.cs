@@ -23,6 +23,8 @@ public class InfoManager : MonoBehaviour
     [SerializeField] private float maxActivesCards;
     [SerializeField] private GameObject cardList;
     [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject victoryPanel;
 
     private List<GameObject> cardsActive;
 
@@ -31,6 +33,9 @@ public class InfoManager : MonoBehaviour
     private void Start()
     {
         cardsActive = new List<GameObject>();
+        
+        gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
     }
 
     // -------------- Public Methods --------------
@@ -52,6 +57,16 @@ public class InfoManager : MonoBehaviour
     public void RemoveCard(GameObject card)
     {
         cardsActive.Remove(card);
+    }
+
+    public void SetGameOver(bool enabled)
+    {
+        gameOverPanel.SetActive(enabled);
+    }
+    
+    public void SetVictory(bool enabled)
+    {
+        victoryPanel.SetActive(enabled);
     }
 
     // -------------- Private Methods --------------
