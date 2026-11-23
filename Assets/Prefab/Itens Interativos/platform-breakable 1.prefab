@@ -248,9 +248,9 @@ GameObject:
   - component: {fileID: 4073510134276424564}
   - component: {fileID: 5897706055956480176}
   - component: {fileID: 6183161097972049097}
-  - component: {fileID: 6237418417571133473}
   - component: {fileID: 7886798528900841975}
   - component: {fileID: 462395536923478840}
+  - component: {fileID: 5706156193780926182}
   m_Layer: 6
   m_Name: platform-breakable 1
   m_TagString: Platform
@@ -324,25 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db037de7298b4d41a501880a2431434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PC_PlatformBreakable
---- !u!114 &6237418417571133473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957023780922992990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7fed030d2314cf459d9c0d283136f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlatormBreakableBehavior
-  rightDirection: 0
-  distance: 0
-  speed: 0
-  waitTime: 2
-  secondsToBreak: 1.5
-  secondsToReset: 4
-  isActive: 1
 --- !u!23 &7886798528900841975
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -413,6 +394,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0950766, y: 0.80024743, z: 3.0950766}
   m_Center: {x: 0, y: -0.32023555, z: 0}
+--- !u!114 &5706156193780926182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957023780922992990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fed030d2314cf459d9c0d283136f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatormBreakableBehavior
+  rightDirection: 1
+  distance: 5
+  speed: 2
+  waitTime: 2
+  secondsToBreak: 1
+  secondsToFall: 2
+  secondsToReset: 3
+  secondsToReturn: 2
+  isActive: 1
+  fallDistance: 10
 --- !u!1 &5070403028596153261
 GameObject:
   m_ObjectHideFlags: 0

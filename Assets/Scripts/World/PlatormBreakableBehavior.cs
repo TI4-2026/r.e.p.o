@@ -11,15 +11,24 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
     [SerializeField] private float secondsToReturn = 2f;
     [SerializeField] private bool isActive = true;
 
-    [Header("Positions")]
-    public Transform pointA;
-    public Transform pointB;
+    [Header("Fall Settings")]
+    [SerializeField] private float fallDistance = 10f;
+
+    private Vector3 pointA;
+    private Vector3 pointB;
 
     private bool isBreaking = false;
 
     protected override void Awake()
     {
         base.Awake();
+
+        distance = 5f;
+        speed = 5f;
+        waitTime = 5f;
+
+        pointA = transform.position;
+        pointB = pointA + Vector3.down * fallDistance;
     }
 
     protected override void Movement()
@@ -32,7 +41,6 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
     public void OnPlayerCollision()
     {
         if (isBreaking || !isActive) return;
-        if (pointA == null || pointB == null) return;
 
         StartCoroutine(I_BreakPlatform());
     }
@@ -57,9 +65,6 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
             yield return null;
         }
 
-        Vector3 posicaoInicial = transform.position;
-        Vector3 posicaoFinal = pointB.position;
-
         tempoAtual = 0f;
 
         while (tempoAtual < secondsToFall)
@@ -68,12 +73,12 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
 
             float t = Mathf.Clamp01(tempoAtual / secondsToFall);
 
-            transform.position = Vector3.Lerp(posicaoInicial, posicaoFinal, t);
+            transform.position = Vector3.Lerp(pointA, pointB, t);
 
             yield return null;
         }
 
-        transform.position = posicaoFinal;
+        transform.position = pointB;
 
         tempoAtual = 0f;
 
@@ -91,12 +96,12 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
 
             float t = Mathf.Clamp01(tempoAtual / secondsToReturn);
 
-            transform.position = Vector3.Lerp(posicaoFinal, posicaoInicial, t);
+            transform.position = Vector3.Lerp(pointB, pointA, t);
 
             yield return null;
         }
 
-        transform.position = posicaoInicial;
+        transform.position = pointA;
 
         isBreaking = false;
     }
