@@ -5,12 +5,17 @@ using System.Collections;
 public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
 {
     [Header("Breakable Attributes")]
-    [SerializeField] private float secondsToBreak;
-    [SerializeField] private float secondsToReset;
+    [SerializeField] private float secondsToBreak = 1f;
+    [SerializeField] private float secondsToFall = 2f;
+    [SerializeField] private float secondsToReset = 3f;
+    [SerializeField] private float secondsToReturn = 2f;
     [SerializeField] private bool isActive = true;
 
-    private BoxCollider boxCollider;
-    private MeshRenderer meshRenderer;
+    [Header("Fall Settings")]
+    [SerializeField] private float fallDistance = 10f;
+
+    private Vector3 pointA;
+    private Vector3 pointB;
 
     private bool isBreaking = false;
 
@@ -18,26 +23,13 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
     {
         base.Awake();
 
-        boxCollider = GetComponent<BoxCollider>();
-        meshRenderer = GetComponent<MeshRenderer>();
+        pointA = transform.position;
+        pointB = pointA + Vector3.down * fallDistance;
     }
 
     protected override void Movement()
     {
-        if (!isActive) return;
-
-        base.Movement();
     }
-
-    protected void OnEnable()
-    {
-        if (boxCollider != null)
-            boxCollider.enabled = true;
-
-        if (meshRenderer != null)
-            meshRenderer.enabled = true;
-    }
-    // -------------------- Public Methods --------------------
 
     public void OnPlayerCollision()
     {
@@ -46,7 +38,13 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
         StartCoroutine(I_BreakPlatform());
     }
 
-    // -------------------- Enumerators Methods --------------------
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            OnPlayerCollision();
+        }
+    }
 
     private IEnumerator I_BreakPlatform()
     {
@@ -60,10 +58,20 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
             yield return null;
         }
 
-        boxCollider.enabled = false;
-        meshRenderer.enabled = false;
+        tempoAtual = 0f;
 
-        transform.position = startPosition;
+        while (tempoAtual < secondsToFall)
+        {
+            tempoAtual += Time.deltaTime * timeMultiplier;
+
+            float t = Mathf.Clamp01(tempoAtual / secondsToFall);
+
+            transform.position = Vector3.Lerp(pointA, pointB, t);
+
+            yield return null;
+        }
+
+        transform.position = pointB;
 
         tempoAtual = 0f;
 
@@ -73,8 +81,20 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
             yield return null;
         }
 
-        boxCollider.enabled = true;
-        meshRenderer.enabled = true;
+        tempoAtual = 0f;
+
+        while (tempoAtual < secondsToReturn)
+        {
+            tempoAtual += Time.deltaTime * timeMultiplier;
+
+            float t = Mathf.Clamp01(tempoAtual / secondsToReturn);
+
+            transform.position = Vector3.Lerp(pointB, pointA, t);
+
+            yield return null;
+        }
+
+        transform.position = pointA;
 
         isBreaking = false;
     }
