@@ -8,6 +8,7 @@ public class TimeTravel_ObjectBehavior : MonoBehaviour
     private void Start()
     {
         TimeTravel.OnTimeChange.AddListener(OnTimeTravel);
+        EnablePast();
     }
 
     private void OnTimeTravel()

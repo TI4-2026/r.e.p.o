@@ -28,7 +28,8 @@ public class Hud : MonoBehaviour
     private Coroutine fadeCoroutine;
     private Action activeFadeOnComplete;
     private bool activeFade;
-    
+
+    private MusicManager mm;
 
     public bool IsFading => fadeCoroutine != null;
     public bool ActiveFade => activeFade;
@@ -41,6 +42,7 @@ public class Hud : MonoBehaviour
         {
             GameManager.Instance.Hud = this;
         }
+        mm = FindFirstObjectByType<MusicManager>();
     }
 
     private void Start()
@@ -153,11 +155,13 @@ public class Hud : MonoBehaviour
 
     public void LostChance(float oldValue, float newValue, Action onComplete = null)
     {
+        mm.musics[mm.currentMusic].Stop();
         activeFade = true;
         if (deathPanel != null)
         {
         deathPanel.gameObject.SetActive(true);
         }
+
         RectTransform currentRect = chancesText.rectTransform;
         Vector2 centerPosition = currentRect.anchoredPosition;
         GameObject incomingObject = Instantiate(chancesText.gameObject, chancesText.transform.parent);
@@ -173,8 +177,8 @@ public class Hud : MonoBehaviour
 
         LeanTween.cancel(currentRect.gameObject);
         LeanTween.cancel(incomingRect.gameObject);
-        LeanTween.move(currentRect, centerPosition + Vector2.down * 500f, 3f).setEaseInCubic().setIgnoreTimeScale(true);
-        LeanTween.move(incomingRect, centerPosition, 3f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
+        LeanTween.move(currentRect, centerPosition + Vector2.down * 1000f, 6f).setEaseInCubic().setIgnoreTimeScale(true);
+        LeanTween.move(incomingRect, centerPosition, 6f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
         {
             activeFade = false;
             healthBar.color = Color.green;
@@ -183,6 +187,7 @@ public class Hud : MonoBehaviour
             currentRect.anchoredPosition = centerPosition;
             Destroy(incomingObject);
             deathPanel.gameObject.SetActive(false);
+            mm.PlayMusic(mm.currentMusic);
             onComplete?.Invoke();
             /*
             if (newValue <= 0)

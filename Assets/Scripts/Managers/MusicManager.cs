@@ -6,7 +6,7 @@ public class MusicManager : MonoBehaviour//singleton
 
     public AudioSource[] musics;
     public static MusicManager instance;
-    private int currentMusic;
+    public int currentMusic;
     private float fadeDuration = 1f;
     public AudioMixerGroup sfxMixer;
     public static AudioMixerGroup sfxMixerGroup;
