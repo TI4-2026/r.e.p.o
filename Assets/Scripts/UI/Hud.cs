@@ -172,7 +172,7 @@ public class Hud : MonoBehaviour
         incomingRect.anchorMax = currentRect.anchorMax;
         incomingRect.pivot = currentRect.pivot;
         incomingRect.sizeDelta = currentRect.sizeDelta;
-        incomingRect.anchoredPosition = centerPosition + Vector2.up * 60f;
+        incomingRect.anchoredPosition = centerPosition + Vector2.up * 200f;
         currentRect.anchoredPosition = centerPosition;
 
         LeanTween.cancel(currentRect.gameObject);
