@@ -120,7 +120,7 @@ public class TimeTravel : MonoBehaviour
         }
         
         if (gameManager.IsRespawning) return;
-        if (gameManager.Hud.IsFading || gameManager.Hud.ActiveFade) return;
+        if (gameManager.Hud.IsFading) return;
         if (isChangingTime) return;
 
         if (cooldown >= CooldownDuration && !isChangingTime)
@@ -195,11 +195,7 @@ public class TimeTravel : MonoBehaviour
     private void FinishTimeChange()
     {
         isChangingTime = false;
-        Hud hud = GameManager.Instance != null ? GameManager.Instance.Hud : null;
-        if (hud == null || !hud.ActiveFade)
-        {
-            Time.timeScale = 1f;
-        }
+        Time.timeScale = 1f;
     }
 
     private void UpdateCooldownDisplay()

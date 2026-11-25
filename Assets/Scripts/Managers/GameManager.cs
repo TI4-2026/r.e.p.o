@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         DialogManager.Instance.IniciarDialogo(currentDialog);
     }
     
-    public void SpawnPlayer(GameObject player, bool shownBlackFade = false)
+    public void RespawnPlayer(GameObject player, bool shownBlackFade = false, float duration=1f)
     {
         Transform teleportPoint = checkpoint != null ? checkpoint : spawn;
         player.TryGetComponent(out PlayerMovement playerMovement);
@@ -97,7 +97,8 @@ public class GameManager : MonoBehaviour
                 {
                     IsRespawning = false;
                     playerMovement.SetMovementEnabled(true);
-                }
+                },
+                duration
             );
         }
         else
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer(GameObject player, bool showBlackFade = false)
     {
-        SpawnPlayer(player, showBlackFade);
+        RespawnPlayer(player, showBlackFade, 0.75f);
         
     }
 

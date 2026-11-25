@@ -6,6 +6,6 @@ public class PC_KillZoneBehavior : PlayerCollisionObject
     {
         PlayerLife playerLife = go.GetComponent<PlayerLife>();
         playerLife.TakeDamage(10f);
-        GameManager.Instance.KillPlayer(go);
+        GameManager.Instance.KillPlayer(go, true);
     }
 }

@@ -7,7 +7,6 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private float maxLife = 100f;
     private float life;
-    [SerializeField] private float chances = 3;
     public Image healthBar;
     public AudioClip impactSound;
     public AudioClip strikeSound;
@@ -16,11 +15,11 @@ public class PlayerLife : MonoBehaviour
     private float inviciTime = 1f;
     private float inviciEnd = -1f;
     private bool isKnockedBack;
+    private bool isDead;
     private Hud hud;
     private CharacterController characterController;
     private PlayerInteraction playerInteraction;
     private PlayerMovement playerMovement;
-    private int healthProgression = 0;
 
     // ----------- Unity Methods -----------
 
@@ -65,14 +64,14 @@ public class PlayerLife : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (Time.time <= inviciEnd)
+        if (isDead || Time.time <= inviciEnd)
             return;
 
         life = Mathf.Max(life - damage, 0f);
         inviciEnd = Time.time + inviciTime;
 
         hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
-            hud.ChangeHealthBar(life, maxLife);
+        hud.ChangeHealthBar(life, maxLife);
         if (life <= 0)
         {
             Die();
@@ -81,6 +80,9 @@ public class PlayerLife : MonoBehaviour
 
     public void Heal(float amount)
     {
+        if (isDead)
+            return;
+
         life = Mathf.Min(life + amount, maxLife);
         hud.FlashHealthBar(healthBar.color, life, maxLife);
     }
@@ -94,7 +96,7 @@ public class PlayerLife : MonoBehaviour
 
     public void ApplyKnockback(Vector3 sourcePosition, float force)
     {
-        if (isKnockedBack)
+        if (isDead || isKnockedBack)
             return;
         Vector3 direction = (transform.position - sourcePosition);
         direction.Normalize();
@@ -127,34 +129,36 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        if (isDead)
+            return;
+
+        isDead = true;
         StopAllCoroutines();
         isKnockedBack = false;
-        GameManager.Instance.KillPlayer(gameObject);
-        Time.timeScale = 0f;
-        life = maxLife;
-        chances -= 1;
-        playerInteraction.UnlockCursor();
-        hud.LostChance(chances + 1, chances, () =>
+        Time.timeScale = 1f;
+
+        if (playerInteraction != null)
         {
-            if (chances > 0 && playerInteraction != null)
-            {
-                playerInteraction.LockCursor();
-                ResetHealth();
-            }
-            else
-            {
-                playerInteraction.UnlockCursor();
-                playerMovement.SetMovementEnabled(false);
-                StartCoroutine(I_GameOver());
-            }
-        });
+            playerInteraction.UnlockCursor();
+        }
+
+        if (playerMovement != null)
+        {
+            playerMovement.SetMovementEnabled(false);
+        }
+
+        StartCoroutine(I_GameOver());
     }
     
     private IEnumerator I_GameOver()
     {
-        InfoManager.Instance.SetGameOver(true);
-        yield return new WaitForSeconds(3f);
-        
+        if (InfoManager.Instance != null)
+        {
+            InfoManager.Instance.SetGameOver(true);
+        }
+        yield return new WaitForSecondsRealtime(3f);
+
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync("Menu");
     }
 }

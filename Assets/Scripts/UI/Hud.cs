@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
@@ -15,8 +13,6 @@ public class Hud : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image panelFade;
     public Image healthBar;
-    [SerializeField] private Image deathPanel;
-    [SerializeField] private TextMeshProUGUI chancesText;
     [SerializeField] private Animator timeTravelEffect;
     [SerializeField] private AudioClip timeSoundSfx;
     [SerializeField] private Slider timeTravelCooldownSlider;
@@ -27,12 +23,8 @@ public class Hud : MonoBehaviour
 
     private Coroutine fadeCoroutine;
     private Action activeFadeOnComplete;
-    private bool activeFade;
-
-    private MusicManager mm;
 
     public bool IsFading => fadeCoroutine != null;
-    public bool ActiveFade => activeFade;
 
     // ----------- Unity Methods -----------
     
@@ -42,7 +34,6 @@ public class Hud : MonoBehaviour
         {
             GameManager.Instance.Hud = this;
         }
-        mm = FindFirstObjectByType<MusicManager>();
     }
 
     private void Start()
@@ -53,11 +44,6 @@ public class Hud : MonoBehaviour
         _timeTravelDefaultColor = timeTravelFill.color;
         
         timeTravelEffect.gameObject.SetActive(false);
-    }
-    
-    private void OnDisable()
-    {
-        activeFade = false;
     }
 
     // ----------- Public Methods -----------
@@ -151,52 +137,6 @@ public class Hud : MonoBehaviour
     {
         timeTravelBackground.color = timeTravelDisabledColor;
         timeTravelFill.color = timeTravelDisabledColor;
-    }
-
-    public void LostChance(float oldValue, float newValue, Action onComplete = null)
-    {
-        mm.musics[mm.currentMusic].Stop();
-        activeFade = true;
-        if (deathPanel != null)
-        {
-        deathPanel.gameObject.SetActive(true);
-        }
-
-        RectTransform currentRect = chancesText.rectTransform;
-        Vector2 centerPosition = currentRect.anchoredPosition;
-        GameObject incomingObject = Instantiate(chancesText.gameObject, chancesText.transform.parent);
-        TextMeshProUGUI incomingText = incomingObject.GetComponent<TextMeshProUGUI>();
-        RectTransform incomingRect = incomingObject.GetComponent<RectTransform>();
-        incomingText.text = newValue.ToString();
-        incomingRect.anchorMin = currentRect.anchorMin;
-        incomingRect.anchorMax = currentRect.anchorMax;
-        incomingRect.pivot = currentRect.pivot;
-        incomingRect.sizeDelta = currentRect.sizeDelta;
-        incomingRect.anchoredPosition = centerPosition + Vector2.up * 200f;
-        currentRect.anchoredPosition = centerPosition;
-
-        LeanTween.cancel(currentRect.gameObject);
-        LeanTween.cancel(incomingRect.gameObject);
-        LeanTween.move(currentRect, centerPosition + Vector2.down * 1000f, 6f).setEaseInCubic().setIgnoreTimeScale(true);
-        LeanTween.move(incomingRect, centerPosition, 6f).setEaseOutCubic().setIgnoreTimeScale(true).setOnComplete(() =>
-        {
-            activeFade = false;
-            healthBar.color = Color.green;
-            Time.timeScale = 1f;
-            chancesText.text = newValue.ToString();
-            currentRect.anchoredPosition = centerPosition;
-            Destroy(incomingObject);
-            deathPanel.gameObject.SetActive(false);
-            mm.PlayMusic(mm.currentMusic);
-            onComplete?.Invoke();
-            /*
-            if (newValue <= 0)
-            {
-                Scene currentScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currentScene.name);
-            }
-            */
-        });
     }
 
 
