@@ -20,6 +20,7 @@ public class Hud : MonoBehaviour
     [SerializeField] private Image timeTravelBackground;
     [SerializeField] Color timeTravelDisabledColor;
     private Color _timeTravelDefaultColor;
+    UIGlitch glitch;
 
     private Coroutine fadeCoroutine;
     private Action activeFadeOnComplete;
@@ -82,7 +83,8 @@ public class Hud : MonoBehaviour
 
     public void FlashHealthBar(Color color, float life, float maxLife)
     {
-        LeanTween.value(healthBar.gameObject, color, Color.white, 0.1f)
+        glitch = healthBar.GetComponent<UIGlitch>();
+        LeanTween.value(healthBar.gameObject, color, Color.cyan, 0.1f)
         .setIgnoreTimeScale(true).setEaseInOutSine()
         .setOnUpdate(value => healthBar.color = value)
         .setOnComplete(() =>
@@ -101,6 +103,7 @@ public class Hud : MonoBehaviour
             {
                 healthBar.fillAmount = life / maxLife;
                 rect.anchoredPosition = originalPosition;
+                glitch.PlayGlitch();
             });
     }
 

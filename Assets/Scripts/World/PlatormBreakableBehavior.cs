@@ -22,7 +22,7 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
     protected override void Awake()
     {
         base.Awake();
-
+        TimeTravel.OnTimeChange.AddListener(ResetPlatform);
         pointA = transform.position;
         pointB = pointA + Vector3.down * fallDistance;
     }
@@ -97,5 +97,11 @@ public class PlatormBreakableBehavior : PlatformBehavior, ITimeAffectable
         transform.position = pointA;
 
         isBreaking = false;
+    }
+
+    private void ResetPlatform()
+    {
+        StopAllCoroutines();
+        transform.position = pointA;
     }
 }

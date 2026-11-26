@@ -48,6 +48,8 @@ public class InfoManager : MonoBehaviour
         }
         
         GameObject card = Instantiate(cardPrefab, cardList.transform);
+        UIGlitch glitch = card.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
         card.GetComponent<CardBehavior>().InitializeCard(data);
         
         cardsActive.Add(card);

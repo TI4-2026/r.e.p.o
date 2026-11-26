@@ -35,8 +35,6 @@ public class PlayerLife : MonoBehaviour
         playerInteraction = GetComponent<PlayerInteraction>();
         playerMovement = GetComponent<PlayerMovement>();
         hud = GameManager.Instance.Hud;
-
-        hud.FlashHealthBar(hud.healthBar.color, life, maxLife);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
