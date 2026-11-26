@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 8884515758096864154}
   - component: {fileID: 2933482782306113594}
   - component: {fileID: 4639494102148146523}
+  - component: {fileID: 5558988175441195230}
   m_Layer: 5
   m_Name: DialogBox
   m_TagString: Untagged
@@ -644,6 +645,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5558988175441195230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797174037254403517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 8884515758096864154}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &2865451814782186222
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +682,7 @@ GameObject:
   - component: {fileID: 4354879321192792557}
   - component: {fileID: 7291065486844088167}
   - component: {fileID: 8701026058862353541}
+  - component: {fileID: 3651379848395989038}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -719,6 +747,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3651379848395989038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865451814782186222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 4354879321192792557}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.01
+  maxInterval: 0.05
+  duration: 0.2
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &3685534440335856551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1144,7 @@ MonoBehaviour:
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 0.5882353}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1106,7 +1160,7 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 193
+    atime0: 0
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -1391,6 +1445,7 @@ GameObject:
   - component: {fileID: 5567051289332990617}
   - component: {fileID: 3115935315475616549}
   - component: {fileID: 5334405251361708163}
+  - component: {fileID: 3234209726973681573}
   m_Layer: 5
   m_Name: PanelFade
   m_TagString: Untagged
@@ -1455,6 +1510,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3234209726973681573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388100749130872636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 5567051289332990617}
+  includeChildren: 1
+  offset: 120
+  scaleRange: {x: 0.2, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.05
+  maxInterval: 0.15
+  duration: 0.3
+  glitchColors:
+  - {r: 0.08235294, g: 0.050980393, b: 0.96862745, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.8509804, g: 0.1882353, b: 0.14509805, a: 1}
+  colorInterval: 0.06
 --- !u!1 &7597537407943942791
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 8575965186379910625}
   - component: {fileID: -4196438753020425162}
   - component: {fileID: 2686662812080967366}
+  - component: {fileID: 5564159969710049366}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -193,6 +194,34 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5564159969710049366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813599350298768090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c83b266d8468734480ac054814dacaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGlitch
+  target: {fileID: 0}
+  includeChildren: 1
+  offset: 12
+  scaleRange: {x: 0.9, y: 1.1}
+  sizeJitter: {x: 8, y: 4}
+  affectSize: 1
+  minInterval: 0.03
+  maxInterval: 0.15
+  duration: 0.6
+  glitchColors:
+  - {r: 1, g: 0.7529413, b: 0.7960785, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 0.627451, g: 0.1254902, b: 0.9411765, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  colorInterval: 0.06
 --- !u!1 &862589317834615228
 GameObject:
   m_ObjectHideFlags: 0

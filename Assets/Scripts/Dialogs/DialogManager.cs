@@ -22,6 +22,7 @@ public class DialogManager : MonoBehaviour
     public CharacterController Player;
     private PlayerMovement _playerMovement;
     private PlayerInteraction _playerInteraction;
+    UIGlitch glitch;
 
     float tempoPorLetra = 0.03f;
 
@@ -49,6 +50,9 @@ public class DialogManager : MonoBehaviour
             .setEase(LeanTweenType.easeOutBack)
             .setIgnoreTimeScale(true)
             .setDelay(1 * 0.3f);
+
+        glitch = dialogBox.GetComponent<UIGlitch>();
+        glitch.PlayGlitch();
         dialog = dialogoInicial;
         if (dialog == null)
         {
