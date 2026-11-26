@@ -79,6 +79,27 @@ public class Sandevistan : MonoBehaviour
                 trailObjects.Add(gObj);
                 gObj.transform.SetPositionAndRotation(positionToSpawn.position, positionToSpawn.rotation);
 
+                /*MeshRenderer mr = gObj.AddComponent<MeshRenderer>();
+                MeshFilter mf = gObj.AddComponent<MeshFilter>();
+
+                Mesh mesh = new Mesh();
+                skinnedMeshRenderer[i].BakeMesh(mesh);
+                trailMeshes.Add(mesh);
+
+                mf.mesh = mesh;
+                Material[] materiais = new Material[mesh.subMeshCount];
+
+                for (int j = 0; j < materiais.Length; j++)
+                {
+                    materiais[j] = mat;
+                }
+
+                mr.materials = materiais;
+                Material trailMaterial = mr.material;
+                trailMaterials.Add(trailMaterial);
+
+                StartCoroutine (AnimateMaterialFloat(trailMaterial, 0, shaderVarRate, shaderVarRefreshRate));*/
+
                 MeshRenderer mr = gObj.AddComponent<MeshRenderer>();
                 MeshFilter mf = gObj.AddComponent<MeshFilter>();
 
@@ -87,15 +108,30 @@ public class Sandevistan : MonoBehaviour
                 trailMeshes.Add(mesh);
 
                 mf.mesh = mesh;
-                mr.material = mat;
-                Material trailMaterial = mr.material;
-                trailMaterials.Add(trailMaterial);
 
-                StartCoroutine (AnimateMaterialFloat(trailMaterial, 0, shaderVarRate, shaderVarRefreshRate));
+                Material[] materiais = new Material[mesh.subMeshCount];
 
-                Destroy (gObj, meshDestroyDelay);
+                for (int j = 0; j < materiais.Length; j++)
+                {
+                    materiais[j] = new Material(mat);
+                    trailMaterials.Add(materiais[j]);
+                }
+
+                mr.materials = materiais;
+
+                StartCoroutine(AnimateMaterialsFloat(materiais, 0, shaderVarRate, shaderVarRefreshRate));
+
+                /*Destroy (gObj, meshDestroyDelay);
                 Destroy (mesh, meshDestroyDelay);
-                Destroy (trailMaterial, meshDestroyDelay);
+                Destroy (trailMaterial, meshDestroyDelay);*/
+
+                Destroy(gObj, meshDestroyDelay);
+                Destroy(mesh, meshDestroyDelay);
+
+                for (int j = 0; j < materiais.Length; j++)
+                {
+                    Destroy(materiais[j], meshDestroyDelay);
+                }
             }
 
             yield return new WaitForSeconds(meshRefreshRate);
@@ -134,7 +170,8 @@ public class Sandevistan : MonoBehaviour
         trailMeshes.Clear();
         trailMaterials.Clear();
     }
-    IEnumerator AnimateMaterialFloat(Material mat, float goal, float rate, float meshRefreshRate)
+
+    /*IEnumerator AnimateMaterialFloat(Material mat, float goal, float rate, float meshRefreshRate)
     {
         float valueToAnimate = mat.GetFloat(shaderVarRef);
 
@@ -143,6 +180,23 @@ public class Sandevistan : MonoBehaviour
             valueToAnimate -= rate;
             mat.SetFloat(shaderVarRef, valueToAnimate);
             yield return new WaitForSeconds(meshRefreshRate);
+        }
+    }*/
+
+    IEnumerator AnimateMaterialsFloat(Material[] materiais, float goal, float rate, float refreshRate)
+    {
+        float valueToAnimate = materiais[0].GetFloat(shaderVarRef);
+
+        while (valueToAnimate > goal)
+        {
+            valueToAnimate -= rate;
+
+            for (int i = 0; i < materiais.Length; i++)
+            {
+                materiais[i].SetFloat(shaderVarRef, valueToAnimate);
+            }
+
+            yield return new WaitForSeconds(refreshRate);
         }
     }
 }
