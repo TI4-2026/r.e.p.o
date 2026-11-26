@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7665717506525633035}
+  - component: {fileID: 9123456789012345678}
   m_Layer: 0
   m_Name: Bloqueio_BarreiraPassado
   m_TagString: Untagged
@@ -16,6 +17,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9123456789012345678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65739904480460944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f8c2d19e3b47a0b6c1d8e5f2a9037c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXDistanceCuller
+  targetRoots:
+  - {fileID: 1308991715574367326}
+  - {fileID: 5179726919452535666}
+  maxDistance: 45
+  hysteresis: 5
+  checkInterval: 0.25
 --- !u!4 &7665717506525633035
 Transform:
   m_ObjectHideFlags: 0
@@ -50,7 +69,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8667494041343591734
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4434921415235622473
 Transform:
   m_ObjectHideFlags: 0
@@ -300,7 +319,6 @@ Transform:
   m_Children:
   - {fileID: 7174078579987978305}
   - {fileID: 2254890838484056949}
-  - {fileID: 8700943296298989345}
   - {fileID: 8163679824663792944}
   - {fileID: 5161879758528812487}
   - {fileID: 4995606979037012592}
@@ -394,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1282024970023485959
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,7 +1322,6 @@ Transform:
   m_Children:
   - {fileID: 1648067143231117759}
   - {fileID: 2502792732224885574}
-  - {fileID: 8742259583396116425}
   - {fileID: 236090555864007705}
   - {fileID: 8898098328941608853}
   - {fileID: 4709917529296674420}
@@ -1328,7 +1345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5774014701409284095
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,7 +1463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &15787995938765905
 Transform:
   m_ObjectHideFlags: 0
@@ -1564,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3638520453700310610
 Transform:
   m_ObjectHideFlags: 0
@@ -2408,128 +2425,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
   m_PrefabInstance: {fileID: 9004626622073198718}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &9140063933626388514
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6563506829887153792}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.765633
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.286333
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.28
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_Name
-      value: CanoFurado (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
---- !u!4 &8742259583396116425 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-  m_PrefabInstance: {fileID: 9140063933626388514}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &9166316907128344778
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8899403007273055394}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.765633
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.286333
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.28
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-      propertyPath: m_Name
-      value: CanoFurado (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
---- !u!4 &8700943296298989345 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67133489e4832204d83e9a8500560dd9, type: 3}
-  m_PrefabInstance: {fileID: 9166316907128344778}
   m_PrefabAsset: {fileID: 0}
