@@ -45,14 +45,17 @@ public class PlayerTimeControl : MonoBehaviour
             globalVolume.sharedProfile = timeStop;
             GameManager.Instance.Hud.TimeChangeEffect(2f, false);
 
-            rotinaAtual = StartCoroutine(ChangeBack());
+            rotinaAtual = StartCoroutine(ChangeBack(tempoTimeStop));
+        }
+        else if(context.performed)
+        {
+            StopCoroutine(rotinaAtual);
+            rotinaAtual = StartCoroutine(ChangeBack(0f));
         }
     }
 
-    IEnumerator ChangeBack()
+    IEnumerator ChangeBack(float tempoAtual)
     {
-        float tempoAtual = tempoTimeStop;
-
         while (tempoAtual > 0f)
         {
             tempoAtual -= Time.deltaTime;
