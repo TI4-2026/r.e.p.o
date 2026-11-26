@@ -18,8 +18,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 852
       y: -1433
-      width: 477
-      height: 2341
+      width: 474
+      height: 2434
     contents:
     - model: {fileID: 8926484042661614608}
       id: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 637
     y: -1433
-    width: 692
+    width: 689
     height: 2833
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -434,7 +434,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614662}
   - {fileID: 8926484042661614681}
   dataType: 0
-  capacity: 1024
+  capacity: 2048
   stripCapacity: 1
   particlePerStripCount: 32
   needsComputeBounds: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614613}
   m_Children: []
   m_UIPosition: {x: 357.33423, y: 1214.2454}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614629}
@@ -590,7 +590,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614871}
   - {fileID: 8926484042661614944}
   - {fileID: 8926484042661614992}
-  m_UIPosition: {x: 880, y: -347}
+  m_UIPosition: {x: 877, y: -496}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Parent: {fileID: 8926484042661614613}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614807}
@@ -1350,7 +1350,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 7
+      m_SerializableObject: 3
     m_Space: -1
   m_Property:
     name: MinSpeed
@@ -1384,7 +1384,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 7
+      m_SerializableObject: 5
     m_Space: -1
   m_Property:
     name: MaxSpeed
@@ -3209,7 +3209,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.14999619126319886},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.7323567271232605},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.8352941274642944}],"alphaKeys":[{"alpha":0.12156862765550614,"time":0.0},{"alpha":1.0,"time":0.052948806434869769},{"alpha":1.0,"time":1.0}],"gradientMode":2}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.14999619126319886},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.7323567271232605},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.8352941274642944}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.2235294133424759},{"alpha":1.0,"time":1.0}],"gradientMode":2}'
     m_Space: -1
   m_Property:
     name: Color
