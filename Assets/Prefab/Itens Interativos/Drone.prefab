@@ -64,8 +64,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.30209, y: 5.009964, z: 0.3129269}
+  m_Center: {x: -0.07835564, y: 2.5498319, z: 0.09517181}
 --- !u!114 &5956706099947479637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,10 +83,12 @@ MonoBehaviour:
   moveSpeed: 3.5
   rotationSpeed: 10
   canFly: 1
+  multiplicadorAtual: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: c4b6a52a5e2b028499de55b45857d66d, type: 3}
 --- !u!54 &7063072411823266103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,7 +131,7 @@ MonoBehaviour:
   damage: 10
   knockbackPower: 15
   impactSound: {fileID: 8300000, guid: 881c9e572a5c286428b5d78d03cd6a06, type: 3}
-  strikeSound: {fileID: 8300000, guid: 40b59603406fd9d4794ccb5b2f66e515, type: 3}
+  strikeSound: {fileID: 8300000, guid: 4e04d08694aa3224e89ec701db621ddf, type: 3}
 --- !u!1001 &4382484928667577359
 PrefabInstance:
   m_ObjectHideFlags: 0

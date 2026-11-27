@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
@@ -20,6 +21,8 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 
     [Header("Efeitos")]
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip soundEffect;
+    private bool soundInCooldown = false;
 
     protected Rigidbody rb;
     protected bool isSpawning = false;
@@ -34,7 +37,6 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
     {
         TimeManager.Instance.Register(this);
         multiplicadorAtual = timeMultiplier;
-        // Atualiza a velocidade da animação sempre
         if (animator != null)
             animator.speed = timeMultiplier;
 
@@ -49,6 +51,8 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
 
             LookAtPlayer(direction);
             Move(direction);
+            if(!soundInCooldown)
+                StartCoroutine(PlaySound());
         }
         else
         {
@@ -135,5 +139,13 @@ public abstract class ChasePlayer : MonoBehaviour, ITimeAffectable
             rayLength,
             groundLayer
         );
+    }
+
+    IEnumerator PlaySound()
+    {
+        soundInCooldown = true;
+        MusicManager.PlaySound(soundEffect, transform.position);
+        yield return new WaitForSeconds(10f);
+        soundInCooldown = false;
     }
 }

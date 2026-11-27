@@ -89,7 +89,7 @@ public class MusicManager : MonoBehaviour//singleton
         AudioSource aSource = tempGO.AddComponent<AudioSource>();
         aSource.clip = clip;
         aSource.outputAudioMixerGroup = sfxMixerGroup;
-        aSource.Play();
+        aSource.PlayOneShot(clip);
         GameObject.Destroy(tempGO, clip.length);
     }
 }

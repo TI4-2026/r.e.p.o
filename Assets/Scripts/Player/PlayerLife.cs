@@ -157,6 +157,7 @@ public class PlayerLife : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
 
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync("Menu");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadSceneAsync(scene.name);
     }
 }

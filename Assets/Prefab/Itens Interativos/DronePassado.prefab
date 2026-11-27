@@ -133,10 +133,12 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 10
   canFly: 0
+  multiplicadorAtual: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
   animator: {fileID: 2489146497072885835}
+  soundEffect: {fileID: 8300000, guid: 405460a01ad493f459792c6bbeaea67f, type: 3}
 --- !u!54 &4445374666815934787
 Rigidbody:
   m_ObjectHideFlags: 0
